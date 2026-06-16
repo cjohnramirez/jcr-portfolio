@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Student leadership sample image</title>
+  <desc id="desc">Abstract student organization planning board and website layout.</desc>
+  <rect width="1200" height="600" fill="#f7f7f7"/>
+  <rect x="74" y="72" width="1052" height="456" fill="#ffffff" stroke="#d3d3d3"/>
+  <rect x="114" y="112" width="292" height="20" fill="#111111"/>
+  <rect x="114" y="156" width="520" height="1" fill="#d3d3d3"/>
+  <rect x="114" y="198" width="246" height="90" fill="#f0f0f0"/>
+  <rect x="390" y="198" width="246" height="90" fill="#f0f0f0"/>
+  <rect x="666" y="198" width="246" height="90" fill="#f0f0f0"/>
+  <rect x="114" y="338" width="150" height="150" fill="#1591df"/>
+  <rect x="306" y="338" width="430" height="18" fill="#111111"/>
+  <rect x="306" y="382" width="592" height="1" fill="#d3d3d3"/>
+  <rect x="306" y="424" width="464" height="1" fill="#d3d3d3"/>
+  <rect x="840" y="338" width="72" height="72" fill="#111111"/>
+  <rect x="938" y="338" width="72" height="72" fill="#d3d3d3"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">CS3 portal sample screen</title>
+  <desc id="desc">Abstract organization website and portal layout.</desc>
+  <rect width="1200" height="600" fill="#f7f7f7"/>
+  <rect x="72" y="72" width="1056" height="456" fill="#ffffff" stroke="#d3d3d3"/>
+  <rect x="72" y="72" width="1056" height="70" fill="#111111"/>
+  <rect x="112" y="100" width="180" height="14" fill="#1591df"/>
+  <rect x="112" y="196" width="460" height="46" fill="#111111"/>
+  <rect x="112" y="272" width="380" height="18" fill="#777777"/>
+  <rect x="112" y="318" width="160" height="48" fill="#1591df"/>
+  <rect x="640" y="196" width="176" height="176" fill="#eeeeee"/>
+  <rect x="850" y="196" width="176" height="176" fill="#eeeeee"/>
+  <rect x="640" y="408" width="386" height="1" fill="#d3d3d3"/>
+  <rect x="640" y="448" width="300" height="1" fill="#d3d3d3"/>
+</svg>

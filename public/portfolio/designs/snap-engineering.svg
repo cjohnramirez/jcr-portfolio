@@ -1,0 +1,17 @@
+<svg width="1320" height="452" viewBox="0 0 1320 452" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1320" height="452" fill="#F8F8F8"/>
+  <rect x="40" y="40" width="430" height="372" fill="#FFFFFF" stroke="#D3D3D3"/>
+  <rect x="510" y="40" width="770" height="176" fill="#F0F0F0" stroke="#D3D3D3"/>
+  <rect x="510" y="236" width="370" height="176" fill="#FFFFFF" stroke="#D3D3D3"/>
+  <rect x="910" y="236" width="370" height="176" fill="#FFFFFF" stroke="#D3D3D3"/>
+  <path d="M104 104H406V348H104V104Z" stroke="#111111" stroke-width="8"/>
+  <path d="M144 308L228 196L292 276L330 226L374 308H144Z" fill="#1591DF"/>
+  <text x="550" y="116" fill="#111111" font-family="Courier New, monospace" font-size="34" letter-spacing="2">SNAP ENGINEERING</text>
+  <text x="550" y="166" fill="#111111" font-family="Courier New, monospace" font-size="18">STRUCTURAL BRAND SYSTEM / WEB DIRECTION</text>
+  <text x="550" y="306" fill="#111111" font-family="Courier New, monospace" font-size="20">GRID</text>
+  <text x="950" y="306" fill="#111111" font-family="Courier New, monospace" font-size="20">IDENTITY</text>
+  <rect x="550" y="326" width="290" height="16" fill="#111111"/>
+  <rect x="550" y="356" width="230" height="16" fill="#D3D3D3"/>
+  <rect x="950" y="326" width="290" height="16" fill="#1591DF"/>
+  <rect x="950" y="356" width="230" height="16" fill="#D3D3D3"/>
+</svg>

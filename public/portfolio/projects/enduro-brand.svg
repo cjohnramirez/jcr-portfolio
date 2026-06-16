@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Enduro brand system sample board</title>
+  <desc id="desc">Abstract brand board with logo, palette, and layout samples.</desc>
+  <rect width="1200" height="600" fill="#f7f7f7"/>
+  <rect x="72" y="64" width="320" height="472" fill="#111111"/>
+  <rect x="432" y="64" width="696" height="218" fill="#ffffff" stroke="#d3d3d3"/>
+  <rect x="432" y="318" width="328" height="218" fill="#ffffff" stroke="#d3d3d3"/>
+  <rect x="800" y="318" width="328" height="218" fill="#ffffff" stroke="#d3d3d3"/>
+  <rect x="120" y="118" width="128" height="128" fill="#1591df"/>
+  <rect x="120" y="294" width="220" height="20" fill="#ffffff"/>
+  <rect x="120" y="334" width="168" height="14" fill="#777777"/>
+  <rect x="480" y="116" width="220" height="22" fill="#111111"/>
+  <rect x="480" y="166" width="580" height="1" fill="#d3d3d3"/>
+  <rect x="480" y="210" width="460" height="1" fill="#d3d3d3"/>
+  <rect x="480" y="368" width="70" height="70" fill="#1591df"/>
+  <rect x="570" y="368" width="70" height="70" fill="#111111"/>
+  <rect x="660" y="368" width="70" height="70" fill="#eeeeee"/>
+</svg>

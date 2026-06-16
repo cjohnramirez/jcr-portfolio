@@ -1,0 +1,13 @@
+<svg width="1320" height="452" viewBox="0 0 1320 452" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1320" height="452" fill="#F8F8F8"/>
+  <rect x="40" y="40" width="1240" height="372" fill="#FFFFFF" stroke="#D3D3D3"/>
+  <path d="M100 286C210 210 320 360 430 286C540 212 650 360 760 286C870 212 980 360 1090 286C1140 252 1190 252 1220 270" stroke="#1591DF" stroke-width="12"/>
+  <path d="M100 334C210 258 320 408 430 334C540 260 650 408 760 334C870 260 980 408 1090 334C1140 300 1190 300 1220 318" stroke="#111111" stroke-width="8"/>
+  <rect x="100" y="92" width="260" height="118" fill="#F0F0F0" stroke="#D3D3D3"/>
+  <text x="130" y="146" fill="#111111" font-family="Courier New, monospace" font-size="28">OCEANIC</text>
+  <text x="130" y="184" fill="#111111" font-family="Courier New, monospace" font-size="18">VENTURES</text>
+  <rect x="430" y="92" width="790" height="118" fill="#FFFFFF" stroke="#D3D3D3"/>
+  <text x="470" y="146" fill="#111111" font-family="Courier New, monospace" font-size="24">RENEWABLE ENERGY CAMPAIGN SYSTEM</text>
+  <rect x="470" y="174" width="280" height="16" fill="#1591DF"/>
+  <rect x="780" y="174" width="220" height="16" fill="#D3D3D3"/>
+</svg>

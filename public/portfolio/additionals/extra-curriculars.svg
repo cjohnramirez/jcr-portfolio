@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Extra curriculars sample image</title>
+  <desc id="desc">Abstract achievement, competition, and hackathon board.</desc>
+  <rect width="1200" height="600" fill="#f7f7f7"/>
+  <rect x="70" y="70" width="1060" height="460" fill="#ffffff" stroke="#d3d3d3"/>
+  <rect x="110" y="110" width="140" height="140" fill="#111111"/>
+  <rect x="284" y="110" width="140" height="140" fill="#1591df"/>
+  <rect x="458" y="110" width="140" height="140" fill="#f0f0f0"/>
+  <rect x="672" y="118" width="340" height="16" fill="#111111"/>
+  <rect x="672" y="162" width="260" height="1" fill="#d3d3d3"/>
+  <rect x="672" y="204" width="392" height="1" fill="#d3d3d3"/>
+  <rect x="110" y="322" width="954" height="1" fill="#d3d3d3"/>
+  <rect x="110" y="372" width="160" height="18" fill="#111111"/>
+  <rect x="326" y="372" width="596" height="18" fill="#777777"/>
+  <rect x="110" y="430" width="160" height="18" fill="#111111"/>
+  <rect x="326" y="430" width="694" height="18" fill="#777777"/>
+  <rect x="110" y="488" width="160" height="18" fill="#111111"/>
+  <rect x="326" y="488" width="520" height="18" fill="#777777"/>
+</svg>
