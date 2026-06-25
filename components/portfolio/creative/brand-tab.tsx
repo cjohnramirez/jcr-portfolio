@@ -29,7 +29,7 @@ export function BrandTab({ brand, isActive, onSelect }: BrandTabProps) {
       {isActive ? (
         <div id={panelId}>
           <CarouselFrame
-            className="min-h-[360px] border-x-0 border-t-0 lg:min-h-[520px] xl:h-[520px]"
+            className="border-x-0 border-t-0"
             items={brand.carousel}
             label="Brand image"
           />

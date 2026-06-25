@@ -7,13 +7,11 @@ type AdditionalBlockProps = {
   featured?: boolean;
 };
 
-export function AdditionalBlock({ block, featured = false }: AdditionalBlockProps) {
+export function AdditionalBlock({ block }: AdditionalBlockProps) {
   return (
     <article className="border border-[var(--portfolio-border)]">
       <CarouselFrame
-        className={`border-0 border-b border-[var(--portfolio-border)] ${
-          featured ? "min-h-[420px] lg:min-h-[512px] xl:h-[512px]" : "min-h-[340px] lg:min-h-[308px] xl:h-[308px]"
-        }`}
+        className="border-0 border-b border-[var(--portfolio-border)]"
         items={block.carousel}
         label="Image description"
       />

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import type { HeroData } from "@/lib/portfolio-types";
 import { ActionButton } from "../shared/action-button";
+import { CloudinaryImage } from "../shared/cloudinary-image";
 import { MetaRow } from "../shared/meta-row";
 import { SectionShell } from "../shared/section-shell";
 
@@ -16,7 +16,7 @@ export function HeroSection({ data }: HeroSectionProps) {
       <div className="flex flex-1 flex-col justify-between gap-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10">
           <div className="relative size-[180px] shrink-0 overflow-hidden bg-[var(--portfolio-button)] sm:size-[220px] lg:size-[252px]">
-            <Image
+            <CloudinaryImage
               alt={data.portrait.alt}
               className="object-cover"
               fill

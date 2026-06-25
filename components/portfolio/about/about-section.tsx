@@ -1,5 +1,6 @@
 import type { AboutData } from "@/lib/portfolio-types";
 import { ActionButton } from "../shared/action-button";
+import { CloudinaryImage } from "../shared/cloudinary-image";
 import { SectionShell } from "../shared/section-shell";
 import { StatusMarker } from "../shared/status-marker";
 
@@ -35,11 +36,16 @@ export function AboutSection({ data }: AboutSectionProps) {
         </div>
       </div>
 
-      <div
-        aria-label={data.media.label}
-        className="min-h-[180px] border border-[var(--portfolio-button)] bg-[var(--portfolio-surface)] sm:min-h-[220px] lg:min-h-[252px]"
-        role="img"
-      />
+      <div className="relative min-h-[180px] overflow-hidden border border-[var(--portfolio-button)] bg-[var(--portfolio-surface)] sm:min-h-[220px] lg:min-h-[252px]">
+        <CloudinaryImage
+          alt={data.media.alt}
+          className="object-cover"
+          fill
+          sizes="(min-width: 1024px) 1120px, 100vw"
+          src={data.media.src}
+          loading="eager"
+        />
+      </div>
 
       <div className="grid gap-6 text-[var(--portfolio-text)] lg:grid-cols-[242px_1fr_1fr] lg:gap-[51px]">
         <h3 className="max-w-[242px] text-[30px] font-normal uppercase leading-none tracking-normal lg:text-[36px]">

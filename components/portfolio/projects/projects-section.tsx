@@ -251,7 +251,7 @@ export function ProjectsSection({ data }: ProjectsSectionProps) {
           </div>
 
           <CarouselFrame
-            className="w-full xl:h-[359px]"
+            className="w-full"
             items={activeProject.carousel}
             label="Image description"
           />

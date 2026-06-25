@@ -3,6 +3,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { CarouselItem } from "@/lib/portfolio-types";
+import { CloudinaryImage } from "./cloudinary-image";
 
 type CarouselFrameProps = {
   items: CarouselItem[];
@@ -30,16 +31,20 @@ export function CarouselFrame({
     return null;
   }
 
+  const imageFitClass =
+    activeItem.imageFit === "cover" ? "object-cover" : "object-contain";
+
   return (
     <div
-      className={`flex min-h-[308px] flex-col border border-[var(--portfolio-border)] ${className}`}
+      className={`flex w-full flex-col border border-[var(--portfolio-border)] ${className}`}
     >
-      <div className="flex min-h-[240px] flex-1 items-center justify-center bg-[var(--portfolio-surface)] text-[11px] font-normal uppercase tracking-normal text-[var(--portfolio-muted)]">
+      <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-[var(--portfolio-surface)] text-[11px] font-normal uppercase tracking-normal text-[var(--portfolio-muted)]">
         {activeItem.imageSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <CloudinaryImage
             alt={activeItem.imageAlt ?? activeItem.title}
-            className="h-full w-full object-cover"
+            className={`h-full w-full ${imageFitClass} object-top`}
+            fill
+            sizes="100vw"
             src={activeItem.imageSrc}
           />
         ) : (

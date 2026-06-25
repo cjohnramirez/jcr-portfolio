@@ -9,7 +9,7 @@ type CreativeSectionProps = {
 
 export function CreativeSection({ data }: CreativeSectionProps) {
   return (
-    <SectionShell id="designs" className="flex flex-col gap-10 p-5 lg:min-h-[1283px] lg:p-10">
+    <SectionShell id="designs" className="flex flex-col gap-10 p-5 lg:p-10">
       <div className="flex items-center justify-between gap-4 text-[var(--portfolio-text)]">
         <StatusMarker label={data.sectionLabel} />
         <p className="text-xs uppercase leading-none lg:text-[14px]">{data.status}</p>

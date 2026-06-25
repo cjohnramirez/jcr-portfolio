@@ -1,4 +1,11 @@
 {
   "tailwindCSS.lint.suggestCanonicalClasses": "ignore",
-  "tailwindCSS.lint.cssConflict": "ignore"
+  "tailwindCSS.lint.cssConflict": "ignore",
+  "python-envs.pythonProjects": [
+    {
+      "path": ".next",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
 }

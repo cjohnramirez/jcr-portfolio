@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Download, Send } from "lucide-react";
 import type { ActionLink } from "@/lib/portfolio-types";
+import { CloudinaryImage } from "./cloudinary-image";
 
 type ActionButtonProps = {
   action: ActionLink;
@@ -33,11 +33,12 @@ export function ActionButton({
       {...externalProps}
     >
       {action.iconSrc ? (
-        <Image
+        <CloudinaryImage
           alt=""
           aria-hidden="true"
           className="portfolio-icon"
           height={20}
+          showLoader={false}
           src={action.iconSrc}
           width={20}
         />

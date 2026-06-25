@@ -9,6 +9,7 @@ import type {
   ProjectsData,
   ServicesData,
 } from "./portfolio-types";
+import { cloudinaryAsset } from "./cloudinary";
 
 export const navItems: NavItem[] = [
   { label: "HOME", href: "#home", active: true },
@@ -36,7 +37,7 @@ export const heroData: HeroData = {
   summary:
     "I CREATE DIGITAL PRODUCTS THAT FOCUS ON USER'S NEEDS AND OPTIMIZES BUSINESS STRATEGIES",
   portrait: {
-    src: "/portfolio/profile-image.png",
+    src: cloudinaryAsset("portfolio/profile-image.png"),
     alt: "Black and white portrait of John Carl Ramirez.",
   },
   details: [
@@ -55,7 +56,7 @@ export const heroData: HeroData = {
       href: "https://github.com/",
       external: true,
       icon: "github",
-      iconSrc: "/portfolio/icon-github.svg",
+      iconSrc: cloudinaryAsset("portfolio/icon-github.svg"),
     },
   ],
 };
@@ -71,12 +72,13 @@ export const aboutData: AboutData = {
     "Most developer portfolios teach in scattered pieces. A frontend mockup here, a basic script there. The pieces rarely line up. I am a Full-Stack Web Developer and Researcher. I build complex backend systems, optimize algorithms, and engineer robust web applications from the ground up.",
   actions: heroData.actions,
   media: {
-    label: "Media placeholder",
+    src: cloudinaryAsset("portfolio/about-section.jpg"),
+    alt: "John Carl Ramirez working at his desk.",
   },
   columns: [
     {
       title: "DESIGN AND DEVELOPMENT",
-      body: "Most developer portfolios teach in scattered pieces. A frontend mockup here, a basic script there. The pieces rarely line up. I am a Full-Stack Web Developer and Researcher. I build complex backend systems, optimize algorithms, and engineer robust web applications from the ground up.",
+      body: "I design and build digital experiences where visual clarity and technical precision work together. From interface systems and responsive layouts to production-ready frontend architecture, every decision is shaped by usability, performance, and a clear purpose.",
     },
     {
       title: "SYSTEMS UNDER THE HOOD",
@@ -155,25 +157,31 @@ export const projectsData: ProjectsData = {
         "Led the development of a web-based appointment and management system for USTP-CDO's Guidance and Counselling Services using NextJS and Supabase.",
       carousel: [
         {
-          id: "gcs-dashboard",
-          title: "Appointment dashboard",
-          description: "Sample dashboard overview for appointment requests",
-          imageSrc: "/portfolio/projects/gcs-system.svg",
-          imageAlt: "Sample dashboard for a guidance appointment system.",
+          id: "gcs-homepage",
+          title: "Public homepage",
+          description: "Guidance and Counselling Services public landing page",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/gcs-system/gcs-homepage.png",
+          ),
+          imageAlt: "Public homepage for the Guidance and Counselling Services.",
         },
         {
-          id: "gcs-rbac",
-          title: "Role-based access",
-          description: "Sample permission flow for staff and student roles",
-          imageSrc: "/portfolio/projects/gcs-system.svg",
-          imageAlt: "Sample role based access screen for the GCS system.",
+          id: "gcs-signup",
+          title: "Student registration",
+          description: "Student account registration and profile onboarding",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/gcs-system/gcs-signup.png",
+          ),
+          imageAlt: "Student registration form for the GCS appointment system.",
         },
         {
-          id: "gcs-notifications",
-          title: "Notification system",
-          description: "Sample notifications and schedule management state",
-          imageSrc: "/portfolio/projects/gcs-system.svg",
-          imageAlt: "Sample notification state for the GCS system.",
+          id: "gcs-admin",
+          title: "Account administration",
+          description: "Administrative account management and editing workflow",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/gcs-system/gcs-admin.png",
+          ),
+          imageAlt: "Administrative account editor for the GCS appointment system.",
         },
       ],
       stack: {
@@ -208,23 +216,29 @@ export const projectsData: ProjectsData = {
         {
           id: "road-network",
           title: "Road network graph",
-          description: "Sample route network for restoration priority mapping",
-          imageSrc: "/portfolio/projects/road-restoration.svg",
-          imageAlt: "Sample route network graph for road restoration research.",
+          description: "Mapped restoration solution across a damaged road network",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/road-restoration/cdom.png",
+          ),
+          imageAlt: "Road restoration solution mapped across Cagayan de Oro.",
         },
         {
           id: "road-kmb",
           title: "Approximation model",
-          description: "Sample KMB 2-approximation route comparison",
-          imageSrc: "/portfolio/projects/road-restoration.svg",
-          imageAlt: "Sample approximation model for road restoration.",
+          description: "KMB 2-approximation algorithm research methodology",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/road-restoration/research-approx.png",
+          ),
+          imageAlt: "Research paper section describing the approximation algorithm.",
         },
         {
           id: "road-analysis",
-          title: "Runtime analysis",
-          description: "Sample accuracy and runtime analysis layout",
-          imageSrc: "/portfolio/projects/road-restoration.svg",
-          imageAlt: "Sample analysis screen for algorithm research.",
+          title: "Graph pruning analysis",
+          description: "Graph subsets and pruning process used by the algorithm",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/road-restoration/research-graph.png",
+          ),
+          imageAlt: "Research figures showing graph subsets and algorithm pruning.",
         },
       ],
       stack: {
@@ -249,84 +263,39 @@ export const projectsData: ProjectsData = {
       ],
     },
     {
-      id: "intramurals-video",
-      module: "Module 3 / Video Editor",
-      category: "University Student Government / Lead Video Editor",
-      title: "University-Wide Intramurals Creative Production",
-      summary:
-        "Led a high-intensity editing workload for USTP-CDO intramurals, producing short-form content and event media with nearly 1000 videos edited in one week.",
-      carousel: [
-        {
-          id: "video-timeline",
-          title: "Editing timeline",
-          description: "Sample production timeline for event video outputs",
-          imageSrc: "/portfolio/projects/video-production.svg",
-          imageAlt: "Sample video editing timeline for intramurals production.",
-        },
-        {
-          id: "video-promo",
-          title: "Promo workflow",
-          description: "Sample promo content workflow for event campaigns",
-          imageSrc: "/portfolio/projects/video-production.svg",
-          imageAlt: "Sample promo video workflow layout.",
-        },
-        {
-          id: "video-socials",
-          title: "Social media output",
-          description: "Sample short-form publishing and engagement view",
-          imageSrc: "/portfolio/projects/video-production.svg",
-          imageAlt: "Sample social media production layout.",
-        },
-      ],
-      stack: {
-        label: "TOOLS",
-        items: ["Premiere Pro", "After Effects", "Photoshop", "Blender"],
-      },
-      skills: {
-        label: "SKILLS",
-        items: ["Video editing", "Motion graphics", "Creative direction"],
-      },
-      notes: [
-        {
-          title: "High-Volume Production",
-          description:
-            "Edited nearly 1000 videos during the event window while supporting multiple intramural productions.",
-        },
-        {
-          title: "Engagement Impact",
-          description:
-            "Helped drive 100k+ cumulative engagements across university social media platforms.",
-        },
-      ],
-    },
-    {
       id: "enduro-branding",
-      module: "Module 4 / Enduro Brand",
+      module: "Module 3 / Enduro Brand",
       category: "Internship / Lead Designer and Branding Manager",
       title: "Enduro Group Branding and Design Management",
       summary:
         "Lead designer and branding manager for Enduro Group Business Consulting and Services, supporting visual identity and communication work from Dallas, Texas.",
       carousel: [
         {
-          id: "enduro-board",
-          title: "Brand board",
-          description: "Sample brand system board for consulting services",
-          imageSrc: "/portfolio/projects/enduro-brand.svg",
-          imageAlt: "Sample brand board for Enduro Group.",
+          id: "enduro-examples",
+          title: "Brand applications",
+          description: "Enduro Group identity across physical brand touchpoints",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/enduro-brand/branding-examples.png",
+          ),
+          imageAlt: "Enduro Group branding applied to signage, apparel, and stationery.",
         },
         {
-          id: "enduro-layout",
-          title: "Layout system",
-          description: "Sample visual layout system for business collateral",
-          imageSrc: "/portfolio/projects/enduro-brand.svg",
-          imageAlt: "Sample layout system for business collateral.",
+          id: "enduro-clearspace",
+          title: "Wordmark clearspace",
+          description: "Wordmark spacing rules for consistent brand application",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/enduro-brand/wordmark-clearspace.png",
+          ),
+          imageAlt: "Enduro Group wordmark clearspace and safe-zone guidelines.",
         },
         {
-          id: "enduro-assets",
-          title: "Asset direction",
-          description: "Sample reusable assets for branding and marketing",
-          imageSrc: "/portfolio/projects/enduro-brand.svg",
-          imageAlt: "Sample reusable brand assets.",
+          id: "enduro-devices",
+          title: "Digital applications",
+          description: "Wordmark and application icon usage across devices",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/enduro-brand/wordmark-devices.png",
+          ),
+          imageAlt: "Enduro Group wordmark and app icon examples on iOS devices.",
         },
       ],
       stack: {
@@ -352,7 +321,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: "cs3-leadership",
-      module: "Module 5 / CS3 Portal",
+      module: "Module 4 / CS3 Portal",
       category: "Student Leadership / Core Team Lead",
       title: "Computer Science Student Society Core Team",
       summary:
@@ -361,23 +330,23 @@ export const projectsData: ProjectsData = {
         {
           id: "cs3-home",
           title: "Organization portal",
-          description: "Sample portal homepage for CS3 and the department",
-          imageSrc: "/portfolio/projects/cs3-portal.svg",
+          description: "Portal homepage for CS3 and the department",
+          imageSrc: cloudinaryAsset("portfolio/projects/cs3-portal/home-page.png"),
           imageAlt: "Sample homepage for the CS3 portal.",
         },
         {
-          id: "cs3-team",
-          title: "Team structure",
-          description: "Sample team and project coordination layout",
-          imageSrc: "/portfolio/projects/cs3-portal.svg",
-          imageAlt: "Sample team coordination layout for CS3.",
+          id: "cs3-footer",
+          title: "Footer",
+          description: "A professional and unique looking website footer",
+          imageSrc: cloudinaryAsset("portfolio/projects/cs3-portal/footer.png"),
+          imageAlt: "Sample footer layout for CS3.",
         },
         {
-          id: "cs3-research",
-          title: "Research showcase",
-          description: "Sample research and software solutions showcase",
-          imageSrc: "/portfolio/projects/cs3-portal.svg",
-          imageAlt: "Sample research showcase layout for CS3.",
+          id: "cs3-faq",
+          title: "FAQs",
+          description: "Frequently asked questions website design and layout",
+          imageSrc: cloudinaryAsset("portfolio/projects/cs3-portal/faqs.png"),
+          imageAlt: "Sample FAQs layout for CS3.",
         },
       ],
       stack: {
@@ -417,62 +386,111 @@ export const creativePortfolioData: CreativePortfolioData = {
     {
       id: "snap-engineering",
       title: "Snap Engineering",
-      meta: "> Started February 2026",
-      details: ["Texas, United States", "Manufacturing and construction"],
-      deliverables: ["Web design", "Branding and identity"],
+      meta: "> Brand guidelines / December 2025",
+      details: ["Manufacturing and DFM", "Industrial engineering website"],
+      deliverables: ["Brand guidelines", "Web design"],
       carousel: [
         {
           id: "snap-brand-board",
-          title: "Snap brand board",
-          description: "Brand image",
-          imageSrc: "/portfolio/designs/snap-engineering.svg",
-          imageAlt: "Sample brand board for Snap Engineering.",
+          title: "Snap brand guidelines",
+          description: "Industrial speed and engineering precision brand system",
+          imageSrc: cloudinaryAsset(
+            "portfolio/designs/snap-engineering/snap-brand-deck.png",
+          ),
+          imageAlt: "Snap Engineering brand guidelines cover.",
+          imageFit: "contain",
         },
         {
           id: "snap-landing",
           title: "Snap landing page",
-          description: "Homepage system exploration",
-          imageSrc: "/portfolio/designs/snap-engineering.svg",
-          imageAlt: "Sample landing page exploration for Snap Engineering.",
+          description: "Manufacturing homepage exploration for DFM services",
+          imageSrc: cloudinaryAsset(
+            "portfolio/designs/snap-engineering/snap-homepage.png",
+          ),
+          imageAlt: "Snap Engineering homepage design for manufacturability services.",
+          imageFit: "contain",
         },
         {
-          id: "snap-identity",
-          title: "Snap identity set",
-          description: "Identity and visual system study",
-          imageSrc: "/portfolio/designs/snap-engineering.svg",
-          imageAlt: "Sample identity system for Snap Engineering.",
-        },
-      ],
-    },
-    {
-      id: "nova-tech",
-      title: "Nova Tech Solutions",
-      meta: "> Founded July 2023",
-      details: ["Berlin, Germany", "Software development and AI research"],
-      deliverables: ["Mobile app design", "User experience"],
-      carousel: [
-        {
-          id: "nova-interface",
-          title: "Nova interface",
-          description: "Mobile product interface exploration",
-          imageSrc: "/portfolio/designs/nova-tech.svg",
-          imageAlt: "Sample mobile product interface for Nova Tech Solutions.",
+          id: "snap-samples",
+          title: "Snap sample layouts",
+          description: "Supporting page and presentation design samples",
+          imageSrc: cloudinaryAsset(
+            "portfolio/designs/snap-engineering/snap-samples.png",
+          ),
+          imageAlt: "Snap Engineering supporting design samples.",
+          imageFit: "contain",
         },
       ],
     },
     {
-      id: "oceanic-ventures",
-      title: "Oceanic Ventures",
-      meta: "> Established March 2025",
-      details: ["Sydney, Australia", "Renewable energy and sustainability"],
-      deliverables: ["Brand strategy", "Digital marketing"],
+      id: "xplore",
+      title: "Xplore Travel",
+      meta: "> Travel landing page concept",
+      details: ["Saudi Arabia travel agency concept", "Destination campaign UI"],
+      deliverables: ["Web design", "Social media layout"],
       carousel: [
         {
-          id: "oceanic-campaign",
-          title: "Oceanic campaign",
-          description: "Sustainability campaign system",
-          imageSrc: "/portfolio/designs/oceanic-ventures.svg",
-          imageAlt: "Sample sustainability campaign for Oceanic Ventures.",
+          id: "xplore-homepage",
+          title: "Xplore homepage",
+          description: "Hero-driven travel landing page for desert experiences",
+          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-homepage.png"),
+          imageAlt: "Xplore travel landing page design.",
+          imageFit: "contain",
+        },
+        {
+          id: "xplore-moodboard",
+          title: "Xplore moodboard",
+          description: "Visual direction for travel imagery and atmosphere",
+          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-moodboard.png"),
+          imageAlt: "Xplore travel moodboard.",
+          imageFit: "contain",
+        },
+        {
+          id: "xplore-social",
+          title: "Xplore social media",
+          description: "Campaign layout for destination promotion",
+          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-socmed.png"),
+          imageAlt: "Xplore social media campaign design.",
+          imageFit: "contain",
+        },
+      ],
+    },
+    {
+      id: "kingmaker",
+      title: "Kingmaker Tax Advisors",
+      meta: "> Brand guidelines / December 2025",
+      details: ["Tax advisory identity", "Premium finance brand system"],
+      deliverables: ["Branding and identity", "Guideline deck"],
+      carousel: [
+        {
+          id: "kingmaker-brand-deck",
+          title: "Kingmaker guidelines",
+          description: "Brand guideline cover for the tax advisory identity",
+          imageSrc: cloudinaryAsset(
+            "portfolio/designs/kingmaker/kingmaker-brand-deck.png",
+          ),
+          imageAlt: "Kingmaker Tax Advisors brand guidelines cover.",
+          imageFit: "contain",
+        },
+        {
+          id: "kingmaker-usage",
+          title: "Kingmaker usage",
+          description: "Logo usage and collateral direction",
+          imageSrc: cloudinaryAsset(
+            "portfolio/designs/kingmaker/kingmaker-sample.png",
+          ),
+          imageAlt: "Kingmaker Tax Advisors usage and collateral examples.",
+          imageFit: "contain",
+        },
+        {
+          id: "kingmaker-footer",
+          title: "Kingmaker footer",
+          description: "Footer and digital brand application sample",
+          imageSrc: cloudinaryAsset(
+            "portfolio/designs/kingmaker/kingmaker-footer.png",
+          ),
+          imageAlt: "Kingmaker Tax Advisors footer design sample.",
+          imageFit: "contain",
         },
       ],
     },
@@ -496,35 +514,85 @@ export const additionalsData: AdditionalsData = {
         "I have been involved in several student organizations across the university I am currently attending, to sharpen my social and communication skills, alongside showcasing my technical and creative talents, in service of the students.",
       carousel: [
         {
-          id: "leadership-org",
-          title: "Student leadership",
-          description: "Organization work and student service",
-          imageSrc: "/portfolio/additionals/student-leadership.svg",
-          imageAlt: "Sample student leadership board and organization layout.",
+          id: "agrivanture",
+          title: "Agrivanture",
+          description: "4-H USTP-CDO student leadership field activity in Claveria",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/agrivanture.JPG",
+          ),
+          imageAlt: "4-H USTP-CDO Agrivanture group photo in Claveria.",
         },
         {
-          id: "leadership-web",
-          title: "CS3 website",
-          description: "Unified department and organization website work",
-          imageSrc: "/portfolio/additionals/student-leadership.svg",
-          imageAlt: "Sample website planning board for CS3.",
+          id: "4h-meeting",
+          title: "4-H planning",
+          description: "Strategic planning and organizational alignment at USTP-CDO",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/4h-meeting.jpg",
+          ),
+          imageAlt: "4-H Club USTP-CDO strategic planning update poster.",
+          imageFit: "contain",
         },
         {
-          id: "leadership-media",
-          title: "Student media",
-          description: "Multimedia production and student communication",
-          imageSrc: "/portfolio/additionals/student-leadership.svg",
-          imageAlt: "Sample student media production layout.",
+          id: "ilead-2026",
+          title: "iLEAD 2026",
+          description: "Student leadership development event in Cagayan de Oro",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/ilead-2026.JPG",
+          ),
+          imageAlt: "Student leaders posing during iLEAD 2026.",
+        },
+        {
+          id: "kahamili-2026",
+          title: "Kahamili 2026",
+          description: "Campus cultural event and student organization work",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/kahamili-2026.JPG",
+          ),
+          imageAlt: "Students in formal cultural attire during Kahamili 2026.",
+        },
+        {
+          id: "usg-ustp-cdo",
+          title: "USG USTP-CDO",
+          description: "University Student Government and multimedia involvement",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/usg-ustp-cdo.jpg",
+          ),
+          imageAlt: "USTP-CDO student leaders in a university classroom.",
+        },
+        {
+          id: "cs3-community",
+          title: "CS3 community",
+          description: "Computer Science Student Society campus involvement",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/CS3.jpg",
+          ),
+          imageAlt: "CS3 student organization group photo at USTP-CDO.",
+        },
+        {
+          id: "deans-list",
+          title: "Dean's List",
+          description: "Academic recognition alongside organization work",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/student-leadership/deans-list.jpg",
+          ),
+          imageAlt: "Dean's list recognition photo.",
+          imageFit: "contain",
         },
       ],
       entries: [
         {
-          date: "JULY 2024-2025",
-          title: "CS3 Core Team Lead (November 2025 - Present)",
-          details: [
-            "Led an elite group of computer science students that focuses on research and software solutions to computer science-related problems.",
-            "Currently building a unified website for USTP-CDO's Department of Computer Science and CS3, to showcase both the department and organization.",
-          ],
+          date: "NOVEMBER 2025 - PRESENT",
+          title: "CS3 Core Team Lead (November 2025 - Present)"
+        },
+        {
+          date: "JANUARY 2026",
+          title:
+            "4-H Club USTP-CDO strategic planning and organizational alignment meeting at USTP-CDO.",
+        },
+        {
+          date: "2026",
+          title:
+            "Participated in 4-H Club USTP-CDO's Agrivanture student leadership and agriculture exposure activity in Claveria.",
         },
         {
           date: "2024 - PRESENT",
@@ -540,31 +608,71 @@ export const additionalsData: AdditionalsData = {
         "Alongside student organizations, I have also involved myself in academic and non-academic events such as hackathons and competitions, showcasing my creative and technical skills to a wide range of people.",
       carousel: [
         {
-          id: "topcit",
-          title: "TOPCIT",
-          description: "Academic competency and competition highlights",
-          imageSrc: "/portfolio/additionals/extra-curriculars.svg",
-          imageAlt: "Sample academic achievements and competition layout.",
+          id: "aideas-dict",
+          title: "AI.Deas Region X",
+          description: "DICT AI.Deas participation in Cagayan de Oro City",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/extra-curriculars/aideas-dict.jpg",
+          ),
+          imageAlt: "AI.Deas Region X certificate and team placard for Team Huntwix.",
+          imageFit: "contain",
         },
         {
-          id: "ai-deas",
-          title: "AI.Deas",
-          description: "Regional AI ideation and pitch activity",
-          imageSrc: "/portfolio/additionals/extra-curriculars.svg",
-          imageAlt: "Sample AI event and pitch board.",
+          id: "aws-innovation-cup",
+          title: "AWS Innovation Cup",
+          description: "Top 20 semifinalist notice for Innovation Cup Mindanao 2026",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/extra-curriculars/aws-innovation-cup.png",
+          ),
+          imageAlt: "Innovation Cup Mindanao 2026 Top 20 semifinalist email.",
+          imageFit: "contain",
         },
         {
-          id: "aws-hackathon",
-          title: "AWS Hackathon",
-          description: "Hackathon finalist and onsite pitching preparation",
-          imageSrc: "/portfolio/additionals/extra-curriculars.svg",
-          imageAlt: "Sample hackathon finalist presentation layout.",
+          id: "wadhwani",
+          title: "Wadhwani Ignite",
+          description: "Entrepreneurship content completion certificate",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/extra-curriculars/wadhwani.png",
+          ),
+          imageAlt: "Wadhwani Foundation Ignite Philippines completion certificate.",
+          imageFit: "contain",
+        },
+        {
+          id: "kmb-research",
+          title: "KMB research",
+          description: "Published road restoration algorithm research screenshot",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/extra-curriculars/kmb-research.png",
+          ),
+          imageAlt: "SSRN page for KMB 2-approximation road restoration research.",
+          imageFit: "contain",
+        },
+        {
+          id: "freecodecamp",
+          title: "freeCodeCamp",
+          description: "Responsive Web Design developer certification",
+          imageSrc: cloudinaryAsset(
+            "portfolio/additionals/extra-curriculars/freecodecamp-webdesign.png",
+          ),
+          imageAlt: "freeCodeCamp Responsive Web Design certificate.",
+          imageFit: "contain",
         },
       ],
       entries: [
         {
-          date: "NOVEMBER 2024",
-          title: "Secured Level 2 in 11th TOPCIT (Test of Practical Competency in IT).",
+          date: "AUGUST 2024",
+          title:
+            "Completed freeCodeCamp's Legacy Responsive Web Design certification.",
+        },
+        {
+          date: "MAY 2025",
+          title:
+            "Published KMB 2-approximation algorithm research for post-disaster road network restoration.",
+        },
+        {
+          date: "MAY 2026",
+          title:
+            "Completed Wadhwani Foundation's Ignite Philippines entrepreneurship coursework.",
         },
         {
           date: "SEPTEMBER 2025",
@@ -572,14 +680,9 @@ export const additionalsData: AdditionalsData = {
             "Participated in Department of Information and Communications Technology (DICT)'s AI.Deas Region X at Hammerson Hotel, Cagayan de Oro City.",
         },
         {
-          date: "MARCH 2024",
-          title:
-            "Participated in Google Developer Student Clubs APAC Solution Challenge, finished at 1st Place in USTP-CDO, competed at Asia-regional level.",
-        },
-        {
           date: "JUNE 2026",
           title:
-            "Participated in AWS UP Mindanao Student Society's Hackathon, secured Top 20 finalists and an upcoming onsite pitching in University of the Philippines Mindanao at Davao.",
+            "Advanced to the Top 20 semifinalists of Innovation Cup Mindanao 2026.",
         },
       ],
     },
@@ -608,28 +711,28 @@ export const footerData: FooterData = {
       href: "https://www.instagram.com/",
       external: true,
       icon: "social",
-      iconSrc: "/portfolio/brands/icon-instagram.svg",
+      iconSrc: cloudinaryAsset("portfolio/brands/icon-instagram.svg"),
     },
     {
       label: "Facebook",
       href: "https://www.facebook.com/",
       external: true,
       icon: "social",
-      iconSrc: "/portfolio/brands/icon-facebook.svg",
+      iconSrc: cloudinaryAsset("portfolio/brands/icon-facebook.svg"),
     },
     {
       label: "GitHub",
       href: "https://github.com/",
       external: true,
       icon: "github",
-      iconSrc: "/portfolio/icon-github.svg",
+      iconSrc: cloudinaryAsset("portfolio/icon-github.svg"),
     },
     {
       label: "WhatsApp",
       href: "https://wa.me/639549942732",
       external: true,
       icon: "social",
-      iconSrc: "/portfolio/brands/icon-whatsapp.svg",
+      iconSrc: cloudinaryAsset("portfolio/brands/icon-whatsapp.svg"),
     },
   ],
 };

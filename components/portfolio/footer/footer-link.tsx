@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { ActionLink } from "@/lib/portfolio-types";
+import { CloudinaryImage } from "../shared/cloudinary-image";
 
 type FooterLinkProps = {
   link: ActionLink;
@@ -17,11 +17,12 @@ export function FooterLink({ link }: FooterLinkProps) {
       {...externalProps}
     >
       {link.iconSrc ? (
-        <Image
+        <CloudinaryImage
           alt=""
           aria-hidden="true"
           className="portfolio-icon size-5 shrink-0"
           height={22}
+          showLoader={false}
           src={link.iconSrc}
           width={22}
         />

@@ -39,7 +39,8 @@ export type AboutData = {
   summary: string;
   actions: ActionLink[];
   media: {
-    label: string;
+    src: string;
+    alt: string;
   };
   columns: {
     title: string;
@@ -72,6 +73,7 @@ export type CarouselItem = {
   description: string;
   imageSrc?: string;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
 };
 
 export type ProjectCaseStudy = {

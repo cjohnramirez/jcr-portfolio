@@ -9,7 +9,7 @@ type BrandTabListProps = {
 };
 
 export function BrandTabList({ brands }: BrandTabListProps) {
-  const [activeId, setActiveId] = useState(brands[0]?.id ?? "");
+  const [activeId, setActiveId] = useState("");
 
   if (brands.length === 0) {
     return null;
@@ -22,7 +22,9 @@ export function BrandTabList({ brands }: BrandTabListProps) {
           brand={brand}
           isActive={brand.id === activeId}
           key={brand.id}
-          onSelect={setActiveId}
+          onSelect={(id) =>
+            setActiveId((currentId) => (currentId === id ? "" : id))
+          }
         />
       ))}
     </div>
