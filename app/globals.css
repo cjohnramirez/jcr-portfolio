@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* Dark is the default, so `dark:` must key off the attribute rather than the
+   media query — the theme script stamps data-theme before paint. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------------------------------------------------------------------------
+   Tokens — "The Manual"
+
+   The page is a presentation ground with plates (pages of a brand manual)
+   resting on it. `--ground` and `--plate` must stay distinct: a flat
+   single-colour dark page is what makes a dark site read as generic.
+
+   `--mark` is registration magenta and belongs ONLY to the annotation layer:
+   crop marks, the clearspace bracket and its `1×` label, and the plate number.
+   Never body text, never a fill, never a button, never a link. It leaked into
+   list bullets once and immediately started reading as a second brand colour,
+   which is the failure this rule exists to prevent. Grep for `text-mark`
+   before adding another use — two is the budget.
+--------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+
+  --ground: #0b0c0d;
+  --plate: #141618;
+  --plate-2: #1b1e21;
+  --ink: #edebe7;
+  --ink-2: #8a8f94;
+  --rule: #2a2e32;
+  --spot: #5b84f5;
+  --mark: #ff3d9a;
+
+  /* Black-authored SVG assets have to reverse out on the dark ground. */
+  --icon-filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(200deg)
+    brightness(103%) contrast(92%);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --ground: #e7e5e0;
+  --plate: #fbfaf8;
+  --plate-2: #f2f0ec;
+  --ink: #101112;
+  --ink-2: #6b6e72;
+  --rule: #d6d3cd;
+  --spot: #1f4fd8;
+  /* Darkened from #ec008c, which gave only 4.07:1 against the paper — the
+     annotation labels are 9–11px, so they need the 4.5:1 small-text bar.
+     This is 4.91:1. The dark counterpart already clears it at 5.52:1. */
+  --mark: #d4007e;
+
+  --icon-filter: none;
+}
+
+/* Kept for the two utility classes below and for body defaults. */
+
+:root {
+  --background: var(--ground);
+  --foreground: var(--ink);
+}
+
+/* ---------------------------------------------------------------------------
+   Theme mapping — makes the tokens real Tailwind utilities.
+
+   Previously only four values reached Tailwind, which is why components were
+   littered with arbitrary var() values and one-off pixel sizes.
+--------------------------------------------------------------------------- */
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-plate: var(--plate);
+  --color-plate-2: var(--plate-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-rule: var(--rule);
+  --color-spot: var(--spot);
+  --color-mark: var(--mark);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Three faces, three jobs. Display carries personality, body carries
+     reading, spec carries data. */
+  --font-display: var(--font-syne), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-instrument-sans), system-ui, -apple-system, sans-serif;
+  --font-spec: var(--font-google-sans-code), ui-monospace, "Courier New", monospace;
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-spec);
+
+  /* Plate titles want poster scale; the spec face stays deliberately small. */
+  --text-spec: 0.6875rem;
+  --text-spec--line-height: 1.2;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.65;
+  --text-display: clamp(2.75rem, 1.5rem + 6vw, 8.75rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.03em;
+}
+
+/* --------------------------------------------------------------------------- */
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Plates are hash-link targets and the header is fixed at 80–100px. Without
+   this, jumping to a plate parks its heading underneath the header — and the
+   same offset keeps a keyboard-focused element from being obscured. */
+[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* Removes the ~300ms double-tap-zoom delay on touch, and replaces the default
+   grey flash with something that matches the palette. */
+a,
+button,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--spot) 24%, transparent);
+}
+
+/* Headings are display type and should break on sense, not on the box edge. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  /* Syne is variable 400–800. Display sizes want the heavy end and tight
+     tracking; its letterforms are wide enough that default spacing reads loose. */
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* Long prose reads better with a softer last line. */
+p {
+  text-wrap: pretty;
+}
+
+/* The spec face carries plate numbers, folios, counters and dates — all
+   figures that must not shift width as they change. */
+.font-spec,
+[class*="tabular"] {
+  font-family: var(--font-spec);
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--spot);
+  color: var(--ground);
+}
+
+.portfolio-icon {
+  filter: var(--icon-filter);
+}
+
+/* ---------------------------------------------------------------------------
+   Motion
+
+   Every animation is decoration here — none of it conveys state — so reduced
+   motion switches all of it off rather than merely shortening it.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0s !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.portfolio-loader-box {
+  animation-duration: 900ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+  background: var(--rule);
+}
+
+.portfolio-loader-box-1 {
+  animation-name: portfolio-loader-blink-1;
+}
+
+.portfolio-loader-box-2 {
+  animation-name: portfolio-loader-blink-2;
+}
+
+.portfolio-loader-box-3 {
+  animation-name: portfolio-loader-blink-3;
+}
+
+@keyframes portfolio-loader-blink-1 {
+  0%,
+  33.332% {
+    background: var(--ink);
+  }
+
+  33.333%,
+  100% {
+    background: var(--rule);
+  }
+}
+
+@keyframes portfolio-loader-blink-2 {
+  0%,
+  33.332% {
+    background: var(--rule);
+  }
+
+  33.333%,
+  66.666% {
+    background: var(--ink);
+  }
+
+  66.667%,
+  100% {
+    background: var(--rule);
+  }
+}
+
+@keyframes portfolio-loader-blink-3 {
+  0%,
+  66.666% {
+    background: var(--rule);
+  }
+
+  66.667%,
+  100% {
+    background: var(--ink);
+  }
+}
