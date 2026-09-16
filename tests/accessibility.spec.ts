@@ -58,7 +58,7 @@ test("both themes pass contrast checks", async ({ page }) => {
         // Storage can be unavailable; the default theme still applies.
       }
     }, theme);
-    await page.goto("/work/gcs-system", { waitUntil: "load" });
+    await page.goto("/work/steady", { waitUntil: "load" });
     await waitForRevealsSettled(page);
 
     const results = await new AxeBuilder({ page })

@@ -25,6 +25,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // The GCS System plate was rebuilt and rebranded as Steady, which moved its
+  // slug. 308 rather than 307: the old address is never coming back, and the
+  // plate has been linked to from outside the site.
+  async redirects() {
+    return [
+      {
+        source: "/work/gcs-system",
+        destination: "/work/steady",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

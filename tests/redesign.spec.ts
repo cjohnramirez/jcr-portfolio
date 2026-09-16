@@ -22,7 +22,7 @@ const ROUTES = [
   { path: "/", plate: "Cover" },
   { path: "/about", plate: "01" },
   { path: "/work", plate: "02" },
-  { path: "/work/gcs-system", plate: "02.1" },
+  { path: "/work/steady", plate: "02.1" },
   { path: "/work/road-restoration", plate: "02.2" },
   { path: "/work/enduro-branding", plate: "02.3" },
   { path: "/designs", plate: "03" },
@@ -297,7 +297,7 @@ test.describe("@redesign image budget", () => {
     test.setTimeout(60_000);
 
     const tally = trackImages(page);
-    await page.goto("/work/gcs-system", { waitUntil: "load" });
+    await page.goto("/work/steady", { waitUntil: "load" });
     await waitForImagesDecoded(page);
     await scrollThroughPage(page);
     await settle(tally);
@@ -321,7 +321,7 @@ test.describe("@redesign image budget", () => {
     // concern is cumulative layout shift. These images use next/image `fill`
     // inside boxes with a fixed aspect ratio, which reserves space just as
     // well — so measure the thing that matters rather than the attribute.
-    await page.goto("/work/gcs-system", { waitUntil: "commit" });
+    await page.goto("/work/steady", { waitUntil: "commit" });
 
     await page.evaluate(() => {
       (window as unknown as { __cls: number }).__cls = 0;
@@ -348,14 +348,14 @@ test.describe("@redesign image budget", () => {
       () => (window as unknown as { __cls: number }).__cls,
     );
 
-    console.log(`[cls] /work/gcs-system: ${cls.toFixed(4)}`);
+    console.log(`[cls] /work/steady: ${cls.toFixed(4)}`);
     expect(cls, "cumulative layout shift").toBeLessThan(0.1);
   });
 
   test("the next carousel sheet is already loaded before it is shown", async ({
     page,
   }) => {
-    await page.goto("/work/gcs-system", { waitUntil: "load" });
+    await page.goto("/work/steady", { waitUntil: "load" });
     await waitForImagesDecoded(page);
 
     // The component preloads one sheet ahead, so advancing still triggers a
@@ -389,11 +389,14 @@ test.describe("@redesign image budget", () => {
  */
 test.describe("@redesign carousel proportions", () => {
   // Chosen because their sheets disagree with 16:9 in both directions:
-  // Enduro runs 1.92 / 1.41 / 1.40, Snap 1.41 / 1.78 / 1.41, GCS 1.94 / 1.58.
+  // Enduro runs 1.92 / 1.41 / 1.40, Snap 1.41 / 1.78 / 1.41.
+  //
+  // Steady used to be here too, back when its sheets were 1.94 / 1.58. Its
+  // screenshots are now captured at one viewport, so all three are 1.60 and
+  // the route no longer exercises the mismatch this block exists to catch.
   const MIXED_RATIO_ROUTES = [
     "/work/enduro-branding",
     "/designs/snap-engineering",
-    "/work/gcs-system",
   ];
 
   async function readFrame(page: import("@playwright/test").Page) {

@@ -139,45 +139,48 @@ export const projectsData: ProjectsData = {
     "Selected technical projects, research work, creative production, and leadership roles drawn from my resume. Each module highlights the role, stack, skills, and implementation focus behind the work.",
   projects: [
     {
-      id: "gcs-system",
-      module: "Module 1 / GCS System",
+      id: "steady",
+      module: "Module 1 / Steady",
       category: "Major Project / Lead Developer",
-      title: "Guidance & Counselling Services Appointment System",
+      title: "Steady: Student Guidance and Counselling Platform",
       summary:
-        "A web-based appointment and records system for the Guidance and Counselling Services at USTP-CDO, built to replace a paper process that made students queue at the office just to book a slot.",
+        "A platform for booking and managing counselling sessions, with live notifications, mood-based resources and separate areas for students, counsellors and administrators. It began as a university guidance office project, and was later audited, rebuilt and relaunched as Steady — an independent early-access product, not affiliated with any university.",
       links: [
         {
           label: "Live deployment",
-          href: "https://gcs-system.vercel.app/home",
+          href: "https://steady-system.vercel.app/home",
         },
       ],
       carousel: [
         {
-          id: "gcs-homepage",
+          id: "steady-home",
           title: "Public homepage",
-          description: "Guidance and Counselling Services public landing page",
+          description: "Public landing page with the early-access notice",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/gcs-system/gcs-homepage.png",
+            "portfolio/projects/steady/steady-home.png",
           ),
-          imageAlt: "Public homepage for the Guidance and Counselling Services.",
+          imageAlt:
+            "Steady public homepage, headed “Nurturing student growth and well-being”.",
         },
         {
-          id: "gcs-signup",
+          id: "steady-portal",
+          title: "Resource portal",
+          description: "Curated articles, playlists and events, open to visitors",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/steady/steady-portal.png",
+          ),
+          imageAlt:
+            "Steady resource portal showing a featured article, the next event, and announcements.",
+        },
+        {
+          id: "steady-signup",
           title: "Student registration",
-          description: "Student account registration and profile onboarding",
+          description: "Account creation with enrollment and informed consent",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/gcs-system/gcs-signup.png",
+            "portfolio/projects/steady/steady-signup.png",
           ),
-          imageAlt: "Student registration form for the GCS appointment system.",
-        },
-        {
-          id: "gcs-admin",
-          title: "Account administration",
-          description: "Administrative account management and editing workflow",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/gcs-system/gcs-admin.png",
-          ),
-          imageAlt: "Administrative account editor for the GCS appointment system.",
+          imageAlt:
+            "Steady student sign-up form covering personal details, enrollment and emergency contacts.",
         },
       ],
       stack: {
@@ -189,39 +192,56 @@ export const projectsData: ProjectsData = {
           "Supabase",
           "PostgreSQL",
           "Tailwind CSS",
+          "shadcn/ui",
           "Radix UI",
           "TanStack Query",
+          "Zod",
+          "Cloudinary",
+          "Vitest",
+          "GitHub Actions",
           "Vercel",
         ],
       },
       skills: {
         label: "Skills",
-        items: ["UI/UX implementation", "Web development", "System design"],
+        items: [
+          "System design",
+          "Database security",
+          "Real-time systems",
+          "UI/UX design",
+          "Accessibility",
+        ],
       },
       notes: [
         {
           title: "Context",
           description:
-            "Guidance and Counselling ran on paper. Records were retrieved by hand, and booking a session meant walking to the office in person — an extra step some students found uncomfortable enough to skip, on top of the waiting it caused. There was also nowhere central to send announcements from.",
+            "Guidance and counselling ran on paper. Records were retrieved by hand, and booking a session meant walking to the office in person — an extra step some students found uncomfortable enough to skip, on top of the waiting it caused. There was also nowhere central to send announcements from. Counselling records are confidential, so any digital replacement had to keep a student’s information private from other students, and from staff not involved in their case.",
         },
         {
           title: "Role",
           description:
-            "Lead developer, on a team of five, submitted as a project research paper in December 2025 — with Gerlie Campion, Francis Adrian Esteban, Jhey Gulde, and Kathleen Grace Gultiano.",
+            "Lead developer, on a team of five, submitted as a project research paper in December 2025 — with Gerlie Campion, Francis Adrian Esteban, Jhey Gulde, and Kathleen Grace Gultiano. I later audited, rebuilt and rebranded it on my own.",
         },
         {
           title: "Timeline",
-          description: "About 4 months.",
+          description:
+            "About 4 months for the original build, then a solo rebuild in September 2026.",
         },
         {
           title: "Approach",
           description:
-            "Three roles — student, counsellor, admin — that get genuinely different systems rather than the same screens with buttons hidden. Students book, reschedule and cancel; counsellors accept, reject and update requests; admins manage accounts and monitor the schedule. That is what made access control the hard part here: counselling records are confidential, so the boundary had to hold in the database, not just in the interface.",
+            "Three roles — student, counsellor, admin — that get genuinely different areas rather than the same screens with buttons hidden. Access control lives in the database, not the interface: row-level security on every table, plus guard triggers for the rules the UI cannot be trusted with, like a student cancelling only their own booking or a slot refusing to be double-booked. Notifications work the same way — only database triggers create them, so no client can forge one, and they arrive live over a websocket.",
+        },
+        {
+          title: "The rebuild",
+          description:
+            "A full audit of the original found around 120 defects across authentication, the database, notifications and the UI. The data layer, auth and notifications were rebuilt; the interface moved onto a documented design system with tokens and a dark theme; and the product was renamed with its own logo and legal pages, dropping the university’s branding. A 29-check SQL suite now runs against the live database as each role to prove the access boundary holds, alongside 73 unit tests in CI.",
         },
         {
           title: "Outcome",
           description:
-            "We pitched it to the Guidance and Counselling Services and they approved it, but it was never deployed — it was a school project and development stopped after submission. The build is still up on Vercel if you want to click through it.",
+            "The original was pitched to the guidance office and approved, but never deployed — it was a school project, and development stopped after submission. Steady is now up as an early-access demo running on sample data, with the honest notice to match. You can click through it.",
         },
       ],
     },

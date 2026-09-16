@@ -27,7 +27,7 @@ const ROUTES = [
   "/",
   "/about",
   "/work",
-  "/work/gcs-system",
+  "/work/steady",
   "/designs",
   "/designs/kingmaker",
   "/archive",
@@ -68,7 +68,7 @@ test.describe("baseline — structural guarantees", () => {
 
     const rows: string[] = [];
 
-    for (const path of ["/", "/work/gcs-system", "/archive"]) {
+    for (const path of ["/", "/work/steady", "/archive"]) {
       const tally = trackImages(page);
       await page.goto(path, { waitUntil: "load" });
       await waitForImagesDecoded(page);

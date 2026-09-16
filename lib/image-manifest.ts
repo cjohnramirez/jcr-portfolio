@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (35 images, set defc91fb)
+// Source: public/portfolio (35 images, set 255058e1)
 
 export type ImageMeta = {
   width: number;
@@ -184,24 +184,6 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRogAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSCAAAAABJyAWTPxJQ+icRkQEDgbZRurlRA7l/dkeIKL/0cDuH1ZQOCBCAAAA0AEAnQEqEAALAAQAaCWIAnQA26NcnUAA/vDl5wz6wfBlvfz/nGpqs0Gh/QjSEDS/fu9qiWajYnYLgLriKQfwgAAA",
   },
-  "portfolio/projects/gcs-system/gcs-admin.png": {
-    width: 1892,
-    height: 977,
-    blurDataURL:
-      "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAgABABoJZwAAp7S/AAAzU72h/k0ZZeYbzsB22+2zXrgAAA=",
-  },
-  "portfolio/projects/gcs-system/gcs-homepage.png": {
-    width: 1893,
-    height: 975,
-    blurDataURL:
-      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAgABABoJZACdAEPEH7mYf0AAP7yNNMXxmH/KoecKzKh+FrWfEk3eOwy1kexGGJygSEntiH1CbdZIE0yXbA4BAPAAA==",
-  },
-  "portfolio/projects/gcs-system/gcs-signup.png": {
-    width: 1893,
-    height: 1195,
-    blurDataURL:
-      "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAoABABoJagAAumYjryZgAD+9NPZgaxErKgXraAzKn4V8eDbFqeub5QWrVmtSDrP3rrIcw4AAA==",
-  },
   "portfolio/projects/road-restoration/cdom.png": {
     width: 1366,
     height: 768,
@@ -219,6 +201,24 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 932,
     blurDataURL:
       "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAoABABoJaQAA3AA/vEFFa9f/Y7/Abpm3A3coAA=",
+  },
+  "portfolio/projects/steady/steady-home.png": {
+    width: 2160,
+    height: 1350,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAoABABoJZAAAveWkVJrP/AA/vISdhe4fbM9TFGum7zhq18E7B9qgdE5EL9jqZYAPjl29axKlHrv+pd5+kaAAAA=",
+  },
+  "portfolio/projects/steady/steady-portal.png": {
+    width: 2160,
+    height: 1350,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAoABABoJYwCdAEPEK0YqY/AAP7nr9WT6ndcZOr00iqRcRrN/6xNizk2RxazpgVEyYdOd7Jg4AlhyNHF9Znm302KOJUzmUAAAA==",
+  },
+  "portfolio/projects/steady/steady-signup.png": {
+    width: 2160,
+    height: 1350,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAoABABoJZAAAutLdtWPAAD+9NPQjS5GZ1iwbbrdg7WrNxDdMx9K2GpeFYmudSZIX6I3IiD4hwAA",
   },
 };
 

@@ -83,7 +83,7 @@ export function formatMB(bytes: number): string {
  *
  * This replaces `networkidle` rather than supplementing it. `next/link`
  * prefetches routes as links enter the viewport, firing `?_rsc=` requests that
- * can keep a connection in flight indefinitely — at 375px on /work/gcs-system
+ * can keep a connection in flight indefinitely — at 375px on /work/steady
  * the idle state never arrived at all and the test burned its whole timeout.
  * Playwright discourages networkidle for this reason. Decode state is the
  * thing the image assertions actually care about, and it is deterministic.

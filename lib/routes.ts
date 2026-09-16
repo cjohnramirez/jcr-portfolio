@@ -74,7 +74,7 @@ export function getDesignPlate(slug: string): string {
 
 /**
  * True when `pathname` is the plate itself or one of its detail pages, so
- * `/work/gcs-system` still marks `/work` as current in the navigation.
+ * `/work/steady` still marks `/work` as current in the navigation.
  */
 export function isPlateActive(pathname: string, platePath: string): boolean {
   if (platePath === "/") return pathname === "/";
