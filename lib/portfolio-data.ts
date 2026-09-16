@@ -144,7 +144,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Lead Developer",
       title: "Steady: Student Guidance and Counselling Platform",
       summary:
-        "A platform for booking and managing counselling sessions, with live notifications, mood-based resources and separate areas for students, counsellors and administrators. It began as a university guidance office project, and was later audited, rebuilt and relaunched as Steady — an independent early-access product, not affiliated with any university.",
+        "A web platform for a school’s guidance and counselling office. Students book sessions with their department’s counsellor, check in on how they are feeling, and get articles and playlists picked for that mood. Counsellors decide on requests and keep their own schedule. Administrators run accounts, publish content, and watch the service on a dashboard.",
       links: [
         {
           label: "Live deployment",
@@ -155,17 +155,17 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-home",
           title: "Public homepage",
-          description: "Public landing page with the early-access notice",
+          description: "The public landing page, open to visitors without an account",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-home.png",
           ),
           imageAlt:
-            "Steady public homepage, headed “Nurturing student growth and well-being”.",
+            "Steady homepage, headed “Nurturing student growth and well-being”.",
         },
         {
           id: "steady-portal",
           title: "Resource portal",
-          description: "Curated articles, playlists and events, open to visitors",
+          description: "Curated articles, playlists and events, also open to visitors",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-portal.png",
           ),
@@ -175,12 +175,42 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-signup",
           title: "Student registration",
-          description: "Account creation with enrollment and informed consent",
+          description: "Account creation with enrollment details and informed consent",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-signup.png",
           ),
           imageAlt:
             "Steady student sign-up form covering personal details, enrollment and emergency contacts.",
+        },
+        {
+          id: "steady-student",
+          title: "Student dashboard",
+          description: "Mood check-in, profile and emergency contacts in one place",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/steady/steady-student.png",
+          ),
+          imageAlt:
+            "Steady student dashboard with a mood check-in, profile details and emergency contacts.",
+        },
+        {
+          id: "steady-admin-dashboard",
+          title: "Analytics dashboard",
+          description: "Requests, pending sessions and visitor trend for the office",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/steady/steady-admin-dashboard.png",
+          ),
+          imageAlt:
+            "Steady admin dashboard showing appointment counts, registered students and a site-visitor chart.",
+        },
+        {
+          id: "steady-admin-accounts",
+          title: "Account administration",
+          description: "Server-paginated account table with the record editor open",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/steady/steady-admin-accounts.png",
+          ),
+          imageAlt:
+            "Steady admin accounts table with a student record open for editing.",
         },
       ],
       stack: {
@@ -221,27 +251,31 @@ export const projectsData: ProjectsData = {
         {
           title: "Role",
           description:
-            "Lead developer, on a team of five, submitted as a project research paper in December 2025 — with Gerlie Campion, Francis Adrian Esteban, Jhey Gulde, and Kathleen Grace Gultiano. I later audited, rebuilt and rebranded it on my own.",
+            "Lead developer, on a team of five, submitted as a project research paper in December 2025 — with Gerlie Campion, Francis Adrian Esteban, Jhey Gulde, and Kathleen Grace Gultiano.",
         },
         {
           title: "Timeline",
-          description:
-            "About 4 months for the original build, then a solo rebuild in September 2026.",
+          description: "About 4 months.",
         },
         {
           title: "Approach",
           description:
-            "Three roles — student, counsellor, admin — that get genuinely different areas rather than the same screens with buttons hidden. Access control lives in the database, not the interface: row-level security on every table, plus guard triggers for the rules the UI cannot be trusted with, like a student cancelling only their own booking or a slot refusing to be double-booked. Notifications work the same way — only database triggers create them, so no client can forge one, and they arrive live over a websocket.",
+            "Three roles — student, counsellor, admin — that get genuinely different areas rather than the same screens with buttons hidden. Students book, reschedule and cancel; counsellors accept, decline and complete requests and set their own working hours; admins manage accounts, publish content and read the dashboard. Reads are plain functions that work the same in a server component or a query hook, and every write is a server action that checks the role and validates against the same schema the form used.",
         },
         {
-          title: "The rebuild",
+          title: "Confidentiality",
           description:
-            "A full audit of the original found around 120 defects across authentication, the database, notifications and the UI. The data layer, auth and notifications were rebuilt; the interface moved onto a documented design system with tokens and a dark theme; and the product was renamed with its own logo and legal pages, dropping the university’s branding. A 29-check SQL suite now runs against the live database as each role to prove the access boundary holds, alongside 73 unit tests in CI.",
+            "The access boundary lives in the database rather than the interface. Row-level security on every table means a counsellor sees only the students in their departments and a student sees only their own records. Guard triggers cover what the UI cannot be trusted with — a student cancelling only their own booking, a held slot refusing to be double-booked, nobody but an admin moving a student between departments. Notifications are created only by database triggers, so no client can forge one, and they arrive live over a websocket. A 29-check SQL suite runs against the database as each role to prove all of it holds, alongside 73 unit tests in CI.",
+        },
+        {
+          title: "Interface",
+          description:
+            "Everything is built on a documented design system — semantic colour tokens, a set type scale, and 17 shared components — which is what made a full dark theme a token swap instead of a rewrite. Loading, empty and error states are all drawn differently, so a failed load never reads as an empty list, and skeletons follow each page’s real layout. Contrast is checked by script before any colour change.",
         },
         {
           title: "Outcome",
           description:
-            "The original was pitched to the guidance office and approved, but never deployed — it was a school project, and development stopped after submission. Steady is now up as an early-access demo running on sample data, with the honest notice to match. You can click through it.",
+            "We pitched it to the guidance office and they approved it, but it was never deployed — it was a school project, and development stopped after submission. It is up as an early-access demo running on sample data, with a notice saying so and confirming it isn’t affiliated with any university. You can click through it.",
         },
       ],
     },

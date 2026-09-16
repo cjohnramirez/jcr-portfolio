@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (35 images, set 255058e1)
+// Source: public/portfolio (38 images, set df014d4e)
 
 export type ImageMeta = {
   width: number;
@@ -202,23 +202,41 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAoABABoJaQAA3AA/vEFFa9f/Y7/Abpm3A3coAA=",
   },
+  "portfolio/projects/steady/steady-admin-accounts.png": {
+    width: 1894,
+    height: 1023,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAkABABoJaQAAp667LCRQADvnP6p0RKchiJzRn5q9GrjrmgAAA==",
+  },
+  "portfolio/projects/steady/steady-admin-dashboard.png": {
+    width: 1898,
+    height: 1020,
+    blurDataURL:
+      "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJZwAA3AA/vHD6DklkYCAAAA=",
+  },
   "portfolio/projects/steady/steady-home.png": {
     width: 2160,
-    height: 1350,
+    height: 1161,
     blurDataURL:
-      "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAoABABoJZAAAveWkVJrP/AA/vISdhe4fbM9TFGum7zhq18E7B9qgdE5EL9jqZYAPjl29axKlHrv+pd5+kaAAAA=",
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAkABABoJYgAAugZCIVgAP7yEpxrmOt2rRKWGansdghRVJLQ5iqjvwnFsMf+/3n+RpJB6Cphon/RR7YgAAAA",
   },
   "portfolio/projects/steady/steady-portal.png": {
     width: 2160,
-    height: 1350,
+    height: 1161,
     blurDataURL:
-      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAoABABoJYwCdAEPEK0YqY/AAP7nr9WT6ndcZOr00iqRcRrN/6xNizk2RxazpgVEyYdOd7Jg4AlhyNHF9Znm302KOJUzmUAAAA==",
+      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAkABABoJYwCdAEOLvoAAAD+6vOry8+fgaOr9W617Q4IdOmIdcORm7+lXSVt+rU8rdd6JiHk+Ofx4mTAbUAdCMoAAA==",
   },
   "portfolio/projects/steady/steady-signup.png": {
     width: 2160,
-    height: 1350,
+    height: 1161,
     blurDataURL:
-      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAoABABoJZAAAutLdtWPAAD+9NPQjS5GZ1iwbbrdg7WrNxDdMx9K2GpeFYmudSZIX6I3IiD4hwAA",
+      "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAkABABoJZAAAvmhmAN4QAD+9NhWJQ+bpdy1hxxPSazpotardseEX7a4QK+QF+iNyIY5wAA=",
+  },
+  "portfolio/projects/steady/steady-student.png": {
+    width: 1902,
+    height: 1015,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAABwAQCdASoQAAkABABoJZ2R5AGIAAD+8dGHOLvPdx0KE1my48G4AAAA",
   },
 };
 
