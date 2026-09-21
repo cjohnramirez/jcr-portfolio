@@ -129,7 +129,7 @@ export const servicesData: ServicesData = {
 
 export const projectsData: ProjectsData = {
   sectionLabel: "Case plates",
-  status: "3 plates",
+  status: "4 plates",
   title: {
     accentedBefore: "Projects",
     middle: "and",
@@ -139,16 +139,169 @@ export const projectsData: ProjectsData = {
     "Selected technical projects, research work, creative production, and leadership roles drawn from my resume. Each module highlights the role, stack, skills, and implementation focus behind the work.",
   projects: [
     {
+      id: "trailventure",
+      module: "Module 1 / TrailVenture",
+      category: "Major Project / Solo Developer",
+      featured: true,
+      title: "TrailVenture: Tour Package Booking Platform",
+      summary:
+        "A booking platform for tour packages across the Philippines and beyond. Travellers search by destination, date and budget, compare package tiers and day-by-day itineraries, book a start date for a group, and pay through Stripe. Most of the work is in the guarantees around the money rather than the browsing on top of them.",
+      links: [
+        {
+          label: "Live deployment",
+          href: "https://trailventure.jcrdev.me",
+        },
+      ],
+      carousel: [
+        {
+          id: "trailventure-home",
+          title: "Home and search",
+          description: "Destination, date and budget in a single entry point",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/trailventure/trailventure-home.png",
+          ),
+          imageAlt:
+            "TrailVenture homepage with a destination, date and price search bar over a Palawan photograph.",
+        },
+        {
+          id: "trailventure-search",
+          title: "Search results",
+          description: "Filtered package listings with prices per person",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/trailventure/trailventure-search.png",
+          ),
+          imageAlt:
+            "TrailVenture search results listing tour packages with filters and prices.",
+        },
+        {
+          id: "trailventure-package",
+          title: "Package detail",
+          description: "Tiers, itinerary and reviews for a single package",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/trailventure/trailventure-package.png",
+          ),
+          imageAlt:
+            "TrailVenture package page for Palawan Island Paradise, showing photos, price and itinerary tabs.",
+        },
+        {
+          id: "trailventure-booking",
+          title: "Review and pay",
+          description: "Server-calculated invoice, held price and Stripe test mode",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/trailventure/trailventure-booking.png",
+          ),
+          imageAlt:
+            "TrailVenture booking review with an itemised invoice, total price and a disabled checkout button reading “Choose a start date to continue”.",
+        },
+        {
+          id: "trailventure-success",
+          title: "Booking confirmed",
+          description: "The receipt a traveller lands on after Stripe returns",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/trailventure/trailventure-success.png",
+          ),
+          imageAlt:
+            "TrailVenture booking confirmation showing the booking id, total paid, package and trip start.",
+        },
+        {
+          id: "trailventure-account",
+          title: "Your bookings",
+          description:
+            "Confirmed and awaiting-payment side by side, each with its own action",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/trailventure/trailventure-account.png",
+          ),
+          imageAlt:
+            "TrailVenture account bookings list with confirmed and awaiting-payment trips, finish-payment and write-a-review actions.",
+        },
+      ],
+      stack: {
+        label: "Tech stack",
+        items: [
+          "Django",
+          "Django REST Framework",
+          "PostgreSQL",
+          "Redis",
+          "Celery",
+          "Stripe",
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "TanStack Query",
+          "Docker",
+          "Playwright",
+          "pytest",
+          "GitHub Actions",
+        ],
+      },
+      skills: {
+        label: "Skills",
+        items: [
+          "API security",
+          "Payment integration",
+          "System design",
+          "Testing strategy",
+          "Accessibility",
+          "CI/CD",
+        ],
+      },
+      notes: [
+        {
+          title: "Context",
+          description:
+            "Booking is the part of a travel site where mistakes cost real money. A price shown to a traveller has to be the price they are charged, a payment that half-succeeds has to resolve one way or the other, and a seat held during checkout can be neither sold twice nor held forever. The browsing experience is the easy half.",
+        },
+        {
+          title: "Role",
+          description:
+            "Solo \u2014 architecture, backend, frontend, tests and deployment.",
+        },
+        {
+          title: "Approach",
+          description:
+            "A Django API behind a Next.js frontend, with the browser only ever talking to one origin: the web app forwards Django\u2019s paths at request time, so session and CSRF cookies stay first-party and no token is ever kept in localStorage. Views stay thin \u2014 writes go through a service layer, reads through selectors tested for query counts. Roles are decided entirely by the server, because a client setting its own is the most common way a booking system gets compromised.",
+        },
+        {
+          title: "Money",
+          description:
+            "Prices are calculated on the server and stored as integer centavos, so nothing is lost to floating point and the client never has a say in what it is charged. A booking holds its price for thirty minutes and checkout refuses an expired hold. Stripe Checkout sessions carry an idempotency key, so a repeated request returns the existing session instead of charging twice. The webhook verifies Stripe\u2019s signature, records every event id before acting on it, and ignores replays \u2014 and unexpected errors return 5xx on purpose, so Stripe retries rather than a failed payment vanishing quietly. Nothing deletes a booking; unpaid holds expire on a schedule and stay on record.",
+        },
+        {
+          title: "Caching",
+          description:
+            "Catalog responses are cached in Redis under keys carrying a version number, and any write to a catalog model bumps that version, so every dependent response becomes unreachable at once. The alternative \u2014 deleting the specific keys a write affects \u2014 means being right about that mapping every single time, which is exactly where stale-cache bugs live. A test asserts a cache hit costs zero database queries and a miss no more than four.",
+        },
+        {
+          title: "Correctness",
+          description:
+            "108 API tests, 50 unit tests and 132 browser tests across desktop, mobile and dark mode, with CI running the browser tests against a live API, Postgres, Redis and a mail server rather than mocks. The tests pin the rules that matter: a signup cannot set its own role, a webhook replay changes nothing, an expired hold cannot be paid for, and a review requires a booking that was paid for and has already started. axe checks every public page in CI, and Lighthouse reports 100 for accessibility and SEO.",
+        },
+        {
+          title: "The Trade-off",
+          description:
+            "It runs entirely on free tiers \u2014 two containers and PostgreSQL on Northflank, Redis on Upstash, images on Cloudinary, mail through Mailjet, behind a custom domain with automatic TLS. That tier has no always-on worker, so background tasks run inside the request and hold expiry runs as a scheduled command instead of a queue. Dropping the worker was only safe because a hold is derived from a timestamp and checkout re-checks it: the scheduled job is housekeeping, not the mechanism. Working out which dependencies were load-bearing and which were convenience is what made the free deployment possible.",
+        },
+        {
+          title: "What is not built yet",
+          description:
+            "Host and administrator roles, seat capacity per departure, refunds, two-factor authentication, a wishlist and an itinerary map are designed and accounted for in the data model, but not implemented. It is up as an early access demo: trips are demo data and payments run in Stripe test mode, stated plainly on the site itself.",
+        },
+      ],
+    },
+    {
       id: "steady",
-      module: "Module 1 / Steady",
+      module: "Module 2 / Steady",
       category: "Major Project / Lead Developer",
+      featured: true,
       title: "Steady: Student Guidance and Counselling Platform",
       summary:
         "A web platform for a school’s guidance and counselling office. Students book sessions with their department’s counsellor, check in on how they are feeling, and get articles and playlists picked for that mood. Counsellors decide on requests and keep their own schedule. Administrators run accounts, publish content, and watch the service on a dashboard.",
       links: [
         {
           label: "Live deployment",
-          href: "https://steady-system.vercel.app/home",
+          href: "https://steady-system.jcrdev.me",
         },
       ],
       carousel: [
@@ -281,7 +434,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: "road-restoration",
-      module: "Module 2 / Road Restoration",
+      module: "Module 3 / Road Restoration",
       category: "Research / Corresponding Author",
       title: "Post-Disaster Road Restoration Algorithm Research",
       summary:
@@ -363,7 +516,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: "enduro-branding",
-      module: "Module 3 / Enduro Brand",
+      module: "Module 4 / Enduro Brand",
       category: "Internship / Lead Designer and Branding Manager",
       title: "Enduro Group Branding and Design Management",
       summary:

@@ -82,6 +82,13 @@ export type ProjectCaseStudy = {
   title: string;
   category: string;
   summary: string;
+  /**
+   * Lifts the plate into the selected-work band on `/` and `/work`, ahead of
+   * the index. A flag rather than a list of ids elsewhere, so promoting the
+   * next build is a one-line change in this file and nothing has to agree
+   * with it.
+   */
+  featured?: boolean;
   carousel: CarouselItem[];
   stack: {
     label: string;

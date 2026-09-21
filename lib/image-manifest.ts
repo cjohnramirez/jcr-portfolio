@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (38 images, set df014d4e)
+// Source: public/portfolio (44 images, set 38e5e1fe)
 
 export type ImageMeta = {
   width: number;
@@ -237,6 +237,42 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1015,
     blurDataURL:
       "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAABwAQCdASoQAAkABABoJZ2R5AGIAAD+8dGHOLvPdx0KE1my48G4AAAA",
+  },
+  "portfolio/projects/trailventure/trailventure-account.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAkABABoJZwAAvq4kQatAAD+8i4M1Aq5RTdq5ENTuESXnRVrn593+AbZAAAA",
+  },
+  "portfolio/projects/trailventure/trailventure-booking.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJZwAAq3YyiGAAP7q8e028zlNA1mwCwkL0hMcW0DwDwIA",
+  },
+  "portfolio/projects/trailventure/trailventure-home.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAkABABoJQBOgCHf13TaCAD4Y/YWfQiVu04NqzJ85Wig29vHO/sBQhpFUYiE59FSe7JT7nZdLukHPXOTjEI2zzwAAA==",
+  },
+  "portfolio/projects/trailventure/trailventure-package.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAkABABoJQAAXOhze/cQAP7v+i1TstH3GAihruS+bq2bTbgsqjXgS87sEl2eWkg8pzMcLnnKO4pm7T9tlQAA",
+  },
+  "portfolio/projects/trailventure/trailventure-search.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJYwAAqsbCssUAAD+86QuuhHN5SdvmmZeXgVLh6SJND3sPCoR0GeXU7qegbalNRgVAAAspLEQgAAA",
+  },
+  "portfolio/projects/trailventure/trailventure-success.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAAkABABoJaQAA3AA/vJZsltGw+Z/OCYAAA==",
   },
 };
 

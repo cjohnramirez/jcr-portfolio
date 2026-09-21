@@ -8,6 +8,7 @@ import {
   PlateLead,
   PlateTitle,
 } from "@/components/portfolio/shared/plate";
+import { FeaturedBand } from "@/components/portfolio/work/featured-band";
 import { projectsData } from "@/lib/portfolio-data";
 import { getWorkPlate, PLATES } from "@/lib/routes";
 
@@ -18,13 +19,29 @@ export const metadata: Metadata = {
 };
 
 export default function WorkIndexPage() {
-  const entries = projectsData.projects.map((project) => ({
-    href: `${PLATES.work.path}/${project.id}`,
-    plate: getWorkPlate(project.id),
-    title: project.title,
-    meta: project.category,
-    summary: project.summary,
-  }));
+  const projects = projectsData.projects;
+
+  const featured = projects
+    .filter((project) => project.featured)
+    .map((project) => ({
+      href: `${PLATES.work.path}/${project.id}`,
+      plate: getWorkPlate(project.id),
+      title: project.title,
+      meta: project.category,
+      summary: project.summary,
+      sheet: project.carousel[0],
+      stack: project.stack.items,
+    }));
+
+  const rest = projects
+    .filter((project) => !project.featured)
+    .map((project) => ({
+      href: `${PLATES.work.path}/${project.id}`,
+      plate: getWorkPlate(project.id),
+      title: project.title,
+      meta: project.category,
+      summary: project.summary,
+    }));
 
   return (
     <PageShell>
@@ -32,7 +49,7 @@ export default function WorkIndexPage() {
         <PlateHeader
           plate={PLATES.work.plate}
           runningHead={PLATES.work.label}
-          folio={`${entries.length} plates`}
+          folio={`${projects.length} plates`}
         />
         <PlateBody className="flex flex-col gap-6">
           <PlateTitle as="h1" className="max-w-[14ch]">
@@ -42,7 +59,8 @@ export default function WorkIndexPage() {
         </PlateBody>
       </Plate>
 
-      <IndexGrid entries={entries} label="Case plates" />
+      <FeaturedBand entries={featured} label="Selected work" />
+      <IndexGrid entries={rest} label="Case plates" />
     </PageShell>
   );
 }

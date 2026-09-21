@@ -6,7 +6,7 @@
  * the wrong host until it is set.
  */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://jcr-portfolio.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://jcrdev.me"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "John Carl Ramirez";

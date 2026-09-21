@@ -27,6 +27,7 @@ const ROUTES = [
   "/",
   "/about",
   "/work",
+  "/work/trailventure",
   "/work/steady",
   "/designs",
   "/designs/kingmaker",
