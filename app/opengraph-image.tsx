@@ -23,11 +23,21 @@ const MARK = "#ff3d9a";
  * are no `&nbsp;` entities. Colours are literal token values because custom
  * properties are not resolved here.
  */
+/**
+ * Crop marks sit on the ground, OUTSIDE the plate.
+ *
+ * They used to be positioned inside it at a 24px inset, which put them on top
+ * of the header row: the top-left arm ran through `00` and the top-right one
+ * clipped the `K` of OPEN TO WORK. Printer's marks belong outside the trim,
+ * so moving them into the 48px ground margin fixes the collision and is also
+ * the correct reading of the device.
+ */
+const MARK_INSET = 14;
 const CORNERS = [
-  { top: 24, left: 24, borderTop: `2px solid ${MARK}`, borderLeft: `2px solid ${MARK}` },
-  { top: 24, right: 24, borderTop: `2px solid ${MARK}`, borderRight: `2px solid ${MARK}` },
-  { bottom: 24, left: 24, borderBottom: `2px solid ${MARK}`, borderLeft: `2px solid ${MARK}` },
-  { bottom: 24, right: 24, borderBottom: `2px solid ${MARK}`, borderRight: `2px solid ${MARK}` },
+  { top: MARK_INSET, left: MARK_INSET, borderTop: `2px solid ${MARK}`, borderLeft: `2px solid ${MARK}` },
+  { top: MARK_INSET, right: MARK_INSET, borderTop: `2px solid ${MARK}`, borderRight: `2px solid ${MARK}` },
+  { bottom: MARK_INSET, left: MARK_INSET, borderBottom: `2px solid ${MARK}`, borderLeft: `2px solid ${MARK}` },
+  { bottom: MARK_INSET, right: MARK_INSET, borderBottom: `2px solid ${MARK}`, borderRight: `2px solid ${MARK}` },
 ];
 
 export default function OpengraphImage() {
@@ -40,6 +50,7 @@ export default function OpengraphImage() {
           display: "flex",
           backgroundColor: GROUND,
           padding: 48,
+          position: "relative",
         }}
       >
         <div
@@ -48,7 +59,6 @@ export default function OpengraphImage() {
             flexDirection: "column",
             flex: 1,
             backgroundColor: PLATE,
-            position: "relative",
           }}
         >
           <div
@@ -107,14 +117,14 @@ export default function OpengraphImage() {
               <span>{SITE_NAME} — Cagayan de Oro, Philippines</span>
             </div>
           </div>
-
-          {CORNERS.map((corner, index) => (
-            <div
-              key={index}
-              style={{ position: "absolute", width: 28, height: 28, ...corner }}
-            />
-          ))}
         </div>
+
+        {CORNERS.map((corner, index) => (
+          <div
+            key={index}
+            style={{ position: "absolute", width: 24, height: 24, ...corner }}
+          />
+        ))}
       </div>
     ),
     size,

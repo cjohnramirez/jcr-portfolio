@@ -17,7 +17,10 @@ type FooterSectionProps = {
  */
 export function FooterSection({ data }: FooterSectionProps) {
   return (
-    <footer className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 border-t border-rule bg-plate px-5 py-10 lg:flex-row lg:items-end lg:justify-between lg:px-10">
+    // Full-bleed, like the fixed header. Capped at 1440 it stopped short of
+    // the window on wide screens while the nav ran edge to edge, which read
+    // as the page ending twice.
+    <footer className="flex w-full flex-col gap-8 border-t border-rule bg-plate px-5 py-10 lg:flex-row lg:items-end lg:justify-between lg:px-10">
       <div className="flex max-w-[36ch] flex-col gap-3">
         <p className="text-[clamp(1.375rem,1rem+1.2vw,2rem)] leading-[1.05] text-ink">
           {data.brandLine.before}{" "}

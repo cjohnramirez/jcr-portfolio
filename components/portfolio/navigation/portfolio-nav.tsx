@@ -74,7 +74,10 @@ export function PortfolioNav({ action }: PortfolioNavProps) {
             aria-controls={menuId}
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="flex size-[42px] items-center justify-center border border-rule bg-plate-2 text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-spot xl:hidden"
+            // Matches ActionButton and ThemeToggle exactly. It was a fixed
+            // 42px, so it sat 6px short of its neighbours on phones and 21px
+            // short between lg and xl, where it is still the visible toggle.
+            className="inline-flex min-h-12 min-w-12 items-center justify-center border border-rule bg-plate-2 text-ink transition-colors hover:border-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-spot lg:min-h-[63px] lg:min-w-[63px] xl:hidden"
             onClick={() => setIsOpen((open) => !open)}
             type="button"
           >

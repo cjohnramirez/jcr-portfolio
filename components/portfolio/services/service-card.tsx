@@ -30,7 +30,13 @@ export function ServiceCard({ data }: ServiceCardProps) {
         </div>
       </div>
 
-      <ul className="flex flex-col gap-2 border-t border-rule pt-5 font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink-2">
+      {/*
+        The rule above the list is a divider across the whole tile, not a
+        short line floating inside the text column. Negative margins cancel
+        the card's padding so it meets both edges, and the padding is put
+        back on the list itself so the items stay aligned with the prose.
+      */}
+      <ul className="-mx-7 flex flex-col gap-2 border-t border-rule px-7 pt-5 font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink-2 lg:-mx-9 lg:px-9">
         {data.items.map((item) => (
           <li key={item}>{item}</li>
         ))}

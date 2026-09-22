@@ -127,32 +127,43 @@ export function CarouselFrame({
         ) : null}
       </div>
 
-      <div className="grid grid-cols-[1fr_auto_auto_auto] items-stretch border-t border-rule font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink-2">
-        <p className="flex items-center px-5 py-4 lg:py-5">
+      {/*
+        Two rows on phones, one from `sm` up.
+
+        All four cells in a single row left the description about ten
+        characters wide once the two controls and the counter had taken their
+        fixed widths, so it wrapped to three lines against a one-line counter.
+        The description gets its own row instead, and the pagination — both
+        controls and the counter — shares the second.
+      */}
+      <div className="flex flex-col border-t border-rule font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink-2 sm:flex-row sm:items-stretch">
+        <p className="flex items-center px-5 py-4 sm:flex-1 lg:py-5">
           {activeItem.description || label}
         </p>
 
-        <button
-          aria-label="Previous sheet"
-          className={`${control} w-14 border-l border-rule`}
-          onClick={() => move(-1)}
-          type="button"
-        >
-          <ChevronLeft aria-hidden="true" className="size-4" strokeWidth={1.75} />
-        </button>
+        <div className="flex items-stretch border-t border-rule sm:border-t-0">
+          <button
+            aria-label="Previous sheet"
+            className={`${control} w-14 border-r border-rule sm:border-l sm:border-r-0`}
+            onClick={() => move(-1)}
+            type="button"
+          >
+            <ChevronLeft aria-hidden="true" className="size-4" strokeWidth={1.75} />
+          </button>
 
-        <button
-          aria-label="Next sheet"
-          className={`${control} w-14 border-l border-rule`}
-          onClick={() => move(1)}
-          type="button"
-        >
-          <ChevronRight aria-hidden="true" className="size-4" strokeWidth={1.75} />
-        </button>
+          <button
+            aria-label="Next sheet"
+            className={`${control} w-14 border-r border-rule sm:border-l sm:border-r-0`}
+            onClick={() => move(1)}
+            type="button"
+          >
+            <ChevronRight aria-hidden="true" className="size-4" strokeWidth={1.75} />
+          </button>
 
-        <p className="flex min-w-[8rem] items-center justify-end border-l border-rule px-5 tabular-nums">
-          {pageLabel}
-        </p>
+          <p className="flex flex-1 items-center justify-end px-5 py-4 tabular-nums sm:min-w-[8rem] sm:flex-none sm:border-l sm:border-rule sm:py-0">
+            {pageLabel}
+          </p>
+        </div>
       </div>
 
       <p aria-live="polite" className="sr-only">

@@ -21,13 +21,17 @@ type IndexGridProps = {
  * A 1px-gap grid rather than separated cards: the entries are rows of one
  * table of contents, not floating objects. The plate number leads, because
  * that is how you find a page in a manual.
+ *
+ * `h-full` has to run unbroken from the grid cell down to the link, or the
+ * link only covers its own content and the hover wash stops short of the
+ * bottom of the tile. The Reveal wrapper was the break.
  */
 export function IndexGrid({ entries, label }: IndexGridProps) {
   return (
     <ul aria-label={label} className="grid gap-px bg-rule sm:grid-cols-2">
       {entries.map((entry, index) => (
         <li key={entry.href} className="bg-plate">
-          <Reveal order={index}>
+          <Reveal className="h-full" order={index}>
             <Link
               className="group flex h-full flex-col gap-4 p-6 transition-colors duration-200 hover:bg-plate-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-spot lg:p-9"
               href={entry.href}

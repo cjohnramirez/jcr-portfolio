@@ -26,9 +26,14 @@ export function ServicesSection({
           <PlateLead>{data.summary}</PlateLead>
         </div>
 
-        <div className="grid gap-px bg-rule md:grid-cols-2 xl:grid-cols-3">
+        {/*
+          `gap-px` over `bg-rule` draws the rules BETWEEN cells; the border
+          closes the outer edge, so the group reads as one bounded table
+          rather than three cells with two lines floating between them.
+        */}
+        <div className="grid gap-px border border-rule bg-rule md:grid-cols-2 xl:grid-cols-3">
           {data.cards.map((card, index) => (
-            <Reveal key={card.title} order={index + 1}>
+            <Reveal className="h-full" key={card.title} order={index + 1}>
               <ServiceCard data={card} />
             </Reveal>
           ))}

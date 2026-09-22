@@ -43,7 +43,8 @@ export function FeaturedBand({ entries, label }: FeaturedBandProps) {
     <ul aria-label={label} className="grid gap-px bg-rule lg:grid-cols-2">
       {entries.map((entry, index) => (
         <li className="bg-plate" key={entry.href}>
-          <Reveal order={index}>
+          {/* h-full unbroken from cell to link, so hover covers the whole tile. */}
+          <Reveal className="h-full" order={index}>
             <Link
               className="group flex h-full flex-col transition-colors duration-200 hover:bg-plate-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-spot"
               href={entry.href}
