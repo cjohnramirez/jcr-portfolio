@@ -12,6 +12,10 @@ export function ServicesSection({
   data,
   headingLevel = "h2",
 }: ServicesSectionProps) {
+  // Every card reserves room for the longest list, so the dividers land on one
+  // line across the row instead of stepping with each card's item count.
+  const listRows = Math.max(...data.cards.map((card) => card.items.length));
+
   return (
     <Plate id="services">
       <PlateHeader plate="00.1" runningHead="Capabilities" folio={data.status} />
@@ -27,14 +31,19 @@ export function ServicesSection({
         </div>
 
         {/*
-          `gap-px` over `bg-rule` draws the rules BETWEEN cells; the border
-          closes the outer edge, so the group reads as one bounded table
-          rather than three cells with two lines floating between them.
+          Full-bleed to the plate on three sides: the negative margins cancel
+          PlateBody's padding so the tiles meet the plate's left, right and
+          bottom edges, and only the top keeps a rule — that one is doing real
+          work, separating the lead from the grid. A box drawn on all four
+          sides left a strip of plate showing outside it, which read as the
+          table floating rather than as part of the plate.
+
+          `gap-px` over `bg-rule` still draws the rules BETWEEN cells.
         */}
-        <div className="grid gap-px border border-rule bg-rule md:grid-cols-2 xl:grid-cols-3">
+        <div className="-mx-5 -mb-8 grid gap-px border-t border-rule bg-rule md:grid-cols-2 lg:-mx-10 lg:-mb-12 xl:grid-cols-3">
           {data.cards.map((card, index) => (
             <Reveal className="h-full" key={card.title} order={index + 1}>
-              <ServiceCard data={card} />
+              <ServiceCard data={card} listRows={listRows} />
             </Reveal>
           ))}
         </div>
