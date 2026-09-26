@@ -26,7 +26,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           <AnnotatedFrame
             className="shrink-0"
             clearspace="1×"
-            dimensions="Portrait — 1:1"
+            dimensions="Portrait / 1:1"
           >
             <div className="relative size-[180px] sm:size-[220px] lg:size-[264px]">
               <CloudinaryImage
@@ -58,7 +58,7 @@ export function HeroSection({ data }: HeroSectionProps) {
               {data.details.map((detail) => (
                 <li key={detail} className="flex gap-3">
                   <span aria-hidden="true" className="text-rule">
-                    —
+                    ·
                   </span>
                   <span>{detail}</span>
                 </li>

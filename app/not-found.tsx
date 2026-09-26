@@ -13,16 +13,15 @@ export default function NotFound() {
   return (
     <PageShell>
       <Plate>
-        <PlateHeader plate="—" runningHead="Plate not found" folio="404" />
+        <PlateHeader plate="404" runningHead="Plate not found" folio="Index" />
 
         <PlateBody className="flex flex-col gap-10">
           <PlateTitle as="h1" className="max-w-[16ch]">
-            That plate isn&rsquo;t in this manual
+            Plate not found
           </PlateTitle>
 
           <PlateLead>
-            The page you asked for doesn&rsquo;t exist. Turn to one of these
-            instead, or start again from the cover.
+            Select a plate below or return to the cover.
           </PlateLead>
 
           <ul className="flex flex-col border-t border-rule">

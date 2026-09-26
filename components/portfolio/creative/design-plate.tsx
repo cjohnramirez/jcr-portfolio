@@ -37,7 +37,7 @@ export function DesignPlate({ brand, plate }: DesignPlateProps) {
           <PlateTitle as="h1" className="max-w-[16ch]">
             {brand.title}
           </PlateTitle>
-          <PlateLead>{brand.summary ?? brand.details.join(" — ")}</PlateLead>
+          <PlateLead>{brand.summary ?? brand.details.join(" · ")}</PlateLead>
         </div>
 
         <AnnotatedFrame dimensions={`${brand.carousel.length} sheets`}>

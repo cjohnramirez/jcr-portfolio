@@ -38,7 +38,7 @@ export function FooterSection({ data }: FooterSectionProps) {
           className="font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink transition-colors duration-200 hover:text-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-spot"
           href={PLATES.contact.path}
         >
-          {PLATES.contact.plate} — Colophon &amp; contact →
+          {PLATES.contact.plate} / Colophon &amp; contact →
         </Link>
 
         <nav aria-label="Social links">

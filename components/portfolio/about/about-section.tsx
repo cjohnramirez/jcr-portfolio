@@ -33,7 +33,7 @@ export function AboutSection({ data, headingLevel = "h2" }: AboutSectionProps) {
           </Reveal>
         </div>
 
-        <AnnotatedFrame dimensions="Working plate — 16:9">
+        <AnnotatedFrame dimensions="Working plate / 16:9">
           <div className="relative aspect-video w-full">
             <CloudinaryImage
               alt={data.media.alt}

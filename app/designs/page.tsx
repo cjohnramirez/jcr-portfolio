@@ -23,7 +23,7 @@ export default function DesignsIndexPage() {
     plate: getDesignPlate(brand.id),
     title: brand.title,
     meta: brand.deliverables.join(" · "),
-    summary: brand.details.join(" — "),
+    summary: brand.details.join(" · "),
   }));
 
   return (

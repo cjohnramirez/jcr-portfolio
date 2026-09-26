@@ -27,7 +27,7 @@ export async function generateMetadata({
   if (!brand) return {};
 
   const path = `/designs/${slug}`;
-  const description = brand.details.join(" — ");
+  const description = brand.details.join(" · ");
   return {
     title: brand.title,
     description,
@@ -51,7 +51,7 @@ export default async function DesignDetailPage({ params }: DesignPageProps) {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: brand.title,
-    description: brand.details.join(" — "),
+    description: brand.details.join(" · "),
     creator: { "@type": "Person", name: "John Carl Ramirez" },
     keywords: brand.deliverables.join(", "),
   };

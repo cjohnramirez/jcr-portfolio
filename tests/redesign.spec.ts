@@ -389,8 +389,8 @@ test.describe("@redesign image budget", () => {
  * of all places.
  */
 test.describe("@redesign carousel proportions", () => {
-  // Chosen because their sheets disagree with 16:9 in both directions:
-  // Enduro runs 1.92 / 1.41 / 1.40, Snap 1.41 / 1.78 / 1.41.
+  // Chosen because their sheets disagree with 16:9: both carousels are
+  // brand guideline decks rendered at 1.41.
   //
   // Steady used to be here too, back when its sheets were 1.94 / 1.58. Its
   // screenshots are now captured at one viewport, so all three are 1.60 and
@@ -439,8 +439,10 @@ test.describe("@redesign carousel proportions", () => {
     });
   }
 
+  // Road Restoration steps from a 1.78 map to a 2.04 paper figure. The deck
+  // carousels cannot exercise this: every page of a deck shares one ratio.
   test("the frame reshapes when the sheet changes", async ({ page }) => {
-    await page.goto("/work/enduro-branding");
+    await page.goto("/work/road-restoration");
     await expect(page.locator("[data-carousel-frame]").first()).toBeAttached({
       timeout: 5_000,
     });

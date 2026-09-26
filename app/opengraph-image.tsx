@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
-export const alt = `${SITE_NAME} — ${SITE_TAGLINE}`;
+export const alt = `${SITE_NAME} | ${SITE_TAGLINE}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -114,7 +114,7 @@ export default function OpengraphImage() {
                 color: INK_2,
               }}
             >
-              <span>{SITE_NAME} — Cagayan de Oro, Philippines</span>
+              <span>{SITE_NAME} · Cagayan de Oro, Philippines</span>
             </div>
           </div>
         </div>

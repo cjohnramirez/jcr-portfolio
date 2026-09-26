@@ -2,6 +2,7 @@ import type {
   AboutData,
   ActionLink,
   AdditionalsData,
+  CarouselItem,
   CreativePortfolioData,
   FooterData,
   HeroData,
@@ -9,6 +10,32 @@ import type {
   ServicesData,
 } from "./portfolio-types";
 import { cloudinaryAsset } from "./cloudinary";
+
+/**
+ * One sheet per page of a brand guidelines deck, rendered from the source PDF
+ * to `<basePath>-01.webp`, `-02.webp` and so on. Pages are listed in deck
+ * order as [title, description].
+ */
+function deckSheets(
+  brand: string,
+  basePath: string,
+  pages: [title: string, description: string][],
+): CarouselItem[] {
+  const slug = basePath.split("/").pop();
+
+  return pages.map(([title, description], index) => {
+    const page = String(index + 1).padStart(2, "0");
+
+    return {
+      id: `${slug}-${page}`,
+      title,
+      description,
+      imageSrc: cloudinaryAsset(`${basePath}-${page}.webp`),
+      imageAlt: `${brand} brand guidelines, page ${index + 1}: ${title}.`,
+      imageFit: "contain",
+    };
+  });
+}
 
 export const contactAction: ActionLink = {
   label: "Get in touch",
@@ -25,7 +52,7 @@ export const heroData: HeroData = {
     after: "and",
   },
   summary:
-    "I build digital products around what users actually need, and what the business actually has to get done.",
+    "I build full-stack web products and brand systems, from database schema to interface.",
   portrait: {
     src: cloudinaryAsset("portfolio/profile-image.png"),
     alt: "Black and white portrait of John Carl Ramirez.",
@@ -58,7 +85,7 @@ export const aboutData: AboutData = {
     accented: "John Carl Ramirez",
   },
   summary:
-    "Most developer portfolios come in scattered pieces. A frontend mockup here, a basic script there. The pieces rarely line up. I am a Full-Stack Web Developer and Researcher. I build complex backend systems, optimize algorithms, and engineer robust web applications from the ground up.",
+    "Full-stack web developer and researcher. I build backend systems, optimize graph algorithms, and ship production web applications end to end.",
   actions: heroData.actions,
   media: {
     src: cloudinaryAsset("portfolio/about-section.jpg"),
@@ -67,11 +94,11 @@ export const aboutData: AboutData = {
   columns: [
     {
       title: "Design and development",
-      body: "I design and build digital experiences where visual clarity and technical precision work together. From interface systems and responsive layouts to production-ready frontend architecture, every decision is shaped by usability, performance, and a clear purpose.",
+      body: "Interface systems, responsive layouts and production frontend architecture, specified against usability and performance targets.",
     },
     {
       title: "Systems under the hood",
-      body: "My technical foundation is the spine. Full-Stack Web Development, Data Analytics, UI/UX Design, and Multimedia Production. Every system is built from raw logic first. Python. TypeScript. NextJS. By the time the user interface renders, the database and API are already functioning seamlessly under the hood.",
+      body: "Core stack: Python, TypeScript, Next.js, Django and PostgreSQL. The data model and API are built first, so the interface renders on a working backend.",
     },
   ],
 };
@@ -85,12 +112,12 @@ export const servicesData: ServicesData = {
     after: "solutions",
   },
   summary:
-    "Three areas I work across. Systems from the database up, models that make sense of the data, and interfaces people can actually use. Each card lists what I reach for first.",
+    "Three practice areas: systems from the database up, models over the data, and interfaces built for use. Each card lists the primary tools.",
   cards: [
     {
       title: "Full-Stack Web Development",
       description:
-        "Expert in engineering robust systems from database to user interface.",
+        "End-to-end systems, from schema and API to interface.",
       icon: "screen",
       items: [
         "NextJS & React",
@@ -103,7 +130,7 @@ export const servicesData: ServicesData = {
     {
       title: "Data Science & Machine Learning",
       description:
-        "Skilled in extracting insights and building predictive models to drive data-informed decisions.",
+        "Predictive models and statistical analysis for data-driven decisions.",
       icon: "database",
       items: [
         "Python & R",
@@ -115,7 +142,7 @@ export const servicesData: ServicesData = {
     {
       title: "UI/UX Design",
       description:
-        "Dedicated to crafting intuitive and engaging digital experiences through user-centered design principles.",
+        "User-centred interface design, from research to interactive prototype.",
       icon: "interface",
       items: [
         "Figma & Illustrator",
@@ -136,7 +163,7 @@ export const projectsData: ProjectsData = {
     accentedAfter: "roles",
   },
   summary:
-    "Selected technical projects, research work, creative production, and leadership roles drawn from my resume. Each module highlights the role, stack, skills, and implementation focus behind the work.",
+    "Technical projects, published research and brand systems. Each plate lists the role, stack, skills and implementation details.",
   projects: [
     {
       id: "trailventure",
@@ -145,7 +172,7 @@ export const projectsData: ProjectsData = {
       featured: true,
       title: "TrailVenture: Tour Package Booking Platform",
       summary:
-        "A booking platform for tour packages across the Philippines and beyond. Travellers search by destination, date and budget, compare package tiers and day-by-day itineraries, book a start date for a group, and pay through Stripe. Most of the work is in the guarantees around the money rather than the browsing on top of them.",
+        "Tour package booking platform for the Philippines and beyond. Travellers search by destination, date and budget, compare package tiers and day-by-day itineraries, book a group start date, and pay through Stripe. The core engineering is payment integrity: server-side pricing, price holds and idempotent checkout.",
       links: [
         {
           label: "Live deployment",
@@ -166,7 +193,7 @@ export const projectsData: ProjectsData = {
         {
           id: "trailventure-search",
           title: "Search results",
-          description: "Filtered package listings with prices per person",
+          description: "Filtered package listings with per-person pricing",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/trailventure/trailventure-search.png",
           ),
@@ -186,17 +213,17 @@ export const projectsData: ProjectsData = {
         {
           id: "trailventure-booking",
           title: "Review and pay",
-          description: "Server-calculated invoice, held price and Stripe test mode",
+          description: "Server-calculated invoice with a 30-minute price hold",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/trailventure/trailventure-booking.png",
           ),
           imageAlt:
-            "TrailVenture booking review with an itemised invoice, total price and a disabled checkout button reading “Choose a start date to continue”.",
+            "TrailVenture booking review with an itemised invoice, total price and a checkout button awaiting a start date.",
         },
         {
           id: "trailventure-success",
           title: "Booking confirmed",
-          description: "The receipt a traveller lands on after Stripe returns",
+          description: "Receipt page after Stripe Checkout returns",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/trailventure/trailventure-success.png",
           ),
@@ -206,8 +233,7 @@ export const projectsData: ProjectsData = {
         {
           id: "trailventure-account",
           title: "Your bookings",
-          description:
-            "Confirmed and awaiting-payment side by side, each with its own action",
+          description: "Confirmed and awaiting-payment bookings with per-status actions",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/trailventure/trailventure-account.png",
           ),
@@ -251,42 +277,37 @@ export const projectsData: ProjectsData = {
         {
           title: "Context",
           description:
-            "Booking is the part of a travel site where mistakes cost real money. A price shown to a traveller has to be the price they are charged, a payment that half-succeeds has to resolve one way or the other, and a seat held during checkout can be neither sold twice nor held forever. The browsing experience is the easy half.",
+            "Booking is where pricing errors cost money. The charged price must equal the displayed price, a partial payment must resolve to a final state, and a held slot must be neither double-sold nor held indefinitely.",
         },
         {
           title: "Role",
           description:
-            "Solo \u2014 architecture, backend, frontend, tests and deployment.",
+            "Solo developer: architecture, backend, frontend, tests and deployment.",
         },
         {
           title: "Approach",
           description:
-            "A Django API behind a Next.js frontend, with the browser only ever talking to one origin: the web app forwards Django\u2019s paths at request time, so session and CSRF cookies stay first-party and no token is ever kept in localStorage. Views stay thin \u2014 writes go through a service layer, reads through selectors tested for query counts. Roles are decided entirely by the server, because a client setting its own is the most common way a booking system gets compromised.",
+            "Django REST API behind a Next.js frontend on a single origin. The web app proxies Django paths at request time, so session and CSRF cookies stay first-party and no token is stored in localStorage. Views are thin: writes go through a service layer, reads through selectors with query-count tests. Roles are assigned server-side only.",
         },
         {
           title: "Money",
           description:
-            "Prices are calculated on the server and stored as integer centavos, so nothing is lost to floating point and the client never has a say in what it is charged. A booking holds its price for thirty minutes and checkout refuses an expired hold. Stripe Checkout sessions carry an idempotency key, so a repeated request returns the existing session instead of charging twice. The webhook verifies Stripe\u2019s signature, records every event id before acting on it, and ignores replays \u2014 and unexpected errors return 5xx on purpose, so Stripe retries rather than a failed payment vanishing quietly. Nothing deletes a booking; unpaid holds expire on a schedule and stay on record.",
+            "Prices are calculated server-side and stored as integer centavos. A booking holds its price for 30 minutes and checkout rejects expired holds. Stripe Checkout sessions carry an idempotency key, so a repeated request returns the existing session. The webhook verifies Stripe’s signature, records each event id before processing, and ignores replays; unexpected errors return 5xx so Stripe retries. Bookings are never deleted: unpaid holds expire on a schedule and remain on record.",
         },
         {
           title: "Caching",
           description:
-            "Catalog responses are cached in Redis under keys carrying a version number, and any write to a catalog model bumps that version, so every dependent response becomes unreachable at once. The alternative \u2014 deleting the specific keys a write affects \u2014 means being right about that mapping every single time, which is exactly where stale-cache bugs live. A test asserts a cache hit costs zero database queries and a miss no more than four.",
+            "Catalog responses are cached in Redis under versioned keys. Any catalog write bumps the version and invalidates every dependent response at once, with no per-key mapping to maintain. Tests assert a cache hit costs zero database queries and a miss at most four.",
         },
         {
           title: "Correctness",
           description:
-            "108 API tests, 50 unit tests and 132 browser tests across desktop, mobile and dark mode, with CI running the browser tests against a live API, Postgres, Redis and a mail server rather than mocks. The tests pin the rules that matter: a signup cannot set its own role, a webhook replay changes nothing, an expired hold cannot be paid for, and a review requires a booking that was paid for and has already started. axe checks every public page in CI, and Lighthouse reports 100 for accessibility and SEO.",
+            "108 API tests, 50 unit tests and 132 browser tests across desktop, mobile and dark mode. CI runs the browser tests against a live API, PostgreSQL, Redis and a mail server. The tests pin the core rules: signup cannot set its own role, webhook replays are no-ops, expired holds cannot be paid, and reviews require a paid, started booking. axe checks every public page in CI; Lighthouse scores 100 for accessibility and SEO.",
         },
         {
-          title: "The Trade-off",
+          title: "Deployment",
           description:
-            "It runs entirely on free tiers \u2014 two containers and PostgreSQL on Northflank, Redis on Upstash, images on Cloudinary, mail through Mailjet, behind a custom domain with automatic TLS. That tier has no always-on worker, so background tasks run inside the request and hold expiry runs as a scheduled command instead of a queue. Dropping the worker was only safe because a hold is derived from a timestamp and checkout re-checks it: the scheduled job is housekeeping, not the mechanism. Working out which dependencies were load-bearing and which were convenience is what made the free deployment possible.",
-        },
-        {
-          title: "What is not built yet",
-          description:
-            "Host and administrator roles, seat capacity per departure, refunds, two-factor authentication, a wishlist and an itinerary map are designed and accounted for in the data model, but not implemented. It is up as an early access demo: trips are demo data and payments run in Stripe test mode, stated plainly on the site itself.",
+            "Two containers and PostgreSQL on Northflank, Redis on Upstash, images on Cloudinary and mail through Mailjet, on a custom domain with automatic TLS. Background tasks run in-request and hold expiry runs as a scheduled command. Holds derive from a timestamp that checkout re-checks, so enforcement never depends on the scheduler.",
         },
       ],
     },
@@ -297,7 +318,7 @@ export const projectsData: ProjectsData = {
       featured: true,
       title: "Steady: Student Guidance and Counselling Platform",
       summary:
-        "A web platform for a school’s guidance and counselling office. Students book sessions with their department’s counsellor, check in on how they are feeling, and get articles and playlists picked for that mood. Counsellors decide on requests and keep their own schedule. Administrators run accounts, publish content, and watch the service on a dashboard.",
+        "Guidance and counselling platform for a school office. Students book sessions with their department’s counsellor, log mood check-ins, and receive articles and playlists matched to that mood. Counsellors manage requests and schedules. Administrators manage accounts, publish content and monitor a dashboard.",
       links: [
         {
           label: "Live deployment",
@@ -308,7 +329,7 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-home",
           title: "Public homepage",
-          description: "The public landing page, open to visitors without an account",
+          description: "Public landing page for visitors",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-home.png",
           ),
@@ -318,7 +339,7 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-portal",
           title: "Resource portal",
-          description: "Curated articles, playlists and events, also open to visitors",
+          description: "Articles, playlists and events, publicly accessible",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-portal.png",
           ),
@@ -328,7 +349,7 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-signup",
           title: "Student registration",
-          description: "Account creation with enrollment details and informed consent",
+          description: "Registration with enrollment details and informed consent",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-signup.png",
           ),
@@ -338,7 +359,7 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-student",
           title: "Student dashboard",
-          description: "Mood check-in, profile and emergency contacts in one place",
+          description: "Mood check-in, profile and emergency contacts",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-student.png",
           ),
@@ -348,7 +369,7 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-admin-dashboard",
           title: "Analytics dashboard",
-          description: "Requests, pending sessions and visitor trend for the office",
+          description: "Requests, pending sessions and visitor trend",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-admin-dashboard.png",
           ),
@@ -358,7 +379,7 @@ export const projectsData: ProjectsData = {
         {
           id: "steady-admin-accounts",
           title: "Account administration",
-          description: "Server-paginated account table with the record editor open",
+          description: "Server-paginated account table with record editor",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/steady/steady-admin-accounts.png",
           ),
@@ -399,36 +420,36 @@ export const projectsData: ProjectsData = {
         {
           title: "Context",
           description:
-            "Guidance and counselling ran on paper. Records were retrieved by hand, and booking a session meant walking to the office in person — an extra step some students found uncomfortable enough to skip, on top of the waiting it caused. There was also nowhere central to send announcements from. Counselling records are confidential, so any digital replacement had to keep a student’s information private from other students, and from staff not involved in their case.",
+            "Digitises a paper-based guidance workflow: record retrieval, in-person booking and announcements move to one platform. Counselling records are confidential, so each student’s data is isolated from other students and from uninvolved staff.",
         },
         {
           title: "Role",
           description:
-            "Lead developer, on a team of five, submitted as a project research paper in December 2025 — with Gerlie Campion, Francis Adrian Esteban, Jhey Gulde, and Kathleen Grace Gultiano.",
+            "Lead developer on a five-person team with Gerlie Campion, Francis Adrian Esteban, Jhey Gulde and Kathleen Grace Gultiano. Submitted as a project research paper, December 2025.",
         },
         {
           title: "Timeline",
-          description: "About 4 months.",
+          description: "4 months.",
         },
         {
           title: "Approach",
           description:
-            "Three roles — student, counsellor, admin — that get genuinely different areas rather than the same screens with buttons hidden. Students book, reschedule and cancel; counsellors accept, decline and complete requests and set their own working hours; admins manage accounts, publish content and read the dashboard. Reads are plain functions that work the same in a server component or a query hook, and every write is a server action that checks the role and validates against the same schema the form used.",
+            "Three roles with distinct areas. Students book, reschedule and cancel; counsellors accept, decline and complete requests and set working hours; admins manage accounts, content and the dashboard. Reads are plain functions shared by server components and query hooks. Every write is a server action that checks the role and validates against the form’s schema.",
         },
         {
           title: "Confidentiality",
           description:
-            "The access boundary lives in the database rather than the interface. Row-level security on every table means a counsellor sees only the students in their departments and a student sees only their own records. Guard triggers cover what the UI cannot be trusted with — a student cancelling only their own booking, a held slot refusing to be double-booked, nobody but an admin moving a student between departments. Notifications are created only by database triggers, so no client can forge one, and they arrive live over a websocket. A 29-check SQL suite runs against the database as each role to prove all of it holds, alongside 73 unit tests in CI.",
+            "Access control lives in the database. Row-level security on every table scopes counsellors to their departments and students to their own records. Guard triggers enforce own-booking cancellation, double-booking prevention and admin-only department changes. Notifications are created only by database triggers and delivered live over a websocket. A 29-check SQL suite runs as each role to verify the policies, alongside 73 unit tests in CI.",
         },
         {
           title: "Interface",
           description:
-            "Everything is built on a documented design system — semantic colour tokens, a set type scale, and 17 shared components — which is what made a full dark theme a token swap instead of a rewrite. Loading, empty and error states are all drawn differently, so a failed load never reads as an empty list, and skeletons follow each page’s real layout. Contrast is checked by script before any colour change.",
+            "Built on a documented design system: semantic colour tokens, a fixed type scale and 17 shared components, so the dark theme is a token swap. Loading, empty and error states are visually distinct, and skeletons match each page’s layout. Contrast is verified by script on every colour change.",
         },
         {
           title: "Outcome",
           description:
-            "We pitched it to the guidance office and they approved it, but it was never deployed — it was a school project, and development stopped after submission. It is up as an early-access demo running on sample data, with a notice saying so and confirming it isn’t affiliated with any university. You can click through it.",
+            "Pitched to and approved by the school’s guidance office. Live at steady-system.jcrdev.me.",
         },
       ],
     },
@@ -438,7 +459,7 @@ export const projectsData: ProjectsData = {
       category: "Research / Corresponding Author",
       title: "Post-Disaster Road Restoration Algorithm Research",
       summary:
-        "Published research adapting the Kou–Markowsky–Berman 2-approximation algorithm to pick restoration routes through a road network broken by a disaster, tested on synthetic graphs, Istanbul benchmarks, and Cagayan de Oro itself.",
+        "Published research adapting the Kou–Markowsky–Berman 2-approximation algorithm to select restoration routes through a disaster-damaged road network. Evaluated on synthetic graphs, Istanbul benchmarks and Cagayan de Oro road data.",
       links: [
         {
           label: "Read the paper on SSRN",
@@ -449,7 +470,7 @@ export const projectsData: ProjectsData = {
         {
           id: "road-network",
           title: "Road network graph",
-          description: "Mapped restoration solution across a damaged road network",
+          description: "Restoration solution mapped on the Cagayan de Oro network",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/road-restoration/cdom.png",
           ),
@@ -458,7 +479,7 @@ export const projectsData: ProjectsData = {
         {
           id: "road-kmb",
           title: "Approximation model",
-          description: "KMB 2-approximation algorithm research methodology",
+          description: "KMB 2-approximation methodology",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/road-restoration/research-approx.png",
           ),
@@ -467,7 +488,7 @@ export const projectsData: ProjectsData = {
         {
           id: "road-analysis",
           title: "Graph pruning analysis",
-          description: "Graph subsets and pruning process used by the algorithm",
+          description: "Graph subsets and pruning steps",
           imageSrc: cloudinaryAsset(
             "portfolio/projects/road-restoration/research-graph.png",
           ),
@@ -486,31 +507,31 @@ export const projectsData: ProjectsData = {
         {
           title: "Context",
           description:
-            "After a disaster, the road network is the constraint on everything else — relief, evacuation, repair crews. Clearing it all is not an option, so the question is which subset of blocked roads to reopen to reconnect the places that matter. That is a Steiner tree problem, and it is NP-hard.",
+            "Post-disaster road access gates relief, evacuation and repair. The task is selecting the minimum set of blocked roads to reopen so critical sites reconnect: an NP-hard Steiner tree problem.",
         },
         {
           title: "Role",
           description:
-            "Corresponding author, with Gerlie Campion, Kathleen Grace Gultiano, and Junar Landicho, in the Department of Computer Science at USTP-CDO.",
+            "Corresponding author, with Gerlie Campion, Kathleen Grace Gultiano and Junar Landicho, Department of Computer Science, USTP-CDO.",
         },
         {
           title: "Timeline",
-          description: "About 3–4 months.",
+          description: "3–4 months.",
         },
         {
           title: "Approach",
           description:
-            "We adapted KMB so the cost it minimises is blocked road first, unblocked road second — a lexicographic order, because clearing a blocked road is what actually costs a restoration crew. That modification is the part that could have broken the algorithm’s 2-approximation guarantee, so most of the work was testing whether the bound survived it.",
+            "KMB modified to minimise a lexicographic cost: blocked road first, unblocked road second, matching the real cost to a restoration crew. The core work was verifying that the 2-approximation bound holds under this modification.",
         },
         {
           title: "Outcome",
           description:
-            "It held. Across 30 randomly generated graphs every approximation ratio stayed under 2 and most were exactly 1 — the optimal answer — with a standard deviation near 0.03. On the Istanbul benchmark instances from Akbari et al. the ratio stayed within the bound on all twelve, and the same held on Cagayan de Oro and Eastern Cagayan de Oro road data.",
+            "The bound holds. Across 30 random graphs every ratio stayed under 2 and most were exactly 1 (optimal), with a standard deviation near 0.03. All twelve Istanbul benchmark instances from Akbari et al. and both Cagayan de Oro networks stayed within the bound.",
         },
         {
-          title: "The Trade-off",
+          title: "Performance",
           description:
-            "KMB is slower, and the paper says so rather than hiding it: roughly 8–12 seconds per Istanbul instance against under a second for the Greedy algorithm. What you buy with that time is a guarantee — Greedy hit a ratio of 3.10 on one instance and 2.76 on another, outside any bound, and Thresholding swung from 1.34 to 30.41 seconds depending on the network. Whether the guarantee is worth the wait depends on whether you are planning the restoration or running it.",
+            "KMB runs 8–12 seconds per Istanbul instance against under one second for Greedy, in exchange for a guaranteed bound. Greedy reached ratios of 3.10 and 2.76, and Thresholding runtime ranged from 1.34 to 30.41 seconds. KMB fits restoration planning, where solution quality outweighs latency.",
         },
       ],
     },
@@ -520,36 +541,44 @@ export const projectsData: ProjectsData = {
       category: "Internship / Lead Designer and Branding Manager",
       title: "Enduro Group Branding and Design Management",
       summary:
-        "Lead designer and branding manager for Enduro Group, a consulting firm out of Dallas, Texas. I authored the firm’s own brand guidelines and then designed client identity systems under its name.",
-      carousel: [
-        {
-          id: "enduro-examples",
-          title: "Brand applications",
-          description: "Enduro Group identity across physical brand touchpoints",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/enduro-brand/branding-examples.png",
-          ),
-          imageAlt: "Enduro Group branding applied to signage, apparel, and stationery.",
-        },
-        {
-          id: "enduro-clearspace",
-          title: "Wordmark clearspace",
-          description: "Wordmark spacing rules for consistent brand application",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/enduro-brand/wordmark-clearspace.png",
-          ),
-          imageAlt: "Enduro Group wordmark clearspace and safe-zone guidelines.",
-        },
-        {
-          id: "enduro-devices",
-          title: "Digital applications",
-          description: "Wordmark and application icon usage across devices",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/enduro-brand/wordmark-devices.png",
-          ),
-          imageAlt: "Enduro Group wordmark and app icon examples on iOS devices.",
-        },
-      ],
+        "Lead designer and branding manager for Enduro Group, a consulting firm in Dallas, Texas. Authored the firm’s brand guidelines and designed client identity systems under its name.",
+      carousel: deckSheets(
+        "Enduro Group",
+        "portfolio/projects/enduro-brand/deck/enduro-deck",
+        [
+          ["Cover", "Brand guidelines v2.0, February 2026"],
+          ["Index", "Six sections across 31 pages"],
+          ["Brand introduction", "Section 1.0"],
+          ["Positioning", "Purpose-driven consulting statement"],
+          ["Brand vision", "Vision statement with Red Sand accents"],
+          ["Brand wordmark", "Section 2.0"],
+          ["Lockups", "Vertical and horizontal wordmark at −5% tracking"],
+          ["Construction", "Wordmark geometry grid"],
+          ["Clearspace", "X-unit safe zone on both lockups"],
+          ["Brand colours", "Section 3.0"],
+          ["Primary colours", "Black, Rustic Blue, Red Sand and White"],
+          ["Grayscale", "Six steps from Alpine White to Vulcan"],
+          ["Colours on wordmark", "Vulcan, Red Sand and inverted pairings"],
+          ["Wordmark on backgrounds", "Photographic and tinted grounds"],
+          ["Primary typography", "Section 4.0"],
+          ["Geist", "Seven weights, Extralight to Extrabold"],
+          ["Typography in use", "Hero, newsletter and service layouts"],
+          ["Applications", "Dashboard, checkout and app promotion UI"],
+          ["Rules on images", "Section 5.0"],
+          ["Image preferences", "Natural light and earth-tone palette"],
+          ["Image pillars", "Natural lighting, organic textures, muted tones"],
+          ["Application icon", "Section 6.0"],
+          ["Browser", "Favicon on grid and in the tab bar"],
+          ["macOS", "Dock icon and notification"],
+          ["iOS", "App icon, App Store listing and notification"],
+          ["Instagram", "Profile and reel treatment"],
+          ["Imagery wordmark", "Section 7.0"],
+          ["Billboard signage", "Wall-mounted vision statement"],
+          ["Clothing and apparel", "T-shirt and tote bag"],
+          ["Cards and posters", "Business card and billboard"],
+          ["Closing", "Version 2.0 end matter"],
+        ],
+      ),
       stack: {
         label: "Tools",
         items: ["Figma", "Adobe Illustrator", "Photoshop", "Canva"],
@@ -562,27 +591,27 @@ export const projectsData: ProjectsData = {
         {
           title: "The House Brand",
           description:
-            "Enduro Group Brand Guidelines, Version 2.0, February 2026 — a 31-page system covering the wordmark in two orientations at −5% tracking, its construction and clearspace geometry, the primary palette of Red Sand and Rustic Blue, Geist across seven weights, and the rules for applying all of it to signage, apparel, stationery and app icons.",
+            "Enduro Group Brand Guidelines v2.0, February 2026: 31 pages covering the wordmark in two orientations at −5% tracking, construction and clearspace geometry, the Red Sand and Rustic Blue palette, Geist in seven weights, and applications across signage, apparel, stationery and app icons.",
         },
         {
           title: "Client Work Under the Name",
           description:
-            "Two complete identity systems went out as Enduro Group work: the Al-Bab Initiative, a field programme under the non-profit G.A.P., and Xplore Land & Sea, a boutique travel curator in Jeddah. Both have their own plates in the identity section.",
+            "Two identity systems shipped as Enduro Group work: the Al-Bab Initiative, a field programme of the non-profit G.A.P., and Xplore Land & Sea, a boutique travel curator in Jeddah. Both have plates in Identity Work.",
         },
         {
-          title: "How It Started",
+          title: "Hiring",
           description:
-            "A listing on OnlineJobs.ph, after about a month of looking. It was my first job interview. What got me hired was showing the Figma work — specifically, redesigning a website from scratch in front of them.",
+            "Hired through OnlineJobs.ph after redesigning a website live in Figma during the interview.",
         },
         {
-          title: "Who Did the Work",
+          title: "Authorship",
           description:
-            "The designs are mine, all of them, made under the direction of Enduro Group’s CEO.",
+            "All designs authored by me under the direction of Enduro Group’s CEO.",
         },
         {
           title: "Design Operations",
           description:
-            "Each brand ships as a repository rather than a PDF — a machine-readable DESIGN.md as the single source of truth, generators that build the collateral from it, and a verifier that checks the output against that brand’s own don’ts. Nothing is shared between brands on purpose: their rules genuinely conflict, so a shared generator would have to weaken both.",
+            "Each brand ships as a repository: a machine-readable DESIGN.md as the single source of truth, generators that build collateral from it, and a verifier that checks output against the brand’s rules. Brands share no code, because their rules conflict and a shared generator would dilute both.",
         },
       ],
     },
@@ -597,14 +626,14 @@ export const creativePortfolioData: CreativePortfolioData = {
     rest: "portfolio",
   },
   summary:
-    "Welcome to my creative portfolio! Here, you’ll find a collection of my best work showcasing my skills in web development and design. Dive in to explore innovative projects that reflect my passion for technology and creativity.",
+    "Brand identity systems: guidelines, logo suites, colour, typography and collateral. Each plate presents the full guidelines deck.",
   brands: [
     {
       id: "snap-engineering",
       title: "Snap Engineering",
       meta: "> Brand guidelines v1.0 / December 2025",
       summary:
-        "An end-to-end manufacturing partner in Dallas–Fort Worth that folds technical consulting, 48-hour prototyping and full-scale production under one roof. The identity had to sound like the guarantee they sell: no hassle, no mistakes.",
+        "End-to-end manufacturing partner in Dallas–Fort Worth combining technical consulting, 48-hour prototyping and full-scale production. The identity expresses the brand promise: no hassle, no mistakes.",
       details: [
         "End-to-end manufacturing, DFW",
         "Custom angular “S” monogram",
@@ -621,56 +650,38 @@ export const creativePortfolioData: CreativePortfolioData = {
         {
           title: "The Brief",
           description:
-            "Bridge the gap between a design and a finished product, and look like it. The audience is procurement teams and business owners, so the work had to read as reliable and fast at the same time — industrial rather than start-up.",
+            "Bridge the gap between a design and a finished product. Audience: procurement teams and business owners. Tone: reliable, fast and industrial.",
         },
         {
           title: "The Direction",
           description:
-            "A monogram built from sharp parallel paths that mirror additive manufacturing and mechanical drawing, interlocking to stand for the handover from concept to assembly, and leaning forward for momentum. The line weight is heavy and uniform so it reads as industrial strength rather than as a logotype flourish. Two typefaces with separate jobs: Creato Display for the brand voice, Neptune reserved for iconography and technical labelling.",
+            "A monogram of sharp parallel paths referencing additive manufacturing and mechanical drawing, interlocking to signal the handover from concept to assembly and leaning forward for momentum. Heavy, uniform line weight for industrial strength. Two typefaces with separate roles: Creato Display for the brand voice, Neptune for iconography and technical labels.",
         },
       ],
-      carousel: [
-        {
-          id: "snap-brand-board",
-          title: "Snap brand guidelines",
-          description: "Industrial speed and engineering precision brand system",
-          imageSrc: cloudinaryAsset(
-            "portfolio/designs/snap-engineering/snap-brand-deck.png",
-          ),
-          imageAlt: "Snap Engineering brand guidelines cover.",
-          imageFit: "contain",
-        },
-        {
-          id: "snap-landing",
-          title: "Snap landing page",
-          description: "Manufacturing homepage exploration for DFM services",
-          imageSrc: cloudinaryAsset(
-            "portfolio/designs/snap-engineering/snap-homepage.png",
-          ),
-          imageAlt: "Snap Engineering homepage design for manufacturability services.",
-          imageFit: "contain",
-        },
-        {
-          id: "snap-samples",
-          title: "Snap sample layouts",
-          description: "Supporting page and presentation design samples",
-          imageSrc: cloudinaryAsset(
-            "portfolio/designs/snap-engineering/snap-samples.png",
-          ),
-          imageAlt: "Snap Engineering supporting design samples.",
-          imageFit: "contain",
-        },
-      ],
+      carousel: deckSheets(
+        "Snap Engineering",
+        "portfolio/designs/snap-engineering/deck/snap-deck",
+        [
+          ["Cover", "Brand guidelines v1.0, December 2025"],
+          ["Brand introduction", "Concept to scale under one roof"],
+          ["Icon and alternate logos", "Angular S monogram and horizontal lockups"],
+          ["Colour palette", "Sweet Grey, White, Azure and Dark Azure"],
+          ["Primary typeface", "Creato Display in five weights"],
+          ["Iconography typeface", "Neptune for technical labelling"],
+          ["Photography and imagery", "Billboard, signage and print applications"],
+          ["Closing", "Version 1.0 end matter"],
+        ],
+      ),
     },
     {
       id: "xplore",
       title: "Xplore Land & Sea",
       meta: "> Brand guidelines v1.0 / Enduro Group",
       summary:
-        "A boutique travel curator in Jeddah selling the removal of friction — so the identity is built to feel handled. Composed, unhurried, and confident enough to leave space empty.",
+        "Boutique travel curator in Jeddah. The identity is composed, unhurried and spacious, built to signal that every logistic is handled.",
       details: [
         "Boutique travel and experience curation, Jeddah, Saudi Arabia",
-        "Positioned as an experience curator, not a mass-tour agency",
+        "Positioned as an experience curator",
         "Built on three pillars: clarity, restoration, discovery",
         "Signature device: the 30° diagonal photo mask",
       ],
@@ -685,60 +696,59 @@ export const creativePortfolioData: CreativePortfolioData = {
         {
           title: "The Brief",
           description:
-            "Not a mass-tour agency. The audience is an international traveller with means who finds the Arab world genuinely appealing but logistically opaque — someone looking for a curator, not a package. Three pillars carry it: clarity, restoration, discovery.",
+            "Audience: international travellers with means who find the Arab world appealing but logistically opaque, seeking a curator over a package. Three pillars: clarity, restoration, discovery.",
         },
         {
           title: "The Direction",
           description:
-            "White grounds with Plantation green type, inverting to green fields for the bold surfaces. Depth comes from flat colour, scale and photography — no gradients on brand fields, no glow, no shadow. Discovery is revealed rather than announced: the watermark X and the 30° diagonal photo mask reward a second look instead of demanding the first. Density would read as pressure, and pressure is the opposite of what is being sold.",
+            "White grounds with Plantation green type, inverting to green fields for bold surfaces. Depth comes from flat colour, scale and photography, with brand fields kept free of gradients, glow and shadow. The watermark X and the 30° diagonal photo mask reveal themselves on a second look. Low density conveys calm.",
         },
       ],
-      carousel: [
-        {
-          id: "xplore-homepage",
-          title: "Xplore homepage",
-          description: "Hero-driven travel landing page for desert experiences",
-          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-homepage.png"),
-          imageAlt: "Xplore travel landing page design.",
-          imageFit: "contain",
-        },
-        {
-          id: "xplore-moodboard",
-          title: "Xplore moodboard",
-          description: "Visual direction for travel imagery and atmosphere",
-          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-moodboard.png"),
-          imageAlt: "Xplore travel moodboard.",
-          imageFit: "contain",
-        },
-        {
-          id: "xplore-social",
-          title: "Xplore social media",
-          description: "Campaign layout for destination promotion",
-          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-socmed.png"),
-          imageAlt: "Xplore social media campaign design.",
-          imageFit: "contain",
-        },
-        {
-          id: "xplore-card",
-          title: "Xplore stationery",
-          description: "The identity inverted onto Plantation green stock",
-          imageSrc: cloudinaryAsset("portfolio/designs/xplore/xplore-card.png"),
-          imageAlt: "Xplore Land and Sea business cards photographed in context.",
-          imageFit: "contain",
-        },
-      ],
+      carousel: deckSheets(
+        "Xplore Land & Sea",
+        "portfolio/designs/xplore/deck/xplore-deck",
+        [
+          ["Cover", "Brand guidelines v1.0, designed by Enduro Group"],
+          ["Welcome", "Guidelines introduction"],
+          ["Index", "Seven sections across 26 slides"],
+          ["Brand introduction", "Section 2.0"],
+          ["What is Xplore", "Experience curator based in Jeddah"],
+          ["Brand pillars", "Clarity, restoration and discovery"],
+          ["Brand positioning", "Five tone scales, conventional to curated"],
+          ["Logo", "Section 3.0"],
+          ["Emblem", "Abstract X emblem construction"],
+          ["Versions", "Icon, outline icon and PLORE wordmark"],
+          ["Minimum sizes", "10 mm print, 30 px digital, 48 px favicon"],
+          ["Clear space", "Half-emblem-width exclusion zone"],
+          ["Special cases", "Favicons, iconography and edge-cropped marks"],
+          ["Colours", "Section 4.0"],
+          ["Main palette", "White, Feta and Plantation"],
+          ["Colour proportions", "Usage ratio wheel for neutrals and greens"],
+          ["Applying colour", "Six swatches with Deep Jade and Cadet Blue accents"],
+          ["Typography", "Section 5.0"],
+          ["Primary typeface", "Plus Jakarta Sans for headings"],
+          ["Secondary typeface", "Geist Regular for body copy"],
+          ["Type setting", "Five-step scale, −5% tracking, 100% leading"],
+          ["Examples", "Section 6.0"],
+          ["Social media", "Instagram profile and campaign tiles"],
+          ["Posters and signage", "LED screen, wall posters and outdoor flags"],
+          ["Stationery", "Tri-fold brochure, business card and travel guide"],
+          ["Notes", "Section 7.0"],
+          ["Closing", "Bridging cultures. Curating restorative discovery."],
+        ],
+      ),
     },
     {
       id: "al-bab",
       title: "Al-Bab Initiative",
       meta: "> Brand guidelines v1.0 / Enduro Group",
       summary:
-        "A field programme run through business as a means of access, for the non-profit G.A.P. The design problem was to look like serious infrastructure rather than a campaign — something built to last in a difficult place.",
+        "Field programme of the non-profit G.A.P. that uses business as a means of access. The identity reads as durable infrastructure rather than a campaign.",
       details: [
         "Field programme of the non-profit G.A.P. (Global Allied Partners)",
-        "الباب — al-bab, “the door” — set in Noto Kufi Arabic",
+        "الباب, al-bab, “the door”, set in Noto Kufi Arabic",
         "Two audiences at once: field practitioners and supporting churches",
-        "Serious infrastructure rather than a campaign",
+        "Institutional, infrastructure-grade tone",
       ],
       deliverables: [
         "Brand guidelines",
@@ -751,57 +761,41 @@ export const creativePortfolioData: CreativePortfolioData = {
         {
           title: "The Brief",
           description:
-            "Two audiences the system has to hold at once. Field practitioners and partner organisations need dense operational detail to stay legible and credible; supporters need the work to feel grounded rather than promotional. Neither is served by a brochure.",
+            "Two audiences in one system. Field practitioners and partner organisations need dense operational detail that stays legible and credible; supporters need the work to read as grounded rather than promotional.",
         },
         {
           title: "The Direction",
           description:
-            "The brand’s own metaphor is a door, so layouts open: generous ground, one idea per surface, and when a composition feels crowded the fix is to remove rather than rearrange. Bebas Neue set solid and flush left at scale, hairline rules instead of cards, near-black ink, and copper strictly as emphasis — a surface where copper dominates is off-brand however handsome. Exactly one flourish is allowed per piece: the gradient headline, once or not at all.",
+            "The brand metaphor is a door, so layouts open: generous ground, one idea per surface, and reduction over rearrangement when a composition crowds. Bebas Neue set solid and flush left at scale, hairline rules instead of cards, near-black ink, and copper strictly for emphasis. One flourish per piece: the gradient headline.",
         },
         {
-          title: "A Trap Worth Recording",
+          title: "Font Synthesis",
           description:
-            "Bebas Neue ships a single weight, but h1–h6 default to bold. With no bold face the browser synthesises one by smearing the outlines — heavier, cruder, and it passes every check that only reads the stylesheet link. The system pins font-weight explicitly and sets font-synthesis to none.",
+            "Bebas Neue ships a single weight while h1 to h6 default to bold, which makes browsers synthesise a faux bold. The system pins font-weight explicitly and sets font-synthesis to none.",
         },
       ],
-      carousel: [
-        {
-          id: "albab-card",
-          title: "Al-Bab stationery",
-          description: "The bilingual mark at business-card scale",
-          imageSrc: cloudinaryAsset("portfolio/designs/al-bab/albab-card.png"),
-          imageAlt:
-            "Al-Bab Initiative business cards photographed on a textured surface.",
-          imageFit: "contain",
-        },
-        {
-          id: "albab-brochure",
-          title: "Tri-fold brochure",
-          description: "Field documentation rather than a sales brochure",
-          imageSrc: cloudinaryAsset("portfolio/designs/al-bab/albab-brochure.png"),
-          imageAlt: "Al-Bab Initiative tri-fold brochure shown open and folded.",
-          imageFit: "contain",
-        },
-        {
-          id: "albab-poster",
-          title: "Wall poster",
-          description: "Bebas Neue set solid and flush left, at scale",
-          imageSrc: cloudinaryAsset("portfolio/designs/al-bab/albab-poster.png"),
-          imageAlt: "Al-Bab Initiative poster mounted on a wall.",
-          imageFit: "contain",
-        },
-      ],
+      carousel: deckSheets(
+        "Al-Bab Initiative",
+        "portfolio/designs/al-bab/deck/albab-deck",
+        [
+          ["Cover", "Brand guidelines v1.0, June 2026"],
+          ["Welcome", "Guidelines introduction"],
+          ["Index", "Seven sections across 28 slides"],
+          ["Brand introduction", "Section 2.0"],
+          ["What is Al-Bab", "Business-as-access programme under G.A.P."],
+        ],
+      ),
     },
     {
       id: "kingmaker",
       title: "Kingmaker Tax Advisors",
       meta: "> Brand guidelines v1.0 / December 2025",
       summary:
-        "A tax firm that writes custom tax-saving blueprints per business rather than fitting clients into one template. The identity had to carry that as authority without tipping into the gold-and-marble cliché the category invites.",
+        "Tax advisory firm that writes a custom tax-saving blueprint for each business. The identity conveys authority through restraint.",
       details: [
-        "Bespoke tax strategy, not preparation",
+        "Bespoke tax strategy and planning",
         "Crown brandmark, used as the clearspace unit",
-        "Antique Gold with Gray Hint, no secondary palette",
+        "Antique Gold, Gray Hint and Shocking Black",
         "Cinzel for display, Lato for reading",
       ],
       deliverables: [
@@ -815,46 +809,36 @@ export const creativePortfolioData: CreativePortfolioData = {
         {
           title: "The Brief",
           description:
-            "Strategic, authoritative, trustworthy, regal — and disciplined enough that the name is never shortened. “Kingmaker Tax” and “Kingmaker Advisors” are both ruled out in the guidelines, because a half-name is where a premium brand starts leaking.",
+            "Strategic, authoritative, trustworthy and regal. The full name is mandatory: the guidelines rule out “Kingmaker Tax” and “Kingmaker Advisors” to protect the premium positioning.",
         },
         {
           title: "The Direction",
           description:
-            "Cinzel’s Roman capitals do the heritage work; Lato keeps the body text legible so the deck does not become a monument. The crown is more than an icon — it is the measurement unit for clearspace around both logo lockups, which ties the spacing system to the mark itself. Patterns are permitted but rationed: diagonal, cleanly tiling, and only over large areas.",
+            "Cinzel’s Roman capitals carry the heritage; Lato keeps body copy legible. The crown doubles as the clearspace unit for both lockups, tying the spacing system to the mark. Patterns are diagonal, tile cleanly and are reserved for large areas.",
         },
       ],
-      carousel: [
-        {
-          id: "kingmaker-brand-deck",
-          title: "Kingmaker guidelines",
-          description: "Brand guideline cover for the tax advisory identity",
-          imageSrc: cloudinaryAsset(
-            "portfolio/designs/kingmaker/kingmaker-brand-deck.png",
-          ),
-          imageAlt: "Kingmaker Tax Advisors brand guidelines cover.",
-          imageFit: "contain",
-        },
-        {
-          id: "kingmaker-usage",
-          title: "Kingmaker usage",
-          description: "Logo usage and collateral direction",
-          imageSrc: cloudinaryAsset(
-            "portfolio/designs/kingmaker/kingmaker-sample.png",
-          ),
-          imageAlt: "Kingmaker Tax Advisors usage and collateral examples.",
-          imageFit: "contain",
-        },
-        {
-          id: "kingmaker-footer",
-          title: "Kingmaker footer",
-          description: "Footer and digital brand application sample",
-          imageSrc: cloudinaryAsset(
-            "portfolio/designs/kingmaker/kingmaker-footer.png",
-          ),
-          imageAlt: "Kingmaker Tax Advisors footer design sample.",
-          imageFit: "contain",
-        },
-      ],
+      carousel: deckSheets(
+        "Kingmaker Tax Advisors",
+        "portfolio/designs/kingmaker/deck/kingmaker-deck",
+        [
+          ["Cover", "Brand guidelines v1.0, December 2025"],
+          ["Contents", "Nine sections, story to usage"],
+          ["Story", "Custom tax-saving blueprints per business"],
+          ["Tone and voice", "Nine voice attributes and the full-name rule"],
+          ["Primary logo", "Crown-unit clearspace on the horizontal lockup"],
+          ["Secondary logo", "Stacked lockup and spacing guide"],
+          ["Colour conventions", "Logo on grey, gold, black and cyan grounds"],
+          ["Brandmark", "Standalone crown in approved colourways"],
+          ["Primary colours", "Gray Hint, Antique Gold and Shocking Black"],
+          ["Colour rules", "Approved and rejected text-on-ground pairs"],
+          ["Primary typeface", "Cinzel Roman capitals for display"],
+          ["Secondary typeface", "Lato for body copy"],
+          ["Patterns", "Diagonal tiling patterns on three grounds"],
+          ["Imagery", "Strategy, workspace and leadership photography"],
+          ["Usage", "Folder, letterhead and envelope stationery"],
+          ["Closing", "Version 1.0 end matter"],
+        ],
+      ),
     },
   ],
 };
@@ -863,22 +847,22 @@ export const additionalsData: AdditionalsData = {
   sectionLabel: "Appendix",
   status: "3 sections",
   title: {
-    before: "Some",
-    accented: "extra stuff",
+    before: "Records and",
+    accented: "achievements",
   },
   summary:
-    "A section for other things, from academic work and achievements, to student organization involvements and roles.",
+    "Academic record, student leadership roles, competitions and certifications.",
   blocks: [
     {
       id: "education",
       title: "Education",
       summary:
-        "Computer Science at USTP, and the school record before it.",
+        "BS Computer Science at USTP, preceded by the school record.",
       entries: [
         {
           date: "2023 – Present",
           title:
-            "BS Computer Science, University of Science and Technology of Southern Philippines — Cagayan de Oro campus, College of Information Technology and Computing.",
+            "BS Computer Science, University of Science and Technology of Southern Philippines, Cagayan de Oro campus, College of Information Technology and Computing.",
           details: [
             "CGPA 1.5632",
             "Dean’s List",
@@ -888,7 +872,7 @@ export const additionalsData: AdditionalsData = {
         {
           date: "2011 – 2023",
           title:
-            "Prophet’s Pen Academy, Gitagum, Misamis Oriental — elementary through senior high school.",
+            "Prophet’s Pen Academy, Gitagum, Misamis Oriental: elementary through senior high school.",
           details: [
             "Valedictorian, Grade 7 to Grade 11",
             "School President and Salutatorian, Grade 12",
@@ -900,12 +884,12 @@ export const additionalsData: AdditionalsData = {
       id: "student-leadership",
       title: "Student leadership",
       summary:
-        "I have been involved in several student organizations across the university I am currently attending, to sharpen my social and communication skills, alongside showcasing my technical and creative talents, in service of the students.",
+        "Student organization roles at USTP-CDO across student government, multimedia and planning.",
       carousel: [
         {
           id: "agrivanture",
           title: "Agrivanture",
-          description: "4-H USTP-CDO student leadership field activity in Claveria",
+          description: "4-H USTP-CDO field activity in Claveria",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/student-leadership/agrivanture.JPG",
           ),
@@ -942,7 +926,7 @@ export const additionalsData: AdditionalsData = {
         {
           id: "usg-ustp-cdo",
           title: "USG USTP-CDO",
-          description: "University Student Government and multimedia involvement",
+          description: "University Student Government, multimedia",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/student-leadership/usg-ustp-cdo.jpg",
           ),
@@ -951,7 +935,7 @@ export const additionalsData: AdditionalsData = {
         {
           id: "deans-list",
           title: "Dean’s List",
-          description: "Academic recognition alongside organization work",
+          description: "Academic recognition",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/student-leadership/deans-list.jpg",
           ),
@@ -963,17 +947,17 @@ export const additionalsData: AdditionalsData = {
         {
           date: "January 2026",
           title:
-            "4-H Club USTP-CDO strategic planning and organizational alignment meeting at USTP-CDO.",
+            "4-H Club USTP-CDO strategic planning and organizational alignment meeting.",
         },
         {
           date: "2026",
           title:
-            "Participated in 4-H Club USTP-CDO’s Agrivanture student leadership and agriculture exposure activity in Claveria.",
+            "4-H Club USTP-CDO Agrivanture leadership and agriculture exposure activity, Claveria.",
         },
         {
           date: "2024 – Present",
           title:
-            "Member of several student organizations, including the University Student Government as Video Editing and Multimedia Head, and the 4-H Club at USTP-CDO.",
+            "Video Editing and Multimedia Head, University Student Government; member, 4-H Club USTP-CDO.",
         },
       ],
     },
@@ -981,12 +965,12 @@ export const additionalsData: AdditionalsData = {
       id: "extra-curriculars",
       title: "Extra-curriculars",
       summary:
-        "Alongside student organizations, I have also involved myself in academic and non-academic events such as hackathons and competitions, showcasing my creative and technical skills to a wide range of people.",
+        "Hackathons, competitions, published research and certifications.",
       carousel: [
         {
           id: "aideas-dict",
           title: "AI.Deas Region X",
-          description: "DICT AI.Deas participation in Cagayan de Oro City",
+          description: "DICT AI.Deas, Cagayan de Oro City",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/extra-curriculars/aideas-dict.jpg",
           ),
@@ -996,7 +980,7 @@ export const additionalsData: AdditionalsData = {
         {
           id: "aws-innovation-cup",
           title: "AWS Innovation Cup",
-          description: "Top 20 semifinalist notice for Innovation Cup Mindanao 2026",
+          description: "Top 20 semifinalist, Innovation Cup Mindanao 2026",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/extra-curriculars/aws-innovation-cup.png",
           ),
@@ -1006,7 +990,7 @@ export const additionalsData: AdditionalsData = {
         {
           id: "wadhwani",
           title: "Wadhwani Ignite",
-          description: "Entrepreneurship content completion certificate",
+          description: "Entrepreneurship coursework certificate",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/extra-curriculars/wadhwani.png",
           ),
@@ -1016,7 +1000,7 @@ export const additionalsData: AdditionalsData = {
         {
           id: "kmb-research",
           title: "KMB research",
-          description: "Published road restoration algorithm research screenshot",
+          description: "Published road restoration algorithm research",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/extra-curriculars/kmb-research.png",
           ),
@@ -1026,7 +1010,7 @@ export const additionalsData: AdditionalsData = {
         {
           id: "freecodecamp",
           title: "freeCodeCamp",
-          description: "Responsive Web Design developer certification",
+          description: "Responsive Web Design certification",
           imageSrc: cloudinaryAsset(
             "portfolio/additionals/extra-curriculars/freecodecamp-webdesign.png",
           ),
@@ -1038,17 +1022,17 @@ export const additionalsData: AdditionalsData = {
         {
           date: "March 2024",
           title:
-            "Finished 1st place at USTP-CDO in the Google Developer Student Clubs APAC Solution Challenge, then competed at the Asia-regional level.",
+            "1st place at USTP-CDO, Google Developer Student Clubs APAC Solution Challenge; advanced to the Asia-regional round.",
         },
         {
           date: "August 2024",
           title:
-            "Completed freeCodeCamp’s Legacy Responsive Web Design certification.",
+            "freeCodeCamp Legacy Responsive Web Design certification.",
         },
         {
           date: "November 2024",
           title:
-            "Secured Level 2 in the 11th TOPCIT, the Test of Practical Competency in IT.",
+            "Level 2, 11th TOPCIT (Test of Practical Competency in IT).",
         },
         {
           date: "May 2025",
@@ -1058,17 +1042,17 @@ export const additionalsData: AdditionalsData = {
         {
           date: "May 2026",
           title:
-            "Completed Wadhwani Foundation’s Ignite Philippines entrepreneurship coursework.",
+            "Wadhwani Foundation Ignite Philippines entrepreneurship coursework.",
         },
         {
           date: "September 2025",
           title:
-            "Participated in Department of Information and Communications Technology (DICT)'s AI.Deas Region X at Hammerson Hotel, Cagayan de Oro City.",
+            "DICT AI.Deas Region X, Hammerson Hotel, Cagayan de Oro City.",
         },
         {
           date: "June 2026",
           title:
-            "Advanced to the Top 20 semifinalists of Innovation Cup Mindanao 2026.",
+            "Top 20 semifinalist, Innovation Cup Mindanao 2026.",
         },
       ],
     },
@@ -1082,7 +1066,7 @@ export const footerData: FooterData = {
       accented: "Let’s bring it to life.",
     },
     summary:
-      "I’m always excited to collaborate on new and innovative projects. Whether you’re starting from scratch or refining an existing idea.",
+      "Available for full-stack development, research and brand design projects, from new builds to existing products.",
     action: contactAction,
   },
   brandLine: {
