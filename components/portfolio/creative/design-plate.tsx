@@ -40,7 +40,10 @@ export function DesignPlate({ brand, plate }: DesignPlateProps) {
           <PlateLead>{brand.summary ?? brand.details.join(" · ")}</PlateLead>
         </div>
 
-        <AnnotatedFrame dimensions={`${brand.carousel.length} sheets`}>
+        <AnnotatedFrame
+          className="lg:w-4/5"
+          dimensions={`${brand.carousel.length} sheets`}
+        >
           <CarouselFrame items={brand.carousel} label={brand.title} />
         </AnnotatedFrame>
 

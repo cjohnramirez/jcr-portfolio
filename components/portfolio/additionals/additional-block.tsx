@@ -23,7 +23,10 @@ export function AdditionalBlock({ block, plate }: AdditionalBlockProps) {
         <PlateLead>{block.summary}</PlateLead>
 
         {block.carousel?.length ? (
-          <AnnotatedFrame dimensions={`${block.carousel.length} sheets`}>
+          <AnnotatedFrame
+            className="lg:w-4/5"
+            dimensions={`${block.carousel.length} sheets`}
+          >
             <CarouselFrame items={block.carousel} label={block.title} />
           </AnnotatedFrame>
         ) : null}

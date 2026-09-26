@@ -113,7 +113,7 @@ export function CarouselFrame({
                 fill
                 highFidelity={item.imageFit === "contain"}
                 priority={isActive && index === 0}
-                sizes="(min-width: 1440px) 1280px, (min-width: 1024px) 88vw, 100vw"
+                sizes="(min-width: 1440px) 1024px, (min-width: 1024px) 70vw, 100vw"
                 src={item.imageSrc}
               />
             </div>

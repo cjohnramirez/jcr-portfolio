@@ -60,7 +60,10 @@ export function CasePlate({ project, plate }: CasePlateProps) {
 
         {/* The sheets no longer share one ratio — the frame takes each sheet's
             own proportions — so the old hardcoded "16:9" here was a lie. */}
-        <AnnotatedFrame dimensions={`${project.carousel.length} sheets`}>
+        <AnnotatedFrame
+          className="lg:w-4/5"
+          dimensions={`${project.carousel.length} sheets`}
+        >
           <CarouselFrame items={project.carousel} label={project.title} />
         </AnnotatedFrame>
 
