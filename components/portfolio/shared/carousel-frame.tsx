@@ -16,6 +16,8 @@ type CarouselFrameProps = {
    * sized so the whole sheet and its controls fit the viewport (see below).
    */
   dimensions?: string;
+  /** id for the annotated frame, the target of SheetsJumpButton. */
+  id?: string;
 };
 
 /**
@@ -58,6 +60,7 @@ export function CarouselFrame({
   label,
   className = "",
   dimensions,
+  id,
 }: CarouselFrameProps) {
   const [index, setIndex] = useState(0);
   const activeItem = items[index];
@@ -81,8 +84,10 @@ export function CarouselFrame({
     <div
       aria-label={label}
       aria-roledescription="carousel"
-      className={`flex w-full flex-col bg-plate-2 ${className}`}
+      className={`flex w-full flex-col bg-plate-2 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-spot ${className}`}
       role="region"
+      // Focus target for SheetsJumpButton; not in the tab order.
+      tabIndex={-1}
     >
       {/*
         The frame takes the shape of the sheet inside it.
@@ -206,6 +211,7 @@ export function CarouselFrame({
     <AnnotatedFrame
       className={`${FRAME_VARS} transition-[width] duration-500 ease-out`}
       dimensions={dimensions}
+      id={id}
       style={
         {
           "--sheet-ratio": sheetRatio(activeItem),

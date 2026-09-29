@@ -23,10 +23,10 @@ export function AdditionalBlock({ block, plate }: AdditionalBlockProps) {
 
         {block.carousel?.length ? (
           <CarouselFrame
-          dimensions={`${block.carousel.length} sheets`}
-          items={block.carousel}
-          label={block.title}
-        />
+            dimensions={`${block.carousel.length} sheets`}
+            items={block.carousel}
+            label={block.title}
+          />
         ) : null}
 
         {/* A long list that is usually off-screen — let the browser skip its

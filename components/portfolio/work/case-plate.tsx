@@ -1,5 +1,6 @@
 import type { ProjectCaseStudy } from "@/lib/portfolio-types";
 import { CarouselFrame } from "../shared/carousel-frame";
+import { SheetsJumpButton } from "../shared/sheets-jump-button";
 import {
   Plate,
   PlateBody,
@@ -39,26 +40,31 @@ export function CasePlate({ project, plate }: CasePlateProps) {
           </PlateTitle>
           <PlateLead>{project.summary}</PlateLead>
 
-          {project.links?.length ? (
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 font-spec text-spec uppercase tracking-[0.08em]">
-              {project.links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    className="text-spot underline decoration-rule underline-offset-[6px] transition-colors duration-200 hover:decoration-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-spot"
-                    href={link.href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {link.label} ↗
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 font-spec text-spec uppercase tracking-[0.08em]">
+            <li>
+              <SheetsJumpButton
+                count={project.carousel.length}
+                targetId={`${project.id}-sheets`}
+              />
+            </li>
+            {project.links?.map((link) => (
+              <li key={link.href}>
+                <a
+                  className="text-spot underline decoration-rule underline-offset-[6px] transition-colors duration-200 hover:decoration-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-spot"
+                  href={link.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {link.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <CarouselFrame
           dimensions={`${project.carousel.length} sheets`}
+          id={`${project.id}-sheets`}
           items={project.carousel}
           label={project.title}
         />

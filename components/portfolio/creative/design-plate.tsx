@@ -1,5 +1,6 @@
 import type { PortfolioBrand } from "@/lib/portfolio-types";
 import { CarouselFrame } from "../shared/carousel-frame";
+import { SheetsJumpButton } from "../shared/sheets-jump-button";
 import {
   Plate,
   PlateBody,
@@ -37,10 +38,17 @@ export function DesignPlate({ brand, plate }: DesignPlateProps) {
             {brand.title}
           </PlateTitle>
           <PlateLead>{brand.summary ?? brand.details.join(" · ")}</PlateLead>
+          <div className="font-spec text-spec">
+            <SheetsJumpButton
+              count={brand.carousel.length}
+              targetId={`${brand.id}-sheets`}
+            />
+          </div>
         </div>
 
         <CarouselFrame
           dimensions={`${brand.carousel.length} sheets`}
+          id={`${brand.id}-sheets`}
           items={brand.carousel}
           label={brand.title}
         />

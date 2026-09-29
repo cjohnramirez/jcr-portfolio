@@ -27,6 +27,7 @@ type AnnotatedFrameProps = {
   /** Left-hand clearspace bracket label. */
   clearspace?: string;
   className?: string;
+  id?: string;
   style?: CSSProperties;
 };
 
@@ -83,10 +84,11 @@ export function AnnotatedFrame({
   dimensions,
   clearspace = "1×",
   className = "",
+  id,
   style,
 }: AnnotatedFrameProps) {
   return (
-    <figure className={`relative ${className}`} style={style}>
+    <figure className={`relative ${className}`} id={id} style={style}>
       {/* Padding gives the marks somewhere to sit without overlapping the art. */}
       <div className="relative px-6 py-6">
         <CropMark position="tl" delay={0} />
