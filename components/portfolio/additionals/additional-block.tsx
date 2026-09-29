@@ -1,5 +1,4 @@
 import type { AdditionalBlock as AdditionalBlockData } from "@/lib/portfolio-types";
-import { AnnotatedFrame } from "../shared/annotated-frame";
 import { CarouselFrame } from "../shared/carousel-frame";
 import { Plate, PlateBody, PlateHeader, PlateLead } from "../shared/plate";
 import { Reveal } from "../shared/reveal";
@@ -23,12 +22,11 @@ export function AdditionalBlock({ block, plate }: AdditionalBlockProps) {
         <PlateLead>{block.summary}</PlateLead>
 
         {block.carousel?.length ? (
-          <AnnotatedFrame
-            className="lg:w-4/5"
-            dimensions={`${block.carousel.length} sheets`}
-          >
-            <CarouselFrame items={block.carousel} label={block.title} />
-          </AnnotatedFrame>
+          <CarouselFrame
+          dimensions={`${block.carousel.length} sheets`}
+          items={block.carousel}
+          label={block.title}
+        />
         ) : null}
 
         {/* A long list that is usually off-screen — let the browser skip its

@@ -1,16 +1,41 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useMemo, useState } from "react";
+import { type CSSProperties, useMemo, useState } from "react";
 import { getImageMeta } from "@/lib/image-manifest";
 import type { CarouselItem } from "@/lib/portfolio-types";
+import { AnnotatedFrame } from "./annotated-frame";
 import { CloudinaryImage } from "./cloudinary-image";
 
 type CarouselFrameProps = {
   items: CarouselItem[];
   label: string;
   className?: string;
+  /**
+   * Wraps the carousel in an AnnotatedFrame with this readout on its baseline,
+   * sized so the whole sheet and its controls fit the viewport (see below).
+   */
+  dimensions?: string;
 };
+
+/**
+ * Width of the annotated frame, derived from the viewport height.
+ *
+ * A width-only rule let tall sheets overflow short viewports: at 1536×826 a
+ * 1.41 deck page plus its control bar ran past the fold under the fixed nav.
+ * The frame is instead as wide as the available height allows for the active
+ * sheet's ratio, capped by `--frame-cap`.
+ *
+ * `--frame-reserve` is the vertical space the sheet may not use: the fixed nav
+ * (80px, 100px from lg), the control bar (two rows below sm, one above), the
+ * frame's own padding and caption, and a margin so it never sits flush.
+ * The 16rem floor keeps an extreme landscape viewport from collapsing it.
+ */
+const FRAME_WIDTH =
+  "min(var(--frame-cap), max(16rem, calc((100svh - var(--frame-reserve)) * var(--sheet-ratio) + 3rem)))";
+
+const FRAME_VARS =
+  "[--frame-cap:100%] [--frame-reserve:18rem] sm:[--frame-reserve:15rem] lg:[--frame-cap:80%] lg:[--frame-reserve:16rem]";
 
 /** Used for a sheet with no image, and for anything missing from the manifest. */
 const FALLBACK_RATIO = 16 / 9;
@@ -32,6 +57,7 @@ export function CarouselFrame({
   items,
   label,
   className = "",
+  dimensions,
 }: CarouselFrameProps) {
   const [index, setIndex] = useState(0);
   const activeItem = items[index];
@@ -51,7 +77,7 @@ export function CarouselFrame({
   const control =
     "relative flex items-center justify-center text-ink-2 transition-colors duration-200 hover:text-spot focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-spot";
 
-  return (
+  const carousel = (
     <div
       aria-label={label}
       aria-roledescription="carousel"
@@ -170,5 +196,24 @@ export function CarouselFrame({
         {pageLabel}. {activeItem.description}
       </p>
     </div>
+  );
+
+  if (!dimensions) {
+    return carousel;
+  }
+
+  return (
+    <AnnotatedFrame
+      className={`${FRAME_VARS} transition-[width] duration-500 ease-out`}
+      dimensions={dimensions}
+      style={
+        {
+          "--sheet-ratio": sheetRatio(activeItem),
+          width: FRAME_WIDTH,
+        } as CSSProperties
+      }
+    >
+      {carousel}
+    </AnnotatedFrame>
   );
 }

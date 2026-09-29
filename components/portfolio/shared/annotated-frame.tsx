@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 /**
  * The manual's signature element.
@@ -27,6 +27,7 @@ type AnnotatedFrameProps = {
   /** Left-hand clearspace bracket label. */
   clearspace?: string;
   className?: string;
+  style?: CSSProperties;
 };
 
 const CORNER = 18;
@@ -82,9 +83,10 @@ export function AnnotatedFrame({
   dimensions,
   clearspace = "1×",
   className = "",
+  style,
 }: AnnotatedFrameProps) {
   return (
-    <figure className={`relative ${className}`}>
+    <figure className={`relative ${className}`} style={style}>
       {/* Padding gives the marks somewhere to sit without overlapping the art. */}
       <div className="relative px-6 py-6">
         <CropMark position="tl" delay={0} />

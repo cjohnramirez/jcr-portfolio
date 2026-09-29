@@ -1,5 +1,4 @@
 import type { PortfolioBrand } from "@/lib/portfolio-types";
-import { AnnotatedFrame } from "../shared/annotated-frame";
 import { CarouselFrame } from "../shared/carousel-frame";
 import {
   Plate,
@@ -40,12 +39,11 @@ export function DesignPlate({ brand, plate }: DesignPlateProps) {
           <PlateLead>{brand.summary ?? brand.details.join(" · ")}</PlateLead>
         </div>
 
-        <AnnotatedFrame
-          className="lg:w-4/5"
+        <CarouselFrame
           dimensions={`${brand.carousel.length} sheets`}
-        >
-          <CarouselFrame items={brand.carousel} label={brand.title} />
-        </AnnotatedFrame>
+          items={brand.carousel}
+          label={brand.title}
+        />
 
         <div className="grid gap-10 border-t border-rule pt-10 lg:grid-cols-2 lg:gap-14">
           <div className="flex flex-col gap-8">

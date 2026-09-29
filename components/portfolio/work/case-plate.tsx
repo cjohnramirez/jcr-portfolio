@@ -1,5 +1,4 @@
 import type { ProjectCaseStudy } from "@/lib/portfolio-types";
-import { AnnotatedFrame } from "../shared/annotated-frame";
 import { CarouselFrame } from "../shared/carousel-frame";
 import {
   Plate,
@@ -58,14 +57,11 @@ export function CasePlate({ project, plate }: CasePlateProps) {
           ) : null}
         </div>
 
-        {/* The sheets no longer share one ratio — the frame takes each sheet's
-            own proportions — so the old hardcoded "16:9" here was a lie. */}
-        <AnnotatedFrame
-          className="lg:w-4/5"
+        <CarouselFrame
           dimensions={`${project.carousel.length} sheets`}
-        >
-          <CarouselFrame items={project.carousel} label={project.title} />
-        </AnnotatedFrame>
+          items={project.carousel}
+          label={project.title}
+        />
 
         <div className="grid gap-10 border-t border-rule pt-10 lg:grid-cols-2 lg:gap-14">
           <div className="flex flex-col gap-8">
