@@ -672,15 +672,15 @@ export const imageManifest: Record<string, ImageMeta> = {
   },
   "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp": {
     width: 2400,
-    height: 1291,
+    height: 1290,
     blurDataURL:
-      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAkABABoJaQAAuQhkvVAAP7tCSq/n9iigtBsWfW4O+c3XGD4pplG0oWgAAAA",
+      "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkABABoJaQAAuRIrcHpomAA/q3w3QJ+yl7z+o7WkLV9yZ6uO7QBzFOWCr1LlNKJzQaAAAA=",
   },
   "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light.webp": {
     width: 2400,
-    height: 1291,
+    height: 1290,
     blurDataURL:
-      "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJaQAAqntTEYAAP7f9OcGDic/t21Mt+5dsyWV2HcEAAAA",
+      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAkABABoJaQAAujdRKCa46AA/snJeGHRYvrUvh7dxZAILgDkSPRmLOFAAAAA",
   },
   "portfolio/projects/fresco-grow-lab/fresco-monitor.png": {
     width: 2160,
@@ -732,15 +732,15 @@ export const imageManifest: Record<string, ImageMeta> = {
   },
   "portfolio/projects/steady/steady-cover-dark.webp": {
     width: 2400,
-    height: 1291,
+    height: 1290,
     blurDataURL:
-      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJZwAAuQzFBNa4AD+7Qkqv5/YooKEBjX0Dq4Wku64ETrsoZIbIuAE4VfWlzUpChy7nTUK7RGQAAAA",
+      "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAkABABoJZwAAuQBRGNAAP6t8N0Cqi4Qty6tBh+bZ+EfcC9DYvB5nQbejilOBZyCHmer2mAAAA==",
   },
   "portfolio/projects/steady/steady-cover-light.webp": {
     width: 2400,
-    height: 1291,
+    height: 1290,
     blurDataURL:
-      "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAkABABoJZwAAqnwOSl0AAD+3/TnBKKNW9u2pm2NH1tJXvU66x2hb+TQGUOy/eFlDAAA",
+      "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoQAAkABABoJZwAAusoN4OIAP7J6V+oidB2mq9hT0V3M9vA3BAJLx/Fy6yFJp8obsAAAA==",
   },
   "portfolio/projects/steady/steady-home.png": {
     width: 2160,
@@ -780,15 +780,15 @@ export const imageManifest: Record<string, ImageMeta> = {
   },
   "portfolio/projects/trailventure/trailventure-cover-dark.webp": {
     width: 2400,
-    height: 1291,
+    height: 1290,
     blurDataURL:
-      "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAkABABoJZwAAuRI5GG5VkAAAP7vVJZUMjOVM0RlAH5OEYZZeBP8YcAdT19urtnx8pXWnTYYIj+FYEAAAA==",
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJZQAAujbhSdE8AD+5uOfq5tq1X5wbCCS6jCd5aXI1BuWBC+W6tXPixfeo+2HHMbO27QPUHFVugAA",
   },
   "portfolio/projects/trailventure/trailventure-cover-light.webp": {
     width: 2400,
-    height: 1291,
+    height: 1290,
     blurDataURL:
-      "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAkABABoJZwAAuQr91AjWAAA/tYZH2pLPvQ0fJL3228jSv13v1cks+cMItJ8OO0IAA==",
+      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAkABABoJZQAAuP6dZoDOQAA/gFowMMC25TshwZVrW2q5ahnAucBOqKBrWUn23vVcYFzvj1/PwAA",
   },
   "portfolio/projects/trailventure/trailventure-home.png": {
     width: 2160,
