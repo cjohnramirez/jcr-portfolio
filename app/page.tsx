@@ -21,6 +21,7 @@ export default function Home() {
       meta: project.category,
       summary: project.summary,
       sheet: project.carousel[0],
+      cover: project.cover,
       stack: project.stack.items,
     }));
 

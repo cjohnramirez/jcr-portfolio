@@ -11,6 +11,7 @@ export type FeaturedEntry = {
   meta: string;
   summary: string;
   sheet?: ProjectCaseStudy["carousel"][number];
+  cover?: ProjectCaseStudy["cover"];
   stack: string[];
 };
 
@@ -58,7 +59,27 @@ export function FeaturedBand({ entries, label }: FeaturedBandProps) {
                 className={`group flex h-full flex-col ${wide ? "lg:flex-row" : ""} transition-colors duration-200 hover:bg-plate-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-spot`}
                 href={entry.href}
               >
-                {entry.sheet?.imageSrc ? (
+                {entry.cover ? (
+                <div className="relative aspect-[1.86] w-full overflow-hidden bg-plate-2">
+                  {/* Both renders ship; the theme decides which one shows. */}
+                  <CloudinaryImage
+                    alt={entry.cover.alt}
+                    className="h-full w-full object-cover object-bottom dark:hidden"
+                    fill
+                    priority={index === 0}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    src={entry.cover.light}
+                  />
+                  <CloudinaryImage
+                    alt={entry.cover.alt}
+                    className="hidden h-full w-full object-cover object-bottom dark:block"
+                    fill
+                    priority={index === 0}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    src={entry.cover.dark}
+                  />
+                </div>
+              ) : entry.sheet?.imageSrc ? (
                   <div
                     className={`relative aspect-[1.86] w-full overflow-hidden bg-plate-2 ${wide ? "lg:w-1/2 lg:shrink-0" : ""}`}
                   >

@@ -89,6 +89,15 @@ export type ProjectCaseStudy = {
    * with it.
    */
   featured?: boolean;
+  /**
+   * Device mockup for the selected-work tile, one render per theme. Cropped
+   * to the tile's 1.86 ratio with the device resting on the bottom edge.
+   */
+  cover?: {
+    light: string;
+    dark: string;
+    alt: string;
+  };
   carousel: CarouselItem[];
   stack: {
     label: string;

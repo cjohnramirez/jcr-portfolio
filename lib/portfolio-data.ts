@@ -156,7 +156,7 @@ export const servicesData: ServicesData = {
 
 export const projectsData: ProjectsData = {
   sectionLabel: "Case plates",
-  status: "5 plates",
+  status: "6 plates",
   title: {
     accentedBefore: "Projects",
     middle: "and",
@@ -179,6 +179,13 @@ export const projectsData: ProjectsData = {
           href: "https://trailventure.jcrdev.me",
         },
       ],
+      cover: {
+        light: cloudinaryAsset(
+          "portfolio/projects/trailventure/trailventure-cover-light.webp",
+        ),
+        dark: cloudinaryAsset("portfolio/projects/trailventure/trailventure-cover-dark.webp"),
+        alt: "TrailVenture homepage on a laptop, with the destination, date and budget search over a Palawan photograph.",
+      },
       carousel: [
         {
           id: "trailventure-home",
@@ -325,6 +332,13 @@ export const projectsData: ProjectsData = {
           href: "https://steady-system.jcrdev.me",
         },
       ],
+      cover: {
+        light: cloudinaryAsset(
+          "portfolio/projects/steady/steady-cover-light.webp",
+        ),
+        dark: cloudinaryAsset("portfolio/projects/steady/steady-cover-dark.webp"),
+        alt: "Steady homepage on a laptop, headed “Nurturing student growth and well-being”.",
+      },
       carousel: [
         {
           id: "steady-home",
@@ -467,6 +481,13 @@ export const projectsData: ProjectsData = {
           href: "https://fresco-grow-lab.jcrdev.me",
         },
       ],
+      cover: {
+        light: cloudinaryAsset(
+          "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light.webp",
+        ),
+        dark: cloudinaryAsset("portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp"),
+        alt: "Fresco Grow Lab temperature dashboard on a laptop, with probe readings and a temperature trace.",
+      },
       carousel: [
         {
           id: "fresco-dashboard",
@@ -613,8 +634,160 @@ export const projectsData: ProjectsData = {
       ],
     },
     {
+      id: "agriova",
+      module: "Module 4 / Agriova",
+      category: "Major Project / Solo Developer",
+      featured: true,
+      title: "Agriova: Offline Farm Ledger for Filipino Smallholders",
+      summary:
+        "Mobile farm ledger for smallholders in Cagayan de Oro that shows whether a season is earning money, with no signal needed. Farmers record expenses, harvests and sales in two or three fields, track produce before it spoils, and ask an assistant that answers from their own records. Android and iOS from one TypeScript codebase.",
+      links: [
+        {
+          label: "Source code",
+          href: "https://github.com/cjohnramirez/agriova",
+        },
+      ],
+      cover: {
+        light: cloudinaryAsset(
+          "portfolio/projects/agriova/agriova-cover-light.webp",
+        ),
+        dark: cloudinaryAsset("portfolio/projects/agriova/agriova-cover-dark.webp"),
+        alt: "Agriova home and farm statistics screens on two phones.",
+      },
+      carousel: [
+        {
+          id: "agriova-home",
+          title: "Home",
+          description: "Season earnings, plots in progress and produce to sell",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/agriova/agriova-main-page.webp",
+          ),
+          imageAlt:
+            "Agriova home screen on a phone, showing season earnings over a field photo, plot cards and a produce-to-sell countdown.",
+          imageFit: "contain",
+        },
+        {
+          id: "agriova-fields",
+          title: "Fields",
+          description: "Each plot with its current crop and past seasons",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/agriova/agriova-farm-fields-page.webp",
+          ),
+          imageAlt:
+            "Agriova fields screen on a phone, listing each plot with its current crop and status.",
+          imageFit: "contain",
+        },
+        {
+          id: "agriova-activity",
+          title: "Activity",
+          description: "Week strip of records with heat and rain warnings",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/agriova/agriova-calendar-page.webp",
+          ),
+          imageAlt:
+            "Agriova activity screen on a phone, with a week strip of recorded expenses, harvests and sales.",
+          imageFit: "contain",
+        },
+        {
+          id: "agriova-statistics",
+          title: "Farm statistics",
+          description: "Plots, total area and money over six months",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/agriova/agriova-statistics-page.webp",
+          ),
+          imageAlt:
+            "Agriova farm statistics screen on a phone, with plot count, total size and a six-month money chart.",
+          imageFit: "contain",
+        },
+        {
+          id: "agriova-assistant",
+          title: "Assistant",
+          description: "Chat that answers from the farmer’s own records",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/agriova/agriova-ai-chatbot-page.webp",
+          ),
+          imageAlt:
+            "Agriova assistant screen on a phone, answering a farmer’s question from their own records.",
+          imageFit: "contain",
+        },
+      ],
+      stack: {
+        label: "Tech stack",
+        items: [
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "expo-router",
+          "SQLite",
+          "Drizzle ORM",
+          "Supabase",
+          "PostgreSQL",
+          "Deno Edge Functions",
+          "Google Gemini",
+          "Jest",
+          "pgTAP",
+          "Maestro",
+          "EAS Build",
+          "GitHub Actions",
+        ],
+      },
+      skills: {
+        label: "Skills",
+        items: [
+          "Offline-first architecture",
+          "Sync engines",
+          "Database security",
+          "Mobile UI/UX",
+          "Accessibility",
+          "CI/CD",
+        ],
+      },
+      notes: [
+        {
+          title: "Context",
+          description:
+            "Smallholders rarely know whether a season made or lost money, because records live in memory or loose notebooks. Pilot users average 57 years old, farm under weak signal on budget Android phones with 2 to 4 GB of RAM, and read Bisaya first. Every screen answers one of three validated questions: am I earning, will my harvest spoil, am I getting a fair price.",
+        },
+        {
+          title: "Role",
+          description:
+            "Solo developer: product, design adaptation, mobile app, backend, sync engine, AI assistant, CI and release pipeline. Shipped as v1.0.0.",
+        },
+        {
+          title: "Architecture",
+          description:
+            "Local-first. SQLite on the phone is the source of truth, so screens never wait on the network. A custom outbox engine pushes rows parents-first and pulls by server timestamp, with last-write-wins because each farm has one owner. Only sign-in, the assistant and account deletion need a connection.",
+        },
+        {
+          title: "Money",
+          description:
+            "Amounts are integer centavos and quantities integer thousandths, identical on SQLite and Postgres, so profit totals never drift. Conversions live in one units module at every input and display boundary.",
+        },
+        {
+          title: "Assistant",
+          description:
+            "Heat, rain and spoilage warnings come from a rules engine on the phone and work offline. Chat runs Gemini behind a Supabase Edge Function: the key never ships in the app, the phone sends a farm summary with no name or email, and a security-definer function enforces a 20-question daily quota in one statement.",
+        },
+        {
+          title: "Security",
+          description:
+            "Row-level security on every farmer table, plus composite foreign keys on (id, owner_id) so the database itself refuses links to another farmer’s plot. Account deletion runs server-side from the caller’s token and cascades through every table before the phone is wiped.",
+        },
+        {
+          title: "Design",
+          description:
+            "Adapts a Figma prototype to the real user: 56 dp touch targets, Bisaya and English for every string, layouts checked at 320 to 412 dp and 1.3x font scale. About 25 primitives on colour, type and spacing tokens; iOS uses native Liquid Glass tabs.",
+        },
+        {
+          title: "Correctness",
+          description:
+            "1,207 Jest tests against real SQLite, pgTAP tests for RLS and cascading deletes, and Maestro flows for onboarding and recording. Network calls carry a 20 s deadline with a warm-up health check after idle, tuned on the pilot hotspot. GitHub Actions runs every check on push; EAS Build and EAS Update ship releases.",
+        },
+      ],
+    },
+    {
       id: "road-restoration",
-      module: "Module 4 / Road Restoration",
+      module: "Module 5 / Road Restoration",
       category: "Research / Corresponding Author",
       title: "Post-Disaster Road Restoration Algorithm Research",
       summary:
@@ -696,7 +869,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: "enduro-branding",
-      module: "Module 5 / Enduro Brand",
+      module: "Module 6 / Enduro Brand",
       category: "Internship / Lead Designer and Branding Manager",
       title: "Enduro Group Branding and Design Management",
       summary:

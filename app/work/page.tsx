@@ -30,6 +30,7 @@ export default function WorkIndexPage() {
       meta: project.category,
       summary: project.summary,
       sheet: project.carousel[0],
+      cover: project.cover,
       stack: project.stack.items,
     }));
 

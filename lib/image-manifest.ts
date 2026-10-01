@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (121 images, set af41b37a)
+// Source: public/portfolio (134 images, set d9b013b7)
 
 export type ImageMeta = {
   width: number;
@@ -424,6 +424,48 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQABAABABoJaQAD5PweF+i+16yiAAA4CjSwaN0Kldye0bIzO7VObBhUpL4LXZn74XRuaLKvmhjyv3oS4QKJS89/LeyiBI33gy2+KJ3KI4a7+9RGFoAAA==",
   },
+  "portfolio/projects/agriova/agriova-ai-chatbot-page.webp": {
+    width: 2048,
+    height: 1536,
+    blurDataURL:
+      "data:image/webp;base64,UklGRroAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggQAAAALABAJ0BKhAADAAEAGglpAAC/0RF2AAA/veA0f9hOEmSiR2AbGGnk5M11hz9MY1w7+mzgGL+fcE9NGiYGhVcAAA=",
+  },
+  "portfolio/projects/agriova/agriova-calendar-page.webp": {
+    width: 2048,
+    height: 1536,
+    blurDataURL:
+      "data:image/webp;base64,UklGRsQAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggSgAAANABAJ0BKhAADAAEAGgllAFMACzmP304AP73gnWPefJ1G2A7uGW3Uuz8Wu8Y3Av4DXb6RwRLae0B5RL2tzI/97hFmMYb5ayoeAAA",
+  },
+  "portfolio/projects/agriova/agriova-cover-dark.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAkABABoJZQAD42MoqObQ2mAAP7p+Pw7dZ2YrmCbx3Huqnr8wwvfvvP0zUDDSvt0hVNq0YSqf5MjSKLaAgvdTXd4GDmZN73KMXOypgAAAA==",
+  },
+  "portfolio/projects/agriova/agriova-cover-light.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAkABABoJZQAAwFV675Mk/zAAP5s8KKWFrjkKRZSM+URoabzeckjsF53a9z7P2cpJ9B+6+ItWgYFanK7JOYbZ3XTB4AA",
+  },
+  "portfolio/projects/agriova/agriova-farm-fields-page.webp": {
+    width: 2048,
+    height: 1536,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggNgAAALABAJ0BKhAADAAEAGglpAAC/0RNeAAA/veA0f9hOEmR0X0OOA6ebvshhaf2fE9MsolsJRAAAA==",
+  },
+  "portfolio/projects/agriova/agriova-main-page.webp": {
+    width: 2048,
+    height: 1536,
+    blurDataURL:
+      "data:image/webp;base64,UklGRr4AAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggRAAAALABAJ0BKhAADAAEAGglnAAC/6olMjAA/vd6M/XGrr6s+mS43MqLXsoc+//l7o9i8DfowsHRW1N3pJ6hFLdVwmxJVcAA",
+  },
+  "portfolio/projects/agriova/agriova-statistics-page.webp": {
+    width: 2048,
+    height: 1536,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggNgAAAJABAJ0BKhAADAAEAGglpAACHPWYAAD+94J1j3nydRmDuMv1NEBe3rBWcLFz+ACLt3jTtDgAAA==",
+  },
   "portfolio/projects/enduro-brand/deck/enduro-deck-01.webp": {
     width: 2400,
     height: 1707,
@@ -628,6 +670,18 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoQAAkABABoJaQAA3AA/vHMWvDgAA==",
   },
+  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAkABABoJaQAAuQhkvVAAP7tCSq/n9iigtBsWfW4O+c3XGD4pplG0oWgAAAA",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJaQAAqntTEYAAP7f9OcGDic/t21Mt+5dsyWV2HcEAAAA",
+  },
   "portfolio/projects/fresco-grow-lab/fresco-monitor.png": {
     width: 2160,
     height: 1161,
@@ -676,6 +730,18 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJZwAA3AA/vHD6DklkYCAAAA=",
   },
+  "portfolio/projects/steady/steady-cover-dark.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJZwAAuQzFBNa4AD+7Qkqv5/YooKEBjX0Dq4Wku64ETrsoZIbIuAE4VfWlzUpChy7nTUK7RGQAAAA",
+  },
+  "portfolio/projects/steady/steady-cover-light.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAkABABoJZwAAqnwOSl0AAD+3/TnBKKNW9u2pm2NH1tJXvU66x2hb+TQGUOy/eFlDAAA",
+  },
   "portfolio/projects/steady/steady-home.png": {
     width: 2160,
     height: 1161,
@@ -711,6 +777,18 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1161,
     blurDataURL:
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJZwAAq3YyiGAAP7q8e028zlNA1mwCwkL0hMcW0DwDwIA",
+  },
+  "portfolio/projects/trailventure/trailventure-cover-dark.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAkABABoJZwAAuRI5GG5VkAAAP7vVJZUMjOVM0RlAH5OEYZZeBP8YcAdT19urtnx8pXWnTYYIj+FYEAAAA==",
+  },
+  "portfolio/projects/trailventure/trailventure-cover-light.webp": {
+    width: 2400,
+    height: 1291,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAkABABoJZwAAuQr91AjWAAA/tYZH2pLPvQ0fJL3228jSv13v1cks+cMItJ8OO0IAA==",
   },
   "portfolio/projects/trailventure/trailventure-home.png": {
     width: 2160,
