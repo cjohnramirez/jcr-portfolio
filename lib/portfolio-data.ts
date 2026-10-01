@@ -156,7 +156,7 @@ export const servicesData: ServicesData = {
 
 export const projectsData: ProjectsData = {
   sectionLabel: "Case plates",
-  status: "4 plates",
+  status: "5 plates",
   title: {
     accentedBefore: "Projects",
     middle: "and",
@@ -454,8 +454,167 @@ export const projectsData: ProjectsData = {
       ],
     },
     {
+      id: "fresco-grow-lab",
+      module: "Module 3 / Fresco Grow Lab",
+      category: "Internship / Solo Developer",
+      featured: true,
+      title: "Fresco Grow Lab: IoT Telemetry for Grow-Bag Experiments",
+      summary:
+        "IoT telemetry for Fresco Greenovations, an agritech startup in Cagayan de Oro. ESP32 sensors log grow-bag temperature at four depths and tipping-bucket rainfall, and a Next.js dashboard turns the readings into watering, thermal and rain analytics. Boards are flashed and configured from the browser.",
+      links: [
+        {
+          label: "Live deployment",
+          href: "https://fresco-grow-lab.jcrdev.me",
+        },
+      ],
+      carousel: [
+        {
+          id: "fresco-dashboard",
+          title: "Temperature dashboard",
+          description: "Watering status, next-watering countdown and four probe channels",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/fresco-grow-lab/fresco-dashboard.png",
+          ),
+          imageAlt:
+            "Fresco Grow Lab temperature dashboard with a weigh-the-bag status, a watering countdown, sensor health and readings from control, surface, root-zone and bottom probes.",
+        },
+        {
+          id: "fresco-thermal",
+          title: "Thermal patterns",
+          description: "Hourly heatmap, vertical profile and bag-versus-ambient delta",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/fresco-grow-lab/fresco-thermal.png",
+          ),
+          imageAlt:
+            "Fresco Grow Lab analytics with a seven-day hourly temperature heatmap, a vertical temperature profile down the bag and a bag-versus-ambient line chart.",
+        },
+        {
+          id: "fresco-monitor",
+          title: "Monitor",
+          description: "Live feed, watering controls and irrigation event log",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/fresco-grow-lab/fresco-monitor.png",
+          ),
+          imageAlt:
+            "Fresco Grow Lab monitor view with the live feed status, watering controls and a table of irrigation events with weight-log progress.",
+        },
+        {
+          id: "fresco-rain",
+          title: "Rain gauge",
+          description: "Calibrated rainfall, tip count and rainfall trace",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/fresco-grow-lab/fresco-rain-dashboard.png",
+          ),
+          imageAlt:
+            "Fresco Grow Lab rain gauge dashboard showing rainfall in millilitres and millimetres, physical tips, current rate and a cumulative rainfall chart.",
+        },
+        {
+          id: "fresco-connect",
+          title: "Browser flashing",
+          description: "Flash prebuilt firmware to an ESP32 over Web Serial",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/fresco-grow-lab/fresco-connect.png",
+          ),
+          imageAlt:
+            "Fresco Grow Lab Connect Hardware dialog with Flash, USB and Supabase tabs and a prebuilt grow-bag temperature firmware ready to flash.",
+        },
+        {
+          id: "fresco-docs",
+          title: "Hardware docs",
+          description: "Wiring, GPIO map and firmware build environments",
+          imageSrc: cloudinaryAsset(
+            "portfolio/projects/fresco-grow-lab/fresco-docs.png",
+          ),
+          imageAlt:
+            "Fresco Grow Lab project docs on the Hardware tab, listing each probe channel, its placement and its ESP32 GPIO pin.",
+        },
+      ],
+      stack: {
+        label: "Tech stack",
+        items: [
+          "ESP32",
+          "C++",
+          "PlatformIO",
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Supabase",
+          "PostgreSQL",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Recharts",
+          "SWR",
+          "Zod",
+          "Web Serial",
+          "esptool-js",
+          "Vitest",
+          "Playwright",
+          "GitHub Actions",
+          "Vercel",
+        ],
+      },
+      skills: {
+        label: "Skills",
+        items: [
+          "Embedded systems",
+          "IoT data pipelines",
+          "Data visualisation",
+          "Database security",
+          "Sensor calibration",
+          "CI/CD",
+        ],
+      },
+      notes: [
+        {
+          title: "Context",
+          description:
+            "Fresco Greenovations needed to know whether low-cost temperature probes can tell when a grow bag needs water, and how much rain reaches its plots. The grow-bag experiment logs four depths around the clock against daily 2 L waterings and 10-minute weigh-ins. The rain gauge turns a tipping bucket into calibrated rainfall, intensity and event data.",
+        },
+        {
+          title: "Role",
+          description:
+            "Solo developer during an internship: hardware wiring, firmware, data pipeline, dashboard and deployment.",
+        },
+        {
+          title: "Timeline",
+          description:
+            "Field build in July 2026; public release on October 1, 2026.",
+        },
+        {
+          title: "Firmware",
+          description:
+            "C++ on PlatformIO with four build environments. Two ESP32 boards send data three ways: Wi-Fi to Supabase, USB serial into the browser, or the rain gauge’s own access point. Interrupt handlers only update counters; debouncing and publishing run in the main loop, so sensing and networking share one microcontroller.",
+        },
+        {
+          title: "Calibration",
+          description:
+            "The hall-effect sensor counts both magnet edges per tip (tips = edges / 2). Each tip is calibrated to 2.3695 ml, the mean of 42 trials, and an odd edge count shows as a pending half tip.",
+        },
+        {
+          title: "Hardware setup",
+          description:
+            "Boards are flashed from the browser with esptool-js over Web Serial. Wi-Fi and Supabase settings are entered over USB and saved on the board, so images carry no credentials and no one recompiles. Boards hold only the publishable key; writes run through server routes under row-level security.",
+        },
+        {
+          title: "Data",
+          description:
+            "Supabase Postgres ships as five migrations: readings, irrigation events, rain gauge, RLS policies and SQL views. Rain sessions are kept locally in IndexedDB. A deterministic simulator models air at 24–33 °C, deeper probes lagging, bag weight dropping and afternoon showers, so every visitor sees the same realistic history without hardware.",
+        },
+        {
+          title: "Analytics",
+          description:
+            "Thermal heatmap, vertical depth profile, recovery after watering, weight drift, rain events and intensity classes, each computed from the raw readings.",
+        },
+        {
+          title: "Correctness",
+          description:
+            "95 Vitest tests, Playwright, ESLint and strict TypeScript. GitHub Actions builds and publishes the firmware images; Vercel deploys the dashboard from main.",
+        },
+      ],
+    },
+    {
       id: "road-restoration",
-      module: "Module 3 / Road Restoration",
+      module: "Module 4 / Road Restoration",
       category: "Research / Corresponding Author",
       title: "Post-Disaster Road Restoration Algorithm Research",
       summary:
@@ -537,7 +696,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: "enduro-branding",
-      module: "Module 4 / Enduro Brand",
+      module: "Module 5 / Enduro Brand",
       category: "Internship / Lead Designer and Branding Manager",
       title: "Enduro Group Branding and Design Management",
       summary:

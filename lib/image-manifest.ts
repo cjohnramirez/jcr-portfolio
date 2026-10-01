@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (115 images, set 8dfa5d27)
+// Source: public/portfolio (121 images, set af41b37a)
 
 export type ImageMeta = {
   width: number;
@@ -609,6 +609,42 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1707,
     blurDataURL:
       "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAsABABoJZQCdAEfUbuycUAAAP7rMh2eNU8/IyzWMqILmhfB/qBvvwCKzXF4lx56GVhg0arvhlLfFUpqcRockM8AAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-connect.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAkABABoJaQAA3AA/vAy9h4RX83kWUt91p4AAAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-dashboard.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABwAQCdASoQAAkABABoJaWZAAGIAAD+8XYb4UCX5UwAAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-docs.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoQAAkABABoJaQAA3AA/vHMWvDgAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-monitor.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJaQAA3AA/vGF7YTNjWP4AAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-rain-dashboard.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJaQAA3AA/vIVGbeh4wtdAAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-thermal.png": {
+    width: 2160,
+    height: 1161,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJYwAAudfFoxAAP7zdZws2TSX8QCXwQHA5oO9cGNCjgAA",
   },
   "portfolio/projects/road-restoration/cdom.png": {
     width: 1366,
