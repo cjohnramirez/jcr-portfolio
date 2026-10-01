@@ -69,13 +69,13 @@ export function CasePlate({ project, plate }: CasePlateProps) {
           label={project.title}
         />
 
-        <div className="grid gap-10 border-t border-rule pt-10 lg:grid-cols-2 lg:gap-14">
-          <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-10 border-t border-rule pt-10 lg:gap-14">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-14">
             <PlateMeta items={project.stack.items} label={project.stack.label} />
             <PlateMeta items={project.skills.items} label={project.skills.label} />
           </div>
 
-          <dl className="flex flex-col gap-8">
+          <dl className="grid gap-8 md:grid-cols-2 lg:gap-x-14 lg:gap-y-10">
             {project.notes.map((note, index) => (
               <Reveal
                 className="flex flex-col gap-2"
