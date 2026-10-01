@@ -41,10 +41,17 @@ export function ServicesSection({
           `gap-px` over `bg-rule` still draws the rules BETWEEN cells.
         */}
         <div className="-mx-5 -mb-8 grid gap-px border-t border-rule bg-rule md:grid-cols-2 lg:-mx-10 lg:-mb-12 xl:grid-cols-3">
+          {/*
+            The plate fill sits on the cell, outside Reveal, as in IndexGrid:
+            only the tile's content fades in, so the rule colour behind the
+            grid never shows through a half-transparent tile.
+          */}
           {data.cards.map((card, index) => (
-            <Reveal className="h-full" key={card.title} order={index + 1}>
-              <ServiceCard data={card} listRows={listRows} />
-            </Reveal>
+            <div className="bg-plate" key={card.title}>
+              <Reveal className="h-full" order={index}>
+                <ServiceCard data={card} listRows={listRows} />
+              </Reveal>
+            </div>
           ))}
         </div>
       </PlateBody>
