@@ -13,3 +13,18 @@ export function getLocalAssetFallback(src: string) {
 
   return `/${src.slice(CLOUDINARY_SOURCE_PREFIX.length)}`;
 }
+
+/**
+ * Full-length motion pieces are too large for the repository, so they are
+ * served from Cloudinary's video pipeline. Without a cloud name configured
+ * (local development) they fall back to `public/`, where the encode script
+ * leaves them.
+ */
+export function videoUrl(publicId: string) {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const id = publicId.replace(/^\/+/, "");
+
+  return cloudName
+    ? `https://res.cloudinary.com/${cloudName}/video/upload/q_auto/${id}`
+    : `/${id}`;
+}

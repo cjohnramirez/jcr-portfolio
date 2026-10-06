@@ -7,41 +7,40 @@ import {
   PlateLead,
   PlateTitle,
 } from "@/components/portfolio/shared/plate";
-import { NAV_PLATES } from "@/lib/routes";
+import { NAV_SECTIONS, sectionHref } from "@/lib/routes";
 
 export default function NotFound() {
   return (
     <PageShell>
       <Plate>
-        <PlateHeader plate="404" runningHead="Plate not found" folio="Index" />
+        <PlateHeader plate="404" runningHead="Page not found" folio="Index" />
 
         <PlateBody className="flex flex-col gap-10">
           <PlateTitle as="h1" className="max-w-[16ch]">
-            Plate not found
+            Page not found
           </PlateTitle>
 
-          <PlateLead>
-            Select a plate below or return to the cover.
-          </PlateLead>
+          <PlateLead>Pick a section below or return to the start.</PlateLead>
 
           <ul className="flex flex-col border-t border-rule">
             <li>
               <Link
-                className="flex items-baseline gap-4 border-b border-rule py-4 font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink transition-colors duration-200 hover:text-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-spot"
+                className="flex items-baseline gap-4 border-b border-rule py-4 text-[17px] font-medium text-ink transition-colors duration-200 hover:text-spot"
                 href="/"
               >
-                <span className="tabular-nums text-mark">00</span>
-                <span>Cover</span>
+                <span className="label text-ink-2">00</span>
+                <span>Home</span>
               </Link>
             </li>
-            {NAV_PLATES.map((plate) => (
-              <li key={plate.path}>
+            {NAV_SECTIONS.map((section) => (
+              <li key={section.id}>
                 <Link
-                  className="flex items-baseline gap-4 border-b border-rule py-4 font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink transition-colors duration-200 hover:text-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-spot"
-                  href={plate.path}
+                  className="flex items-baseline gap-4 border-b border-rule py-4 text-[17px] font-medium text-ink transition-colors duration-200 hover:text-spot"
+                  href={sectionHref(section)}
                 >
-                  <span className="tabular-nums text-ink-2">{plate.plate}</span>
-                  <span>{plate.label}</span>
+                  <span className="label text-ink-2">{section.number}</span>
+                  <span>{section.label}</span>
+                  <span className="font-serif italic text-ink-2">{section.subtitle}</span>
                 </Link>
               </li>
             ))}

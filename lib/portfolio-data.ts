@@ -3,10 +3,18 @@ import type {
   ActionLink,
   AdditionalsData,
   CarouselItem,
+  ContactData,
   CreativePortfolioData,
+  ExperienceEntry,
   FooterData,
+  Gallery,
   HeroData,
+  HomeHero,
+  MediaItem,
+  MotionPiece,
+  PrintPiece,
   ProjectsData,
+  RecordEntry,
   ServicesData,
 } from "./portfolio-types";
 import { cloudinaryAsset } from "./cloudinary";
@@ -171,6 +179,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Solo Developer",
       featured: true,
       title: "TrailVenture: Tour Package Booking Platform",
+      result: "Django, Next.js, Stripe · 290 CI tests · Lighthouse 100 for accessibility and SEO",
       summary:
         "Tour package booking platform for the Philippines and beyond. Travellers search by destination, date and budget, compare package tiers and day-by-day itineraries, book a group start date, and pay through Stripe. The core engineering is payment integrity: server-side pricing, price holds and idempotent checkout.",
       links: [
@@ -324,6 +333,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Lead Developer",
       featured: true,
       title: "Steady: Student Guidance and Counselling Platform",
+      result: "Next.js, Supabase · Led a team of five · Access control in the database, 29-check security suite",
       summary:
         "Guidance and counselling platform for a school office. Students book sessions with their department’s counsellor, log mood check-ins, and receive articles and playlists matched to that mood. Counsellors manage requests and schedules. Administrators manage accounts, publish content and monitor a dashboard.",
       links: [
@@ -339,6 +349,62 @@ export const projectsData: ProjectsData = {
         dark: cloudinaryAsset("portfolio/projects/steady/steady-cover-dark.webp"),
         alt: "Steady homepage on a laptop, headed “Nurturing student growth and well-being”.",
       },
+      galleries: [
+        {
+          id: "steady-figma",
+          title: "Original Figma designs",
+          summary:
+            "The interface as first designed in Figma, under the project’s earlier name, GCS System.",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-home.webp"),
+              alt: "GCS System Figma design: home page, full length.",
+              caption: "Home page, full length",
+              tall: true,
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-landing.webp"),
+              alt: "GCS System Figma design: landing page content manager.",
+              caption: "Landing page content manager",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-student-login.webp"),
+              alt: "GCS System Figma design: student login.",
+              caption: "Student login",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-appointment.webp"),
+              alt: "GCS System Figma design: book an appointment.",
+              caption: "Book an appointment",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-counselor-dashboard.webp"),
+              alt: "GCS System Figma design: counsellor dashboard.",
+              caption: "Counsellor dashboard",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-dashboard.webp"),
+              alt: "GCS System Figma design: administrator dashboard.",
+              caption: "Administrator dashboard",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-appointments.webp"),
+              alt: "GCS System Figma design: appointment requests.",
+              caption: "Appointment requests",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-accounts.webp"),
+              alt: "GCS System Figma design: account management.",
+              caption: "Account management",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/steady/figma/gcs-settings-account-settings.webp"),
+              alt: "GCS System Figma design: account settings.",
+              caption: "Account settings",
+            },
+          ],
+        },
+      ],
       carousel: [
         {
           id: "steady-home",
@@ -473,6 +539,7 @@ export const projectsData: ProjectsData = {
       category: "Internship / Solo Developer",
       featured: true,
       title: "Fresco Grow Lab: IoT Telemetry for Grow-Bag Experiments",
+      result: "ESP32 sensors and a Next.js dashboard · Sole developer",
       summary:
         "IoT telemetry for Fresco Greenovations, an agritech startup in Cagayan de Oro. ESP32 sensors log grow-bag temperature at four depths and tipping-bucket rainfall, and a Next.js dashboard turns the readings into watering, thermal and rain analytics. Boards are flashed and configured from the browser.",
       links: [
@@ -488,6 +555,40 @@ export const projectsData: ProjectsData = {
         dark: cloudinaryAsset("portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp"),
         alt: "Fresco Grow Lab temperature dashboard on a laptop, with probe readings and a temperature trace.",
       },
+      galleries: [
+        {
+          id: "fresco-collateral",
+          title: "Brand collateral",
+          summary: "Print and social design for Fresco Greenovations.",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-first-page.webp"),
+              alt: "Fresco Greenovations tri-fold brochure, outside.",
+              caption: "Tri-fold brochure, outside",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-second-page.webp"),
+              alt: "Fresco Greenovations tri-fold brochure, inside.",
+              caption: "Tri-fold brochure, inside",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-fresco-dump.webp"),
+              alt: "Fresco Greenovations social post: The 2025 Archives.",
+              caption: "Social post: The 2025 Archives",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-miss-earth.webp"),
+              alt: "Fresco Greenovations social post: Miss Philippines Earth 2025 visit.",
+              caption: "Social post: Miss Philippines Earth 2025 visit",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-poster.webp"),
+              alt: "Fresco Greenovations conference poster: Greenfluencing the Future.",
+              caption: "Conference poster: Greenfluencing the Future",
+            },
+          ],
+        },
+      ],
       carousel: [
         {
           id: "fresco-dashboard",
@@ -639,6 +740,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Solo Developer",
       featured: true,
       title: "Agriova: Offline Farm Ledger for Filipino Smallholders",
+      result: "React Native · Offline-first farm ledger with a Gemini assistant · Android and iOS",
       summary:
         "Mobile farm ledger for smallholders in Cagayan de Oro that shows whether a season is earning money, with no signal needed. Farmers record expenses, harvests and sales in two or three fields, track produce before it spoils, and ask an assistant that answers from their own records. Android and iOS from one TypeScript codebase.",
       links: [
@@ -874,6 +976,65 @@ export const projectsData: ProjectsData = {
       title: "Enduro Group Branding and Design Management",
       summary:
         "Lead designer and branding manager for Enduro Group, a consulting firm in Dallas, Texas. Authored the firm’s brand guidelines and designed client identity systems under its name.",
+      galleries: [
+        {
+          id: "enduro-applications",
+          title: "Applications",
+          summary: "The house brand in use, rendered on light and dark grounds.",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-white-01.webp"),
+              alt: "Enduro Group wall billboard mockup, light version.",
+              caption: "Wall billboard, light",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-dark-01.webp"),
+              alt: "Enduro Group wall billboard mockup, dark version.",
+              caption: "Wall billboard, dark",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-white-02.webp"),
+              alt: "Enduro Group t-shirt mockup, light version.",
+              caption: "T-shirt, light",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-dark-02.webp"),
+              alt: "Enduro Group t-shirt mockup, dark version.",
+              caption: "T-shirt, dark",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-white-03.webp"),
+              alt: "Enduro Group tote bag mockup, light version.",
+              caption: "Tote bag, light",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-dark-03.webp"),
+              alt: "Enduro Group tote bag mockup, dark version.",
+              caption: "Tote bag, dark",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-white-04.webp"),
+              alt: "Enduro Group business card mockup, light version.",
+              caption: "Business card, light",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-dark-04.webp"),
+              alt: "Enduro Group business card mockup, dark version.",
+              caption: "Business card, dark",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-white-05.webp"),
+              alt: "Enduro Group roadside billboard mockup, light version.",
+              caption: "Roadside billboard, light",
+            },
+            {
+              src: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-dark-05.webp"),
+              alt: "Enduro Group roadside billboard mockup, dark version.",
+              caption: "Roadside billboard, dark",
+            },
+          ],
+        },
+      ],
       carousel: deckSheets(
         "Enduro Group",
         "portfolio/projects/enduro-brand/deck/enduro-deck",
@@ -990,6 +1151,34 @@ export const creativePortfolioData: CreativePortfolioData = {
             "A monogram of sharp parallel paths referencing additive manufacturing and mechanical drawing, interlocking to signal the handover from concept to assembly and leaning forward for momentum. Heavy, uniform line weight for industrial strength. Two typefaces with separate roles: Creato Display for the brand voice, Neptune for iconography and technical labels.",
         },
       ],
+      kind: "identity",
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/snap-engineering/mockups/snap-billboard.webp"),
+        alt: "Snap Engineering roadside billboard mockup: Industrial Speed. Engineering Precision. Done in a Snap.",
+      },
+      galleries: [
+        {
+          id: "snap-engineering-applications",
+          title: "Applications",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/designs/snap-engineering/mockups/snap-billboard.webp"),
+              alt: "Snap Engineering roadside billboard mockup.",
+              caption: "Roadside billboard",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/snap-engineering/mockups/snap-street-poster.webp"),
+              alt: "Snap Engineering street column poster mockup.",
+              caption: "Street poster",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/snap-engineering/mockups/snap-manual.webp"),
+              alt: "Snap Engineering design manual cover among leaves.",
+              caption: "Design manual",
+            },
+          ],
+        },
+      ],
       carousel: deckSheets(
         "Snap Engineering",
         "portfolio/designs/snap-engineering/deck/snap-deck",
@@ -1034,6 +1223,49 @@ export const creativePortfolioData: CreativePortfolioData = {
           title: "The Direction",
           description:
             "White grounds with Plantation green type, inverting to green fields for bold surfaces. Depth comes from flat colour, scale and photography, with brand fields kept free of gradients, glow and shadow. The watermark X and the 30° diagonal photo mask reveal themselves on a second look. Low density conveys calm.",
+        },
+      ],
+      kind: "identity",
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-wall-poster.webp"),
+        alt: "Xplore Land & Sea wall posters mockup.",
+      },
+      galleries: [
+        {
+          id: "xplore-applications",
+          title: "Applications",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-wall-poster.webp"),
+              alt: "Xplore Land & Sea wall posters mockup.",
+              caption: "Wall posters",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-business-card.webp"),
+              alt: "Xplore Land & Sea business card mockup.",
+              caption: "Business card",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-trifold-brochure.webp"),
+              alt: "Xplore Land & Sea tri-fold brochure mockup.",
+              caption: "Tri-fold brochure",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-book.webp"),
+              alt: "Xplore Land & Sea book mockup.",
+              caption: "Book",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-outdoor-flags.webp"),
+              alt: "Xplore Land & Sea outdoor flags mockup.",
+              caption: "Outdoor flags",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/xplore/mockups/xplore-led-screen.webp"),
+              alt: "Xplore Land & Sea led screen mockup.",
+              caption: "LED screen",
+            },
+          ],
         },
       ],
       carousel: deckSheets(
@@ -1106,6 +1338,49 @@ export const creativePortfolioData: CreativePortfolioData = {
             "Bebas Neue ships a single weight while h1 to h6 default to bold, which makes browsers synthesise a faux bold. The system pins font-weight explicitly and sets font-synthesis to none.",
         },
       ],
+      kind: "identity",
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-wall-poster.webp"),
+        alt: "Al-Bab Initiative wall posters mockup.",
+      },
+      galleries: [
+        {
+          id: "al-bab-applications",
+          title: "Applications",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-wall-poster.webp"),
+              alt: "Al-Bab Initiative wall posters mockup.",
+              caption: "Wall posters",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-business-card.webp"),
+              alt: "Al-Bab Initiative business card mockup.",
+              caption: "Business card",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-trifold-brochure.webp"),
+              alt: "Al-Bab Initiative tri-fold brochure mockup.",
+              caption: "Tri-fold brochure",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-book.webp"),
+              alt: "Al-Bab Initiative book mockup.",
+              caption: "Book",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-outdoor-flags.webp"),
+              alt: "Al-Bab Initiative outdoor flags mockup.",
+              caption: "Outdoor flags",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/al-bab/mockups/al-bab-led-screen.webp"),
+              alt: "Al-Bab Initiative led screen mockup.",
+              caption: "LED screen",
+            },
+          ],
+        },
+      ],
       carousel: deckSheets(
         "Al-Bab Initiative",
         "portfolio/designs/al-bab/deck/albab-deck",
@@ -1149,6 +1424,29 @@ export const creativePortfolioData: CreativePortfolioData = {
             "Cinzel’s Roman capitals carry the heritage; Lato keeps body copy legible. The crown doubles as the clearspace unit for both lockups, tying the spacing system to the mark. Patterns are diagonal, tile cleanly and are reserved for large areas.",
         },
       ],
+      kind: "identity",
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/kingmaker/mockups/kingmaker-folder.webp"),
+        alt: "Kingmaker Tax Advisors black presentation folder among leaves.",
+      },
+      galleries: [
+        {
+          id: "kingmaker-applications",
+          title: "Applications",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/designs/kingmaker/mockups/kingmaker-folder.webp"),
+              alt: "Kingmaker Tax Advisors presentation folder mockup.",
+              caption: "Presentation folder",
+            },
+            {
+              src: cloudinaryAsset("portfolio/designs/kingmaker/mockups/kingmaker-stationery.webp"),
+              alt: "Kingmaker Tax Advisors folder, letterhead and envelope.",
+              caption: "Stationery set",
+            },
+          ],
+        },
+      ],
       carousel: deckSheets(
         "Kingmaker Tax Advisors",
         "portfolio/designs/kingmaker/deck/kingmaker-deck",
@@ -1171,6 +1469,252 @@ export const creativePortfolioData: CreativePortfolioData = {
           ["Closing", "Version 1.0 end matter"],
         ],
       ),
+    },
+    // Interface studies. Role, date and outcome are still to come from John;
+    // until then these entries say only what the files themselves show.
+    {
+      id: "barangai",
+      kind: "interface",
+      title: "BarangAI",
+      meta: "> Hackathon entry / UP Mindanao",
+      summary:
+        "An SMS-first AI command center for barangay concerns, developed from moodboard to storyboard to a full landing page wireframe.",
+      details: [
+        "Hackathon entry, UP Mindanao",
+        "SMS-first AI command center",
+        "Blue pixel-block visual language",
+      ],
+      deliverables: ["Visual identity", "Moodboard", "Storyboard", "Landing page wireframe"],
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/barangai/barangai-main.webp"),
+        alt: "BarangAI identity board in blue: posters, social tiles and the pixel-block mark.",
+      },
+      galleries: [
+        {
+          id: "barangai-wireframe",
+          title: "Landing page wireframe",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/designs/barangai/barangai-wireframe.webp"),
+              alt: "BarangAI landing page wireframe, full length.",
+              caption: "Landing page, full length",
+              tall: true,
+            },
+          ],
+        },
+      ],
+      carousel: [
+        {
+          id: "barangai-main",
+          title: "Identity board",
+          description: "Posters, social tiles and the pixel-block mark",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-main.webp"),
+          imageAlt: "BarangAI identity board in blue.",
+          imageFit: "contain",
+        },
+        {
+          id: "barangai-moodboard",
+          title: "Moodboard",
+          description: "Colour, type and imagery direction",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-moodboard.webp"),
+          imageAlt: "BarangAI moodboard.",
+          imageFit: "contain",
+        },
+        {
+          id: "barangai-storyboard-2",
+          title: "Storyboard 1",
+          description: "In many Mindanao communities",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-storyboard-2.webp"),
+          imageAlt: "BarangAI storyboard frame: in many Mindanao communities.",
+          imageFit: "contain",
+        },
+        {
+          id: "barangai-storyboard-3",
+          title: "Storyboard 2",
+          description: "Barangay concerns still arrive",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-storyboard-3.webp"),
+          imageAlt: "BarangAI storyboard frame: barangay concerns still arrive.",
+          imageFit: "contain",
+        },
+        {
+          id: "barangai-storyboard-4",
+          title: "Storyboard 3",
+          description: "Across phones, laptops and megaphones",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-storyboard-4.webp"),
+          imageAlt: "BarangAI storyboard frame: barangay concerns across devices.",
+          imageFit: "contain",
+        },
+        {
+          id: "barangai-storyboard-5",
+          title: "Storyboard 4",
+          description: "Without one system",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-storyboard-5.webp"),
+          imageAlt: "BarangAI storyboard frame: without one system.",
+          imageFit: "contain",
+        },
+        {
+          id: "barangai-storyboard-9",
+          title: "Storyboard 5",
+          description: "Reports get left without updates",
+          imageSrc: cloudinaryAsset("portfolio/designs/barangai/barangai-storyboard-9.webp"),
+          imageAlt: "BarangAI storyboard frame: reports get left without updates.",
+          imageFit: "contain",
+        },
+      ],
+    },
+    {
+      id: "pronote",
+      kind: "interface",
+      title: "ProNote",
+      meta: "> Productivity app interface",
+      summary:
+        "Interface design for a productivity workspace that keeps notes, tasks, habits and a diary side by side.",
+      details: ["Dark interface", "Four core screens", "Sidebar navigation across modules"],
+      deliverables: ["Notes", "Tasks", "Habits", "Diary"],
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/pronote/pronote-tasks.webp"),
+        alt: "ProNote daily tasks screen with progress cards.",
+      },
+      carousel: [
+        {
+          id: "pronote-tasks",
+          title: "Tasks",
+          description: "Daily tasks with progress and due dates",
+          imageSrc: cloudinaryAsset("portfolio/designs/pronote/pronote-tasks.webp"),
+          imageAlt: "ProNote daily tasks screen.",
+          imageFit: "contain",
+        },
+        {
+          id: "pronote-notes",
+          title: "Notes",
+          description: "Tagged notes in a board layout",
+          imageSrc: cloudinaryAsset("portfolio/designs/pronote/pronote-notes.webp"),
+          imageAlt: "ProNote notes screen.",
+          imageFit: "contain",
+        },
+        {
+          id: "pronote-habits",
+          title: "Habits",
+          description: "Weekly habit tracker",
+          imageSrc: cloudinaryAsset("portfolio/designs/pronote/pronote-habits.webp"),
+          imageAlt: "ProNote habits screen.",
+          imageFit: "contain",
+        },
+        {
+          id: "pronote-diary",
+          title: "Diary",
+          description: "Dated entries with a rich text editor",
+          imageSrc: cloudinaryAsset("portfolio/designs/pronote/pronote-diary.webp"),
+          imageAlt: "ProNote diary screen.",
+          imageFit: "contain",
+        },
+      ],
+    },
+    {
+      id: "cs-website",
+      kind: "interface",
+      title: "CS Website",
+      meta: "> USTP Computer Science program",
+      summary:
+        "Website design for the Computer Science program at USTP Cagayan de Oro: the program, its objectives and its achievements.",
+      details: [
+        "University of Science and Technology of Southern Philippines",
+        "Orange and charcoal on a grid ground",
+        "Offset card system",
+      ],
+      deliverables: ["Website design", "Program pages", "Achievements showcase"],
+      cover: {
+        src: cloudinaryAsset("portfolio/designs/cs-website/cs-website-01.webp"),
+        alt: "CS Website hero: Be at the bleeding edge of computing.",
+      },
+      galleries: [
+        {
+          id: "cs-website-full",
+          title: "Full page",
+          items: [
+            {
+              src: cloudinaryAsset("portfolio/designs/cs-website/cs-website-full.webp"),
+              alt: "CS Website design, full length.",
+              caption: "Home page, full length",
+              tall: true,
+            },
+          ],
+        },
+      ],
+      carousel: [
+        {
+          id: "cs-website-01",
+          title: "Section 1",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-01.webp"),
+          imageAlt: "CS Website home page, section 1 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-02",
+          title: "Section 2",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-02.webp"),
+          imageAlt: "CS Website home page, section 2 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-03",
+          title: "Section 3",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-03.webp"),
+          imageAlt: "CS Website home page, section 3 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-04",
+          title: "Section 4",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-04.webp"),
+          imageAlt: "CS Website home page, section 4 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-05",
+          title: "Section 5",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-05.webp"),
+          imageAlt: "CS Website home page, section 5 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-06",
+          title: "Section 6",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-06.webp"),
+          imageAlt: "CS Website home page, section 6 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-07",
+          title: "Section 7",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-07.webp"),
+          imageAlt: "CS Website home page, section 7 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-08",
+          title: "Section 8",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-08.webp"),
+          imageAlt: "CS Website home page, section 8 of 9.",
+          imageFit: "contain",
+        },
+        {
+          id: "cs-website-09",
+          title: "Section 9",
+          description: "Home page",
+          imageSrc: cloudinaryAsset("portfolio/designs/cs-website/cs-website-09.webp"),
+          imageAlt: "CS Website home page, section 9 of 9.",
+          imageFit: "contain",
+        },
+      ],
     },
   ],
 };
@@ -1409,20 +1953,6 @@ export const footerData: FooterData = {
   copyright: "© 2026 John Carl Ramirez. All rights reserved.",
   links: [
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/jcr_rrr/",
-      external: true,
-      icon: "social",
-      iconSrc: cloudinaryAsset("portfolio/brands/icon-instagram.svg"),
-    },
-    {
-      label: "Facebook",
-      href: "https://web.facebook.com/john.ramirez.6767",
-      external: true,
-      icon: "social",
-      iconSrc: cloudinaryAsset("portfolio/brands/icon-facebook.svg"),
-    },
-    {
       label: "GitHub",
       href: "https://github.com/cjohnramirez",
       external: true,
@@ -1436,5 +1966,161 @@ export const footerData: FooterData = {
       icon: "social",
       iconSrc: cloudinaryAsset("portfolio/brands/icon-linkedin.svg"),
     },
+  ],
+};
+
+// ---------------------------------------------------------------------------
+// Home page
+// ---------------------------------------------------------------------------
+
+export const homeHero: HomeHero = {
+  name: "John Carl Ramirez",
+  role: "Developer and brand designer",
+  proof:
+    "Full-stack products from database schema to interface, an SSRN research preprint, and brand systems for clients in Dallas and Jeddah.",
+  status: "Open to work",
+  location: "Cagayan de Oro, Philippines",
+  facts: ["Full-stack · Research · Brand", "TypeScript, Python, Next.js, Django"],
+};
+
+/** Order of the four project cards on the home page. */
+export const featuredWorkIds = [
+  "trailventure",
+  "steady",
+  "agriova",
+  "fresco-grow-lab",
+] as const;
+
+/** Order of the four identity cards on the home page. */
+export const featuredBrandIds = [
+  "kingmaker",
+  "xplore",
+  "al-bab",
+  "snap-engineering",
+] as const;
+
+export const interfaceIds = ["barangai", "pronote", "cs-website"] as const;
+
+function motionPiece(
+  id: string,
+  title: string,
+  format: string,
+  aspect: MotionPiece["aspect"],
+): MotionPiece {
+  return {
+    id,
+    title,
+    format,
+    aspect,
+    poster: cloudinaryAsset(`portfolio/motion/${id}-poster.webp`),
+    loop: {
+      webm: `/portfolio/motion/${id}-loop.webm`,
+      mp4: `/portfolio/motion/${id}-loop.mp4`,
+    },
+    full: `portfolio/motion/full/${id}.mp4`,
+  };
+}
+
+// Muted everywhere: the audio is stripped at encode time, not just silenced
+// in the player, because several of these use commercial music.
+export const motionData: MotionPiece[] = [
+  motionPiece("wildflower", "Wildflower", "Lyric video · Billie Eilish", "square"),
+  motionPiece("promise", "Promise", "Lyric video · Laufey", "square"),
+  motionPiece("the-shade", "The Shade", "Lyric video · Rex Orange County", "square"),
+  motionPiece("narcos-ph", "Narcos intro, Philippines edition", "Title sequence", "wide"),
+  motionPiece("btr-trailer", "Usapang Safe", "App teaser", "wide"),
+  motionPiece("wordmark-teaser", "USTP Games 2026", "Event teaser", "wide"),
+];
+
+const apparel = (file: string, alt: string, caption: string): MediaItem => ({
+  src: cloudinaryAsset(`portfolio/designs/apparel/${file}.webp`),
+  alt,
+  caption,
+});
+
+const frescoCollateral: Gallery | undefined = projectsData.projects
+  .find((project) => project.id === "fresco-grow-lab")
+  ?.galleries?.find((gallery) => gallery.id === "fresco-collateral");
+
+export const printData: PrintPiece[] = [
+  {
+    id: "4h-club-shirt",
+    title: "4-H Club shirt",
+    format: "Apparel · 4-H Club USTP-CDO",
+    cover: apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "Green, back"),
+    items: [
+      apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "Green, back"),
+      apparel("4h-green-mockup", "Green 4-H Club shirt, front and back flats.", "Green, front and back"),
+      apparel("4h-white-t-shirt", "White 4-H Club shirt, worn, showing the back print.", "White, back"),
+      apparel("4h-white-mockup", "White 4-H Club shirt, front and back flats.", "White, front and back"),
+    ],
+  },
+  {
+    id: "cs-polos",
+    title: "Computer Science polos",
+    format: "Apparel · Core team and faculty",
+    cover: apparel("cs-polo-faculty-front", "Navy and gold faculty polo for the Department of Computer Science, front.", "Faculty, front"),
+    items: [
+      apparel("cs-polo-core-team-front", "White and cyan Computer Science Student Society core team polo, front.", "Core team, front"),
+      apparel("cs-polo-core-team-back", "White and cyan Computer Science Student Society core team polo, back.", "Core team, back"),
+      apparel("cs-polo-faculty-front", "Navy and gold faculty polo for the Department of Computer Science, front.", "Faculty, front"),
+      apparel("cs-polo-faculty-back", "Navy and gold faculty polo for the Department of Computer Science, back.", "Faculty, back"),
+    ],
+  },
+  {
+    id: "fresco-collateral",
+    title: "Fresco Greenovations",
+    format: "Print and social",
+    cover: {
+      src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-poster.webp"),
+      alt: "Fresco Greenovations conference poster: Greenfluencing the Future.",
+    },
+    items: frescoCollateral?.items ?? [],
+  },
+];
+
+export const experienceData: ExperienceEntry[] = [
+  {
+    date: "Dec 2025 to Aug 2026",
+    title: "Lead Designer and Branding Manager",
+    org: "Enduro Group · Dallas, Texas",
+    summary:
+      "Authored the firm’s brand guidelines and designed client identity systems under its name, including Al-Bab Initiative and Xplore Land & Sea.",
+    href: "/work/enduro-branding",
+    hrefLabel: "View the Enduro Group brand",
+    image: {
+      light: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-white-01.webp"),
+      dark: cloudinaryAsset("portfolio/projects/enduro-brand/mockups/enduro-dark-01.webp"),
+      alt: "Enduro Group wall billboard: We empower purposeful leaders to create a lasting global impact.",
+    },
+  },
+  {
+    date: "May 2025",
+    title: "KMB 2-approximation for post-disaster road restoration",
+    org: "SSRN preprint · Corresponding author",
+    summary:
+      "Adapts the Kou–Markowsky–Berman 2-approximation to select restoration routes through a damaged road network, evaluated on Istanbul benchmarks and Cagayan de Oro road data.",
+    href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5277559",
+    hrefLabel: "Read the paper on SSRN",
+    external: true,
+  },
+];
+
+export const recordData: RecordEntry[] = [
+  { date: "2023 to present", title: "BS Computer Science, USTP Cagayan de Oro · Dean’s List" },
+  { date: "2024 to present", title: "Video Editing and Multimedia Head, University Student Government" },
+  { date: "March 2024", title: "1st place at USTP-CDO, Google Developer Student Clubs APAC Solution Challenge" },
+  { date: "November 2024", title: "Level 2, 11th TOPCIT" },
+  { date: "June 2026", title: "Top 20 semifinalist, Innovation Cup Mindanao 2026" },
+];
+
+export const contactData: ContactData = {
+  kicker: "Colophon",
+  title: "Got a vision? Let’s bring it to life.",
+  summary: footerData.cta.summary,
+  email: contactAction.href.replace("mailto:", ""),
+  links: [
+    ...footerData.links,
+    { label: "Download CV", href: "/cv.pdf", icon: "download" },
   ],
 };

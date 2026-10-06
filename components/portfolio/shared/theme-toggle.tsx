@@ -19,8 +19,8 @@ const storageKey = "portfolio-theme";
  * hides the warning without correcting the attribute. Syncing in an effect
  * causes the cascading render the lint rule warns about.
  *
- * `getServerSnapshot` returns dark because dark is the unconditional default;
- * only an explicit choice departs from it.
+ * `getServerSnapshot` returns light because the paper ground is the
+ * unconditional default; only an explicit choice departs from it.
  */
 function subscribe(onChange: () => void) {
   const observer = new MutationObserver(onChange);
@@ -33,11 +33,11 @@ function subscribe(onChange: () => void) {
 export function ThemeToggle() {
   const theme = useSyncExternalStore(
     subscribe,
-    () => document.documentElement.dataset.theme ?? "dark",
-    () => "dark",
+    () => document.documentElement.dataset.theme ?? "light",
+    () => "light",
   );
 
-  const isDark = theme !== "light";
+  const isDark = theme === "dark";
 
   function toggleTheme() {
     const nextTheme = isDark ? "light" : "dark";
@@ -53,9 +53,9 @@ export function ThemeToggle() {
 
   return (
     <button
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label="Dark mode"
       aria-pressed={isDark}
-      className="inline-flex min-h-12 min-w-12 items-center justify-center border border-rule bg-plate-2 text-ink transition-colors hover:border-spot focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-spot lg:min-h-[63px] lg:min-w-[63px]"
+      className="inline-flex size-11 items-center justify-center rounded-full border border-rule bg-plate text-ink transition-colors hover:border-ink"
       onClick={toggleTheme}
       type="button"
     >

@@ -120,6 +120,13 @@ export type ProjectCaseStudy = {
     label: string;
     href: string;
   }[];
+  /**
+   * One line of proof for the home card: stack, then the strongest verifiable
+   * outcome. Every figure here must already appear in `notes`.
+   */
+  result?: string;
+  /** Extra imagery shown under the sheets, e.g. original Figma designs. */
+  galleries?: Gallery[];
 };
 
 export type ProjectsData = {
@@ -152,6 +159,14 @@ export type PortfolioBrand = {
     description: string;
   }[];
   carousel: CarouselItem[];
+  /**
+   * `identity` entries are brand systems; `interface` entries are UI/UX
+   * studies. Both render through the same detail template.
+   */
+  kind?: "identity" | "interface";
+  /** Card image on the home page. Falls back to the first sheet. */
+  cover?: MediaItem;
+  galleries?: Gallery[];
 };
 
 export type CreativePortfolioData = {
@@ -212,4 +227,78 @@ export type FooterData = {
   };
   copyright: string;
   links: ActionLink[];
+};
+
+export type MediaItem = {
+  src: string;
+  alt: string;
+  caption?: string;
+  /**
+   * A full-length page capture. Rendered in a fixed-height frame that scrolls,
+   * rather than shrunk until it is unreadable.
+   */
+  tall?: boolean;
+};
+
+export type Gallery = {
+  id: string;
+  title: string;
+  summary?: string;
+  items: MediaItem[];
+};
+
+export type MotionPiece = {
+  id: string;
+  title: string;
+  /** What kind of piece it is, read from the work itself. */
+  format: string;
+  summary?: string;
+  aspect: "square" | "wide";
+  poster: string;
+  /** Silent 8-second loop, served with the site. */
+  loop: { webm: string; mp4: string };
+  /** Muted full-length encode, served from the CDN. */
+  full: string;
+};
+
+export type PrintPiece = {
+  id: string;
+  title: string;
+  format: string;
+  summary?: string;
+  cover: MediaItem;
+  items: MediaItem[];
+};
+
+export type ExperienceEntry = {
+  date: string;
+  title: string;
+  org: string;
+  summary: string;
+  href: string;
+  hrefLabel: string;
+  external?: boolean;
+  image?: { light: string; dark: string; alt: string };
+};
+
+export type RecordEntry = {
+  date: string;
+  title: string;
+};
+
+export type ContactData = {
+  kicker: string;
+  title: string;
+  summary: string;
+  email: string;
+  links: ActionLink[];
+};
+
+export type HomeHero = {
+  name: string;
+  role: string;
+  proof: string;
+  status: string;
+  location: string;
+  facts: string[];
 };

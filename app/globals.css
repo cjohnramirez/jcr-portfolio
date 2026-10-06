@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* Dark is the default, so `dark:` must key off the attribute rather than the
-   media query — the theme script stamps data-theme before paint. */
+/* `dark:` keys off the attribute rather than the media query: the theme
+   script stamps data-theme before paint, from the visitor's explicit choice. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ---------------------------------------------------------------------------
@@ -20,38 +20,38 @@
 --------------------------------------------------------------------------- */
 
 :root {
+  color-scheme: light;
+
+  /* Warm off-white editorial paper is the default. */
+  --ground: #e7e5e0;
+  --plate: #fbfaf8;
+  --plate-2: #f2f0ec;
+  --ink: #101112;
+  /* 5.3:1 on --ground and 6.3:1 on --plate, so 12px labels clear AA. */
+  --ink-2: #5a5d61;
+  --rule: #d6d3cd;
+  --spot: #1f4fd8;
+  /* Darkened from #ec008c, which gave only 4.07:1 against the paper. */
+  --mark: #d4007e;
+
+  --icon-filter: none;
+}
+
+:root[data-theme="dark"] {
   color-scheme: dark;
 
   --ground: #0b0c0d;
   --plate: #141618;
   --plate-2: #1b1e21;
   --ink: #edebe7;
-  --ink-2: #8a8f94;
+  --ink-2: #9a9fa4;
   --rule: #2a2e32;
-  --spot: #5b84f5;
+  --spot: #7b9cf7;
   --mark: #ff3d9a;
 
   /* Black-authored SVG assets have to reverse out on the dark ground. */
   --icon-filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(200deg)
     brightness(103%) contrast(92%);
-}
-
-:root[data-theme="light"] {
-  color-scheme: light;
-
-  --ground: #e7e5e0;
-  --plate: #fbfaf8;
-  --plate-2: #f2f0ec;
-  --ink: #101112;
-  --ink-2: #6b6e72;
-  --rule: #d6d3cd;
-  --spot: #1f4fd8;
-  /* Darkened from #ec008c, which gave only 4.07:1 against the paper — the
-     annotation labels are 9–11px, so they need the 4.5:1 small-text bar.
-     This is 4.91:1. The dark counterpart already clears it at 5.52:1. */
-  --mark: #d4007e;
-
-  --icon-filter: none;
 }
 
 /* Kept for the two utility classes below and for body defaults. */
@@ -81,16 +81,17 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Three faces, three jobs. Display carries personality, body carries
-     reading, spec carries data. */
-  --font-display: var(--font-syne), system-ui, -apple-system, sans-serif;
+  /* Two faces. The serif carries headings and editorial accents; the sans
+     carries reading, labels and figures. */
+  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
   --font-body: var(--font-instrument-sans), system-ui, -apple-system, sans-serif;
-  --font-spec: var(--font-google-sans-code), ui-monospace, "Courier New", monospace;
+  --font-spec: var(--font-body);
   --font-sans: var(--font-body);
-  --font-mono: var(--font-spec);
+  --font-serif: var(--font-display);
+  --font-mono: var(--font-body);
 
   /* Plate titles want poster scale; the spec face stays deliberately small. */
-  --text-spec: 0.6875rem;
+  --text-spec: 0.75rem;
   --text-spec--line-height: 1.2;
   --text-body: 1.125rem;
   --text-body--line-height: 1.65;
@@ -124,7 +125,7 @@ html {
    this, jumping to a plate parks its heading underneath the header — and the
    same offset keeps a keyboard-focused element from being obscured. */
 [id] {
-  scroll-margin-top: 7rem;
+  scroll-margin-top: 5.5rem;
 }
 
 /* Removes the ~300ms double-tap-zoom delay on touch, and replaces the default
@@ -142,10 +143,11 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  /* Syne is variable 400–800. Display sizes want the heavy end and tight
-     tracking; its letterforms are wide enough that default spacing reads loose. */
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  /* Instrument Serif ships one weight. Anything heavier would be a synthesised
+     faux bold, so the weight is pinned and synthesis is switched off. */
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
@@ -154,12 +156,45 @@ p {
   text-wrap: pretty;
 }
 
-/* The spec face carries plate numbers, folios, counters and dates — all
-   figures that must not shift width as they change. */
+/* Plate numbers, folios, counters and dates must not shift width as they
+   change. With the mono face gone, tabular figures do that job. */
 .font-spec,
 [class*="tabular"] {
   font-family: var(--font-spec);
   font-variant-numeric: tabular-nums;
+}
+
+/* Small caps label: section numbers, metadata, dates. */
+.label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Every interactive element gets the same visible ring, on any ground. */
+:where(a, button, [role="tab"], summary, video, [tabindex]):focus-visible {
+  outline: 2px solid var(--spot);
+  outline-offset: 3px;
+}
+
+@keyframes status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.status-dot {
+  animation: status-pulse 2.4s ease-out infinite;
 }
 
 ::selection {
@@ -252,5 +287,17 @@ p {
   66.667%,
   100% {
     background: var(--ink);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

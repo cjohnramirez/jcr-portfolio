@@ -36,6 +36,19 @@ const nextConfig: NextConfig = {
         destination: "/work/steady",
         permanent: true,
       },
+      // The index pages became sections of the one-page home. Their old
+      // addresses land on the matching section rather than a 404.
+      ...[
+        ["/about", "about"],
+        ["/work", "work"],
+        ["/designs", "brand"],
+        ["/archive", "experience"],
+        ["/contact", "contact"],
+      ].map(([source, section]) => ({
+        source,
+        destination: `/#${section}`,
+        permanent: true,
+      })),
     ];
   },
 };

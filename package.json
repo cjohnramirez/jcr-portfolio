@@ -12,7 +12,8 @@
     "test:redesign": "playwright test --grep @redesign",
     "test:ui": "playwright test --ui",
     "images": "node scripts/build-image-manifest.mjs",
-    "images:compress": "node scripts/build-image-manifest.mjs --compress"
+    "images:compress": "node scripts/build-image-manifest.mjs --compress",
+    "ascii": "node scripts/build-ascii.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.1.1",

@@ -1,55 +1,49 @@
-import { HeroSection } from "@/components/portfolio/hero/hero-section";
-import { ServicesSection } from "@/components/portfolio/services/services-section";
-import { IndexGrid } from "@/components/portfolio/shared/index-grid";
-import { PageShell } from "@/components/portfolio/shared/page-shell";
-import { FeaturedBand } from "@/components/portfolio/work/featured-band";
+import { AboutSection } from "@/components/portfolio/sections/about-section";
+import { BrandSection } from "@/components/portfolio/sections/brand-section";
+import { ContactSection } from "@/components/portfolio/sections/contact-section";
+import { ExperienceSection } from "@/components/portfolio/sections/experience-section";
+import { HeroSection } from "@/components/portfolio/sections/hero-section";
+import { ServicesSection } from "@/components/portfolio/sections/services-section";
+import { WorkSection } from "@/components/portfolio/sections/work-section";
 import {
+  aboutData,
+  contactData,
   creativePortfolioData,
+  experienceData,
+  featuredBrandIds,
+  featuredWorkIds,
   heroData,
+  homeHero,
+  interfaceIds,
+  motionData,
+  printData,
   projectsData,
+  recordData,
   servicesData,
 } from "@/lib/portfolio-data";
-import { getDesignPlate, getWorkPlate, PLATES } from "@/lib/routes";
+
+/** Looks entries up by id, in the given order, and drops any that are missing. */
+function pick<T extends { id: string }>(items: T[], ids: readonly string[]): T[] {
+  return ids
+    .map((id) => items.find((item) => item.id === id))
+    .filter((item): item is T => item !== undefined);
+}
 
 export default function Home() {
-  const featuredWork = projectsData.projects
-    .filter((project) => project.featured)
-    .map((project) => ({
-      href: `${PLATES.work.path}/${project.id}`,
-      plate: getWorkPlate(project.id),
-      title: project.title,
-      meta: project.category,
-      summary: project.summary,
-      sheet: project.carousel[0],
-      cover: project.cover,
-      stack: project.stack.items,
-    }));
-
-  const workEntries = projectsData.projects
-    .filter((project) => !project.featured)
-    .map((project) => ({
-      href: `${PLATES.work.path}/${project.id}`,
-      plate: getWorkPlate(project.id),
-      title: project.title,
-      meta: project.category,
-      summary: project.summary,
-    }));
-
-  const designEntries = creativePortfolioData.brands.map((brand) => ({
-    href: `${PLATES.designs.path}/${brand.id}`,
-    plate: getDesignPlate(brand.id),
-    title: brand.title,
-    meta: brand.deliverables.join(" · "),
-    summary: brand.details.join(" · "),
-  }));
-
   return (
-    <PageShell>
-      <HeroSection data={heroData} />
+    <main className="flex flex-col" id="main">
+      <HeroSection data={homeHero} email={contactData.email} />
+      <WorkSection projects={pick(projectsData.projects, featuredWorkIds)} />
+      <BrandSection
+        identity={pick(creativePortfolioData.brands, featuredBrandIds)}
+        interfaces={pick(creativePortfolioData.brands, interfaceIds)}
+        motion={motionData}
+        print={printData}
+      />
       <ServicesSection data={servicesData} />
-      <FeaturedBand entries={featuredWork} label="Selected work" />
-      <IndexGrid entries={workEntries} label="Case plates" />
-      <IndexGrid entries={designEntries} label="Identity work" />
-    </PageShell>
+      <ExperienceSection entries={experienceData} record={recordData} />
+      <AboutSection data={aboutData} portrait={heroData.portrait} />
+      <ContactSection data={contactData} />
+    </main>
   );
 }

@@ -1,5 +1,7 @@
 import type { PortfolioBrand } from "@/lib/portfolio-types";
+import Link from "next/link";
 import { CarouselFrame } from "../shared/carousel-frame";
+import { GalleryGrid } from "../shared/gallery-grid";
 import { SheetsJumpButton } from "../shared/sheets-jump-button";
 import {
   Plate,
@@ -33,6 +35,13 @@ export function DesignPlate({ brand, plate }: DesignPlateProps) {
       />
 
       <PlateBody className="flex flex-col gap-12 lg:gap-16">
+        <Link
+          className="-mb-4 inline-flex items-center gap-2 self-start text-[15px] font-medium text-ink-2 transition-colors duration-200 hover:text-spot"
+          href="/#brand"
+        >
+          <span aria-hidden="true">←</span> All brand and design
+        </Link>
+
         <div className="flex flex-col gap-6">
           <PlateTitle as="h1" className="max-w-[16ch]">
             {brand.title}
@@ -52,6 +61,10 @@ export function DesignPlate({ brand, plate }: DesignPlateProps) {
           items={brand.carousel}
           label={brand.title}
         />
+
+        {brand.galleries?.map((gallery) => (
+          <GalleryGrid gallery={gallery} key={gallery.id} />
+        ))}
 
         <div className="grid gap-10 border-t border-rule pt-10 lg:grid-cols-2 lg:gap-14">
           <div className="flex flex-col gap-8">

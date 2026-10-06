@@ -1,20 +1,24 @@
 import type { MetadataRoute } from "next";
-import { getAllDesignSlugs, getAllWorkSlugs, NAV_PLATES, PLATES } from "@/lib/routes";
+import { getAllDesignSlugs, getAllWorkSlugs } from "@/lib/routes";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  const staticRoutes = [PLATES.cover, ...NAV_PLATES].map((plate) => ({
-    url: `${SITE_URL}${plate.path}`,
-    lastModified,
-    changeFrequency: "monthly" as const,
-    priority: plate.path === "/" ? 1 : 0.8,
-  }));
+  // One page: every section is an anchor on `/`, so it is the only static
+  // route. Fragments are not separate documents to a crawler.
+  const staticRoutes = [
+    {
+      url: SITE_URL,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 1,
+    },
+  ];
 
   const detailRoutes = [
-    ...getAllWorkSlugs().map((slug) => `${PLATES.work.path}/${slug}`),
-    ...getAllDesignSlugs().map((slug) => `${PLATES.designs.path}/${slug}`),
+    ...getAllWorkSlugs().map((slug) => `/work/${slug}`),
+    ...getAllDesignSlugs().map((slug) => `/designs/${slug}`),
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
