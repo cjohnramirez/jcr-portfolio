@@ -297,6 +297,8 @@ export type ContactData = {
 export type HomeHero = {
   name: string;
   role: string;
+  /** Typed in turn under the name, starting with `role`. */
+  roles: string[];
   proof: string;
   status: string;
   location: string;

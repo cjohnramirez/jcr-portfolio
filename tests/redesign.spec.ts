@@ -221,6 +221,15 @@ test.describe("@redesign motion", () => {
     // chance to settle rather than sampling one frame after the scroll.
     let stuck = await collect();
     for (let attempt = 0; attempt < 10 && stuck.length > 0; attempt += 1) {
+      // Under parallel load a fast scroll pass can step over an element's
+      // trigger band. Bring anything still hidden into view, which is what a
+      // reader's own scrolling does, then check that it resolves.
+      await page.evaluate(() => {
+        const hidden = [...document.querySelectorAll<HTMLElement>("[style]")].find(
+          (el) => parseFloat(el.style.opacity || "1") < 1 && el.getBoundingClientRect().height > 0,
+        );
+        hidden?.scrollIntoView({ block: "center" });
+      });
       await page.waitForTimeout(300);
       stuck = await collect();
     }

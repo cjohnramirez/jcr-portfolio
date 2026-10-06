@@ -1976,6 +1976,16 @@ export const footerData: FooterData = {
 export const homeHero: HomeHero = {
   name: "John Carl Ramirez",
   role: "Developer and brand designer",
+  // Each one is backed by work on this site: the case studies, the identity
+  // systems, the interface studies, the motion pieces and the SSRN preprint.
+  roles: [
+    "Developer and brand designer",
+    "Full-stack developer",
+    "Brand identity designer",
+    "UI/UX designer",
+    "Motion designer",
+    "Algorithm researcher",
+  ],
   proof:
     "Full-stack products from database schema to interface, an SSRN research preprint, and brand systems for clients in Dallas and Jeddah.",
   status: "Open to work",

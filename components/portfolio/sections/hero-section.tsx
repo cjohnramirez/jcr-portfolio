@@ -4,7 +4,7 @@ import type { HomeHero } from "@/lib/portfolio-types";
 import { SECTIONS, sectionHref } from "@/lib/routes";
 import { AsciiPortrait } from "../fx/ascii-portrait";
 import { GlowingEffect } from "../fx/glowing-effect";
-import { TextGenerate } from "../fx/text-generate";
+import { Typewriter } from "../fx/typewriter";
 import { Reveal } from "../shared/reveal";
 
 type HeroSectionProps = {
@@ -43,8 +43,8 @@ export function HeroSection({ data, email }: HeroSectionProps) {
           </h1>
         </Reveal>
 
-        <p className="font-serif text-[clamp(1.875rem,1.3rem+2.4vw,3.5rem)] italic leading-[1.05] text-ink">
-          <TextGenerate delay={0.35} text={data.role} />
+        <p className="font-serif text-[clamp(1.875rem,1.3rem+2.4vw,3.5rem)] italic leading-[1.05] text-spot">
+          <Typewriter phrases={data.roles} />
         </p>
 
         <Reveal order={4}>
