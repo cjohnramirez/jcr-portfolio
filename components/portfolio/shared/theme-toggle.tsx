@@ -55,7 +55,7 @@ export function ThemeToggle() {
     <button
       aria-label="Dark mode"
       aria-pressed={isDark}
-      className="inline-flex size-11 items-center justify-center rounded-full border border-rule bg-plate text-ink transition-colors hover:border-ink"
+      className="inline-flex size-11 items-center justify-center border border-rule bg-plate text-ink transition-colors hover:border-ink"
       onClick={toggleTheme}
       type="button"
     >

@@ -183,7 +183,7 @@ p {
 
 @keyframes status-pulse {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 55%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 55%, transparent);
   }
   70% {
     box-shadow: 0 0 0 8px transparent;
@@ -195,6 +195,7 @@ p {
 
 .status-dot {
   animation: status-pulse 2.4s ease-out infinite;
+  color: #1f9d55;
 }
 
 ::selection {
@@ -300,4 +301,42 @@ p {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Glowing edge (Aceternity Glowing Effect, in spot blue)
+
+   A ring the width of the border, masked to an arc aimed at the pointer.
+   `--start` is the pointer's bearing in degrees, `--spread` the arc's half
+   width, `--active` whether the pointer is near. Set by GlowingEffect.
+--------------------------------------------------------------------------- */
+
+.glow-ring::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--glow-border));
+  border: var(--glow-border) solid transparent;
+  border-radius: inherit;
+  background: conic-gradient(
+    from calc((var(--start) - var(--spread)) * 1deg),
+    transparent 0deg,
+    color-mix(in srgb, var(--spot) 70%, #7fb2ff) calc(var(--spread) * 0.6deg),
+    var(--spot) calc(var(--spread) * 1deg),
+    color-mix(in srgb, var(--spot) 70%, #7fb2ff) calc(var(--spread) * 1.4deg),
+    transparent calc(var(--spread) * 2deg)
+  );
+  background-origin: border-box;
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0) border-box;
+  mask-composite: exclude;
+  opacity: var(--active);
+  transition: opacity 300ms ease;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--spot) 55%, transparent));
+}
+
+/* Any small dot that marks state or a list item breathes like the status dot. */
+.pulse-dot {
+  animation: status-pulse 2.4s ease-out infinite;
+  color: inherit;
 }

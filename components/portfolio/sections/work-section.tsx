@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import type { ProjectCaseStudy } from "@/lib/portfolio-types";
 import { SECTIONS } from "@/lib/routes";
-import { HoverHighlight } from "../fx/hover-highlight";
+import { GlowingEffect } from "../fx/glowing-effect";
 import { CloudinaryImage } from "../shared/cloudinary-image";
 import { Reveal } from "../shared/reveal";
 import { SectionBand, SectionHeader } from "../shared/section-header";
@@ -18,9 +18,10 @@ function WorkCard({ project, priority }: { project: ProjectCaseStudy; priority: 
 
   return (
     <Link
-      className="group flex h-full flex-col border border-rule bg-plate"
+      className="group relative flex h-full flex-col border border-rule bg-plate transition-colors duration-300 hover:bg-plate-2"
       href={`/work/${project.id}`}
     >
+      <GlowingEffect />
       {project.cover ? (
         <div className="relative aspect-[1.86] w-full overflow-hidden bg-plate-2">
           {/* Both renders ship; the theme decides which one shows. */}
@@ -49,7 +50,7 @@ function WorkCard({ project, priority }: { project: ProjectCaseStudy; priority: 
 
         {project.result ? (
           <p className="mt-2 flex gap-3 border-t border-rule pt-4 text-[15px] font-medium leading-snug text-ink">
-            <span aria-hidden="true" className="mt-[0.45em] size-2 shrink-0 rounded-full bg-spot" />
+            <span aria-hidden="true" className="pulse-dot mt-[0.45em] size-2 shrink-0 rounded-full bg-current text-spot" />
             <span>{project.result}</span>
           </p>
         ) : null}
@@ -71,18 +72,15 @@ export function WorkSection({ projects }: { projects: ProjectCaseStudy[] }) {
         section={SECTIONS.work}
         title="Selected work"
       />
-      <HoverHighlight
-        className="gap-6 md:grid-cols-2 md:gap-5 xl:gap-8"
-        items={projects.map((project, index) => ({
-          key: project.id,
-          node: (
+      <ul aria-label="Selected work" className="grid gap-6 md:grid-cols-2 md:gap-5 xl:gap-8">
+        {projects.map((project, index) => (
+          <li key={project.id}>
             <Reveal className="h-full" order={index % 2}>
               <WorkCard priority={false} project={project} />
             </Reveal>
-          ),
-        }))}
-        label="Selected work"
-      />
+          </li>
+        ))}
+      </ul>
     </SectionBand>
   );
 }

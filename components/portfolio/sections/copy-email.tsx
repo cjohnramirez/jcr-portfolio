@@ -21,7 +21,7 @@ export function CopyEmail({ email }: { email: string }) {
   return (
     <>
       <button
-        className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-plate/30 px-5 text-[14px] font-medium text-plate transition-colors duration-200 hover:border-plate"
+        className="inline-flex h-11 shrink-0 items-center gap-2 border border-plate/30 px-5 text-[14px] font-medium text-plate transition-colors duration-200 hover:border-plate"
         onClick={copy}
         type="button"
       >

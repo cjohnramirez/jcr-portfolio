@@ -1,6 +1,5 @@
 import type { AboutData } from "@/lib/portfolio-types";
 import { SECTIONS } from "@/lib/routes";
-import { AnnotatedFrame } from "../shared/annotated-frame";
 import { CloudinaryImage } from "../shared/cloudinary-image";
 import { Reveal } from "../shared/reveal";
 import { SectionBand, SectionHeader } from "../shared/section-header";
@@ -15,8 +14,7 @@ export function AboutSection({ data, portrait }: AboutSectionProps) {
     <SectionBand section={SECTIONS.about} tone="plate">
       <div className="grid items-start gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
         <Reveal>
-          <AnnotatedFrame clearspace="1×" dimensions="Portrait / 1:1">
-            <div className="relative aspect-square w-full">
+          <div className="relative aspect-square w-full overflow-hidden border border-rule bg-plate-2">
               <CloudinaryImage
                 alt={portrait.alt}
                 className="object-cover"
@@ -24,8 +22,7 @@ export function AboutSection({ data, portrait }: AboutSectionProps) {
                 sizes="(min-width: 1440px) 480px, (min-width: 768px) 38vw, 100vw"
                 src={portrait.src}
               />
-            </div>
-          </AnnotatedFrame>
+          </div>
         </Reveal>
 
         <div className="flex flex-col gap-10">

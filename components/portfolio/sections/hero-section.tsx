@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { HomeHero } from "@/lib/portfolio-types";
 import { SECTIONS, sectionHref } from "@/lib/routes";
 import { AsciiPortrait } from "../fx/ascii-portrait";
-import { Magnetic } from "../fx/magnetic";
+import { GlowingEffect } from "../fx/glowing-effect";
 import { TextGenerate } from "../fx/text-generate";
 import { Reveal } from "../shared/reveal";
 
@@ -25,12 +25,12 @@ export function HeroSection({ data, email }: HeroSectionProps) {
       <div className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-[1440px] items-center gap-12 px-4 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40 lg:grid-cols-[minmax(0,1fr)_auto] xl:gap-16 xl:px-16">
         <div className="flex flex-col gap-7 md:gap-8">
         <Reveal from="none">
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-rule bg-plate px-3.5 py-2 text-[13px] font-medium text-ink">
-              <span aria-hidden="true" className="status-dot size-2 rounded-full bg-[#1f9d55]" />
-              {data.status}
+          <div className="flex flex-wrap items-center gap-3 text-[14px] font-medium leading-none">
+            <p className="inline-flex h-9 items-center gap-2.5 border border-rule bg-plate px-3.5 text-ink">
+              <span aria-hidden="true" className="status-dot size-2 rounded-full bg-current" />
+              <span className="text-ink">{data.status}</span>
             </p>
-            <p className="label text-ink-2">{data.location}</p>
+            <p className="inline-flex h-9 items-center px-1 text-ink-2">{data.location}</p>
           </div>
         </Reveal>
 
@@ -55,29 +55,27 @@ export function HeroSection({ data, email }: HeroSectionProps) {
 
         <Reveal order={5}>
           <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-            <Magnetic>
               <Link
-                className="group inline-flex min-h-12 w-full items-center justify-between gap-6 bg-ink px-6 text-[15px] font-medium text-plate transition-colors duration-200 hover:bg-spot sm:w-auto"
+                className="group relative inline-flex min-h-12 w-full items-center justify-between gap-6 bg-ink px-6 text-[15px] font-medium text-plate transition-colors duration-200 hover:bg-spot sm:w-auto"
                 href={sectionHref(SECTIONS.work)}
               >
+                <GlowingEffect proximity={48} spread={50} />
                 Development work
                 <ArrowDown aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" strokeWidth={1.75} />
               </Link>
-            </Magnetic>
-            <Magnetic>
               <Link
-                className="group inline-flex min-h-12 w-full items-center justify-between gap-6 border border-rule bg-plate px-6 text-[15px] font-medium text-ink transition-colors duration-200 hover:border-ink sm:w-auto"
+                className="group relative inline-flex min-h-12 w-full items-center justify-between gap-6 border border-rule bg-plate px-6 text-[15px] font-medium text-ink transition-colors duration-200 hover:border-ink sm:w-auto"
                 href={sectionHref(SECTIONS.brand)}
               >
+                <GlowingEffect proximity={48} spread={50} />
                 Brand work
                 <ArrowDown aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" strokeWidth={1.75} />
               </Link>
-            </Magnetic>
           </div>
         </Reveal>
 
         <Reveal from="none" order={6}>
-          <ul className="mt-6 flex flex-col gap-3 border-t border-rule pt-7 sm:flex-row sm:flex-wrap sm:gap-x-12">
+          <ul className="mt-6 flex flex-col gap-3 border-t border-rule pt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
             {data.facts.map((fact) => (
               <li className="label text-ink-2" key={fact}>
                 {fact}

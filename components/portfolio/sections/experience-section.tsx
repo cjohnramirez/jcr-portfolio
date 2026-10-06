@@ -50,7 +50,7 @@ export function ExperienceSection({ entries, record }: ExperienceSectionProps) {
               <li className="relative pb-14 pl-7 last:pb-0 md:pl-10" key={entry.title}>
                 <span
                   aria-hidden="true"
-                  className="absolute left-[-4px] top-1 size-[9px] rounded-full border border-spot bg-ground"
+                  className="pulse-dot absolute left-[-4px] top-1 size-[9px] rounded-full bg-current text-spot"
                 />
                 <Reveal className="flex flex-col gap-3" order={index}>
                   <p className="label text-spot">{entry.date}</p>

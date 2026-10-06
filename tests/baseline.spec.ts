@@ -125,7 +125,7 @@ test.describe("one-page home", () => {
     for (const [index, id] of ids.entries()) {
       const section = page.locator(`section#${id}`);
       await expect(section).toBeAttached();
-      await expect(section.locator(".label").first()).toHaveText(
+      await expect(section.locator("p > span.tabular-nums").first()).toHaveText(
         String(index + 1).padStart(2, "0"),
       );
       await expect(section.locator("h2").first()).not.toBeEmpty();
@@ -141,26 +141,39 @@ test.describe("one-page home", () => {
     ).toHaveAttribute("aria-current", "location");
   });
 
-  test("the home page shows four project and four identity cards", async ({
+  test("the home page shows four projects and all four identity systems", async ({
     page,
   }) => {
     await page.goto("/");
     await expect(page.locator('#work a[href^="/work/"]')).toHaveCount(4);
-    await expect(page.locator('[role="tabpanel"]').first().locator('a[href^="/designs/"]')).toHaveCount(4);
+    for (const slug of ["kingmaker", "xplore", "al-bab", "snap-engineering"]) {
+      await expect(page.locator(`#brand a[href="/designs/${slug}"]`)).toHaveCount(1);
+    }
   });
 
-  test("brand tabs work from the keyboard", async ({ page }) => {
+  test("brand work can be searched and filtered", async ({ page }) => {
     await page.goto("/");
-    const first = page.getByRole("tab", { name: /identity/i });
-    await first.focus();
-    await page.keyboard.press("ArrowRight");
-    await expect(page.getByRole("tab", { name: /interface/i })).toBeFocused();
-    await expect(page.getByRole("tab", { name: /interface/i })).toHaveAttribute("aria-selected", "true");
-    await page.keyboard.press("End");
-    await expect(page.getByRole("tab", { name: /print/i })).toHaveAttribute("aria-selected", "true");
+    const brand = page.locator("#brand");
+    const rows = brand.locator("ul.border-t > li");
+    const total = await rows.count();
+
+    await brand.getByRole("button", { name: /^motion/i }).click();
+    await expect(brand.getByRole("button", { name: /^motion/i })).toHaveAttribute("aria-pressed", "true");
+    await expect(rows).toHaveCount(6);
+
+    await brand.getByRole("button", { name: /^all/i }).click();
+    await expect(rows).toHaveCount(total);
+
+    await brand.getByRole("searchbox", { name: /search brand and design/i }).fill("xplore");
+    await expect(rows).toHaveCount(1);
+
+    await brand.getByRole("searchbox").fill("zzzz");
+    await expect(brand.getByText(/nothing matches/i)).toBeVisible();
+    await brand.getByRole("button", { name: /show all work/i }).click();
+    await expect(rows).toHaveCount(total);
   });
 
-  test("no video downloads until the Motion tab is opened", async ({ page }) => {
+  test("no video downloads until a motion piece is opened", async ({ page }) => {
     const videos: string[] = [];
     page.on("request", (request) => {
       if (/\.(mp4|webm)(\?|$)/.test(request.url())) videos.push(request.url());
@@ -174,7 +187,6 @@ test.describe("one-page home", () => {
 
   test("a motion dialog opens, closes on Escape and returns focus", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("tab", { name: /motion/i }).click();
     const card = page.getByRole("button", { name: /play wildflower/i });
     await card.click();
     const dialog = page.getByRole("dialog", { name: "Wildflower" });

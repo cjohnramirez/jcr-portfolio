@@ -57,7 +57,7 @@ export function MediaDialog({ open, onClose, title, subtitle, children }: MediaD
         </div>
         <button
           aria-label="Close"
-          className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-rule transition-colors duration-200 hover:border-ink"
+          className="inline-flex size-11 shrink-0 items-center justify-center border border-rule transition-colors duration-200 hover:border-ink"
           onClick={onClose}
           type="button"
         >

@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { ALL_SECTIONS, NAV_SECTIONS, sectionHref } from "@/lib/routes";
+import { GlowingEffect } from "../fx/glowing-effect";
 import { ThemeToggle } from "../shared/theme-toggle";
 
 const SECTION_IDS = ALL_SECTIONS.map((section) => section.id);
@@ -78,7 +79,7 @@ export function PortfolioNav() {
                 <li key={section.id}>
                   <Link
                     aria-current={isActive ? "location" : undefined}
-                    className="group relative flex flex-col py-2 leading-none"
+                    className="group relative flex py-2 leading-none"
                     href={sectionHref(section)}
                   >
                     <span
@@ -87,9 +88,6 @@ export function PortfolioNav() {
                       }`}
                     >
                       {section.label}
-                    </span>
-                    <span className="mt-1 font-serif text-[14px] italic text-ink-2">
-                      {section.subtitle}
                     </span>
                     {isActive ? (
                       <motion.span
@@ -132,10 +130,11 @@ export function PortfolioNav() {
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-rule bg-plate px-4 text-[14px] font-medium text-ink transition-colors duration-200 hover:border-ink"
+            className="relative inline-flex h-11 items-center gap-2 border border-rule bg-plate px-4 text-[14px] font-medium text-ink transition-colors duration-200 hover:border-ink"
             download
             href="/cv.pdf"
           >
+            <GlowingEffect proximity={32} />
             <Download aria-hidden="true" className="size-4" strokeWidth={1.75} />
             <span>
               <span className="sm:hidden">CV</span>
@@ -147,7 +146,7 @@ export function PortfolioNav() {
             aria-controls={menuId}
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="inline-flex size-11 items-center justify-center rounded-full border border-rule bg-plate text-ink transition-colors duration-200 hover:border-ink lg:hidden"
+            className="inline-flex size-11 items-center justify-center border border-rule bg-plate text-ink transition-colors duration-200 hover:border-ink lg:hidden"
             onClick={() => setIsOpen((open) => !open)}
             ref={toggleRef}
             type="button"
@@ -188,15 +187,10 @@ export function PortfolioNav() {
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="label text-spot">{section.number}</span>
-                  <span className="flex flex-col leading-none">
-                    <span
-                      className={`font-serif text-[32px] ${isActive ? "text-spot" : "text-ink"}`}
-                    >
-                      {section.label}
-                    </span>
-                    <span className="mt-1 font-serif text-[16px] italic text-ink-2">
-                      {section.subtitle}
-                    </span>
+                  <span
+                    className={`font-serif text-[32px] leading-none ${isActive ? "text-spot" : "text-ink"}`}
+                  >
+                    {section.label}
                   </span>
                 </Link>
               </li>
