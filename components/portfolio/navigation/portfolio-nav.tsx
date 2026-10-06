@@ -26,11 +26,28 @@ const SECTION_IDS = ALL_SECTIONS.map((section) => section.id);
  * progress bar. The shrinking header follows Aceternity's Resizable Navbar;
  * the sliding underline is its Tabs pattern, a shared `layoutId`.
  */
+/**
+ * The nav item that owns a section. Sections without a nav item of their own
+ * (How I work, Experience) belong to the nav item above them, so the
+ * underline stays on Brand through them and then slides straight to About,
+ * instead of vanishing and reappearing.
+ */
+function nearestNavSection(id: string | null): string | null {
+  if (!id) return null;
+  const index = ALL_SECTIONS.findIndex((section) => section.id === id);
+  for (let i = index; i >= 0; i -= 1) {
+    const candidate = ALL_SECTIONS[i];
+    if (NAV_SECTIONS.some((section) => section.id === candidate.id)) return candidate.id;
+  }
+  return null;
+}
+
 export function PortfolioNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const active = useActiveSection(SECTION_IDS, isHome);
   const activeSection = ALL_SECTIONS.find((section) => section.id === active);
+  const navActive = nearestNavSection(active);
 
   const [isOpen, setIsOpen] = useState(false);
   const [compact, setCompact] = useState(false);
@@ -60,7 +77,9 @@ export function PortfolioNav() {
         compact ? "h-16" : "h-20 lg:h-[88px]"
       }`}
     >
-      <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-6 px-4 md:px-8 xl:px-16">
+      {/* Three columns from lg, so the links sit at the true centre of the viewport
+          whatever the widths of the logo and the actions. */}
+      <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-6 px-4 md:px-8 lg:grid lg:grid-cols-[1fr_auto_1fr] xl:px-16">
         <Link
           aria-label="John Carl Ramirez, home"
           className="flex shrink-0 items-center gap-3 text-[15px] font-normal tracking-tight text-ink"
@@ -73,7 +92,7 @@ export function PortfolioNav() {
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-10">
             {NAV_SECTIONS.map((section) => {
-              const isActive = active === section.id;
+              const isActive = navActive === section.id;
 
               return (
                 <li key={section.id}>
@@ -89,14 +108,19 @@ export function PortfolioNav() {
                     >
                       {section.label}
                     </span>
-                    {isActive ? (
-                      <motion.span
-                        aria-hidden="true"
-                        className="absolute -bottom-0.5 left-0 h-px w-full bg-spot"
-                        layoutId="nav-underline"
-                        transition={{ type: "spring", stiffness: 500, damping: 40 }}
-                      />
-                    ) : null}
+                    <AnimatePresence>
+                      {isActive ? (
+                        <motion.span
+                          animate={{ opacity: 1 }}
+                          aria-hidden="true"
+                          className="absolute -bottom-0.5 left-0 h-px w-full bg-spot"
+                          exit={{ opacity: 0 }}
+                          initial={{ opacity: 0 }}
+                          layoutId="nav-underline"
+                          transition={{ type: "spring", stiffness: 380, damping: 38 }}
+                        />
+                      ) : null}
+                    </AnimatePresence>
                   </Link>
                 </li>
               );
@@ -128,7 +152,7 @@ export function PortfolioNav() {
           </AnimatePresence>
         </p>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:justify-self-end">
           <a
             className="relative inline-flex h-11 items-center gap-2 border border-rule bg-plate px-4 text-[14px] font-normal text-ink transition-colors duration-200 hover:border-ink"
             download
@@ -176,7 +200,7 @@ export function PortfolioNav() {
       >
         <ul className="flex flex-col">
           {NAV_SECTIONS.map((section) => {
-            const isActive = active === section.id;
+            const isActive = navActive === section.id;
 
             return (
               <li key={section.id}>

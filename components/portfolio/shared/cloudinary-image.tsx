@@ -17,6 +17,11 @@ type CloudinaryImageProps = Omit<ImageProps, "alt" | "src" | "sizes"> & {
   sizes: string;
   /** Flat artwork — type and solid colour — where q_auto:eco shows artefacts. */
   highFidelity?: boolean;
+  /**
+   * Cut-outs with their own transparency: the blurred placeholder would show
+   * through the transparent areas as a pale box, so it is skipped.
+   */
+  transparent?: boolean;
 };
 
 function buildLoader(highFidelity: boolean) {
@@ -49,6 +54,7 @@ export function CloudinaryImage({
   alt,
   className,
   highFidelity = false,
+  transparent = false,
   onError,
   onLoad,
   sizes,
@@ -71,7 +77,7 @@ export function CloudinaryImage({
       loader={shouldUseCloudinary ? buildLoader(highFidelity) : undefined}
       sizes={sizes}
       src={resolvedSrc}
-      {...(meta
+      {...(meta && !transparent
         ? { placeholder: "blur" as const, blurDataURL: meta.blurDataURL }
         : {})}
       onError={(event) => {

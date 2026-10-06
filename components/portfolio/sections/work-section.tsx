@@ -23,23 +23,27 @@ function WorkCard({ project, priority }: { project: ProjectCaseStudy; priority: 
     >
       <GlowingEffect />
       {project.cover ? (
-        <div className="relative aspect-[1.86] w-full overflow-hidden bg-plate-2">
-          {/* Both renders ship; the theme decides which one shows. */}
-          <CloudinaryImage
-            alt={project.cover.alt}
-            className="object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:hidden"
-            fill
-            priority={priority}
-            sizes="(min-width: 1440px) 660px, (min-width: 768px) 50vw, 100vw"
-            src={project.cover.light}
-          />
-          <CloudinaryImage
-            alt={project.cover.alt}
-            className="hidden object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:block"
-            fill
-            sizes="(min-width: 1440px) 660px, (min-width: 768px) 50vw, 100vw"
-            src={project.cover.dark}
-          />
+        <div className="relative aspect-[1.86] w-full overflow-hidden px-6 pt-6 md:px-8 md:pt-8">
+          {/* Cut-outs: the device sits straight on the card, no studio backdrop. */}
+          <span className="relative block h-full w-full">
+            <CloudinaryImage
+              alt={project.cover.alt}
+              className="object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:hidden"
+              fill
+              priority={priority}
+              sizes="(min-width: 1440px) 600px, (min-width: 768px) 46vw, 92vw"
+              src={project.cover.light.replace(".webp", "-cutout.webp")}
+              transparent
+            />
+            <CloudinaryImage
+              alt={project.cover.alt}
+              className="hidden object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:block"
+              fill
+              sizes="(min-width: 1440px) 600px, (min-width: 768px) 46vw, 92vw"
+              src={project.cover.dark.replace(".webp", "-cutout.webp")}
+              transparent
+            />
+          </span>
         </div>
       ) : null}
 

@@ -108,11 +108,15 @@ body {
   line-height: 1.65;
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
+/* In the base layer, so a size utility on a button still wins. Unlayered,
+   this beat every `text-[…]` class on buttons and inputs. */
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
 }
 
 html {

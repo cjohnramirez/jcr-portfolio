@@ -25,6 +25,8 @@ const ROUTES = [
 
 for (const path of ROUTES) {
   test(`${path} has no detectable accessibility violations`, async ({ page }) => {
+    // axe walks every node; image-heavy pages need longer under a parallel run.
+    test.setTimeout(60_000);
     await page.goto(path, { waitUntil: "load" });
     await waitForRevealsSettled(page);
 
@@ -50,6 +52,7 @@ for (const path of ROUTES) {
 }
 
 test("both themes pass contrast checks", async ({ page }) => {
+  test.setTimeout(90_000);
   for (const theme of ["dark", "light"]) {
     await page.addInitScript((t) => {
       try {

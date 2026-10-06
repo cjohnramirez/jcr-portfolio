@@ -205,3 +205,70 @@ test.describe("one-page home", () => {
     }
   });
 });
+
+test.describe("detail pages", () => {
+  const ALL = [
+    "/work/trailventure",
+    "/work/steady",
+    "/work/fresco-grow-lab",
+    "/work/agriova",
+    "/work/road-restoration",
+    "/work/enduro-branding",
+    "/designs/kingmaker",
+    "/designs/xplore",
+    "/designs/al-bab",
+    "/designs/snap-engineering",
+    "/designs/barangai",
+    "/designs/pronote",
+    "/designs/cs-website",
+  ];
+
+  test("every detail page links to the next one", async ({ page }) => {
+    test.setTimeout(90_000);
+    for (const path of ALL) {
+      await page.goto(path);
+      const next = page.locator("main").getByRole("link", { name: /^next/i }).first();
+      await expect(next, path).toBeVisible();
+      const href = await next.getAttribute("href");
+      expect(href, path).toMatch(/^\/(work|designs)\//);
+      expect(href, path).not.toBe(path);
+    }
+  });
+
+  test("the website split fills one viewport and only the frame scrolls", async ({ page }) => {
+    test.skip(test.info().project.name !== "desktop", "desktop layout");
+    await page.goto("/work/trailventure");
+    const section = page.locator("main section").first();
+    const box = await section.boundingBox();
+    const viewport = page.viewportSize();
+    expect(Math.round(box?.height ?? 0)).toBe((viewport?.height ?? 0) - 88);
+
+    const frame = page.getByRole("region", { name: /scroll to see the full page/i });
+    await frame.focus();
+    await page.keyboard.press("PageDown");
+    await expect.poll(() => frame.evaluate((el) => el.scrollTop)).toBeGreaterThan(0);
+  });
+
+  test("technical notes open, close on Escape and return focus", async ({ page }) => {
+    test.skip(test.info().project.name !== "desktop", "dialog on desktop, accordion on mobile");
+    await page.goto("/work/steady");
+    const button = page.getByRole("button", { name: /technical notes/i }).first();
+    await button.click();
+    const dialog = page.getByRole("dialog", { name: "Steady" });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByText("Confidentiality")).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
+    await expect(button).toBeFocused();
+  });
+
+  test("website pages stack without horizontal scroll on phones", async ({ page }) => {
+    test.skip(test.info().project.name !== "mobile", "mobile layout");
+    for (const path of ["/work/trailventure", "/designs/cs-website"]) {
+      await page.goto(path);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflow, path).toBeLessThanOrEqual(0);
+      await expect(page.getByRole("region", { name: /scroll to see the full page/i })).toBeVisible();
+    }
+  });
+});

@@ -1,3 +1,4 @@
+import { caseContent } from "./case-studies";
 import {
   creativePortfolioData,
   projectsData,
@@ -82,4 +83,28 @@ export function getDesignPlate(slug: string): string {
   return index === -1
     ? SECTIONS.brand.number
     : `${SECTIONS.brand.number}.${index + 1}`;
+}
+
+// --- Next ------------------------------------------------------------------
+
+export type NextEntry = { href: string; title: string };
+
+/** Title without its descriptor: "TrailVenture: Tour…" reads as "TrailVenture". */
+function shortTitle(title: string) {
+  return title.split(": ")[0];
+}
+
+/** The following entry in the same group, wrapping to the first. */
+export function getNextWork(slug: string): NextEntry {
+  const list = projectsData.projects;
+  const index = list.findIndex((p) => p.id === slug);
+  const next = list[(index + 1) % list.length];
+  return { href: `/work/${next.id}`, title: caseContent[next.id]?.name ?? shortTitle(next.title) };
+}
+
+export function getNextDesign(slug: string): NextEntry {
+  const list = creativePortfolioData.brands;
+  const index = list.findIndex((b) => b.id === slug);
+  const next = list[(index + 1) % list.length];
+  return { href: `/designs/${next.id}`, title: next.title };
 }

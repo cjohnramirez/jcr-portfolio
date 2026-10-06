@@ -365,7 +365,9 @@ test.describe("@redesign image budget", () => {
   test("the next carousel sheet is already loaded before it is shown", async ({
     page,
   }) => {
-    await page.goto("/work/steady", { waitUntil: "load" });
+    // Decks are the only carousels left; case studies use collages and frames.
+    await page.goto("/designs/kingmaker", { waitUntil: "load" });
+    await page.getByRole("button", { name: "Next sheet" }).scrollIntoViewIfNeeded();
     await waitForImagesDecoded(page);
 
     // The component preloads one sheet ahead, so advancing still triggers a
@@ -448,26 +450,7 @@ test.describe("@redesign carousel proportions", () => {
     });
   }
 
-  // Road Restoration steps from a 1.78 map to a 2.04 paper figure. The deck
-  // carousels cannot exercise this: every page of a deck shares one ratio.
-  test("the frame reshapes when the sheet changes", async ({ page }) => {
-    await page.goto("/work/road-restoration");
-    await expect(page.locator("[data-carousel-frame]").first()).toBeAttached({
-      timeout: 5_000,
-    });
-    await waitForImagesDecoded(page);
-
-    const before = await readFrame(page);
-    await page.getByRole("button", { name: "Next sheet" }).first().click();
-    await waitForImagesDecoded(page);
-    // The height transition has to land before the box is worth measuring.
-    await page.waitForTimeout(700);
-    const after = await readFrame(page);
-
-    expect(
-      Math.abs(after.frameRatio - before.frameRatio),
-      "the frame kept the previous sheet's proportions",
-    ).toBeGreaterThan(0.1);
-    expect(Math.abs(after.frameRatio - after.naturalRatio)).toBeLessThan(0.05);
-  });
+  // The mixed-ratio carousel this once checked (Road Restoration: a 1.78 map
+  // then a 2.04 figure) became a collage, which shows every image at its own
+  // proportions. Deck carousels share one ratio, so nothing reshapes now.
 });

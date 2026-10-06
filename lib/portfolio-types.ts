@@ -304,3 +304,37 @@ export type HomeHero = {
   location: string;
   facts: string[];
 };
+
+/**
+ * The short-form layer of a detail page: what a reader sees before opening
+ * the technical notes. Kept apart from the long `notes` so the case-study
+ * copy can be edited without touching the record it is condensed from.
+ */
+export type CaseContent = {
+  /** Which detail template renders the page. */
+  layout: "website" | "study" | "brand";
+  /** Short name for headings and next links, when the record title is long. */
+  name?: string;
+  /** Eight words or fewer, set under the title. */
+  tagline: string;
+  role?: string;
+  year?: string;
+  status?: string;
+  /** Three or so technologies, for the meta row. The full list stays in notes. */
+  stack?: string;
+  /** One sentence, twenty words or fewer. */
+  problem?: string;
+  /** Big numerals. Every value must already appear in the project's notes. */
+  figures?: { value: string; label: string }[];
+  decisions?: { title: string; line: string }[];
+  /** Website split only: the address bar and the scrollable capture. */
+  site?: { label: string; href?: string; fullPage: MediaItem[] };
+  /** Screens shown in the collage or the screens strip, in order. */
+  screens?: MediaItem[];
+  /** Screens are cut-outs with their own transparency: no box behind them. */
+  transparent?: boolean;
+  /** Brand study only. */
+  brief?: string;
+  direction?: string;
+  spec?: { label: string; value: string }[];
+};
