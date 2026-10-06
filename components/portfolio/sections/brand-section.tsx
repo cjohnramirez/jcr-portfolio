@@ -37,17 +37,15 @@ type BrandSectionProps = {
 };
 
 export function BrandSection({ identity, interfaces, motion, print }: BrandSectionProps) {
-  const [featured, ...restIdentity] = identity.map(fromBrand);
-
   const items: BrowserItem[] = [
-    ...restIdentity,
+    ...identity.map(fromBrand),
     ...interfaces.map(fromBrand),
     ...motion.map((piece) => ({
       id: piece.id,
       kind: "motion" as const,
       title: piece.title,
       meta: piece.format,
-      summary: piece.format,
+      summary: "",
       image: { src: piece.poster, alt: "" },
       motion: piece,
     })),
@@ -56,7 +54,7 @@ export function BrandSection({ identity, interfaces, motion, print }: BrandSecti
       kind: "print" as const,
       title: piece.title,
       meta: piece.format,
-      summary: `${piece.format} · ${piece.items.length} images`,
+      summary: `${piece.items.length} images`,
       image: piece.cover,
       print: piece,
     })),
@@ -65,11 +63,11 @@ export function BrandSection({ identity, interfaces, motion, print }: BrandSecti
   return (
     <SectionBand section={SECTIONS.brand}>
       <SectionHeader
-        lead="Identity systems, interfaces, motion and print. Search the index or filter by discipline."
+        lead="Identity systems, interfaces, motion and print. Each identity opens its full guidelines."
         section={SECTIONS.brand}
         title="Brand and design"
       />
-      {featured ? <WorkBrowser featured={featured} items={items} /> : null}
+      <WorkBrowser items={items} />
     </SectionBand>
   );
 }

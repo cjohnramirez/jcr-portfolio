@@ -63,7 +63,7 @@ export function PortfolioNav() {
       <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-6 px-4 md:px-8 xl:px-16">
         <Link
           aria-label="John Carl Ramirez, home"
-          className="flex shrink-0 items-center gap-3 text-[15px] font-medium tracking-tight text-ink"
+          className="flex shrink-0 items-center gap-3 text-[15px] font-normal tracking-tight text-ink"
           href="/"
         >
           <span aria-hidden="true" className="size-[18px] bg-spot" />
@@ -83,7 +83,7 @@ export function PortfolioNav() {
                     href={sectionHref(section)}
                   >
                     <span
-                      className={`text-[15px] font-medium transition-colors duration-200 ${
+                      className={`text-[15px] font-normal transition-colors duration-200 ${
                         isActive ? "text-spot" : "text-ink group-hover:text-spot"
                       }`}
                     >
@@ -120,7 +120,7 @@ export function PortfolioNav() {
                 transition={{ duration: 0.2 }}
               >
                 <span className="label text-spot">{activeSection.number}</span>
-                <span className="truncate text-[14px] font-medium text-ink sm:text-[15px]">
+                <span className="truncate text-[14px] font-normal text-ink sm:text-[15px]">
                   {activeSection.label}
                 </span>
               </motion.span>
@@ -130,7 +130,7 @@ export function PortfolioNav() {
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
-            className="relative inline-flex h-11 items-center gap-2 border border-rule bg-plate px-4 text-[14px] font-medium text-ink transition-colors duration-200 hover:border-ink"
+            className="relative inline-flex h-11 items-center gap-2 border border-rule bg-plate px-4 text-[14px] font-normal text-ink transition-colors duration-200 hover:border-ink"
             download
             href="/cv.pdf"
           >

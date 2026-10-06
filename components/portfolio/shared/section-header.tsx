@@ -29,12 +29,9 @@ export function SectionHeader({
   return (
     <div className={`flex max-w-[900px] flex-col gap-5 ${className}`}>
       <Reveal from="none">
-        <p className="flex items-center gap-2.5 font-serif text-[22px] leading-none">
-          <span className={`tabular-nums ${inverted ? "text-plate" : "text-spot"}`}>{section.number}</span>
-          <ScrambleText
-            className={`italic ${inverted ? "text-rule" : "text-ink-2"}`}
-            text={section.subtitle}
-          />
+        <p className="flex items-center gap-2.5 font-serif text-[22px] italic leading-none">
+          <span className={inverted ? "text-plate" : "text-spot"}>{section.number}</span>
+          <ScrambleText className={inverted ? "text-rule" : "text-ink-2"} text={section.subtitle} />
         </p>
       </Reveal>
       <Reveal order={1}>
