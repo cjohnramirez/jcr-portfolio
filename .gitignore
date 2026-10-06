@@ -49,3 +49,9 @@ next-env.d.ts
 
 # local screenshot scratch
 /.shots/
+
+# full-length motion encodes live on Cloudinary, not in git
+/public/portfolio/motion/full/
+
+# playwright mcp session logs
+/.playwright-mcp/

@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (134 images, set d9b013b7)
+// Source: public/portfolio (212 images, set cac8d938)
 
 export type ImageMeta = {
   width: number;
@@ -112,6 +112,204 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAAAwAQCdASoQAAsABABoJaQAA3AA/vIX4jZdRNeEmrjcBt+PuAAAAA==",
   },
+  "portfolio/designs/al-bab/mockups/al-bab-book.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAAwABABoJZwAAuQ23GHYtoAA/u/DBf91wojRycD/g1xOJxFlayBBGjdlE4aoWxfLrsgA",
+  },
+  "portfolio/designs/al-bab/mockups/al-bab-business-card.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAwABABoJbACdADG8sQzdgAA4n8Fr3f/+Gsg+yT1YjrNnq2PGIn5g99ZCGxljF7lAh0R+DK286HRBueX7SQ1jcCywtP/j/eV7XvugAA=",
+  },
+  "portfolio/designs/al-bab/mockups/al-bab-led-screen.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAwABABoJZQCw7EN42yvk4AA/tJh9AoZTjQV+pyLN6+XzL5WBbUjH2i1OvXdW8B836rUQ63hS71P/byjrIXqvog7KTcAAAA=",
+  },
+  "portfolio/designs/al-bab/mockups/al-bab-outdoor-flags.webp": {
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQAAsABABoJZgCdADckY6M7c+QAPVTX6+duUr4EdCiA/y0vUCb13PNFNmYfndigJ71LQ9qRmFdoAAA",
+  },
+  "portfolio/designs/al-bab/mockups/al-bab-trifold-brochure.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQAAwABABoJZQC7ADw8EWIOmY0AP5UZ4MCqqJ1sM2FOZaBtlGJZW0o5lws6Rp55vDGtimfzBnUzAAA",
+  },
+  "portfolio/designs/al-bab/mockups/al-bab-wall-poster.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAwABABoJZQCdADxC+NtKzAAAP7sQ+bunLI1hrTcVuBVklDWFhPejjiVdWpEkoDCG50cSdy7FY9FAOFwhqVv9jgz9AAA",
+  },
+  "portfolio/designs/apparel/4h-green-mockup.webp": {
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABQAgCdASoQAAsABABoJQBdgMXI3Kodc8xPVBwA/sl2mleJDTRIrHlKC5mEri83K5TCf7PXlNN6hfheSm2Tb3d4GMfNl+8LLibWjHXoNELBzWTtrzxyM/KnKL9Je66wAAA=",
+  },
+  "portfolio/designs/apparel/4h-green-t-shirt.webp": {
+    width: 2400,
+    height: 1680,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsABABoJQBdgB9gX/lCqwAAAP7qlSyB6srFP5dUTK6aT1KWogaOoeFGb5DuILJoCBElbl+MaMvr7+hTvv2ZwAA=",
+  },
+  "portfolio/designs/apparel/4h-white-mockup.webp": {
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAsABABoJaQAAudtCDD4s0AA/ucqA8S7Yy1ORf0eLt3ng2yEeO3XW/1qAAAA",
+  },
+  "portfolio/designs/apparel/4h-white-t-shirt.webp": {
+    width: 2400,
+    height: 1680,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAsABABoJZwAAq8lWm2mVZQAAP7qlSyB6srFP5dUTK6aT1Emy7Nk7WX3HIdBDzT29iiUb6WVjb2MZexwAA==",
+  },
+  "portfolio/designs/apparel/cs-polo-core-team-back.webp": {
+    width: 1671,
+    height: 2000,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiYBAABXRUJQVlA4WAoAAAAQAAAADwAAEgAAQUxQSIcAAAABcFpt27I8yAgcGu2PWCJ7pjIBnWTRWUAyyR06C7gkT9Dc/Ue+9/9XiIgJANN/eKQkoKXOO8/zBY4ldQx55iNtAKDq80JdQIwXvADmwnilmhdp94pJdkWsg5yvPqZeejkAGKklmAqqwZKciTgLK8JNrAkvcSGixI1IEFuiSniao+3zuh7YAAAAVlA4IHgAAAAwBACdASoQABMAPxFysFAsJqSisAgBgCIJYwDImYt8zyBh3ncAgw4hragA/Ha3yzaxufXePTsHiilC4LUHDvPl0330SL1vhwjL3Cx+ZPpaWG+wbgt8k9LiAhenC3fbuQv5AcmpGfeJ+SvIweDVPNWybxPkGwwQAAA=",
+  },
+  "portfolio/designs/apparel/cs-polo-core-team-front.webp": {
+    width: 1699,
+    height: 2000,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiIBAABXRUJQVlA4WAoAAAAQAAAADwAAEgAAQUxQSIkAAAABgFpt2/LmCTtmBhkfmy2YLdlYToZgxzQClqtq2xmYuaHv/bNCREwA9iWzq+ulFKS5cL9er9d3OdWeafqzJt+KQqCz5pyG6InbMTxr7v/66gHr8OUh/UTr6IbTGYAIVYw7ACBBucDMUE5WlnKzCpSXVaOCrD6VZI2pLGtElVjt29/vz4+H94ccAABWUDggcgAAALADAJ0BKhAAEwA/EXKwUCwmpKKwCAGAIglAGJsxdxVpIeY5X+aoAPgzcaejRAOw5FV2BONbBoS9hqEjH3fD1snhe2JPYIQOxfNVYvDcmFb8VzbkKcW9WNMcEBpyltZyTQbAaNgptZ/6CuWDJobCHwAAAA==",
+  },
+  "portfolio/designs/apparel/cs-polo-faculty-back.webp": {
+    width: 1673,
+    height: 2000,
+    blurDataURL:
+      "data:image/webp;base64,UklGRhABAABXRUJQVlA4WAoAAAAQAAAADwAAEgAAQUxQSIcAAAABcFpt27I82AQcIgmaJyqJSmUCOkmbs4BkkrtkFnBp2v6Gu//I9/7/ChExAWAGDo+0BLTUeed5vqRhSR1jnvnIWgCoR7xQFxDnBXPAQhiv0vEi7V4xqb6IdVjrb86op1kBAFaKA1NJtViSE5FgYUm4iRXhI85EjLgSSWJD1Ahve7J9XtdjGwAAVlA4IGIAAADwAwCdASoQABMAPxFysFAsJqSisAgBgCIJYgAAUYI2fWVsjKBbUmhAAP67HX6LXa0D+1VYXnTt93buIsDuPosnTkNXCp6LFZ6uBnOUP4eFxjv7eO+bi7Sr6JAlAQpnZuZAAA==",
+  },
+  "portfolio/designs/apparel/cs-polo-faculty-front.webp": {
+    width: 1700,
+    height: 2000,
+    blurDataURL:
+      "data:image/webp;base64,UklGRhwBAABXRUJQVlA4WAoAAAAQAAAADwAAEgAAQUxQSIcAAAABgJpt27Lsxpsnt0onMoZrtQjV2YFEcxvBHRIVZnB+V+x9PlaIiAnAo6SzWg+lIHWp/eVyueySqgdt++dCvmWEQOnCOQbRidsE9gv3f3X+iYtv+Uw9VBxvOM0BeKls0AwAAcoKZpSysOKUjZWiHKwC5WFVqTCrQSVYdSrHKm5/vz8/Du+HJAAAVlA4IG4AAABQAwCdASoQABMAPxFysFAsJqSisAgBgCIJZACw7BKqy7N/oAD+PEWT0/2Z7ZF8XB/uJCj3IghQX9AeuVVxerjGcJKOC2QNa3XOfjaGKy6vj9fEzfaENLADRduLz8PZ9F1K6vFv0xCHx+Wzi5uAAA==",
+  },
+  "portfolio/designs/barangai/barangai-main.webp": {
+    width: 1920,
+    height: 1412,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAwABABoJbACdAEUWZ1AZe+ZwAD+mz7QmmKJjwBMDuILfc7Mazw0Gtbx/Znp4AKLhECGjM3m69tNekrR+wn7YYjEF7Sn/HpSl/3ByKKPxCF7qHmew6aqV+wlAAAA",
+  },
+  "portfolio/designs/barangai/barangai-moodboard.webp": {
+    width: 2400,
+    height: 1765,
+    blurDataURL:
+      "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAwABABoJbACdAEUWZ1AZe+ZwAD+mz7QmmKJjwBMDuILfc7Mazw0Gtbx/Znp4AKLhXJjMis3TvnLtWIR+Y6yUk7wNxR+6IHAQO0F45ftiG7ACsuw6aqV+wlAAA==",
+  },
+  "portfolio/designs/barangai/barangai-storyboard-1.webp": {
+    width: 1440,
+    height: 994,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAsABABoJZwAA3AA/vKSm6tFXP0QAp4zheOAAAA=",
+  },
+  "portfolio/designs/barangai/barangai-storyboard-2.webp": {
+    width: 1440,
+    height: 994,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsABABoJagC7AEQUH37ZhsgAP705nV2fMaLDqfKN7p8Rq6PktuOx2ZgCpBWfczig+LU1XaQmeCJvQTXNebM4Dlf3FAA",
+  },
+  "portfolio/designs/barangai/barangai-storyboard-3.webp": {
+    width: 1440,
+    height: 994,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsABABoJYwC7AEfSsaFegAA/vPE1bktyxmre/Hou9j2JgM9sMK7s80+2lQW2JPqq2orMwGrVuge4fa9gXVhEmmJ5QAA",
+  },
+  "portfolio/designs/barangai/barangai-storyboard-4.webp": {
+    width: 1440,
+    height: 994,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAsABABoJZQAAl0YPOg+AAD+8/cl3aTIG8rK7d5MH6KJpotBLaUcuNnJaSLAX68PFr9fPYj8O5xmOkpHx5TCtalvGTqNUPAAAA==",
+  },
+  "portfolio/designs/barangai/barangai-storyboard-5.webp": {
+    width: 1440,
+    height: 994,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAABwAQCdASoQAAsABABoJZw3IAAXQAD+8gsZre9TpPI5CYhj76WBdh+yQdNjRzTjwA2TxyzMlqDgAA==",
+  },
+  "portfolio/designs/barangai/barangai-storyboard-9.webp": {
+    width: 1440,
+    height: 994,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAsABABoJbACdADydo2O4AD+8emyNABozno37rSbnaIernJS7Tmno7Jw8RXt7b8VBUVfUm8TvUiH8cfMYNXTy0Hvo56hCdEPEJGUAAA=",
+  },
+  "portfolio/designs/barangai/barangai-wireframe.webp": {
+    width: 1440,
+    height: 7286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABwBQCdASoQAFEAPwlyrlArpyQitVgIAXAhCWIAw80gAgBz027IBKFg5vgCq1YeOkI9Yq8AAP7oybIvl7WscJqgu9+Gt1XvImwqceS7XPhRvnDWqMWX4fWsJ4X1ZM+vgBDykz9VFEDEziL145qGv1HvK3VkMTztQf7BIgHLR/+IDOhHwEUVbf13U08dp3LkqkqAUpK7pED1u9uTMMbXH691wS0ikJGfP/TFgAAA",
+  },
+  "portfolio/designs/cs-website/cs-website-01.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAsABABoJZACdAELMXj1BOwAAP7yO9SjV/IcX9JZ1VbIPfiTnAFl+YyKzF9YePlzN+PlIXbpRX/NATg69Z+CBQAAAA==",
+  },
+  "portfolio/designs/cs-website/cs-website-02.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoQAAsABABoJZwAAvenwxGw5EAA/vN0hnQPR+3DPlWsMm13WOEIAA==",
+  },
+  "portfolio/designs/cs-website/cs-website-03.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACQAQCdASoQAAsABABoJZwAAui1zyAA/vOWNyo+FivM9Gh5vjmmJM0znU97Wzlo0wios5s3ldHAAA==",
+  },
+  "portfolio/designs/cs-website/cs-website-04.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAsABABoJZwAAifaPLKAgAD+yXW+daLP+4cWwKeo6XmPEmaaqlp8dZN0C2+SbO2TrUHLkt423Mvs4FrhuWp2XMqM6wLvHAAAAA==",
+  },
+  "portfolio/designs/cs-website/cs-website-05.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAsABABoJZwAAveBALWomgAA/vTUp3Vubxf+HTX5L5L2dcbY19oJh9jg3RPdJRMrD4Snp1JetUCAAAA=",
+  },
+  "portfolio/designs/cs-website/cs-website-06.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAAAwAQCdASoQAAsABABoJZwAA3AA/vEzx4TuWELrP8Ysirf7h5pWdQIA",
+  },
+  "portfolio/designs/cs-website/cs-website-07.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAsABABoJaQAAu0BcH/AAP7whDk0JOFWHLrvg5/wUbOdGRXzopiyqjR5nI8RC11i4EICSNgAAA==",
+  },
+  "portfolio/designs/cs-website/cs-website-08.webp": {
+    width: 2400,
+    height: 1667,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAsABABoJagC7AEN34Jpr6wAAP7yIMO6QDaYDEaKt88v89h5yr3xzvbnMKJV5eI/S+PjZu/ixQ2vvXW8AAAA",
+  },
+  "portfolio/designs/cs-website/cs-website-09.webp": {
+    width: 2400,
+    height: 948,
+    blurDataURL:
+      "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQAAYABABoJbACdAELViUtaCAA/td/2TV+L3u57elCx7LNWoPvfS26pIAAAA==",
+  },
+  "portfolio/designs/cs-website/cs-website-full.webp": {
+    width: 1440,
+    height: 8569,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjQBAABXRUJQVlA4ICgBAABQBwCdASoQAF8APxFwr1EsJiQisBVdUYAiCUAZZnYQfgHwmXrS9ZqWtQJn1Je4EfZXRAYa0RWCTZ9pKBHmeQY3gCwAAP7wQcdqEHGwND428Gjk8iT7O+yg0Zr88uUHEnaeLEgoI/i8hCoxIBvcor8SG+JsQXnqNJTM3Xi8kk7MmiK2IiRq3EhaC0Dc0RcBj3yLb7NAss4omdTb9T7r2ndQZMCxy4LrQzIl/g8n/J8hN4PQShJ/5jBImiX5P53bc8/gxLVkoOILNfuD2etwoya90Zw3s3EAUvc5SqO9DbjR3DLSKl1sNw/MGIUE7KufKnlAMOgl2qqk57LpzE05VPDAUWMiV/kYf9dAUneHNwz51dvoSmQo5d5dZXmddWbg4qRC5pX8MvIkAA==",
+  },
   "portfolio/designs/kingmaker/deck/kingmaker-deck-01.webp": {
     width: 2400,
     height: 1350,
@@ -208,6 +406,42 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJaQAA3AA/vDrCN3bIqH8gAA=",
   },
+  "portfolio/designs/kingmaker/mockups/kingmaker-folder.webp": {
+    width: 1100,
+    height: 746,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAsABABoJZQAAuytXZE7URwAAP6mleEZCFZl3opnF2fAPeCqoEuzJFYlgL4cmDb+17VtYNkbNne1ZobrhCgl54pjkWpIqUGiIvURA0AAAA==",
+  },
+  "portfolio/designs/kingmaker/mockups/kingmaker-stationery.webp": {
+    width: 1152,
+    height: 1294,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAgCdASoQABIAPxFysFAsJqSisAgBgCIJaQAAeyAA/u6z6uaQjFKXAtE8AAAA",
+  },
+  "portfolio/designs/pronote/pronote-diary.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAsABABoJZQAAudc57KAAP70eEJzmAjTm0QD5l0/24eQAAA=",
+  },
+  "portfolio/designs/pronote/pronote-habits.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAABwAQCdASoQAAsABABoJZWR5AGIAAD+8Pw8YUGBBOB49ZlNMIEvAAAA",
+  },
+  "portfolio/designs/pronote/pronote-notes.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABwAQCdASoQAAsABABoJZWHgAGIAAD+8Ou6tPi7ohOEYGLTZoZC08PIAAA=",
+  },
+  "portfolio/designs/pronote/pronote-tasks.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAABwAQCdASoQAAsABABoJZV2AAGIAAD+8O5c5gJZ0a5mXGTj2ielkiYcS8AAAA==",
+  },
   "portfolio/designs/snap-engineering/deck/snap-deck-01.webp": {
     width: 2400,
     height: 1707,
@@ -255,6 +489,24 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1707,
     blurDataURL:
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAsABABoJQBOgB3F+8QiAAD+9do7O4l2Jfn9t5WhZJ0XsMs8J+gB7PCUoKWr5DciQMI83wAAAA==",
+  },
+  "portfolio/designs/snap-engineering/mockups/snap-billboard.webp": {
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAsABABoJbACdADwzY2Z3ZCQAP7v12d+WXZQFaJXE1pZFaHI7LzuJnAQ94FmaasSpYZVq8avs4tZf7iku9KBtUMi57MN/GbxQAAA",
+  },
+  "portfolio/designs/snap-engineering/mockups/snap-manual.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAwABABoJZQAAwCIWXG0brgA/qMnHHwO46Yl82NUBV6Oalcc+YqO61x/UCLvw2EnMyy3FmW5YXm7aoWA3JhDI1ZlHVFM2zqPCKYAAAA=",
+  },
+  "portfolio/designs/snap-engineering/mockups/snap-street-poster.webp": {
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAgCdASoQAAsABABoJYwC7AYvrnlHlvyb5cgAAP7w+oOHtrFNsREosKYK5uGLbT6BwuNWV3s3nd4IufWGsxYfr8MKvz4QkvdU2JQbPJkX6cShPFG0sCDkWAA=",
   },
   "portfolio/designs/xplore/deck/xplore-deck-01.webp": {
     width: 2400,
@@ -417,6 +669,78 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1707,
     blurDataURL:
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAwAQCdASoQAAsABABoJZwAA3AA/vGL6HB4iu2yMgZJLtpkFeEZwIGu75XQTcY//EAAAA==",
+  },
+  "portfolio/designs/xplore/mockups/xplore-book.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAQCdASoQAAwABABoJZQAAhAeKgAA/u/XmrEY9WbaUJR4kMM+aWuQaLG36wnEFvaADOxI18wjt8GZ5Sk/faUIAAA=",
+  },
+  "portfolio/designs/xplore/mockups/xplore-business-card.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAwABABoJZQAAm3zRb4e/gAAzj9PbzdHoud5fuJTN+m1MKMhKGzgWGJQccB1m6TdLAZV3CWRz78Hhgfqqzity9ns8pdVPz4QAA==",
+  },
+  "portfolio/designs/xplore/mockups/xplore-led-screen.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAwABABoJZQCdAEPSm+msi2wAP7mlm+TVkWEu0HCvPUlP1XoPBhAA19oUbMbVpIQI7NHheHVKtohGP1gAA==",
+  },
+  "portfolio/designs/xplore/mockups/xplore-outdoor-flags.webp": {
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAsABABoJZgCdADbIqZcfEgA9TR0Dds55z/Zck4vHJcLntVK/7LDohBmoQ46OSgoY1bWj2/epaqKwsE8fAAA",
+  },
+  "portfolio/designs/xplore/mockups/xplore-trifold-brochure.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAwABABoJYwAAq+DDrCAAP5USGkDqhnTivq6KxBLJGTLzDu2ONpQ+glxbKALkqCQDjvFwAA=",
+  },
+  "portfolio/designs/xplore/mockups/xplore-wall-poster.webp": {
+    width: 2400,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAwABABoJYwC7AD2OC/LjgAA/uxD70lzDBgr7Z9VVe7jNlPidu2KeivNuXqq1RG+efar21ERWdCpGHkQ9XUpRZFAMAAA",
+  },
+  "portfolio/motion/btr-trailer-poster.webp": {
+    width: 1280,
+    height: 720,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoQAAkABABoJbACdAELXAp3KrEAAP7VDUcfY6hsGcQXLi3vgfmkQ+gIsy/lWKW9eq28MdstMAIAAA==",
+  },
+  "portfolio/motion/narcos-ph-poster.webp": {
+    width: 1280,
+    height: 720,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoQAAkABABoJbACdAfwIu8t+RGFgADOGcLFzvGa6zHp7+kpcYnDXTU2ughyMEFHneyNkh4kCoJEYO9++OnuMNQkTixuV9M+otdqMvxQAAA=",
+  },
+  "portfolio/motion/promise-poster.webp": {
+    width: 1080,
+    height: 1080,
+    blurDataURL:
+      "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQABAABABoJQBOgBu1z8ZTKAAA/vMuuOU+OBKfh2o77gwhqpktyH+z0rQK3LuM6r1BZrI52m3QQSceeRky353Qrn6DAs4+Zf3zF0AA",
+  },
+  "portfolio/motion/the-shade-poster.webp": {
+    width: 1280,
+    height: 1280,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAADQAQCdASoQABAABABoJaQAAudf/OiIAAD+93NO4k5sY5qlkAAAAA==",
+  },
+  "portfolio/motion/wildflower-poster.webp": {
+    width: 1080,
+    height: 1080,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQABAABABoJbACdAD0ZHXNl2YgAP7xhODr8HnLcRcgLeGsMbXkub/gn43f7RaQEVN65gU9QxwXjn/B1zD6D+SXEXwYcJPhIMgJuwEzitJutoLFQAA=",
+  },
+  "portfolio/motion/wordmark-teaser-poster.webp": {
+    width: 1280,
+    height: 720,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAkABABoJQBOgBVAiuQAAP7oKlQHA5s8CWXEoxSy8sqOz6U9FHusVjoAN4LDAgpJ6bjZh0WWSMdA8n8N7mejudSAAA==",
   },
   "portfolio/profile-image.png": {
     width: 947,
@@ -652,6 +976,96 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAsABABoJZQCdAEfUbuycUAAAP7rMh2eNU8/IyzWMqILmhfB/qBvvwCKzXF4lx56GVhg0arvhlLfFUpqcRockM8AAA==",
   },
+  "portfolio/projects/enduro-brand/mockups/enduro-dark-01.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkABABoJYgAAxRkwcZ7J8AA+g9SFIYZoE2qba9MXgDZ8hsh5owzVFEMJkW4J1PsRu4hOJmNpFSd8eoYg0okPmfAIq2NAAA=",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-dark-02.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABwAQCdASoQAAkABABoJZ1/2AGIAAD+8PzvqTR8jl3UJN0szQjVydtqFVQzSErPbdCrDgAA",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-dark-03.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAkABABoJaQAArINZuD0AAD+640C5HX73VcPfLyYeMkxoDBXpV/Z9e/nlhgpzHDX1ZSY6vGYMJ1+lEefZxQRBipqWPwylioAAA==",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-dark-04.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkABABoJaQAAwFq24eo5DAA9r96X2L9aEs1e0pj3NgT39wA9QDOEbO3/YfLREM0v0kgEZRPXYrkW3wcfwqVIAAAAA==",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-dark-05.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkABABoJagCdAEC2QDUiAAA/aO4QgriNu6RPxHLxwQ4wT7t7JqqP0roMkrMRJaIsEMB2ZRzbzpw/Ly0LOntOUGVTQquciQAAA==",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-white-01.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkABABoJYgAAxS12n8npQgA+g9SFIMmUZBQ24njlRg0INIvSXGuAOOeBWpcctI77Y68XOrv2+zj8R9/u/FdBuAAAA==",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-white-02.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAkABABoJZwAAt4sZgq6F3QAAP7To/u+osSMPpoipMYs7pX6yE3rJHj88gmLSlpOEDVEqnEpKEdqGUgP34UAAAA=",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-white-03.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkABABoJaQAAlg+PXAAAP7rjQLkdfvQ2NHKQ4t6jysBdFpcWYAAAAA=",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-white-04.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJaQAAtucSPegAAD+bPhaZAEHf/Z02yNUMQDJSnaxY5KNsqO3Zc9sKOQLaM3un6Dsk6+GtK8oQAAA",
+  },
+  "portfolio/projects/enduro-brand/mockups/enduro-white-05.webp": {
+    width: 1520,
+    height: 830,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAAkABABoJaACdAYt9F1Gr8gA4leDJ0h1SKdjx4w/Z48CgkSTxl+JF0o1mw5el1W9mTkGV9txXpA27Qxi0a7lHOtnLfZIdwyorYYB4flOd0YPaMjAAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/collateral/fresco-first-page.webp": {
+    width: 2400,
+    height: 1570,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAoABABoJaACdAED3Y+UwAD+8GzIS1rK36sKWVb/nZ7cAbw8DSA34ijp3zKJ8HjjlvmHSj07fV8XBB2LJIGfDg+VUqgA",
+  },
+  "portfolio/projects/fresco-grow-lab/collateral/fresco-fresco-dump.webp": {
+    width: 1440,
+    height: 1440,
+    blurDataURL:
+      "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQABAABABoJbACdAEPBaOkdQDAAPv5XZfSEotpCzdnsmlBIItyNYIFWD9IokQj2+3zx12lju8uA+K+AAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/collateral/fresco-miss-earth.webp": {
+    width: 1440,
+    height: 1440,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQABAABABoJbACdAEU9q7aAo2AAP6Hlbat9zpyCoZ5f5m9eProFSGlqhCl7Go2WGeMgdhaHjZRh7qxA3r4smguXILAtTmwlLzsVdCHYZGzsEDd3pgAAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/collateral/fresco-poster.webp": {
+    width: 1698,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoQABcAPxFysFAsJqSisAgBgCIJZQDCgCIhMVVOB6IvaAD+50JAETzlkH0BlfZ65kPdCDyvCSudyfxeoYjoqMAQWjHlT7s0prOZB92S8B6G5M3AAAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/collateral/fresco-second-page.webp": {
+    width: 2400,
+    height: 1570,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAoABABoJQBdgB6VD9FgAPyP86SFE425iDZ8I8aV8QS5xtU6UL954AHA6QlSLdXun7OhDcVcAAAA",
+  },
   "portfolio/projects/fresco-grow-lab/fresco-connect.png": {
     width: 2160,
     height: 1161,
@@ -717,6 +1131,60 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 932,
     blurDataURL:
       "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAoABABoJaQAA3AA/vEFFa9f/Y7/Abpm3A3coAA=",
+  },
+  "portfolio/projects/steady/figma/gcs-accounts.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoQAAsABABoJaQAA3AA/vG+cbg8AAAA",
+  },
+  "portfolio/projects/steady/figma/gcs-appointment.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAsABABoJYwAA3AA/vGBKFCWN+BTSjXSq98AAAA=",
+  },
+  "portfolio/projects/steady/figma/gcs-appointments.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoQAAsABABoJaQAA3AA/vE0cPc4AAAA",
+  },
+  "portfolio/projects/steady/figma/gcs-counselor-dashboard.webp": {
+    width: 1440,
+    height: 1398,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQABAABABoJZwAA3AA/vGFP2GYNXO/eaCliRIAAAA=",
+  },
+  "portfolio/projects/steady/figma/gcs-dashboard.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAsABABoJZwAA3AA/vHNLaX/TQcXQAA=",
+  },
+  "portfolio/projects/steady/figma/gcs-home.webp": {
+    width: 1440,
+    height: 4671,
+    blurDataURL:
+      "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAADwBACdASoQADQAPwFkq1ArJSQit/qoAWAgCWUAxNssAbNFp6FG0OggjwFXaT+ieAgA/uqrigxqOuhH0vQnjEJI559raX40ovYzVIoVbPZVKy6hyCGGJhV4ogfThDHLX42DeO9c59VstTK+U4Ytwm6A0veeksiLlef23spnfqzHxv4JojReVsge/83voLV44Fm3OH/TZfPNxH/2HsDK4h87giILbzJFCftxSeY/NF64A/zG0fvUzyAObEc6cAAA",
+  },
+  "portfolio/projects/steady/figma/gcs-landing.webp": {
+    width: 1440,
+    height: 1346,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAA8ABABoJZQAAugae+eIAAD+6za+f7xhd643pQgetdf7dov3raVugN1452l+boiMneRS4QV4wz9q1qnzwWr3lvdQ10oBsgAprADMACgAAA==",
+  },
+  "portfolio/projects/steady/figma/gcs-settings-account-settings.webp": {
+    width: 1440,
+    height: 1210,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAA0ABABoJZwAA3AA/vG+2J/8GRq1nLQAAA==",
+  },
+  "portfolio/projects/steady/figma/gcs-student-login.webp": {
+    width: 1440,
+    height: 1024,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAsABABoJZAAAumYF4yzwAD+9NF2JdL0M2EjHAiV/20vSIX1o1Bt7zo1a/h3FYaP3dJz7sZwULIH3uv3VOAA",
   },
   "portfolio/projects/steady/steady-admin-accounts.png": {
     width: 1894,
