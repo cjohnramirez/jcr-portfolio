@@ -44,7 +44,7 @@ export function PlateHeader({ plate, runningHead, folio }: PlateHeaderProps) {
     <Reveal from="none">
       <div className="flex items-baseline justify-between gap-4 border-b border-rule px-5 py-4 font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink-2 lg:px-10">
         <span className="flex items-baseline gap-3">
-          <span className="tabular-nums text-mark">{plate}</span>
+          <span className="tabular-nums text-spot">{plate}</span>
           <span>{runningHead}</span>
         </span>
         {folio ? <span className="tabular-nums">{folio}</span> : null}

@@ -7,7 +7,7 @@ import type { CSSProperties, ReactNode } from "react";
  * The manual's signature element.
  *
  * Wraps an artifact in printer's registration marks — corner crop marks, a
- * clearspace bracket, and a dimension line — drawn in `--mark`. This is John
+ * clearspace bracket, and a dimension line, drawn in `--mark` (grey). This is John
  * Carl's own craft language: his Enduro plate is literally a wordmark
  * clearspace diagram. It is the one place boldness is spent, so everything
  * around it stays quiet.

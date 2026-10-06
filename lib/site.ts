@@ -10,6 +10,6 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "John Carl Ramirez";
-export const SITE_TAGLINE = "Developer & Brand Designer";
+export const SITE_TAGLINE = "Developer and Brand Designer";
 export const SITE_DESCRIPTION =
   "Full-stack developer, researcher, and brand designer based in Cagayan de Oro. Systems, algorithm research, and identity work.";

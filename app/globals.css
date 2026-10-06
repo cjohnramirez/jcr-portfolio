@@ -11,12 +11,9 @@
    resting on it. `--ground` and `--plate` must stay distinct: a flat
    single-colour dark page is what makes a dark site read as generic.
 
-   `--mark` is registration magenta and belongs ONLY to the annotation layer:
-   crop marks, the clearspace bracket and its `1×` label, and the plate number.
-   Never body text, never a fill, never a button, never a link. It leaked into
-   list bullets once and immediately started reading as a second brand colour,
-   which is the failure this rule exists to prevent. Grep for `text-mark`
-   before adding another use — two is the budget.
+   `--mark` belongs ONLY to the annotation layer on detail pages: crop marks,
+   the clearspace bracket and its label, and dimension readouts. It is grey;
+   blue (`--spot`) is the one accent colour.
 --------------------------------------------------------------------------- */
 
 :root {
@@ -31,8 +28,9 @@
   --ink-2: #5a5d61;
   --rule: #d6d3cd;
   --spot: #1f4fd8;
-  /* Darkened from #ec008c, which gave only 4.07:1 against the paper. */
-  --mark: #d4007e;
+  /* Annotation layer (crop marks, dimension labels). Grey, not magenta: the
+     pink read as a stray second accent next to the blue. */
+  --mark: var(--ink-2);
 
   --icon-filter: none;
 }
@@ -47,7 +45,7 @@
   --ink-2: #9a9fa4;
   --rule: #2a2e32;
   --spot: #7b9cf7;
-  --mark: #ff3d9a;
+  --mark: var(--ink-2);
 
   /* Black-authored SVG assets have to reverse out on the dark ground. */
   --icon-filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(200deg)

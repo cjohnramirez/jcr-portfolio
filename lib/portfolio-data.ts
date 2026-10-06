@@ -1470,18 +1470,18 @@ export const creativePortfolioData: CreativePortfolioData = {
         ],
       ),
     },
-    // Interface studies. Role, date and outcome are still to come from John;
-    // until then these entries say only what the files themselves show.
+    // Interface studies.
     {
       id: "barangai",
       kind: "interface",
       title: "BarangAI",
-      meta: "> Hackathon entry / UP Mindanao",
+      meta: "> UP Mindanao Innovation Cup / June 2026",
       summary:
-        "An SMS-first AI command center for barangay concerns, developed from moodboard to storyboard to a full landing page wireframe.",
+        "SMS-based citizen concern intake and action dashboard, built for the UP Mindanao Innovation Cup, where the team reached the finals. Lead designer on the hackathon team, from moodboard and storyboard to the full landing page wireframe.",
       details: [
-        "Hackathon entry, UP Mindanao",
-        "SMS-first AI command center",
+        "Finalist, UP Mindanao Innovation Cup, June 2026",
+        "Lead designer on the hackathon team",
+        "SMS-based citizen concern intake and action dashboard",
         "Blue pixel-block visual language",
       ],
       deliverables: ["Visual identity", "Moodboard", "Storyboard", "Landing page wireframe"],
@@ -1566,10 +1566,14 @@ export const creativePortfolioData: CreativePortfolioData = {
       id: "pronote",
       kind: "interface",
       title: "ProNote",
-      meta: "> Productivity app interface",
+      meta: "> Personal project / 2025",
       summary:
-        "Interface design for a productivity workspace that keeps notes, tasks, habits and a diary side by side.",
-      details: ["Dark interface", "Four core screens", "Sidebar navigation across modules"],
+        "AI-powered notes app, a personal project designed in 2025 and built in React. Notes, tasks, habits and a diary share one workspace.",
+      details: [
+        "Personal project, 2025",
+        "AI-powered notes app, built in React",
+        "Dark interface with sidebar navigation across modules",
+      ],
       deliverables: ["Notes", "Tasks", "Habits", "Diary"],
       cover: {
         src: cloudinaryAsset("portfolio/designs/pronote/pronote-tasks.webp"),
@@ -1614,13 +1618,14 @@ export const creativePortfolioData: CreativePortfolioData = {
       id: "cs-website",
       kind: "interface",
       title: "CS Website",
-      meta: "> USTP Computer Science program",
+      meta: "> CS Core Team / 2025",
       summary:
-        "Website design for the Computer Science program at USTP Cagayan de Oro: the program, its objectives and its achievements.",
+        "Flagship project from leading the CS Core Team: a website for the BS Computer Science program at USTP Cagayan de Oro, covering the program, its objectives and its achievements. Started in 2025; not launched.",
       details: [
-        "University of Science and Technology of Southern Philippines",
+        "Flagship project of the CS Core Team, started 2025",
+        "BS Computer Science, USTP Cagayan de Oro",
         "Orange and charcoal on a grid ground",
-        "Offset card system",
+        "Not launched",
       ],
       deliverables: ["Website design", "Program pages", "Achievements showcase"],
       cover: {
@@ -2016,11 +2021,13 @@ function motionPiece(
   title: string,
   format: string,
   aspect: MotionPiece["aspect"],
+  summary: string,
 ): MotionPiece {
   return {
     id,
     title,
     format,
+    summary,
     aspect,
     poster: cloudinaryAsset(`portfolio/motion/${id}-poster.webp`),
     loop: {
@@ -2034,12 +2041,48 @@ function motionPiece(
 // Muted everywhere: the audio is stripped at encode time, not just silenced
 // in the player, because several of these use commercial music.
 export const motionData: MotionPiece[] = [
-  motionPiece("wildflower", "Wildflower", "Lyric video · Billie Eilish", "square"),
-  motionPiece("promise", "Promise", "Lyric video · Laufey", "square"),
-  motionPiece("the-shade", "The Shade", "Lyric video · Rex Orange County", "square"),
-  motionPiece("narcos-ph", "Narcos intro, Philippines edition", "Title sequence", "wide"),
-  motionPiece("btr-trailer", "Usapang Safe", "App teaser", "wide"),
-  motionPiece("wordmark-teaser", "USTP Games 2026", "Event teaser", "wide"),
+  motionPiece(
+    "wordmark-teaser",
+    "Paugnat 2026",
+    "Event teaser · February 2026",
+    "wide",
+    "Teaser trailer for Paugnat, USTP-CDO’s university-wide yearly intramurals. Made in Blender and After Effects.",
+  ),
+  motionPiece(
+    "btr-trailer",
+    "Beyond the Rainbow",
+    "Campaign teaser · June 2026",
+    "wide",
+    "For a USG USTP-CDO initiative that raises awareness of the LGBTQ+ community, in celebration of Pride Month.",
+  ),
+  motionPiece(
+    "narcos-ph",
+    "Narcos intro, Philippines edition",
+    "Title sequence · Personal project",
+    "wide",
+    "Inspired by the Netflix series Narcos, retold with Philippine history.",
+  ),
+  motionPiece(
+    "wildflower",
+    "Wildflower",
+    "Lyric video · Billie Eilish",
+    "square",
+    "Personal project, made in After Effects in 2025.",
+  ),
+  motionPiece(
+    "promise",
+    "Promise",
+    "Lyric video · Laufey",
+    "square",
+    "Personal project, made in After Effects in 2025.",
+  ),
+  motionPiece(
+    "the-shade",
+    "The Shade",
+    "Lyric video · Rex Orange County",
+    "square",
+    "Personal project, made in After Effects in 2025.",
+  ),
 ];
 
 const apparel = (file: string, alt: string, caption: string): MediaItem => ({
@@ -2054,25 +2097,19 @@ const frescoCollateral: Gallery | undefined = projectsData.projects
 
 export const printData: PrintPiece[] = [
   {
-    id: "4h-club-shirt",
-    title: "4-H Club shirt",
-    format: "Apparel · 4-H Club USTP-CDO",
-    cover: apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "Green, back"),
+    id: "official-apparel",
+    title: "Official apparel",
+    format: "Apparel · 4-H Club USTP-CDO and CS3",
+    summary:
+      "Designed in 2025 and adopted as official apparel by 4-H Club USTP-CDO and CS3, the main BSCS student organization.",
+    cover: apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "4-H Club, green, back"),
     items: [
-      apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "Green, back"),
-      apparel("4h-green-mockup", "Green 4-H Club shirt, front and back flats.", "Green, front and back"),
-      apparel("4h-white-t-shirt", "White 4-H Club shirt, worn, showing the back print.", "White, back"),
-      apparel("4h-white-mockup", "White 4-H Club shirt, front and back flats.", "White, front and back"),
-    ],
-  },
-  {
-    id: "cs-polos",
-    title: "Computer Science polos",
-    format: "Apparel · Core team and faculty",
-    cover: apparel("cs-polo-faculty-front", "Navy and gold faculty polo for the Department of Computer Science, front.", "Faculty, front"),
-    items: [
-      apparel("cs-polo-core-team-front", "White and cyan Computer Science Student Society core team polo, front.", "Core team, front"),
-      apparel("cs-polo-core-team-back", "White and cyan Computer Science Student Society core team polo, back.", "Core team, back"),
+      apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "4-H Club, green, back"),
+      apparel("4h-green-mockup", "Green 4-H Club shirt, front and back flats.", "4-H Club, green, front and back"),
+      apparel("4h-white-t-shirt", "White 4-H Club shirt, worn, showing the back print.", "4-H Club, white, back"),
+      apparel("4h-white-mockup", "White 4-H Club shirt, front and back flats.", "4-H Club, white, front and back"),
+      apparel("cs-polo-core-team-front", "White and cyan Computer Science Student Society core team polo, front.", "CS3 core team, front"),
+      apparel("cs-polo-core-team-back", "White and cyan Computer Science Student Society core team polo, back.", "CS3 core team, back"),
       apparel("cs-polo-faculty-front", "Navy and gold faculty polo for the Department of Computer Science, front.", "Faculty, front"),
       apparel("cs-polo-faculty-back", "Navy and gold faculty polo for the Department of Computer Science, back.", "Faculty, back"),
     ],
@@ -2081,6 +2118,7 @@ export const printData: PrintPiece[] = [
     id: "fresco-collateral",
     title: "Fresco Greenovations",
     format: "Print and social",
+    summary: "Brochure, social posts and a conference poster for Fresco Greenovations, the agritech startup Fresco Grow Lab was built for.",
     cover: {
       src: cloudinaryAsset("portfolio/projects/fresco-grow-lab/collateral/fresco-poster.webp"),
       alt: "Fresco Greenovations conference poster: Greenfluencing the Future.",
