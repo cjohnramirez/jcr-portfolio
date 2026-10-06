@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (212 images, set cac8d938)
+// Source: public/portfolio (233 images, set 078e7abb)
 
 export type ImageMeta = {
   width: number;
@@ -250,6 +250,30 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABwBQCdASoQAFEAPwlyrlArpyQitVgIAXAhCWIAw80gAgBz027IBKFg5vgCq1YeOkI9Yq8AAP7oybIvl7WscJqgu9+Gt1XvImwqceS7XPhRvnDWqMWX4fWsJ4X1ZM+vgBDykz9VFEDEziL145qGv1HvK3VkMTztQf7BIgHLR/+IDOhHwEUVbf13U08dp3LkqkqAUpK7pED1u9uTMMbXH691wS0ikJGfP/TFgAAA",
   },
+  "portfolio/designs/barangai/fullpage/barangai-01.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoQABsAPxFysFAsJqSisAgBgCIJQBWABDjwb3c/5WHY/AAA/ujGBHgjZXexnND4o0c9OXtTbh94/14jANPzEwxQ5ep6OYTp/MSa2lTcwcZspnR2BEWI3LCzCeHaTTULt/sC3abjtoDwAA==",
+  },
+  "portfolio/designs/barangai/fullpage/barangai-02.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoQABsAPxFysFAsJqSisAgBgCIJZwDGfC0cyo4JREugAP7uq8UYMCVLHlm3sDkGeTVag9xeAHaT2HbClv8wWI80gAA=",
+  },
+  "portfolio/designs/barangai/fullpage/barangai-03.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQBACdASoQABsAPxF0tFAsJyUisAgBgCIJagC7MoADTpykergVu/igAAD+6L/mLTNHtU5J+TE+r7lPfGZLT7xTOeKsLnYj2sKzYfqTSehWPDYifyJa3j033hlvrArrfduRDmQxdAA=",
+  },
+  "portfolio/designs/barangai/fullpage/barangai-04.webp": {
+    width: 1440,
+    height: 86,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAEABABoJaQAA3AA/vKAAAA=",
+  },
   "portfolio/designs/cs-website/cs-website-01.webp": {
     width: 2400,
     height: 1667,
@@ -309,6 +333,30 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 8569,
     blurDataURL:
       "data:image/webp;base64,UklGRjQBAABXRUJQVlA4ICgBAABQBwCdASoQAF8APxFwr1EsJiQisBVdUYAiCUAZZnYQfgHwmXrS9ZqWtQJn1Je4EfZXRAYa0RWCTZ9pKBHmeQY3gCwAAP7wQcdqEHGwND428Gjk8iT7O+yg0Zr88uUHEnaeLEgoI/i8hCoxIBvcor8SG+JsQXnqNJTM3Xi8kk7MmiK2IiRq3EhaC0Dc0RcBj3yLb7NAss4omdTb9T7r2ndQZMCxy4LrQzIl/g8n/J8hN4PQShJ/5jBImiX5P53bc8/gxLVkoOILNfuD2etwoya90Zw3s3EAUvc5SqO9DbjR3DLSKl1sNw/MGIUE7KufKnlAMOgl2qqk57LpzE05VPDAUWMiV/kYf9dAUneHNwz51dvoSmQo5d5dZXmddWbg4qRC5pX8MvIkAA==",
+  },
+  "portfolio/designs/cs-website/fullpage/cs-website-01.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABsAPxFwsFAsJiSisAgBgCIJQBOgBCo6nvp7TL3ADSoAAP7nfCkILqjMqoED1iup6pwVvvyKnwIDegmiqlWOI+rMCkRhGW88IWfk7z/g9Dvw9ciZ2YQaVg3oXozeMTl9Q5Uo4AA=",
+  },
+  "portfolio/designs/cs-website/fullpage/cs-website-02.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADwAwCdASoQABsAPxFysFAsJqSisAgBgCIJZwDImCFlmKCcsWI92YkAAP7qmE54egOlhMzsnw+KFZfz8G0xHE1XNssAo2+1s/vHZJNkO7xm4ESTn4oizoUO/huK9soZtAaaPtyVcjZ7boZssH2DdfyKm6dlj3VO0MPrxheuQXMUIEtJ8AYh5vLpxLoaAAAA",
+  },
+  "portfolio/designs/cs-website/fullpage/cs-website-03.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoQABsAPxFysVCsJqSisAgBgCIJZwDKACP/1IZoxLn5a4AA/urmz4DlGEA8Mn8VLDW+parJokA7TuGRS/b+pLFiT8HNnTCjQ7Z2lQUwINzFbZyHA5f0mGBOvvWi6WkAAAA=",
+  },
+  "portfolio/designs/cs-website/fullpage/cs-website-04.webp": {
+    width: 1440,
+    height: 1369,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAgCdASoQAA8ABABoJbACdAEVz2pyQotIgAD+8iQgSvg1TxlXPE41L9s3WyKXTZL+vJGObjHz0Tu81UiBX9jNA0QAAA==",
   },
   "portfolio/designs/kingmaker/deck/kingmaker-deck-01.webp": {
     width: 2400,
@@ -760,11 +808,23 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRsQAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggSgAAANABAJ0BKhAADAAEAGgllAFMACzmP304AP73gnWPefJ1G2A7uGW3Uuz8Wu8Y3Av4DXb6RwRLae0B5RL2tzI/97hFmMYb5ayoeAAA",
   },
+  "portfolio/projects/agriova/agriova-cover-dark-cutout.webp": {
+    width: 2007,
+    height: 1494,
+    blurDataURL:
+      "data:image/webp;base64,UklGRswAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEEAAAABYBXbtpLzFCI4nwx9XgOyUYYGxHB3lwQRMQGOOgbRcow5kuVYNCeLgfTk2kDzkYv+gY/5gYfsgYn0Z8ZVqE51AABWUDggZAAAANABAJ0BKhAADAAEAGglnAAC43eZc6tAAM3zve20PTt8QjlS05g5u7j9EQDwT4cNN7e6CrBapfgb7srxLJPTiCAnTJC39L58pzPdJaCSPX9/XM5QSHarDA2fCURkNXPrZ3Q0AAA=",
+  },
   "portfolio/projects/agriova/agriova-cover-dark.webp": {
     width: 2400,
     height: 1291,
     blurDataURL:
       "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAkABABoJZQAD42MoqObQ2mAAP7p+Pw7dZ2YrmCbx3Huqnr8wwvfvvP0zUDDSvt0hVNq0YSqf5MjSKLaAgvdTXd4GDmZN73KMXOypgAAAA==",
+  },
+  "portfolio/projects/agriova/agriova-cover-light-cutout.webp": {
+    width: 2007,
+    height: 1494,
+    blurDataURL:
+      "data:image/webp;base64,UklGRswAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEEAAAABYBXbtpLzFCI4nwx9XgOyUYYGxHB3lwQRMQGOOgbRcow5kuVYNCeLgfTk2kDzkYv+gY/5gYfsgYn0Z8ZVqE51AABWUDggZAAAANABAJ0BKhAADAAEAGglnAAC43eZc6tAAM3zve20PTt8QjlS05g5u7j9EQDwT4cNN7e6CrBapfgb7srxLJPTiCAnTJC39L58pzPdJaCSPX9/XM5QSHarDA2fCURkNXPrZ3Q0AAA=",
   },
   "portfolio/projects/agriova/agriova-cover-light.webp": {
     width: 2400,
@@ -1084,11 +1144,23 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoQAAkABABoJaQAA3AA/vHMWvDgAA==",
   },
+  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark-cutout.webp": {
+    width: 1708,
+    height: 1286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDkAAAABR6CQkSQmJ3Bm589SvmhERLzHLwJQEABk4xQQRQQxNBCBApqz0yCi/xPQVRmRzjAaLXCjV7boNwEAVlA4IDgAAACQAQCdASoQAAwABABoJaQAAudXx4AA/rd6K8xarJJ1czgaVnQfT+jK0u70TfsuYkPlDhVAqAAAAA==",
+  },
   "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkABABoJaQAAuRIrcHpomAA/q3w3QJ+yl7z+o7WkLV9yZ6uO7QBzFOWCr1LlNKJzQaAAAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light-cutout.webp": {
+    width: 1708,
+    height: 1286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRp4AAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEIAAAABf6CQjSQoa3Be50/zVSMiwnn2h04lQFVrL/a0oYUOGqzCH0UAERSTwBHBr8TeFIjo/wTsy0eeVSScGg35DmjVHR1WUDggNgAAANABAJ0BKhAADAAEAGglpAAC50jEyZgAAP7rd8x3kNEJl9AW+VX4vnPDGkXXdfNEnI5AIJUAAA==",
   },
   "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light.webp": {
     width: 2400,
@@ -1113,6 +1185,12 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1161,
     blurDataURL:
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJYwAAudfFoxAAP7zdZws2TSX8QCXwQHA5oO9cGNCjgAA",
+  },
+  "portfolio/projects/fresco-grow-lab/fullpage/fresco-grow-lab-01.webp": {
+    width: 1440,
+    height: 1089,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACQAQCdASoQAAwABABoJZwAApY+nVwA/vOFjLwxBoA51zRTuAAAAA==",
   },
   "portfolio/projects/road-restoration/cdom.png": {
     width: 1366,
@@ -1186,6 +1264,18 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAsABABoJZAAAumYF4yzwAD+9NF2JdL0M2EjHAiV/20vSIX1o1Bt7zo1a/h3FYaP3dJz7sZwULIH3uv3VOAA",
   },
+  "portfolio/projects/steady/fullpage/steady-01.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAwBACdASoQABsAPxF0sVCsJqSisAgBgCIJYgBTAAZa3Vu6JFcBn+IGR0AA/ud77SxHU+17rCl+spequKta1gX73EnWyt4X84TdKmF/YIzrRYGgRXIAOrcjOx89xQA2tJeaRdWmbbVk+f9Hj9Yuowgbwny+llj4cvldioSQsr+I/G5z20Sx/9Ux+/MbF3S9hyMo7dSivBzOTyTQgvQwppVhzuPR/FRLF2MtQAAA",
+  },
+  "portfolio/projects/steady/fullpage/steady-02.webp": {
+    width: 1440,
+    height: 1858,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoQABUAPxFysFAsJqSisAgBgCIJZQAAWeth/tVgAP7tQ3fgfuTh+GHURsioliDsJlci3iBLaeVYwzHqhhuL4AAA",
+  },
   "portfolio/projects/steady/steady-admin-accounts.png": {
     width: 1894,
     height: 1023,
@@ -1198,11 +1288,23 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJZwAA3AA/vHD6DklkYCAAAA=",
   },
+  "portfolio/projects/steady/steady-cover-dark-cutout.webp": {
+    width: 1708,
+    height: 1286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRr4AAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSD0AAAABV6CQjSQoI7Bo66+y92pERHw2/xYAhbTtNh0CRfoI0ahBEFKRyZmFENH/Cdh/iTDPXlRqRtFhkIE0CsEYAFZQOCBaAAAA8AEAnQEqEAAMAAQAaCWUAALnjAXP15aAAP62H7f7ms9BtDyuG4C+z2VqVrYweGnlv+3cqX0tc7Q/4gMNPJ1AQNtfuV3P0lL7CAC4jjnj7Egd7KcNHre6AAAA",
+  },
   "portfolio/projects/steady/steady-cover-dark.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAkABABoJZwAAuQBRGNAAP6t8N0Cqi4Qty6tBh+bZ+EfcC9DYvB5nQbejilOBZyCHmer2mAAAA==",
+  },
+  "portfolio/projects/steady/steady-cover-light-cutout.webp": {
+    width: 1708,
+    height: 1286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrQAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDsAAAABuS5E9D/ANLJtJ+f+/0HlYiienqL/4TpQ+IgJmIDtCmICmBhM8Nit8P7QwQcZ4O8rKdDLiiYysaCxCABWUDggUgAAANABAJ0BKhAADAAEAGgllAAC6B5EV7LgAP7rd+aPEcIgSxTY2yLFd3VkgdfdcQes3RL8w5mM05AIkXOio3SXlM08ix7HyoaaKAG5vg3tmt7oAAA=",
   },
   "portfolio/projects/steady/steady-cover-light.webp": {
     width: 2400,
@@ -1234,6 +1336,18 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAABwAQCdASoQAAkABABoJZ2R5AGIAAD+8dGHOLvPdx0KE1my48G4AAAA",
   },
+  "portfolio/projects/trailventure/fullpage/trailventure-01.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBACdASoQABsAPxFysFAsJqSisAgBgCIJYgC/OCKUiEVCiKlLHrjuqSoAAPhjesX8yBobmmj0BAP1QX3pH1sQzxz8Qx9Aru2b3uraHtiaqdKWKVza1Ft6RL+eMr2b1IVVM+rCE+oY4Tw1E84BBS81jXVeeGpDuZ0H9+cufk/LI4GXKWElzMbytfpR1+Jd99GFEpZSlF7ZgSKJUAA=",
+  },
+  "portfolio/projects/trailventure/fullpage/trailventure-02.webp": {
+    width: 1440,
+    height: 322,
+    blurDataURL:
+      "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAABQAQCdASoQAAQABABoJaQABHQAAP7xLX1ZVJKTgAA=",
+  },
   "portfolio/projects/trailventure/trailventure-account.png": {
     width: 2160,
     height: 1161,
@@ -1246,11 +1360,23 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJZwAAq3YyiGAAP7q8e028zlNA1mwCwkL0hMcW0DwDwIA",
   },
+  "portfolio/projects/trailventure/trailventure-cover-dark-cutout.webp": {
+    width: 1708,
+    height: 1286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRqIAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDkAAAABT6CQjSQoI7Bm669y/2lERHxuvBFAIQCgTUcglBDCCSGBhzDgixDR/wnINTEzzrA1OsCLHuybfhMAVlA4IEIAAADQAQCdASoQAAwABABoJQBOgCHe3T2CAADyT/wmoTqFCaLWuVRz2IJ2fgW16uYDXcL7FvOD9DI/FioYHS7CmJygAAA=",
+  },
   "portfolio/projects/trailventure/trailventure-cover-dark.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJZQAAujbhSdE8AD+5uOfq5tq1X5wbCCS6jCd5aXI1BuWBC+W6tXPixfeo+2HHMbO27QPUHFVugAA",
+  },
+  "portfolio/projects/trailventure/trailventure-cover-light-cutout.webp": {
+    width: 1708,
+    height: 1286,
+    blurDataURL:
+      "data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDoAAAABuS5E9D/ANLJtJ/f+4BIUQ/H0FH06DhQ+YgImYDoSg4nAIDA5zEbyfpHJByvk708Pe0S4PQIYAiADVlA4IEYAAADQAQCdASoQAAwABABoJQBdgCHpOj14AAD945/SgXI5hRyAvxQGRjMmF3Am2fSFIvj6BqzA+hSBco28GbKAjQY0YUmEeAAA",
   },
   "portfolio/projects/trailventure/trailventure-cover-light.webp": {
     width: 2400,
