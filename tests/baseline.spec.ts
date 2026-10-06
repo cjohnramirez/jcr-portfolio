@@ -195,6 +195,8 @@ test.describe("one-page home", () => {
   });
 
   test("no visible copy uses an em dash or an unfinished placeholder", async ({ page }) => {
+    // Four full page loads; the default 30s is tight when the suite runs in parallel.
+    test.setTimeout(60_000);
     for (const path of ["/", "/designs/barangai", "/designs/pronote", "/designs/cs-website"]) {
       await page.goto(path);
       const text = await page.locator("body").innerText();
