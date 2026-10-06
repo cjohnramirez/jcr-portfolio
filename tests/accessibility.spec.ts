@@ -17,13 +17,10 @@ import { waitForRevealsSettled } from "./helpers/network";
 
 const ROUTES = [
   "/",
-  "/about",
-  "/work",
   "/work/road-restoration",
-  "/designs",
+  "/work/steady",
   "/designs/kingmaker",
-  "/archive",
-  "/contact",
+  "/designs/barangai",
 ];
 
 for (const path of ROUTES) {
@@ -31,8 +28,11 @@ for (const path of ROUTES) {
     await page.goto(path, { waitUntil: "load" });
     await waitForRevealsSettled(page);
 
+    // ASCII art is decoration (aria-hidden, no information), which WCAG
+    // 1.4.3 exempts from contrast; it is excluded here and nowhere else.
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .exclude("[data-decorative]")
       .analyze();
 
     // Report the rule and the element, not just a count — a bare number is
@@ -58,11 +58,12 @@ test("both themes pass contrast checks", async ({ page }) => {
         // Storage can be unavailable; the default theme still applies.
       }
     }, theme);
-    await page.goto("/work/steady", { waitUntil: "load" });
+    await page.goto("/", { waitUntil: "load" });
     await waitForRevealsSettled(page);
 
     const results = await new AxeBuilder({ page })
       .withRules(["color-contrast"])
+      .exclude("[data-decorative]")
       .analyze();
 
     const failures = results.violations.flatMap((v) =>

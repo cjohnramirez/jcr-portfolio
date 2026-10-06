@@ -25,17 +25,22 @@ import {
 
 const ROUTES = [
   "/",
-  "/about",
-  "/work",
   "/work/trailventure",
   "/work/steady",
   "/work/fresco-grow-lab",
   "/work/agriova",
-  "/designs",
   "/designs/kingmaker",
-  "/archive",
-  "/contact",
+  "/designs/barangai",
 ];
+
+/** The index routes that became sections of the one-page home. */
+const RETIRED = [
+  ["/about", "about"],
+  ["/work", "work"],
+  ["/designs", "brand"],
+  ["/archive", "experience"],
+  ["/contact", "contact"],
+] as const;
 
 test.describe("baseline — structural guarantees", () => {
   for (const path of ROUTES) {
@@ -46,16 +51,16 @@ test.describe("baseline — structural guarantees", () => {
     });
   }
 
-  test("the primary navigation links to every plate from any route", async ({
+  test("the primary navigation links to every section from any route", async ({
     page,
   }) => {
-    await page.goto("/archive");
+    await page.goto("/work/steady");
 
     // Deliberately a DOM locator, not getByRole: one nav is desktop-only and
     // the other mobile-only, so at any viewport one of them is display:none
     // and therefore absent from the accessibility tree. Whether the *visible*
     // nav is usable is asserted in redesign.spec.ts.
-    for (const href of ["/about", "/work", "/designs", "/archive", "/contact"]) {
+    for (const href of ["/#work", "/#brand", "/#about", "/#contact"]) {
       await expect(
         page.locator(`a[href="${href}"]`).first(),
         `no navigation link to ${href}`,
@@ -71,7 +76,7 @@ test.describe("baseline — structural guarantees", () => {
 
     const rows: string[] = [];
 
-    for (const path of ["/", "/work/steady", "/archive"]) {
+    for (const path of ["/", "/work/steady", "/designs/xplore"]) {
       const tally = trackImages(page);
       await page.goto(path, { waitUntil: "load" });
       await waitForImagesDecoded(page);
@@ -100,5 +105,91 @@ test.describe("baseline — structural guarantees", () => {
     console.log(`\n[image weight]\n${summary}\n`);
 
     expect(rows).toHaveLength(3);
+  });
+});
+
+test.describe("one-page home", () => {
+  for (const [path, section] of RETIRED) {
+    test(`${path} redirects to the ${section} section`, async ({ page }) => {
+      await page.goto(path);
+      await expect(page).toHaveURL(new RegExp(`/#${section}$`));
+      await expect(page.locator(`#${section}`)).toBeAttached();
+    });
+  }
+
+  test("every section the navigation points at exists, numbered 01 to 06", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const ids = ["work", "brand", "services", "experience", "about", "contact"];
+    for (const [index, id] of ids.entries()) {
+      const section = page.locator(`section#${id}`);
+      await expect(section).toBeAttached();
+      await expect(section.locator(".label").first()).toHaveText(
+        String(index + 1).padStart(2, "0"),
+      );
+      await expect(section.locator("h2").first()).not.toBeEmpty();
+    }
+  });
+
+  test("the header marks the section in view as current", async ({ page }) => {
+    test.skip(test.info().project.name !== "desktop", "desktop nav only");
+    await page.goto("/");
+    await page.locator('nav[aria-label="Primary"] a[href="/#brand"]').click();
+    await expect(
+      page.locator('nav[aria-label="Primary"] a[href="/#brand"]'),
+    ).toHaveAttribute("aria-current", "location");
+  });
+
+  test("the home page shows four project and four identity cards", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator('#work a[href^="/work/"]')).toHaveCount(4);
+    await expect(page.locator('[role="tabpanel"]').first().locator('a[href^="/designs/"]')).toHaveCount(4);
+  });
+
+  test("brand tabs work from the keyboard", async ({ page }) => {
+    await page.goto("/");
+    const first = page.getByRole("tab", { name: /identity/i });
+    await first.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(page.getByRole("tab", { name: /interface/i })).toBeFocused();
+    await expect(page.getByRole("tab", { name: /interface/i })).toHaveAttribute("aria-selected", "true");
+    await page.keyboard.press("End");
+    await expect(page.getByRole("tab", { name: /print/i })).toHaveAttribute("aria-selected", "true");
+  });
+
+  test("no video downloads until the Motion tab is opened", async ({ page }) => {
+    const videos: string[] = [];
+    page.on("request", (request) => {
+      if (/\.(mp4|webm)(\?|$)/.test(request.url())) videos.push(request.url());
+    });
+    await page.goto("/", { waitUntil: "load" });
+    await page.mouse.wheel(0, 4000);
+    await page.waitForTimeout(500);
+    expect(videos).toEqual([]);
+    await expect(page.locator("video")).toHaveCount(0);
+  });
+
+  test("a motion dialog opens, closes on Escape and returns focus", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("tab", { name: /motion/i }).click();
+    const card = page.getByRole("button", { name: /play wildflower/i });
+    await card.click();
+    const dialog = page.getByRole("dialog", { name: "Wildflower" });
+    await expect(dialog).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
+    await expect(card).toBeFocused();
+  });
+
+  test("no visible copy uses an em dash or an unfinished placeholder", async ({ page }) => {
+    for (const path of ["/", "/designs/barangai", "/designs/pronote", "/designs/cs-website"]) {
+      await page.goto(path);
+      const text = await page.locator("body").innerText();
+      expect(text, path).not.toContain("\u2014");
+      expect(text, path).not.toMatch(/\bTODO\b/);
+    }
   });
 });

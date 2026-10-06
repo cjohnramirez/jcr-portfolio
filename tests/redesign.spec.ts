@@ -19,22 +19,20 @@ import {
  */
 
 const ROUTES = [
-  { path: "/", plate: "Cover" },
-  { path: "/about", plate: "01" },
-  { path: "/work", plate: "02" },
-  { path: "/work/trailventure", plate: "02.1" },
-  { path: "/work/steady", plate: "02.2" },
-  { path: "/work/fresco-grow-lab", plate: "02.3" },
-  { path: "/work/agriova", plate: "02.4" },
-  { path: "/work/road-restoration", plate: "02.5" },
-  { path: "/work/enduro-branding", plate: "02.6" },
-  { path: "/designs", plate: "03" },
-  { path: "/designs/snap-engineering", plate: "03.1" },
-  { path: "/designs/xplore", plate: "03.2" },
-  { path: "/designs/al-bab", plate: "03.3" },
-  { path: "/designs/kingmaker", plate: "03.4" },
-  { path: "/archive", plate: "04" },
-  { path: "/contact", plate: "Colophon" },
+  { path: "/", plate: "Home" },
+  { path: "/work/trailventure", plate: "01.1" },
+  { path: "/work/steady", plate: "01.2" },
+  { path: "/work/fresco-grow-lab", plate: "01.3" },
+  { path: "/work/agriova", plate: "01.4" },
+  { path: "/work/road-restoration", plate: "01.5" },
+  { path: "/work/enduro-branding", plate: "01.6" },
+  { path: "/designs/snap-engineering", plate: "02.1" },
+  { path: "/designs/xplore", plate: "02.2" },
+  { path: "/designs/al-bab", plate: "02.3" },
+  { path: "/designs/kingmaker", plate: "02.4" },
+  { path: "/designs/barangai", plate: "02.5" },
+  { path: "/designs/pronote", plate: "02.6" },
+  { path: "/designs/cs-website", plate: "02.7" },
 ] as const;
 
 test.describe("@redesign routes", () => {
@@ -61,8 +59,8 @@ test.describe("@redesign navigation", () => {
     await expect(toggle).toBeVisible();
     await toggle.click();
 
-    const nav = page.getByRole("navigation");
-    await expect(nav.getByRole("link", { name: /work/i })).toBeVisible();
+    const nav = page.getByRole("navigation", { name: "Primary mobile" });
+    await expect(nav.locator('a[href="/#work"]')).toBeVisible();
   });
 
   test("a skip link is the first thing keyboard focus reaches", async ({
@@ -103,20 +101,20 @@ test.describe("@redesign navigation", () => {
 });
 
 test.describe("@redesign theming", () => {
-  test("dark is the default and paints the ground token", async ({ page }) => {
+  test("light is the default and paints the ground token", async ({ page }) => {
     await page.goto("/");
 
     const theme = await page.evaluate(
       () => document.documentElement.dataset.theme,
     );
-    expect(theme).toBe("dark");
+    expect(theme).toBe("light");
 
     const ground = await page.evaluate(() =>
       getComputedStyle(document.documentElement)
         .getPropertyValue("--ground")
         .trim(),
     );
-    expect(ground.toLowerCase()).toBe("#0b0c0d");
+    expect(ground.toLowerCase()).toBe("#e7e5e0");
   });
 
   test("color-scheme is declared so native controls follow the theme", async ({
@@ -126,7 +124,7 @@ test.describe("@redesign theming", () => {
     const scheme = await page.evaluate(() =>
       getComputedStyle(document.documentElement).colorScheme,
     );
-    expect(scheme).toContain("dark");
+    expect(scheme).toContain("light");
   });
 
   test("secondary text clears 4.5:1 against the plate", async ({ page }) => {
