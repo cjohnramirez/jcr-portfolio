@@ -39,7 +39,6 @@ type BrandSectionProps = {
 export function BrandSection({ identity, interfaces, motion, print }: BrandSectionProps) {
   const items: BrowserItem[] = [
     ...identity.map(fromBrand),
-    ...interfaces.map(fromBrand),
     ...motion.map((piece) => ({
       id: piece.id,
       kind: "motion" as const,
@@ -58,6 +57,7 @@ export function BrandSection({ identity, interfaces, motion, print }: BrandSecti
       image: piece.cover,
       print: piece,
     })),
+    ...interfaces.map(fromBrand),
   ];
 
   return (

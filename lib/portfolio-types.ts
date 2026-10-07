@@ -312,6 +312,19 @@ export type HomeHero = {
  * the technical notes. Kept apart from the long `notes` so the case-study
  * copy can be edited without touching the record it is condensed from.
  */
+/**
+ * One screen of the website carousel: stacked slices of a page by default;
+ * `grid` sets the items two by two instead, and `background` sets a single
+ * short image whole on that colour, its own edge colour, instead of cropping it
+ * to fill the frame.
+ */
+export type FrameScreen = {
+  label: string;
+  items: MediaItem[];
+  layout?: "grid";
+  background?: string;
+};
+
 export type CaseContent = {
   /** Which detail template renders the page. */
   layout: "website" | "study" | "brand";
@@ -335,7 +348,7 @@ export type CaseContent = {
     href?: string;
     fullPage: MediaItem[];
     /** Further screens after the home page, each one or more stacked slices. */
-    pages?: { label: string; items: MediaItem[] }[];
+    pages?: FrameScreen[];
   };
   /** Screens shown in the collage or the screens strip, in order. */
   screens?: MediaItem[];

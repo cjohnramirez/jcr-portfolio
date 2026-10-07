@@ -851,10 +851,10 @@ export const imageManifest: Record<string, ImageMeta> = {
       "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4ID4AAABwAQCdASoQAAwABABoJaQAAhzqNAD+04ujcTe9Lyfp/XGlYO9WhNkJ5MGqKUzQ+6UzrBVMYxi4yGrmp2AAAA==",
   },
   "portfolio/projects/agriova/agriova-thumb.webp": {
-    width: 660,
-    height: 1000,
+    width: 1377,
+    height: 2085,
     blurDataURL:
-      "data:image/webp;base64,UklGRl4BAABXRUJQVlA4WAoAAAAQAAAADwAAFwAAQUxQSKwAAAABgFvbtqrq4u7uLk0QkxG6W0gtxHTgGYQu392tiFfBf7YvNUTEBGTvF/0EOXfJsiz7VzljLWIZCW0LWA1tj3QiRSavOyIDMfXmDMsOL5CRnFjx6gqZFf9gc4OsWhbubpFNhw73yGlAx0fkMqGLZ+Qxo6tX5LOim3fkt6O7TxR0oocvFHKhJ0rYg55HgFH70Kux0m7WK2niR++EGkSftDD6ojnRLY0Mnt8+vp5zVlA4IIwAAADwAwCdASoQABgAPxFysFAsJqSisAgBgCIJZwAAYW2gr83EnMcInSEAAP38DOsgQ9NiDRs2tmnm6/jHTnmRtL44UKXw3koHpKus8p9iFjesfYF6NSIStjgS7AbYF/en/pLiSBL18jcBHSfXzR7yhqvT4b/oqIE7t43N8374R2u1h8jhwKL5XxCRky0IAA==",
+      "data:image/webp;base64,UklGRlwBAABXRUJQVlA4WAoAAAAQAAAADwAAFwAAQUxQSKgAAAABuS5E9D/gtNq2ZXl///+EJSqHCWg/1bXCBkRGcMmunRF0COtWrbk7fMIGEROgsG3bht3Tf7hmzfV0jQFMibAAAMxENaEU4MOkTOcJwfp5pyE7QmF/4qmMWjA0gtxsNEADggHarAAAwAztBKrfAAwGCQNJQgPQFPoABn1Hsf1nLAuQFoyRkK+1BQOkCwuQPDzc9Z2gi40mQggLAFoHvzZQKzk2LBbnJAVWUDggjgAAAPADAJ0BKhAAGAA/EXKwUCwmpKKwCAGAIglnAAA8QDbnj2wi3p+JGAAA/NYeCYWw55nJVWrPLXik3rIG30yYaTwk3j2UIB6RJ9mwFx5U7+2HGqx9gXoeX760saWjBK8Ha/Efif8i76E4n2e3h83y0/FYRXuv1etkj/Kg4TtdXP9Nbvgk8sOSML8rNH3wIAA=",
   },
   "portfolio/projects/enduro-brand/deck/enduro-deck-01.webp": {
     width: 2400,

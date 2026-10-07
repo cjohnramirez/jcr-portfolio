@@ -2,19 +2,27 @@
 
 import { useRef, useState } from "react";
 import { getImageMeta } from "@/lib/image-manifest";
-import type { MediaItem } from "@/lib/portfolio-types";
+import type { FrameScreen, MediaItem } from "@/lib/portfolio-types";
 import { CarouselControls } from "../shared/carousel-controls";
 import { CloudinaryImage } from "../shared/cloudinary-image";
 
-type Screen = { label: string; items: MediaItem[] };
-
 type BrowserFrameProps = {
   /** The first screen is the full-page capture; the rest are single shots. */
-  screens: Screen[];
+  screens: FrameScreen[];
   className?: string;
 };
 
-function Slice({ item, eager, fill = false }: { item: MediaItem; eager: boolean; fill?: boolean }) {
+function Slice({
+  item,
+  eager,
+  fill = false,
+  sizes = "(min-width: 1024px) 56vw, 100vw",
+}: {
+  item: MediaItem;
+  eager: boolean;
+  fill?: boolean;
+  sizes?: string;
+}) {
   const meta = getImageMeta(item.src);
 
   return (
@@ -26,7 +34,7 @@ function Slice({ item, eager, fill = false }: { item: MediaItem; eager: boolean;
       className={`block h-auto w-full ${fill ? "min-h-full object-cover object-left-top" : ""}`}
       height={meta?.height ?? 900}
       priority={eager}
-      sizes="(min-width: 1024px) 56vw, 100vw"
+      sizes={sizes}
       src={item.src}
       width={meta?.width ?? 1440}
     />
@@ -62,9 +70,23 @@ export function BrowserFrame({ screens, className = "" }: BrowserFrameProps) {
           role="region"
           tabIndex={0}
         >
-          {screen.items.map((item, index) => (
-            <Slice eager={active === 0 && index === 0} fill={screen.items.length === 1} item={item} key={item.src} />
-          ))}
+          {screen.layout === "grid" ? (
+            <div className="grid min-h-full grid-cols-2 content-center gap-3 p-3 sm:gap-4 sm:p-6">
+              {screen.items.map((item) => (
+                <Slice eager={false} item={item} key={item.src} sizes="(min-width: 1024px) 28vw, 50vw" />
+              ))}
+            </div>
+          ) : screen.background ? (
+            <div className="flex min-h-full items-center" style={{ background: screen.background }}>
+              {screen.items.map((item) => (
+                <Slice eager={active === 0} item={item} key={item.src} />
+              ))}
+            </div>
+          ) : (
+            screen.items.map((item, index) => (
+              <Slice eager={active === 0 && index === 0} fill={screen.items.length === 1} item={item} key={item.src} />
+            ))
+          )}
         </div>
       </div>
 

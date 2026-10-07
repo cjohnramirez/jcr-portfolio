@@ -27,9 +27,9 @@ export type BrowserItem = {
 
 const TABS: { id: BrowserKind; label: string; short?: string }[] = [
   { id: "identity", label: "Identity" },
-  { id: "interface", label: "Interface" },
   { id: "motion", label: "Motion" },
   { id: "print", label: "Print and apparel", short: "Print" },
+  { id: "interface", label: "Interface" },
 ];
 
 const CTA: Record<BrowserKind, string> = {

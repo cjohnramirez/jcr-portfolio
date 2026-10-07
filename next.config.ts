@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
     deviceSizes: [375, 640, 828, 1080, 1440, 1920, 2560],
     imageSizes: [180, 220, 264, 384],
 
+    // 90 rather than the default 75: most images here are interface
+    // screenshots, and small UI text smears visibly at 75, AVIF especially.
+    qualities: [90],
+
     // The Cloudinary loader is applied per-component rather than globally,
     // because the local /public fallback must keep using Next's own optimiser
     // when NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is unset. remotePatterns still

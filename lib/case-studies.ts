@@ -237,6 +237,26 @@ export const caseContent: Record<string, CaseContent> = {
     site: {
       label: "BarangAI landing page · design",
       fullPage: slices("designs/barangai", "barangai", 4, "BarangAI landing page wireframe, full length."),
+      pages: [
+        {
+          label: "Identity board",
+          background: "#f7f7f7",
+          items: [{ src: cloudinaryAsset("portfolio/designs/barangai/barangai-main.webp"), alt: "BarangAI identity board: logo, colours, type and pixel-block system." }],
+        },
+        {
+          label: "Moodboard",
+          background: "#f7f7f7",
+          items: [{ src: cloudinaryAsset("portfolio/designs/barangai/barangai-moodboard.webp"), alt: "BarangAI moodboard." }],
+        },
+        {
+          label: "Storyboard",
+          layout: "grid",
+          items: [2, 3, 4, 5].map((n, index) => ({
+            src: cloudinaryAsset(`portfolio/designs/barangai/barangai-storyboard-${n}.webp`),
+            alt: `BarangAI storyboard, panel ${index + 1} of 4.`,
+          })),
+        },
+      ],
     },
   },
   pronote: {

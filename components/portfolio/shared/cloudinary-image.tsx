@@ -31,7 +31,8 @@ function buildLoader(highFidelity: boolean) {
       "f_auto",
       "c_limit",
       `w_${width}`,
-      `q_${quality ?? (highFidelity ? "auto:good" : "auto")}`,
+      // auto:good, not plain auto: plain auto smears small interface text.
+      `q_${quality ?? (highFidelity ? "auto:best" : "auto:good")}`,
     ];
 
     return `https://res.cloudinary.com/${cloudName}/image/upload/${transformations.join(",")}/${publicId}`;
@@ -75,6 +76,7 @@ export function CloudinaryImage({
         isLoaded ? "opacity-100" : "opacity-0"
       }`}
       loader={shouldUseCloudinary ? buildLoader(highFidelity) : undefined}
+      quality={shouldUseCloudinary ? undefined : 90}
       sizes={sizes}
       src={resolvedSrc}
       {...(meta && !transparent
