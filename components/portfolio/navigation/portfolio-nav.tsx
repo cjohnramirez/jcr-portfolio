@@ -73,7 +73,7 @@ export function PortfolioNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-rule bg-plate/85 backdrop-blur-md transition-[height] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b border-rule bg-plate transition-[height] duration-300 ${
         compact ? "h-16" : "h-20 lg:h-[88px]"
       }`}
     >

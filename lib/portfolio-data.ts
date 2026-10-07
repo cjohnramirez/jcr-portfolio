@@ -1999,11 +1999,13 @@ export const featuredWorkIds = [
 ] as const;
 
 /** Order of the four identity cards on the home page. */
+// The Enduro case study leads the tab. Xplore takes the full-width last tile:
+// its cover is wide enough for it, where Kingmaker's 1100px cover is not.
 export const featuredBrandIds = [
-  "kingmaker",
-  "xplore",
-  "al-bab",
   "snap-engineering",
+  "kingmaker",
+  "al-bab",
+  "xplore",
 ] as const;
 
 export const interfaceIds = ["barangai", "pronote", "cs-website"] as const;

@@ -39,18 +39,30 @@ const CTA: Record<BrowserKind, string> = {
   print: "View gallery",
 };
 
-function CardBody({ item, active = false }: { item: BrowserItem; active?: boolean }) {
+/**
+ * Bento placement on a 12-column grid, two tiles a row: rows alternate wide
+ * then narrow (7 and 5) with narrow then wide, and an odd last tile takes the
+ * whole row. Tiles in a row share one height (the image band is fixed).
+ */
+function bentoSpan(index: number, count: number): { className: string; full: boolean } {
+  if (count % 2 === 1 && index === count - 1) return { className: "sm:col-span-12", full: true };
+  const firstInRow = index % 2 === 0;
+  const wide = Math.floor(index / 2) % 2 === 0 ? firstInRow : !firstInRow;
+  return { className: wide ? "sm:col-span-7" : "sm:col-span-5", full: false };
+}
+
+function CardBody({ item, active = false, full = false }: { item: BrowserItem; active?: boolean; full?: boolean }) {
   const Icon = item.kind === "motion" ? Play : item.kind === "print" ? Images : ArrowUpRight;
 
   return (
     <>
       <GlowingEffect />
-      <span className="relative block aspect-[4/3] w-full overflow-hidden bg-plate-2">
+      <span className="relative block aspect-[4/3] w-full overflow-hidden bg-plate-2 sm:aspect-auto sm:h-[clamp(240px,26vw,400px)]">
         <CloudinaryImage
           alt={item.href ? item.image.alt : ""}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           fill
-          sizes="(min-width: 1440px) 330px, (min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+          sizes={full ? "(min-width: 1440px) 1312px, 100vw" : "(min-width: 1440px) 780px, (min-width: 640px) 58vw, 100vw"}
           src={item.image.src}
         />
         {item.motion ? <MotionPreview active={active} piece={item.motion} /> : null}
@@ -184,19 +196,21 @@ export function WorkBrowser({ items }: { items: BrowserItem[] }) {
             role="tabpanel"
             tabIndex={0}
           >
-            <ul
-              className={`grid gap-6 sm:grid-cols-2 md:gap-5 ${tab.id === "identity" ? "xl:grid-cols-4" : "xl:grid-cols-3"}`}
-            >
-              {panelItems.map((item, index) => (
+            <ul className="grid gap-6 sm:grid-cols-12 md:gap-5">
+              {panelItems.map((item, index) => {
+                const span = bentoSpan(index, panelItems.length);
+
+                return (
                 <motion.li
                   animate={active ? { opacity: 1, y: 0 } : undefined}
+                  className={span.className}
                   initial={tab.id === "identity" ? false : { opacity: 0, y: 12 }}
                   key={item.id}
                   transition={{ duration: 0.35, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {item.href ? (
                     <Link className={cardClass} href={item.href}>
-                      <CardBody item={item} />
+                      <CardBody full={span.full} item={item} />
                     </Link>
                   ) : (
                     <button
@@ -209,7 +223,7 @@ export function WorkBrowser({ items }: { items: BrowserItem[] }) {
                       onMouseLeave={() => setHoveredId(null)}
                       type="button"
                     >
-                      <CardBody active={hoveredId === item.id} item={item} />
+                      <CardBody active={hoveredId === item.id} full={span.full} item={item} />
                     </button>
                   )}
                   {item.motion ? (
@@ -219,7 +233,8 @@ export function WorkBrowser({ items }: { items: BrowserItem[] }) {
                     <PrintDialog onClose={() => setOpenId(null)} open={openId === item.id} piece={item.print} />
                   ) : null}
                 </motion.li>
-              ))}
+                );
+              })}
             </ul>
           </div>
         );

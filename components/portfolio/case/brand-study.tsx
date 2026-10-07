@@ -39,7 +39,7 @@ export function BrandStudy({ title, plate, meta, content, hero, applications, de
           <Reveal order={1}>
             <h1 className="text-[clamp(3.25rem,2rem+5vw,8.25rem)] leading-[0.9] tracking-[-0.025em] text-ink">{title}</h1>
           </Reveal>
-          <Reveal className="flex flex-wrap items-baseline gap-x-6 gap-y-2" order={2}>
+          <Reveal className="flex flex-wrap items-center gap-x-6 gap-y-2" order={2}>
             <span className="font-serif text-[clamp(1.375rem,1.2rem+0.6vw,1.75rem)] italic text-spot">{content.tagline}</span>
             <span className="label text-ink-2">{meta}</span>
           </Reveal>

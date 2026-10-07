@@ -149,6 +149,7 @@ test.describe("one-page home", () => {
     for (const slug of ["kingmaker", "xplore", "al-bab", "snap-engineering"]) {
       await expect(page.locator(`#brand a[href="/designs/${slug}"]`)).toHaveCount(1);
     }
+    await expect(page.locator('#brand a[href="/work/enduro-branding"]')).toHaveCount(1);
   });
 
   test("brand tabs work from the keyboard", async ({ page }) => {
@@ -157,7 +158,7 @@ test.describe("one-page home", () => {
     const panel = brand.locator('[role="tabpanel"]:not([hidden])');
 
     await expect(brand.getByRole("tab", { name: /identity/i })).toHaveAttribute("aria-selected", "true");
-    await expect(panel.locator("li")).toHaveCount(4);
+    await expect(panel.locator("li")).toHaveCount(5);
 
     await brand.getByRole("tab", { name: /identity/i }).focus();
     await page.keyboard.press("ArrowRight");

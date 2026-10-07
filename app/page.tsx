@@ -1,3 +1,4 @@
+import { caseContent } from "@/lib/case-studies";
 import { AboutSection } from "@/components/portfolio/sections/about-section";
 import { BrandSection } from "@/components/portfolio/sections/brand-section";
 import { ContactSection } from "@/components/portfolio/sections/contact-section";
@@ -30,11 +31,14 @@ function pick<T extends { id: string }>(items: T[], ids: readonly string[]): T[]
 }
 
 export default function Home() {
+  const enduro = projectsData.projects.find((project) => project.id === "enduro-branding");
+
   return (
     <main className="flex flex-col" id="main">
       <HeroSection data={homeHero} email={contactData.email} />
       <WorkSection projects={pick(projectsData.projects, featuredWorkIds)} />
       <BrandSection
+        lead={enduro ? { project: enduro, name: caseContent[enduro.id]?.name ?? enduro.title } : undefined}
         identity={pick(creativePortfolioData.brands, featuredBrandIds)}
         interfaces={pick(creativePortfolioData.brands, interfaceIds)}
         motion={motionData}
