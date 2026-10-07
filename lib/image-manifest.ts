@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (233 images, set 078e7abb)
+// Source: public/portfolio (249 images, set bf44f328)
 
 export type ImageMeta = {
   width: number;
@@ -1192,6 +1192,36 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACQAQCdASoQAAwABABoJZwAApY+nVwA/vOFjLwxBoA51zRTuAAAAA==",
   },
+  "portfolio/projects/fresco-grow-lab/screens/analytics-01.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwAwCdASoQABsAPxF0slCsJqSisAgBgCIJZAAAXAXJyZfWbttSAAD+6oHueDlIaCzEaRb2AfrWlqW+rjj7ZYQ/JyG9GwWxAPkG7qYEaP2vDyAOsDsiN64cpT8iiQPz203N6Erkaf40IHObQHU6uNHOdn1+lnfTDNenQy/9ECoQAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/screens/analytics-02.webp": {
+    width: 1440,
+    height: 747,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoQAAgABABoJZQABAAAAP7xBJX6IE8gJXtSulWXKXgAAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/screens/dashboard-01.webp": {
+    width: 1440,
+    height: 1129,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABwAQCdASoQAA0ABABoJZ2HgAGIAAD+8TKEIH4NcTJre4LGq4AAAA==",
+  },
+  "portfolio/projects/fresco-grow-lab/screens/docs-01.webp": {
+    width: 1440,
+    height: 1825,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAgCdASoQABQAPxFysFAsJqSisAgBgCIJaQAAeyAA/u/W9/pf84IkgAA=",
+  },
+  "portfolio/projects/fresco-grow-lab/screens/monitor-01.webp": {
+    width: 1440,
+    height: 1748,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAgCdASoQABMAPxFysFAsJqSisAgBgCIJaQAAeyAA/u+rvUeyNQAA",
+  },
   "portfolio/projects/road-restoration/cdom.png": {
     width: 1366,
     height: 768,
@@ -1276,6 +1306,42 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoQABUAPxFysFAsJqSisAgBgCIJZQAAWeth/tVgAP7tQ3fgfuTh+GHURsioliDsJlci3iBLaeVYwzHqhhuL4AAA",
   },
+  "portfolio/projects/steady/screens/admin-accounts-01.webp": {
+    width: 1440,
+    height: 1128,
+    blurDataURL:
+      "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAA0ABABoJaQAA3AA/vITZi+QHRMUAAA=",
+  },
+  "portfolio/projects/steady/screens/admin-dashboard-01.webp": {
+    width: 1440,
+    height: 1080,
+    blurDataURL:
+      "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoQAAwABABoJaQAA3AA/vHDAgKVsAAA",
+  },
+  "portfolio/projects/steady/screens/portal-01.webp": {
+    width: 1440,
+    height: 2400,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBACdASoQABsAPxFyslCsJqSisAgBgCIJQBhQO4FwEuD9PndUlzUVMF3cuKIAAP7GA+ntSoBalq3GPLJOroOWmMx7RBqvmiQ8giOAJEAhVyQoQSPByM9AtMqUkBW2RcZ7f1tNrrSkun+lPUEfbupzkL12bK8nRD0aaU4dAxAFwMr/sUYVnUoiJI9K9GNM8K1DVAzPc5yTPTHqIBl1euv77D48UiwAAAA=",
+  },
+  "portfolio/projects/steady/screens/portal-02.webp": {
+    width: 1440,
+    height: 1033,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAsABABoJZwAAucPWdAAAPzd/4uGPvGmxYhm7NuGrpWE0O0+RCMng5dJYirBBbcQlcIAAAA=",
+  },
+  "portfolio/projects/steady/screens/signup-01.webp": {
+    width: 1440,
+    height: 1700,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoQABMAPxFysFAsJqSisAgBgCIJZADG9CFSi7Sn4sc7hoAA/u1IYSH9nPFFhQs46PiIcOO4xugAvUUqqboFijQHHLiDJd9P46efHc0V53CV1aojAJVDVugRIAA=",
+  },
+  "portfolio/projects/steady/screens/student-01.webp": {
+    width: 1440,
+    height: 1458,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQABAABABoJZwAAt0AftAAAP704BfIalcN3Q1zQya01QGqonAJAAAA",
+  },
   "portfolio/projects/steady/steady-admin-accounts.png": {
     width: 1894,
     height: 1023,
@@ -1347,6 +1413,36 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 322,
     blurDataURL:
       "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAABQAQCdASoQAAQABABoJaQABHQAAP7xLX1ZVJKTgAA=",
+  },
+  "portfolio/projects/trailventure/screens/account-01.webp": {
+    width: 1440,
+    height: 2396,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAwCdASoQABsAPxFysFAsJqSisAgBgCIJZ2bvADckZwAA/u/Xb5oHL4SMHbxFx8muD9xdxtsLD/9IqR6sexJLwBgAAA==",
+  },
+  "portfolio/projects/trailventure/screens/booking-01.webp": {
+    width: 1440,
+    height: 1280,
+    blurDataURL:
+      "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoQAA4ABABoJZwAApdp6ngA/uevKn+LTfuk8tp2IJCpInxpwveNYLO3NAAAAA==",
+  },
+  "portfolio/projects/trailventure/screens/package-01.webp": {
+    width: 1440,
+    height: 2158,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAwCdASoQABgAPxFysFAsJqSisAgBgCIJYwAAW6FjkAAA/t9jGq56zrfz/IClsaDdqwKiaMyStQsqF57KuJUvB2y9lsVdOVyQVGND6ANOfVV74wAAAA==",
+  },
+  "portfolio/projects/trailventure/screens/search-01.webp": {
+    width: 1440,
+    height: 1526,
+    blurDataURL:
+      "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAwCdASoQABEAPxFysFAsJqSisAgBgCIJZwAAUz6jY0sAAP7qlX/wMrKGTE+mihKKN3bCoO2WRjoJ2VZDHAAA",
+  },
+  "portfolio/projects/trailventure/screens/success-01.webp": {
+    width: 1440,
+    height: 1080,
+    blurDataURL:
+      "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABwAQCdASoQAAwABABoJaV/2AGIAAD+8YcXi+qj1z66eu6rnsAAAA==",
   },
   "portfolio/projects/trailventure/trailventure-account.png": {
     width: 2160,

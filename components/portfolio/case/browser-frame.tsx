@@ -14,13 +14,16 @@ type BrowserFrameProps = {
   className?: string;
 };
 
-function Slice({ item, eager }: { item: MediaItem; eager: boolean }) {
+function Slice({ item, eager, fill = false }: { item: MediaItem; eager: boolean; fill?: boolean }) {
   const meta = getImageMeta(item.src);
 
   return (
     <CloudinaryImage
       alt={item.alt}
-      className="block h-auto w-full"
+      // A single short screen still fills the frame: at least as tall as the
+      // pane, cropped from the top left (where interfaces start), so there is never
+      // an empty band below it.
+      className={`block h-auto w-full ${fill ? "min-h-full object-cover object-left-top" : ""}`}
       height={meta?.height ?? 900}
       priority={eager}
       sizes="(min-width: 1024px) 56vw, 100vw"
@@ -60,7 +63,7 @@ export function BrowserFrame({ screens, className = "" }: BrowserFrameProps) {
           tabIndex={0}
         >
           {screen.items.map((item, index) => (
-            <Slice eager={active === 0 && index === 0} item={item} key={item.src} />
+            <Slice eager={active === 0 && index === 0} fill={screen.items.length === 1} item={item} key={item.src} />
           ))}
         </div>
       </div>

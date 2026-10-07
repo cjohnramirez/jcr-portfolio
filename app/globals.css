@@ -183,9 +183,11 @@ p {
   outline-offset: 3px;
 }
 
+/* The ring colour comes from --pulse, set per dot. `currentColor` inside the
+   keyframes resolved to transparent, which left the ring invisible. */
 @keyframes status-pulse {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 55%, transparent);
+    box-shadow: 0 0 0 0 var(--pulse, rgb(31 157 85 / 0.55));
   }
   70% {
     box-shadow: 0 0 0 8px transparent;
@@ -196,6 +198,7 @@ p {
 }
 
 .status-dot {
+  --pulse: rgb(31 157 85 / 0.55);
   animation: status-pulse 2.4s ease-out infinite;
   color: #1f9d55;
 }
@@ -339,6 +342,7 @@ p {
 
 /* Any small dot that marks state or a list item breathes like the status dot. */
 .pulse-dot {
+  --pulse: color-mix(in srgb, var(--spot) 55%, transparent);
   animation: status-pulse 2.4s ease-out infinite;
   color: inherit;
 }

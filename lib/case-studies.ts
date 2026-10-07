@@ -18,6 +18,22 @@ function slices(dir: string, name: string, count: number, alt: string): MediaIte
   }));
 }
 
+/** A screen captured at full length by scripts/capture-screens.mjs. */
+function screen(slug: string, name: string, count: number, label: string, alt: string) {
+  return {
+    label,
+    items: Array.from({ length: count }, (_, index) => ({
+      src: cloudinaryAsset(`portfolio/projects/${slug}/screens/${name}-${String(index + 1).padStart(2, "0")}.webp`),
+      alt: index === 0 ? alt : "",
+    })),
+  };
+}
+
+/** A screen kept from the original screenshots: not reachable without the hardware. */
+function still(path: string, label: string, alt: string) {
+  return { label, items: [{ src: cloudinaryAsset(`portfolio/projects/${path}`), alt }] };
+}
+
 const agriovaScreen = (file: string, caption: string, alt: string): MediaItem => ({
   src: cloudinaryAsset(`portfolio/projects/agriova/${file}.webp`),
   alt,
@@ -28,15 +44,16 @@ export const caseContent: Record<string, CaseContent> = {
   // ---- Work -----------------------------------------------------------
   trailventure: {
     layout: "website",
-    tagline: "Tour booking where the price can’t drift.",
+    tagline: "Full-stack tour booking application, with Stripe integration.",
     role: "Solo developer",
     year: "2026",
     stack: "Django, Next.js, and Stripe",
     status: "Live",
+    figuresNote: "Lighthouse, desktop · Oct 2026",
     figures: [
-      { value: "290", label: "CI tests across API, unit and browser" },
-      { value: "100", label: "Lighthouse accessibility and SEO" },
-      { value: "30 min", label: "price hold before checkout" },
+      { value: "90", label: "Performance" },
+      { value: "100", label: "Accessibility" },
+      { value: "100", label: "Best practices" },
     ],
     decisions: [
       { title: "Server-side money", line: "Prices are computed on the server and stored as integer centavos." },
@@ -47,6 +64,13 @@ export const caseContent: Record<string, CaseContent> = {
       label: "trailventure.jcrdev.me",
       href: "https://trailventure.jcrdev.me",
       fullPage: slices("projects/trailventure", "trailventure", 2, "TrailVenture home page, full length."),
+      pages: [
+        screen("trailventure", "search", 1, "Search results", "TrailVenture search results for Palawan, with filters."),
+        screen("trailventure", "package", 1, "Package detail", "TrailVenture package page for Palawan Island Paradise."),
+        screen("trailventure", "booking", 1, "Review and pay", "TrailVenture booking review before Stripe checkout."),
+        screen("trailventure", "success", 1, "Booking confirmed", "TrailVenture booking confirmation."),
+        screen("trailventure", "account", 1, "Your bookings", "TrailVenture account page listing bookings."),
+      ],
     },
   },
   steady: {
@@ -56,10 +80,11 @@ export const caseContent: Record<string, CaseContent> = {
     year: "2025",
     stack: "Next.js and Supabase",
     status: "Live",
+    figuresNote: "Lighthouse, desktop · Oct 2026",
     figures: [
-      { value: "29", label: "SQL checks, run as each role" },
-      { value: "73", label: "unit tests in CI" },
-      { value: "17", label: "shared interface components" },
+      { value: "97", label: "Performance" },
+      { value: "100", label: "Accessibility" },
+      { value: "100", label: "Best practices" },
     ],
     decisions: [
       { title: "Access in the database", line: "Row-level security scopes counsellors to departments and students to their own records." },
@@ -70,19 +95,27 @@ export const caseContent: Record<string, CaseContent> = {
       label: "steady-system.jcrdev.me",
       href: "https://steady-system.jcrdev.me",
       fullPage: slices("projects/steady", "steady", 2, "Steady home page, full length."),
+      pages: [
+        screen("steady", "portal", 2, "Resource portal", "Steady resource portal with articles, announcements and events."),
+        screen("steady", "signup", 1, "Student registration", "Steady student registration form."),
+        screen("steady", "student", 1, "Student dashboard", "Steady student dashboard with mood check-in and appointments."),
+        screen("steady", "admin-dashboard", 1, "Analytics dashboard", "Steady admin dashboard with appointment and visitor analytics."),
+        screen("steady", "admin-accounts", 1, "Account administration", "Steady admin account management table."),
+      ],
     },
   },
   "fresco-grow-lab": {
     layout: "website",
-    tagline: "Grow-bag telemetry, from probe to dashboard.",
+    tagline: "Agritech internship hub for research works, from hardware data to dashboard.",
     role: "Solo developer, internship",
     year: "2026",
     stack: "ESP32, Next.js, and Supabase",
     status: "Live",
+    figuresNote: "Lighthouse, desktop · Oct 2026",
     figures: [
-      { value: "4", label: "probe depths, logged around the clock" },
-      { value: "95", label: "Vitest tests" },
-      { value: "2.3695 ml", label: "per rain-gauge tip, mean of 42 trials" },
+      { value: "89", label: "Performance" },
+      { value: "100", label: "Accessibility" },
+      { value: "100", label: "Best practices" },
     ],
     decisions: [
       { title: "Three ways in", line: "Boards send data over Wi-Fi, USB serial, or the gauge’s own access point." },
@@ -92,7 +125,14 @@ export const caseContent: Record<string, CaseContent> = {
     site: {
       label: "fresco-grow-lab.jcrdev.me",
       href: "https://fresco-grow-lab.jcrdev.me",
-      fullPage: slices("projects/fresco-grow-lab", "fresco-grow-lab", 1, "Fresco Grow Lab temperature dashboard."),
+      fullPage: screen("fresco-grow-lab", "dashboard", 1, "Dashboard", "Fresco Grow Lab temperature dashboard.").items,
+      pages: [
+        screen("fresco-grow-lab", "monitor", 1, "Monitor", "Fresco Grow Lab monitor with watering controls and readings."),
+        screen("fresco-grow-lab", "analytics", 2, "Analytics", "Fresco Grow Lab analytics: temperature, weight and watering charts."),
+        still("fresco-grow-lab/fresco-rain-dashboard.png", "Rain gauge", "Fresco Grow Lab rain gauge dashboard."),
+        still("fresco-grow-lab/fresco-connect.png", "Browser flashing", "Flashing ESP32 firmware from the browser over Web Serial."),
+        screen("fresco-grow-lab", "docs", 1, "Project docs", "Fresco Grow Lab project documentation."),
+      ],
     },
   },
   agriova: {

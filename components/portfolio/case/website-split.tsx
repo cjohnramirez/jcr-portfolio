@@ -30,7 +30,7 @@ export function WebsiteSplit({ title, plate, kicker, back, content, screens, not
   const site = content.site;
   const frameScreens = [
     { label: "Home page", items: site?.fullPage ?? [] },
-    ...screens.map((item) => ({ label: item.caption ?? "Screen", items: [item] })),
+    ...(site?.pages ?? screens.map((item) => ({ label: item.caption ?? "Screen", items: [item] }))),
   ];
 
   return (
@@ -59,7 +59,12 @@ export function WebsiteSplit({ title, plate, kicker, back, content, screens, not
             </Reveal>
           </div>
 
-          {content.figures?.length ? <Figures figures={content.figures} /> : null}
+          {content.figures?.length ? (
+            <div className="flex flex-col gap-4">
+              {content.figuresNote ? <span className="label text-ink-2">{content.figuresNote}</span> : null}
+              <Figures figures={content.figures} />
+            </div>
+          ) : null}
         </div>
 
         <div className="h-[70svh] px-4 md:px-8 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:flex lg:h-auto lg:min-h-0 lg:flex-col lg:border-r lg:border-rule lg:bg-plate-2 lg:p-6 xl:pl-10">

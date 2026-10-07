@@ -98,7 +98,6 @@ export function TechnicalNotes({ notes, stack, decisions, mode, title }: Technic
         type="button"
       >
         Technical notes
-        <span className="text-ink-2">· {count}</span>
       </button>
       <MediaDialog onClose={() => setOpen(false)} open={open} subtitle="Technical notes" title={title}>
         <NotesBody decisions={decisions} notes={notes} stack={stack} />

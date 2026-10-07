@@ -26,7 +26,7 @@ export function CarouselControls({ title, index, count, onPrev, onNext, unit = "
   return (
     <div className="flex flex-col gap-3 border-t border-rule bg-plate p-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pl-5">
       <p className="flex min-w-0 items-baseline gap-3">
-        <span className="label shrink-0 tabular-nums text-spot">{counter}</span>
+        <span className="shrink-0 text-[14px] tabular-nums text-spot">{counter}</span>
         <span className="truncate text-[14px] text-ink">{title}</span>
       </p>
       <div className="flex shrink-0 items-center gap-2">

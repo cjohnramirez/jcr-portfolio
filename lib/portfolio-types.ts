@@ -322,11 +322,19 @@ export type CaseContent = {
   status?: string;
   /** Three or so technologies, for the meta row. The full list stays in notes. */
   stack?: string;
-  /** Big numerals. Every value must already appear in the project's notes. */
+  /** Where the figures come from, set above them, e.g. a Lighthouse run. */
+  figuresNote?: string;
+  /** Big numerals. Every value must be measured or appear in the notes. */
   figures?: { value: string; label: string }[];
   decisions?: { title: string; line: string }[];
   /** Website split only: the address bar and the scrollable capture. */
-  site?: { label: string; href?: string; fullPage: MediaItem[] };
+  site?: {
+    label: string;
+    href?: string;
+    fullPage: MediaItem[];
+    /** Further screens after the home page, each one or more stacked slices. */
+    pages?: { label: string; items: MediaItem[] }[];
+  };
   /** Screens shown in the collage or the screens strip, in order. */
   screens?: MediaItem[];
   /** Screens are cut-outs with their own transparency: no box behind them. */
