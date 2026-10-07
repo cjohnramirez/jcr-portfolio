@@ -962,6 +962,10 @@ export const projectsData: ProjectsData = {
       title: "Enduro Group Branding and Design Management",
       links: [
         {
+          label: "Visit website",
+          href: "https://endurogroup.com/",
+        },
+        {
           label: "Enduro Group on LinkedIn",
           href: "https://www.linkedin.com/company/endurogroup/",
         },
