@@ -187,7 +187,7 @@ export const caseContent: Record<string, CaseContent> = {
   "enduro-branding": {
     layout: "study",
     name: "Enduro Group",
-    tagline: "Australian-based business consulting and services.",
+    tagline: "Dallas-based business consulting and services.",
     role: "Lead Designer and Branding Manager",
     year: "Dec 2025 to Aug 2026",
     stack: "Figma, Illustrator, and Photoshop",

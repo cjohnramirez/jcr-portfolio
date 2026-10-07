@@ -2,10 +2,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { CarouselItem, CaseContent, MediaItem } from "@/lib/portfolio-types";
 import type { NextEntry } from "@/lib/routes";
-import { CarouselFrame } from "../shared/carousel-frame";
 import { CloudinaryImage } from "../shared/cloudinary-image";
 import { Reveal } from "../shared/reveal";
 import { Collage } from "./collage";
+import { GuidelinesDeck } from "./guidelines-deck";
 import { Kicker, Label, NextBlock } from "./parts";
 
 type BrandStudyProps = {
@@ -93,13 +93,7 @@ export function BrandStudy({ title, plate, meta, content, hero, applications, de
       ) : null}
 
       {/* Guidelines */}
-      <section className="mx-auto flex max-w-[1440px] flex-col gap-6 px-4 pb-16 md:px-8 lg:pb-24 xl:px-16">
-        <div className="flex items-baseline justify-between gap-4">
-          <h2 className="text-[clamp(2rem,1.5rem+1.6vw,3.25rem)] leading-none text-ink">Full guidelines</h2>
-          <Label>{deck.length} pages</Label>
-        </div>
-        <CarouselFrame items={deck} label={`${title} guidelines`} />
-      </section>
+      <GuidelinesDeck deck={deck} title={title} />
 
       <NextBlock label="Next" next={next} />
     </main>

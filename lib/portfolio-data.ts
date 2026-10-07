@@ -193,6 +193,7 @@ export const projectsData: ProjectsData = {
           "portfolio/projects/trailventure/trailventure-cover-light.webp",
         ),
         dark: cloudinaryAsset("portfolio/projects/trailventure/trailventure-cover-dark.webp"),
+        thumb: cloudinaryAsset("portfolio/projects/trailventure/trailventure-thumb.webp"),
         alt: "TrailVenture homepage on a laptop, with the destination, date and budget search over a Palawan photograph.",
       },
       carousel: [
@@ -347,6 +348,7 @@ export const projectsData: ProjectsData = {
           "portfolio/projects/steady/steady-cover-light.webp",
         ),
         dark: cloudinaryAsset("portfolio/projects/steady/steady-cover-dark.webp"),
+        thumb: cloudinaryAsset("portfolio/projects/steady/steady-thumb.webp"),
         alt: "Steady homepage on a laptop, headed “Nurturing student growth and well-being”.",
       },
       galleries: [
@@ -553,6 +555,7 @@ export const projectsData: ProjectsData = {
           "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light.webp",
         ),
         dark: cloudinaryAsset("portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp"),
+        thumb: cloudinaryAsset("portfolio/projects/fresco-grow-lab/fresco-grow-lab-thumb.webp"),
         alt: "Fresco Grow Lab temperature dashboard on a laptop, with probe readings and a temperature trace.",
       },
       galleries: [
@@ -754,6 +757,7 @@ export const projectsData: ProjectsData = {
           "portfolio/projects/agriova/agriova-cover-light.webp",
         ),
         dark: cloudinaryAsset("portfolio/projects/agriova/agriova-cover-dark.webp"),
+        thumb: cloudinaryAsset("portfolio/projects/agriova/agriova-thumb.webp"),
         alt: "Agriova home and farm statistics screens on two phones.",
       },
       carousel: [

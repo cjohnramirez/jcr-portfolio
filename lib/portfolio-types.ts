@@ -97,6 +97,8 @@ export type ProjectCaseStudy = {
     light: string;
     dark: string;
     alt: string;
+    /** Transparent device render for the home card, used in both themes. */
+    thumb?: string;
   };
   carousel: CarouselItem[];
   stack: {

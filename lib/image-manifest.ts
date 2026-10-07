@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (249 images, set 77412ff6)
+// Source: public/portfolio (245 images, set 252e9082)
 
 export type ImageMeta = {
   width: number;
@@ -796,12 +796,6 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQABAABABoJaQAD5PweF+i+16yiAAA4CjSwaN0Kldye0bIzO7VObBhUpL4LXZn74XRuaLKvmhjyv3oS4QKJS89/LeyiBI33gy2+KJ3KI4a7+9RGFoAAA==",
   },
-  "portfolio/projects/agriova/agriova-cover-dark-cutout.webp": {
-    width: 2007,
-    height: 1494,
-    blurDataURL:
-      "data:image/webp;base64,UklGRswAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEEAAAABYBXbtpLzFCI4nwx9XgOyUYYGxHB3lwQRMQGOOgbRcow5kuVYNCeLgfTk2kDzkYv+gY/5gYfsgYn0Z8ZVqE51AABWUDggZAAAANABAJ0BKhAADAAEAGglnAAC43eZc6tAAM3zve20PTt8QjlS05g5u7j9EQDwT4cNN7e6CrBapfgb7srxLJPTiCAnTJC39L58pzPdJaCSPX9/XM5QSHarDA2fCURkNXPrZ3Q0AAA=",
-  },
   "portfolio/projects/agriova/agriova-cover-dark.webp": {
     width: 2400,
     height: 1291,
@@ -813,12 +807,6 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1697,
     blurDataURL:
       "data:image/webp;base64,UklGRrwBAABXRUJQVlA4WAoAAAAQAAAADwAAKgAAQUxQSLIAAAABuS5E9D8ccGPbVrb87gY04B66Z1SgERVQAq24FEDknv0ZTgnu7i5n/r+Cc+byzURMwAS4RvVqcW/VnCMuv3otqkfyzZoZ/2kvvrWpR5Ie1frx0oIZk06wDH9P6sAbPaaE/IFkzJh8Hn9jnnYIC0EhkBtkgixTggwT5IXIICGOIYIs6yTELNuECXEcxAyRIEMsc0JkiBHVBeROGrJpwq5Kfzo07F6rPlUC3rzTK4ncM+AIVlA4IOQAAABQBQCdASoQACsAPxF6tFOsJySiqqgBgCIJYwDE2Yzukd9r+TCxv+VrIvQj2oI5VdwONAAA4nkh5ag0uOr0tQBx+ZU4TZaNhVztlxMvv7UZmH00spL5IWRWrOJ4qpjWNASuHoX0JDLUW2zzLLIbE1mIQKLkXGv6PBcofJp5H3CKpM8mYDpurfLLF5/V0BFav4WNjvvRt5GX4lGtrNTudykDI/hlUiOsGFNY7iZLZcWSBjnQEqs24lHP0RQhlWBwzUK2lUlpUidJYrijyqPBNDiC97/mZlkTVPbY+P3Q3vFATwfAAAA=",
-  },
-  "portfolio/projects/agriova/agriova-cover-light-cutout.webp": {
-    width: 2007,
-    height: 1494,
-    blurDataURL:
-      "data:image/webp;base64,UklGRswAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEEAAAABYBXbtpLzFCI4nwx9XgOyUYYGxHB3lwQRMQGOOgbRcow5kuVYNCeLgfTk2kDzkYv+gY/5gYfsgYn0Z8ZVqE51AABWUDggZAAAANABAJ0BKhAADAAEAGglnAAC43eZc6tAAM3zve20PTt8QjlS05g5u7j9EQDwT4cNN7e6CrBapfgb7srxLJPTiCAnTJC39L58pzPdJaCSPX9/XM5QSHarDA2fCURkNXPrZ3Q0AAA=",
   },
   "portfolio/projects/agriova/agriova-cover-light.webp": {
     width: 2400,
@@ -861,6 +849,12 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1200,
     blurDataURL:
       "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4ID4AAABwAQCdASoQAAwABABoJaQAAhzqNAD+04ujcTe9Lyfp/XGlYO9WhNkJ5MGqKUzQ+6UzrBVMYxi4yGrmp2AAAA==",
+  },
+  "portfolio/projects/agriova/agriova-thumb.webp": {
+    width: 660,
+    height: 1000,
+    blurDataURL:
+      "data:image/webp;base64,UklGRl4BAABXRUJQVlA4WAoAAAAQAAAADwAAFwAAQUxQSKwAAAABgFvbtqrq4u7uLk0QkxG6W0gtxHTgGYQu392tiFfBf7YvNUTEBGTvF/0EOXfJsiz7VzljLWIZCW0LWA1tj3QiRSavOyIDMfXmDMsOL5CRnFjx6gqZFf9gc4OsWhbubpFNhw73yGlAx0fkMqGLZ+Qxo6tX5LOim3fkt6O7TxR0oocvFHKhJ0rYg55HgFH70Kux0m7WK2niR++EGkSftDD6ojnRLY0Mnt8+vp5zVlA4IIwAAADwAwCdASoQABgAPxFysFAsJqSisAgBgCIJZwAAYW2gr83EnMcInSEAAP38DOsgQ9NiDRs2tmnm6/jHTnmRtL44UKXw3koHpKus8p9iFjesfYF6NSIStjgS7AbYF/en/pLiSBL18jcBHSfXzR7yhqvT4b/oqIE7t43N8374R2u1h8jhwKL5XxCRky0IAA==",
   },
   "portfolio/projects/enduro-brand/deck/enduro-deck-01.webp": {
     width: 2400,
@@ -1156,29 +1150,23 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoQAAkABABoJaQAA3AA/vHMWvDgAA==",
   },
-  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark-cutout.webp": {
-    width: 1708,
-    height: 1286,
-    blurDataURL:
-      "data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDkAAAABR6CQkSQmJ3Bm589SvmhERLzHLwJQEABk4xQQRQQxNBCBApqz0yCi/xPQVRmRzjAaLXCjV7boNwEAVlA4IDgAAACQAQCdASoQAAwABABoJaQAAudXx4AA/rd6K8xarJJ1czgaVnQfT+jK0u70TfsuYkPlDhVAqAAAAA==",
-  },
   "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-dark.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkABABoJaQAAuRIrcHpomAA/q3w3QJ+yl7z+o7WkLV9yZ6uO7QBzFOWCr1LlNKJzQaAAAA=",
   },
-  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light-cutout.webp": {
-    width: 1708,
-    height: 1286,
-    blurDataURL:
-      "data:image/webp;base64,UklGRp4AAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEIAAAABf6CQjSQoa3Be50/zVSMiwnn2h04lQFVrL/a0oYUOGqzCH0UAERSTwBHBr8TeFIjo/wTsy0eeVSScGg35DmjVHR1WUDggNgAAANABAJ0BKhAADAAEAGglpAAC50jEyZgAAP7rd8x3kNEJl9AW+VX4vnPDGkXXdfNEnI5AIJUAAA==",
-  },
   "portfolio/projects/fresco-grow-lab/fresco-grow-lab-cover-light.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAkABABoJaQAAujdRKCa46AA/snJeGHRYvrUvh7dxZAILgDkSPRmLOFAAAAA",
+  },
+  "portfolio/projects/fresco-grow-lab/fresco-grow-lab-thumb.webp": {
+    width: 1708,
+    height: 1043,
+    blurDataURL:
+      "data:image/webp;base64,UklGRpIAAABXRUJQVlA4WAoAAAAQAAAADwAACQAAQUxQSDIAAAABN6AYABoof7sQeqWwexoREXi3glAU2wb1/AKoIIS1CDro3+LtFIjo/wRs0hjmf7roAVZQOCA6AAAA0AEAnQEqEAAKAAQAaCWkAAL4doBckEAA/uiBtl01x6Q/nu65Kcab2BhD3OComCvFoNZDbfEGEQAAAA==",
   },
   "portfolio/projects/fresco-grow-lab/fresco-monitor.png": {
     width: 2160,
@@ -1354,23 +1342,11 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAkABABoJZwAA3AA/vHD6DklkYCAAAA=",
   },
-  "portfolio/projects/steady/steady-cover-dark-cutout.webp": {
-    width: 1708,
-    height: 1286,
-    blurDataURL:
-      "data:image/webp;base64,UklGRr4AAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSD0AAAABV6CQjSQoI7Bo66+y92pERHw2/xYAhbTtNh0CRfoI0ahBEFKRyZmFENH/Cdh/iTDPXlRqRtFhkIE0CsEYAFZQOCBaAAAA8AEAnQEqEAAMAAQAaCWUAALnjAXP15aAAP62H7f7ms9BtDyuG4C+z2VqVrYweGnlv+3cqX0tc7Q/4gMNPJ1AQNtfuV3P0lL7CAC4jjnj7Egd7KcNHre6AAAA",
-  },
   "portfolio/projects/steady/steady-cover-dark.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAkABABoJZwAAuQBRGNAAP6t8N0Cqi4Qty6tBh+bZ+EfcC9DYvB5nQbejilOBZyCHmer2mAAAA==",
-  },
-  "portfolio/projects/steady/steady-cover-light-cutout.webp": {
-    width: 1708,
-    height: 1286,
-    blurDataURL:
-      "data:image/webp;base64,UklGRrQAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDsAAAABuS5E9D/ANLJtJ+f+/0HlYiienqL/4TpQ+IgJmIDtCmICmBhM8Nit8P7QwQcZ4O8rKdDLiiYysaCxCABWUDggUgAAANABAJ0BKhAADAAEAGgllAAC6B5EV7LgAP7rd+aPEcIgSxTY2yLFd3VkgdfdcQes3RL8w5mM05AIkXOio3SXlM08ix7HyoaaKAG5vg3tmt7oAAA=",
   },
   "portfolio/projects/steady/steady-cover-light.webp": {
     width: 2400,
@@ -1401,6 +1377,12 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1015,
     blurDataURL:
       "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAABwAQCdASoQAAkABABoJZ2R5AGIAAD+8dGHOLvPdx0KE1my48G4AAAA",
+  },
+  "portfolio/projects/steady/steady-thumb.webp": {
+    width: 1708,
+    height: 1043,
+    blurDataURL:
+      "data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAADwAACQAAQUxQSDIAAAABN6AYABoof7sQeqWwexoREXi3glAU2wb1/AKoIIS1CDro3+LtFIjo/wRs0hjmf7roAVZQOCBOAAAA8AEAnQEqEAAKAAQAaCWUAuwBEDChk/AAAP7YLua+P0FUUAkkzNEhyUaldZwZU88ECbO9v+8fb5v+gb/Xe/1MFqIFhgg8vGj3P//GDAAA",
   },
   "portfolio/projects/trailventure/fullpage/trailventure-01.webp": {
     width: 1440,
@@ -1456,23 +1438,11 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAkABABoJZwAAq3YyiGAAP7q8e028zlNA1mwCwkL0hMcW0DwDwIA",
   },
-  "portfolio/projects/trailventure/trailventure-cover-dark-cutout.webp": {
-    width: 1708,
-    height: 1286,
-    blurDataURL:
-      "data:image/webp;base64,UklGRqIAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDkAAAABT6CQjSQoI7Bm669y/2lERHxuvBFAIQCgTUcglBDCCSGBhzDgixDR/wnINTEzzrA1OsCLHuybfhMAVlA4IEIAAADQAQCdASoQAAwABABoJQBOgCHe3T2CAADyT/wmoTqFCaLWuVRz2IJ2fgW16uYDXcL7FvOD9DI/FioYHS7CmJygAAA=",
-  },
   "portfolio/projects/trailventure/trailventure-cover-dark.webp": {
     width: 2400,
     height: 1290,
     blurDataURL:
       "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkABABoJZQAAujbhSdE8AD+5uOfq5tq1X5wbCCS6jCd5aXI1BuWBC+W6tXPixfeo+2HHMbO27QPUHFVugAA",
-  },
-  "portfolio/projects/trailventure/trailventure-cover-light-cutout.webp": {
-    width: 1708,
-    height: 1286,
-    blurDataURL:
-      "data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSDoAAAABuS5E9D/ANLJtJ/f+4BIUQ/H0FH06DhQ+YgImYDoSg4nAIDA5zEbyfpHJByvk708Pe0S4PQIYAiADVlA4IEYAAADQAQCdASoQAAwABABoJQBdgCHpOj14AAD945/SgXI5hRyAvxQGRjMmF3Am2fSFIvj6BqzA+hSBco28GbKAjQY0YUmEeAAA",
   },
   "portfolio/projects/trailventure/trailventure-cover-light.webp": {
     width: 2400,
@@ -1503,6 +1473,12 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1161,
     blurDataURL:
       "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAAkABABoJaQAA3AA/vJZsltGw+Z/OCYAAA==",
+  },
+  "portfolio/projects/trailventure/trailventure-thumb.webp": {
+    width: 1708,
+    height: 1043,
+    blurDataURL:
+      "data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAACQAAQUxQSDIAAAABN6AYABoof7sQeqWwexoREXi3glAU2wb1/AKoIIS1CDro3+LtFIjo/wRs0hjmf7roAVZQOCBCAAAAEAIAnQEqEAAKAAQAaCWMAnQBFKqIn+xt0AD9nSgVhsTtq7rQ4vNFtNgUz5R1ED+xa3XysJOpy0us1Jd4t3BQxQAA",
   },
 };
 
