@@ -1,3 +1,4 @@
+import { type Chain, type ChainEntry, resolveChain } from "./next-chain";
 import { caseContent } from "./case-studies";
 import {
   creativePortfolioData,
@@ -87,15 +88,42 @@ export function getDesignPlate(slug: string): string {
 
 // --- Next ------------------------------------------------------------------
 
-export type NextEntry = { href: string; title: string };
+export type NextEntry = { href: string; title: string; chain?: Chain };
 
 /** Title without its descriptor: "TrailVenture: Tour…" reads as "TrailVenture". */
 function shortTitle(title: string) {
   return title.split(": ")[0];
 }
 
+/**
+ * Brand work in two groups: the identities made at Enduro Group (with the
+ * Enduro case study itself), then everything else. Next finishes the group
+ * the reader started in before crossing to the other (see lib/next-chain).
+ */
+const BRAND_GROUPS = [
+  ["enduro-branding", "snap-engineering", "xplore", "al-bab"],
+  ["kingmaker", "barangai", "pronote", "cs-website"],
+];
+
+function chainEntry(slug: string): ChainEntry {
+  const project = getWorkBySlug(slug);
+  if (project) {
+    return { slug, href: `/work/${slug}`, title: caseContent[slug]?.name ?? shortTitle(project.title) };
+  }
+  const brand = getDesignBySlug(slug);
+  return { slug, href: `/designs/${slug}`, title: brand?.title ?? slug };
+}
+
+function chained(slug: string): NextEntry | undefined {
+  if (!BRAND_GROUPS.some((group) => group.includes(slug))) return undefined;
+  const chain: Chain = { current: slug, groups: BRAND_GROUPS.map((group) => group.map(chainEntry)) };
+  return { ...resolveChain(chain, null), chain };
+}
+
 /** The following entry in the same group, wrapping to the first. */
 export function getNextWork(slug: string): NextEntry {
+  const grouped = chained(slug);
+  if (grouped) return grouped;
   const list = projectsData.projects;
   const index = list.findIndex((p) => p.id === slug);
   const next = list[(index + 1) % list.length];
@@ -103,6 +131,8 @@ export function getNextWork(slug: string): NextEntry {
 }
 
 export function getNextDesign(slug: string): NextEntry {
+  const grouped = chained(slug);
+  if (grouped) return grouped;
   const list = creativePortfolioData.brands;
   const index = list.findIndex((b) => b.id === slug);
   const next = list[(index + 1) % list.length];

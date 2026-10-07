@@ -2,7 +2,8 @@ import type { CarouselItem, CaseContent, MediaItem } from "@/lib/portfolio-types
 import type { NextEntry } from "@/lib/routes";
 import { Reveal } from "../shared/reveal";
 import { Collage, NaturalImage } from "./collage";
-import { Decisions, ExternalLink, Figures, Kicker, Label, MetaRow, NextBlock, NextInline, TopRow } from "./parts";
+import { Decisions, ExternalLink, Figures, Kicker, Label, MetaRow, TopRow } from "./parts";
+import { NextBlock, NextInline } from "./next-links";
 import { GuidelinesDeck } from "./guidelines-deck";
 import { TechnicalNotes } from "./technical-notes";
 

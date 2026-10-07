@@ -1,12 +1,10 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import Link from "next/link";
 import type { CarouselItem, CaseContent, MediaItem } from "@/lib/portfolio-types";
 import type { NextEntry } from "@/lib/routes";
-import { CloudinaryImage } from "../shared/cloudinary-image";
 import { Reveal } from "../shared/reveal";
-import { Collage } from "./collage";
+import { Collage, NaturalImage } from "./collage";
 import { GuidelinesDeck } from "./guidelines-deck";
-import { Kicker, Label, NextBlock } from "./parts";
+import { NextBlock, NextInline } from "./next-links";
+import { BackLink, Kicker, Label } from "./parts";
 
 type BrandStudyProps = {
   title: string;
@@ -20,39 +18,35 @@ type BrandStudyProps = {
 };
 
 /**
- * A brand system as a short story: the identity in use, full bleed; the
- * brief and the direction as two statements; the spec in four lines; the
- * applications; then the complete guidelines for anyone who wants every page.
+ * A brand system as a short story: the title with the identity in use beneath
+ * it; the brief and the direction as two statements; the spec in four lines;
+ * the applications, one per screen with the caption centred beside each; then
+ * the complete guidelines for anyone who wants every page.
  */
 export function BrandStudy({ title, plate, meta, content, hero, applications, deck, next }: BrandStudyProps) {
   return (
     <main className="bg-ground pt-20 lg:pt-[88px]" id="main">
-      {/* Hero */}
-      <section className="relative h-[min(78svh,820px)] min-h-[480px] overflow-hidden bg-ink">
-        <CloudinaryImage alt={hero.alt} className="object-cover" fill priority sizes="100vw" src={hero.src} />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-        <div className="absolute inset-x-0 top-0">
-          <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-4 pt-6 md:px-8 xl:px-16">
-            <Link className="inline-flex items-center gap-2 bg-black/40 px-3 py-2 text-[14px] text-white backdrop-blur-sm hover:bg-black/60" href="/#brand">
-              <ArrowLeft aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
-              All brand and design
-            </Link>
-            <Link className="group inline-flex items-center gap-1.5 bg-black/40 px-3 py-2 text-[14px] text-white backdrop-blur-sm hover:bg-black/60" href={next.href}>
-              <span className="text-white/70">Next:</span> {next.title}
-              <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
-            </Link>
+      {/* Title, then the identity in use beneath it */}
+      <section className="mx-auto flex max-w-[1440px] flex-col gap-10 px-4 pb-16 pt-10 md:px-8 lg:gap-12 lg:pb-24 lg:pt-14 xl:px-16">
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <BackLink href="/#brand" label="All brand and design" />
+            <NextInline next={next} />
           </div>
+          <Reveal from="none">
+            <Kicker name="Identity Work" plate={plate} />
+          </Reveal>
+          <Reveal order={1}>
+            <h1 className="text-[clamp(3.25rem,2rem+5vw,8.25rem)] leading-[0.9] tracking-[-0.025em] text-ink">{title}</h1>
+          </Reveal>
+          <Reveal className="flex flex-wrap items-baseline gap-x-6 gap-y-2" order={2}>
+            <span className="font-serif text-[clamp(1.375rem,1.2rem+0.6vw,1.75rem)] italic text-spot">{content.tagline}</span>
+            <span className="label text-ink-2">{meta}</span>
+          </Reveal>
         </div>
-        <div className="absolute inset-x-0 bottom-0">
-          <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-4 pb-10 md:px-8 lg:pb-14 xl:px-16">
-            <Kicker inverted name="Identity Work" plate={plate} />
-            <h1 className="text-[clamp(3.25rem,2rem+5vw,8.25rem)] leading-[0.9] tracking-[-0.025em] text-white">{title}</h1>
-            <p className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="font-serif text-[clamp(1.375rem,1.2rem+0.6vw,1.75rem)] italic text-white">{content.tagline}</span>
-              <span className="label text-white/80">{meta}</span>
-            </p>
-          </div>
-        </div>
+        <Reveal from="none" order={3}>
+          <NaturalImage item={hero} priority sizes="(min-width: 1440px) 1312px, 100vw" />
+        </Reveal>
       </section>
 
       {/* Brief and direction */}
@@ -86,9 +80,9 @@ export function BrandStudy({ title, plate, meta, content, hero, applications, de
 
       {/* Applications */}
       {applications.length ? (
-        <section className="mx-auto flex max-w-[1440px] flex-col gap-10 px-4 py-16 md:px-8 lg:py-28 xl:px-16">
+        <section className="mx-auto flex max-w-[1440px] flex-col gap-10 px-4 py-16 md:px-8 lg:pb-16 lg:pt-28 xl:px-16">
           <Label>Applications</Label>
-          <Collage items={applications} />
+          <Collage fit items={applications} />
         </section>
       ) : null}
 

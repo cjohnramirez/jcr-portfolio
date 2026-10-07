@@ -1,9 +1,10 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import type { CaseContent } from "@/lib/portfolio-types";
 import type { NextEntry } from "@/lib/routes";
 import { GlowingEffect } from "../fx/glowing-effect";
 import { Reveal } from "../shared/reveal";
+import { NextInline } from "./next-links";
 
 /** The small caps label used across the detail templates. */
 export function Label({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -36,22 +37,6 @@ export function Kicker({ plate, name, inverted = false }: { plate: string; name:
   );
 }
 
-/** The compact "Next: Steady →" link every detail page carries. */
-export function NextInline({ next }: { next: NextEntry }) {
-  return (
-    <Link
-      className="group inline-flex items-center gap-1.5 text-[15px] text-spot"
-      href={next.href}
-    >
-      <span className="text-ink-2">Next:</span> {next.title}
-      <ArrowRight
-        aria-hidden="true"
-        className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
-        strokeWidth={1.75}
-      />
-    </Link>
-  );
-}
 
 /** Year, Role and Stack, whichever exist. Status has its own pill. */
 export function MetaRow({ content, className = "" }: { content: CaseContent; className?: string }) {
@@ -129,25 +114,6 @@ export function Decisions({
   );
 }
 
-/** The full-width next-project block at the end of the long templates. */
-export function NextBlock({ next, label }: { next: NextEntry; label: string }) {
-  return (
-    <Link className="group relative block border-t border-rule bg-plate transition-colors duration-300 hover:bg-plate-2" href={next.href}>
-      <GlowingEffect />
-      <span className="mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-16 md:px-8 md:py-24 xl:px-16">
-        <Label>{label}</Label>
-        <span className="flex items-center gap-4 font-serif text-[clamp(2.75rem,1.6rem+4.4vw,6rem)] leading-[0.95] text-ink">
-          {next.title}
-          <ArrowRight
-            aria-hidden="true"
-            className="size-[0.6em] shrink-0 text-spot transition-transform duration-300 group-hover:translate-x-2"
-            strokeWidth={1.25}
-          />
-        </span>
-      </span>
-    </Link>
-  );
-}
 
 export function ExternalLink({ href, label, primary = false }: { href: string; label: string; primary?: boolean }) {
   return (

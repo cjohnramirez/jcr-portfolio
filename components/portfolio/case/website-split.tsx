@@ -2,7 +2,8 @@ import type { CaseContent, MediaItem } from "@/lib/portfolio-types";
 import type { NextEntry } from "@/lib/routes";
 import { Reveal } from "../shared/reveal";
 import { BrowserFrame } from "./browser-frame";
-import { ExternalLink, Figures, Kicker, MetaRow, NextInline, TopRow } from "./parts";
+import { ExternalLink, Figures, Kicker, MetaRow, TopRow } from "./parts";
+import { NextInline } from "./next-links";
 import { TechnicalNotes } from "./technical-notes";
 
 type WebsiteSplitProps = {
