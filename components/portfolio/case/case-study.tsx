@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+import { getImageMeta } from "@/lib/image-manifest";
 import type { CarouselItem, CaseContent, MediaItem } from "@/lib/portfolio-types";
 import type { NextEntry } from "@/lib/routes";
 import { CarouselFrame } from "../shared/carousel-frame";
@@ -44,6 +46,8 @@ export function CaseStudy({
 }: CaseStudyProps) {
   const transparent = Boolean(content.transparent);
   const pair = content.coverPair;
+  const deckMeta = deck?.[0]?.imageSrc ? getImageMeta(deck[0].imageSrc) : undefined;
+  const deckRatio = deckMeta ? deckMeta.width / deckMeta.height : 16 / 9;
 
   return (
     <main className="bg-ground pt-20 lg:pt-[88px]" id="main">
@@ -131,12 +135,25 @@ export function CaseStudy({
 
       {/* Full guidelines, where the work is a brand system */}
       {deck?.length ? (
-        <section className="mx-auto flex max-w-[1440px] flex-col gap-6 px-4 pb-16 md:px-8 lg:pb-24 xl:px-16">
-          <div className="flex items-baseline justify-between gap-4">
-            <h2 className="text-[clamp(2rem,1.5rem+1.6vw,3.25rem)] leading-none text-ink">Full guidelines</h2>
-            <Label>{deck.length} pages</Label>
+        <section className="mx-auto flex max-w-[1440px] justify-center px-4 pb-16 md:px-8 lg:pb-24 xl:px-16">
+          {/* Heading, sheet and controls together fit one viewport: the sheet
+              is as wide as the height left over allows, at its own ratio.
+              The reserve is the header, the heading row, the control bar
+              (two rows on phones) and the gaps between them. */}
+          <div
+            className="flex w-full flex-col gap-6 [--deck-reserve:21rem] sm:[--deck-reserve:18rem] lg:[--deck-reserve:17rem]"
+            style={
+              {
+                maxWidth: `max(18rem, calc((100svh - var(--deck-reserve)) * ${deckRatio.toFixed(4)}))`,
+              } as CSSProperties
+            }
+          >
+            <div className="flex items-baseline justify-between gap-4">
+              <h2 className="text-[clamp(2rem,1.5rem+1.6vw,3.25rem)] leading-none text-ink">Full guidelines</h2>
+              <Label>{deck.length} pages</Label>
+            </div>
+            <CarouselFrame items={deck} label={`${title} guidelines`} />
           </div>
-          <CarouselFrame items={deck} label={`${title} guidelines`} />
         </section>
       ) : null}
 

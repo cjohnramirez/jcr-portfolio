@@ -910,42 +910,6 @@ export const projectsData: ProjectsData = {
           ),
           imageAlt: "Road restoration solution mapped across Cagayan de Oro.",
         },
-        {
-          id: "road-sample",
-          title: "Six of eleven roads blocked",
-          description: "The sample graph: 9 vertices, 11 edges, blocked edges dashed",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/road-restoration/figure-sample-graph.webp",
-          ),
-          imageAlt: "Sample weighted graph with nine vertices and eleven edges; blocked edges are dashed and terminals are ringed.",
-        },
-        {
-          id: "road-exact",
-          title: "Exhaustive search, pruned",
-          description: "The exact algorithm: unblocked edges, a candidate subset, a pruned subset",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/road-restoration/figure-exact-search.webp",
-          ),
-          imageAlt: "Three copies of the sample graph: the unblocked edges, a candidate subset connecting all terminals, and a pruned subset.",
-        },
-        {
-          id: "road-kruskal",
-          title: "Kruskal over shortest paths",
-          description: "Meta-edges between terminals; dashed ones are rejected",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/road-restoration/figure-meta-edges.webp",
-          ),
-          imageAlt: "Terminal graph of meta-edges drawn over the sample graph, with rejected meta-edges dashed.",
-        },
-        {
-          id: "road-tree",
-          title: "The tree KMB returns",
-          description: "The resulting Steiner tree on the sample graph",
-          imageSrc: cloudinaryAsset(
-            "portfolio/projects/road-restoration/figure-steiner-tree.webp",
-          ),
-          imageAlt: "The resulting Steiner tree on the sample graph, connecting terminals 2, 4, 6 and 8.",
-        },
       ],
       stack: {
         label: "Tech stack",
@@ -992,6 +956,12 @@ export const projectsData: ProjectsData = {
       module: "Module 6 / Enduro Brand",
       category: "Internship / Lead Designer and Branding Manager",
       title: "Enduro Group Branding and Design Management",
+      links: [
+        {
+          label: "Enduro Group on LinkedIn",
+          href: "https://www.linkedin.com/company/endurogroup/",
+        },
+      ],
       summary:
         "Lead designer and branding manager for Enduro Group, a consulting firm in Dallas, Texas. Authored the firm’s brand guidelines and designed client identity systems under its name.",
       galleries: [

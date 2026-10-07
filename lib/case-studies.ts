@@ -173,7 +173,6 @@ export const caseContent: Record<string, CaseContent> = {
     year: "May 2025",
     stack: "Python and QGIS",
     status: "SSRN preprint",
-    fitScreens: true,
     figures: [
       { value: "< 2", label: "approximation ratio on all 30 random graphs" },
       { value: "12", label: "Istanbul benchmark instances, all within the bound" },
@@ -188,15 +187,16 @@ export const caseContent: Record<string, CaseContent> = {
   "enduro-branding": {
     layout: "study",
     name: "Enduro Group",
-    tagline: "A house brand, and client brands under it.",
+    tagline: "Australian-based business consulting and services.",
     role: "Lead Designer and Branding Manager",
     year: "Dec 2025 to Aug 2026",
     stack: "Figma, Illustrator, and Photoshop",
     status: "Enduro Group, Dallas",
+    fitScreens: true,
     figures: [
       { value: "31", label: "pages of brand guidelines, v2.0" },
       { value: "2", label: "client identities shipped under the name" },
-      { value: "7", label: "Geist weights in the type system" },
+      { value: "9", label: "months as lead designer, December 2025 to August 2026" },
     ],
     decisions: [
       { title: "One wordmark, two ways", line: "Vertical and horizontal lockups at −5% tracking, with construction and clearspace rules." },
