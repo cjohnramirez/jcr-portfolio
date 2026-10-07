@@ -107,18 +107,19 @@ export function Decisions({
   decisions: NonNullable<CaseContent["decisions"]>;
   size?: "md" | "lg";
 }) {
+  // The number is set at the title's size, so the two share one baseline.
+  const type = size === "lg" ? "text-[clamp(1.75rem,1.4rem+1vw,2.25rem)]" : "text-[22px]";
+
   return (
     <ol className="border-t border-rule">
       {decisions.map((decision, index) => (
         <li className="border-b border-rule" key={decision.title}>
           <Reveal className="flex items-baseline gap-5 py-5 md:gap-6 md:py-6" order={index}>
-            <span className="w-9 shrink-0 font-serif text-[22px] italic leading-none text-spot">
+            <span className={`shrink-0 font-serif italic leading-tight text-spot ${type} ${size === "lg" ? "w-[1.6em]" : "w-9"}`}>
               {String(index + 1).padStart(2, "0")}
             </span>
             <span className="flex flex-col gap-1.5">
-              <span className={`font-serif leading-tight text-ink ${size === "lg" ? "text-[clamp(1.75rem,1.4rem+1vw,2.25rem)]" : "text-[22px]"}`}>
-                {decision.title}
-              </span>
+              <span className={`font-serif leading-tight text-ink ${type}`}>{decision.title}</span>
               <span className="max-w-[56ch] text-[15px] leading-relaxed text-ink-2">{decision.line}</span>
             </span>
           </Reveal>
@@ -169,7 +170,7 @@ export function ExternalLink({ href, label, primary = false }: { href: string; l
 /**
  * The project's status, set like the hero's "Open to work" tag: a bordered
  * pill on the paper ground. A live deployment gets the same breathing green
- * dot; anything else a still grey one.
+ * dot; anything else breathes in the accent blue.
  */
 export function StatusPill({ status }: { status?: string }) {
   if (!status) return null;
@@ -179,7 +180,7 @@ export function StatusPill({ status }: { status?: string }) {
     <p className="inline-flex h-9 shrink-0 items-center gap-2.5 border border-rule bg-plate px-3.5 text-[14px] leading-none text-ink">
       <span
         aria-hidden="true"
-        className={`size-2 shrink-0 rounded-full ${live ? "status-dot bg-current" : "bg-ink-2/60"}`}
+        className={`size-2 shrink-0 rounded-full ${live ? "status-dot bg-current" : "pulse-dot bg-spot"}`}
       />
       {status}
     </p>

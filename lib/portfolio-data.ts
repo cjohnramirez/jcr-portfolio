@@ -762,7 +762,7 @@ export const projectsData: ProjectsData = {
           title: "Home",
           description: "Season earnings, plots in progress and produce to sell",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/agriova/agriova-main-page.webp",
+            "portfolio/projects/agriova/agriova-screen-main.webp",
           ),
           imageAlt:
             "Agriova home screen on a phone, showing season earnings over a field photo, plot cards and a produce-to-sell countdown.",
@@ -773,7 +773,7 @@ export const projectsData: ProjectsData = {
           title: "Fields",
           description: "Each plot with its current crop and past seasons",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/agriova/agriova-farm-fields-page.webp",
+            "portfolio/projects/agriova/agriova-screen-farm-fields.webp",
           ),
           imageAlt:
             "Agriova fields screen on a phone, listing each plot with its current crop and status.",
@@ -784,7 +784,7 @@ export const projectsData: ProjectsData = {
           title: "Activity",
           description: "Week strip of records with heat and rain warnings",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/agriova/agriova-calendar-page.webp",
+            "portfolio/projects/agriova/agriova-screen-calendar.webp",
           ),
           imageAlt:
             "Agriova activity screen on a phone, with a week strip of recorded expenses, harvests and sales.",
@@ -795,7 +795,7 @@ export const projectsData: ProjectsData = {
           title: "Farm statistics",
           description: "Plots, total area and money over six months",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/agriova/agriova-statistics-page.webp",
+            "portfolio/projects/agriova/agriova-screen-statistics.webp",
           ),
           imageAlt:
             "Agriova farm statistics screen on a phone, with plot count, total size and a six-month money chart.",
@@ -806,7 +806,7 @@ export const projectsData: ProjectsData = {
           title: "Assistant",
           description: "Chat that answers from the farmer’s own records",
           imageSrc: cloudinaryAsset(
-            "portfolio/projects/agriova/agriova-ai-chatbot-page.webp",
+            "portfolio/projects/agriova/agriova-screen-ai-chatbot.webp",
           ),
           imageAlt:
             "Agriova assistant screen on a phone, answering a farmer’s question from their own records.",

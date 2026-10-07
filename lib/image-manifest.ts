@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (249 images, set bf44f328)
+// Source: public/portfolio (251 images, set 5a2b53a6)
 
 export type ImageMeta = {
   width: number;
@@ -796,18 +796,6 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQABAABABoJaQAD5PweF+i+16yiAAA4CjSwaN0Kldye0bIzO7VObBhUpL4LXZn74XRuaLKvmhjyv3oS4QKJS89/LeyiBI33gy2+KJ3KI4a7+9RGFoAAA==",
   },
-  "portfolio/projects/agriova/agriova-ai-chatbot-page.webp": {
-    width: 2048,
-    height: 1536,
-    blurDataURL:
-      "data:image/webp;base64,UklGRroAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggQAAAALABAJ0BKhAADAAEAGglpAAC/0RF2AAA/veA0f9hOEmSiR2AbGGnk5M11hz9MY1w7+mzgGL+fcE9NGiYGhVcAAA=",
-  },
-  "portfolio/projects/agriova/agriova-calendar-page.webp": {
-    width: 2048,
-    height: 1536,
-    blurDataURL:
-      "data:image/webp;base64,UklGRsQAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggSgAAANABAJ0BKhAADAAEAGgllAFMACzmP304AP73gnWPefJ1G2A7uGW3Uuz8Wu8Y3Av4DXb6RwRLae0B5RL2tzI/97hFmMYb5ayoeAAA",
-  },
   "portfolio/projects/agriova/agriova-cover-dark-cutout.webp": {
     width: 2007,
     height: 1494,
@@ -819,6 +807,12 @@ export const imageManifest: Record<string, ImageMeta> = {
     height: 1291,
     blurDataURL:
       "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAkABABoJZQAD42MoqObQ2mAAP7p+Pw7dZ2YrmCbx3Huqnr8wwvfvvP0zUDDSvt0hVNq0YSqf5MjSKLaAgvdTXd4GDmZN73KMXOypgAAAA==",
+  },
+  "portfolio/projects/agriova/agriova-cover-left.webp": {
+    width: 626,
+    height: 1697,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrwBAABXRUJQVlA4WAoAAAAQAAAADwAAKgAAQUxQSLIAAAABuS5E9D8ccGPbVrb87gY04B66Z1SgERVQAq24FEDknv0ZTgnu7i5n/r+Cc+byzURMwAS4RvVqcW/VnCMuv3otqkfyzZoZ/2kvvrWpR5Ie1frx0oIZk06wDH9P6sAbPaaE/IFkzJh8Hn9jnnYIC0EhkBtkgixTggwT5IXIICGOIYIs6yTELNuECXEcxAyRIEMsc0JkiBHVBeROGrJpwq5Kfzo07F6rPlUC3rzTK4ncM+AIVlA4IOQAAABQBQCdASoQACsAPxF6tFOsJySiqqgBgCIJYwDE2Yzukd9r+TCxv+VrIvQj2oI5VdwONAAA4nkh5ag0uOr0tQBx+ZU4TZaNhVztlxMvv7UZmH00spL5IWRWrOJ4qpjWNASuHoX0JDLUW2zzLLIbE1mIQKLkXGv6PBcofJp5H3CKpM8mYDpurfLLF5/V0BFav4WNjvvRt5GX4lGtrNTudykDI/hlUiOsGFNY7iZLZcWSBjnQEqs24lHP0RQhlWBwzUK2lUlpUidJYrijyqPBNDiC97/mZlkTVPbY+P3Q3vFATwfAAAA=",
   },
   "portfolio/projects/agriova/agriova-cover-light-cutout.webp": {
     width: 2007,
@@ -832,23 +826,41 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAkABABoJZQAAwFV675Mk/zAAP5s8KKWFrjkKRZSM+URoabzeckjsF53a9z7P2cpJ9B+6+ItWgYFanK7JOYbZ3XTB4AA",
   },
-  "portfolio/projects/agriova/agriova-farm-fields-page.webp": {
-    width: 2048,
-    height: 1536,
+  "portfolio/projects/agriova/agriova-cover-right.webp": {
+    width: 626,
+    height: 1697,
     blurDataURL:
-      "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggNgAAALABAJ0BKhAADAAEAGglpAAC/0RNeAAA/veA0f9hOEmR0X0OOA6ebvshhaf2fE9MsolsJRAAAA==",
+      "data:image/webp;base64,UklGRlgBAABXRUJQVlA4WAoAAAAQAAAADwAAKgAAQUxQSKAAAAABmS8wRPQ/gtvYtlXlPsHJ3F06cHfI6IGaJHQq8diKcIg0/R8umkdMgMK2bRsGSPc8A4KH0ClKURjqOwMCLqSszAYAkOBVBIBGVVkaeIgwCVDRAJ5GgFoTeE4uDyAoNwwhg2EotIEi8IQj0PTxBoEmhkLTC8s+v9H3//Xj/8jg6d/+lXg7gTPMyRxmpmXN4KmVga2gGjOOoiiKIai7lboLVlA4IJIAAADwAwCdASoQACsAPxF2sFGsJySiqqwBgCIJZwAAIQHKwmxK9Id+gzGAAPeG34tTeFEJYU4ZEiBvQJUsDSXhxBNlZ0npivkltEDWwAE5ZnN3OL0ruws9DpruJp9goH2hDJBHKxJ9pYqEURFMA7KcScU2smV+G06h2XbBlrPGOhqKvOZwOz24jEkx7jN0ofHeD+EAAA==",
   },
-  "portfolio/projects/agriova/agriova-main-page.webp": {
-    width: 2048,
-    height: 1536,
+  "portfolio/projects/agriova/agriova-screen-ai-chatbot.webp": {
+    width: 1600,
+    height: 1200,
     blurDataURL:
-      "data:image/webp;base64,UklGRr4AAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggRAAAALABAJ0BKhAADAAEAGglnAAC/6olMjAA/vd6M/XGrr6s+mS43MqLXsoc+//l7o9i8DfowsHRW1N3pJ6hFLdVwmxJVcAA",
+      "data:image/webp;base64,UklGRrIAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4IEAAAACwAQCdASoQAAwABABoJaQAAhyqepwAAP7D4vJoR3ZKoBn7DWYh4D58utHL7j384uJouzJddoalyPBo9aP0AAAA",
   },
-  "portfolio/projects/agriova/agriova-statistics-page.webp": {
-    width: 2048,
-    height: 1536,
+  "portfolio/projects/agriova/agriova-screen-calendar.webp": {
+    width: 1600,
+    height: 1200,
     blurDataURL:
-      "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSFQAAAAJYFTbtpL73/cPDJkSgQbkoP9aNHDXLxUiYgIkABABOG8E236apqmrQo0EgLIOcXi1YgnGSZ/0FUaRJ5hpxT2L71CcPKePESH1OuOuczk85DuGCQBWUDggNgAAAJABAJ0BKhAADAAEAGglpAACHPWYAAD+94J1j3nydRmDuMv1NEBe3rBWcLFz+ACLt3jTtDgAAA==",
+      "data:image/webp;base64,UklGRrYAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4IEQAAACwAQCdASoQAAwABABoJZwAAdLgkhhwAPxc4ZK5e9hznU5RrIh9yquGkYfYfaZ9vb3gDHczPsnzC5CddrKI9LoN4AAAAA==",
+  },
+  "portfolio/projects/agriova/agriova-screen-farm-fields.webp": {
+    width: 1600,
+    height: 1200,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4ID4AAADQAQCdASoQAAwABABoJaQAD4wL9S1FwAD+04ujcTe9Hl4KKGpXPgl53Frf17+bwK9sL3vUNo1hlxDE+AAAAA==",
+  },
+  "portfolio/projects/agriova/agriova-screen-main.webp": {
+    width: 1600,
+    height: 1200,
+    blurDataURL:
+      "data:image/webp;base64,UklGRroAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4IEgAAACwAQCdASoQAAwABABoJZwAApGYR6OAANmb3dXyi7gegb49ZZs4ctobWg0qAojma6E5GVTy0kv7duaf4REirJuwfsfMxhwAAAA=",
+  },
+  "portfolio/projects/agriova/agriova-screen-statistics.webp": {
+    width: 1600,
+    height: 1200,
+    blurDataURL:
+      "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSEwAAAABZ6CQjSQ4uJ/CmizFQVxEBPZqSJE6MKdta8r9hubR4TP4CD6EUEIIIYSAjtX9lUFE/0M6awmS1CD7hs4v9P5g8QODL+j+Ncg+awkSVlA4ID4AAABwAQCdASoQAAwABABoJaQAAhzqNAD+04ujcTe9Lyfp/XGlYO9WhNkJ5MGqKUzQ+6UzrBVMYxi4yGrmp2AAAA==",
   },
   "portfolio/projects/enduro-brand/deck/enduro-deck-01.webp": {
     width: 2400,

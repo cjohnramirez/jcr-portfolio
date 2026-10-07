@@ -153,11 +153,16 @@ export const caseContent: Record<string, CaseContent> = {
       { title: "Built for the user", line: "Bisaya and English, 56 dp targets, checked at 1.3x font scale." },
     ],
     transparent: true,
+    coverPair: [
+      agriovaScreen("agriova-cover-left", "", "Agriova home screen on a tilted phone, with this season's earnings."),
+      agriovaScreen("agriova-cover-right", "", "Agriova farm statistics on a tilted phone."),
+    ],
     screens: [
-      agriovaScreen("agriova-main-page", "Am I earning?", "Agriova home screen with this season's earnings."),
-      agriovaScreen("agriova-farm-fields-page", "Will my harvest spoil?", "Agriova fields screen."),
-      agriovaScreen("agriova-statistics-page", "Am I getting a fair price?", "Agriova farm statistics screen."),
-      agriovaScreen("agriova-ai-chatbot-page", "Ask your own records", "Agriova assistant answering from the farm's records."),
+      agriovaScreen("agriova-screen-main", "Am I earning?", "Agriova home screen with this season's earnings."),
+      agriovaScreen("agriova-screen-farm-fields", "Will my harvest spoil?", "Agriova fields screen, listing each plot and its crop."),
+      agriovaScreen("agriova-screen-calendar", "What needs doing today?", "Agriova activity calendar with heat and sell-soon warnings."),
+      agriovaScreen("agriova-screen-statistics", "Am I getting a fair price?", "Agriova farm statistics screen."),
+      agriovaScreen("agriova-screen-ai-chatbot", "Ask your own records", "Agriova assistant answering from the farm's records."),
     ],
   },
   "road-restoration": {

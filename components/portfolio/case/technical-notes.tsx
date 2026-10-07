@@ -72,14 +72,13 @@ function NotesBody({ notes, stack, decisions }: Omit<TechnicalNotesProps, "mode"
  */
 export function TechnicalNotes({ notes, stack, decisions, mode, title }: TechnicalNotesProps) {
   const [open, setOpen] = useState(false);
-  const count = notes.length;
 
   if (mode === "inline") {
     return (
       <details className="group border border-rule bg-plate">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-[16px] text-ink md:px-6 [&::-webkit-details-marker]:hidden">
           <span>
-            Technical notes <span className="text-ink-2">· {count} sections</span>
+            Technical notes
           </span>
           <Plus aria-hidden="true" className="size-4 transition-transform duration-300 group-open:rotate-45" strokeWidth={1.75} />
         </summary>

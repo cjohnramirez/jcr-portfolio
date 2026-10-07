@@ -3,7 +3,7 @@ import type { NextEntry } from "@/lib/routes";
 import { CarouselFrame } from "../shared/carousel-frame";
 import { Reveal } from "../shared/reveal";
 import { Collage, NaturalImage } from "./collage";
-import { Decisions, ExternalLink, Figures, Kicker, Label, MetaRow, NextBlock, TopRow } from "./parts";
+import { Decisions, ExternalLink, Figures, Kicker, Label, MetaRow, NextBlock, NextInline, TopRow } from "./parts";
 import { TechnicalNotes } from "./technical-notes";
 
 type CaseStudyProps = {
@@ -12,7 +12,7 @@ type CaseStudyProps = {
   kicker: string;
   back: { href: string; label: string };
   content: CaseContent;
-  /** Cover visual: the first two transparent screens, or a single image. */
+  /** Cover visual when there is no cover pair: a single image. */
   cover?: MediaItem;
   screens: MediaItem[];
   notes: { title: string; description: string }[];
@@ -24,9 +24,9 @@ type CaseStudyProps = {
 
 /**
  * The editorial case study, kept deliberately close to the website split in
- * density: a type-led cover with the visual offset and bleeding off the right
- * edge, then the numbers, the screens, the decisions, and the
- * full notes behind one control.
+ * density: a type-led cover whose text column carries the meta and the
+ * numbers, as the website pages do, with the visual on the right. Then the
+ * screens, the decisions, and the full notes behind one control.
  */
 export function CaseStudy({
   title,
@@ -43,29 +43,39 @@ export function CaseStudy({
   next,
 }: CaseStudyProps) {
   const transparent = Boolean(content.transparent);
-  const coverPair = transparent ? screens.slice(0, 2) : [];
-  const rest = transparent ? screens.slice(2) : screens;
+  const pair = content.coverPair;
 
   return (
     <main className="bg-ground pt-20 lg:pt-[88px]" id="main">
-      {/* Cover */}
-      <section className="mx-auto grid max-w-[1440px] items-center gap-10 overflow-hidden px-4 pb-12 pt-10 md:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:pb-16 lg:pr-0 lg:pt-14 xl:pl-16">
-        <div className="flex flex-col gap-6">
-          <TopRow back={back} next={next} status={content.status} />
-          <Reveal from="none">
-            <Kicker name={kicker} plate={plate} />
-          </Reveal>
-          <Reveal order={1}>
-            <h1 className="text-[clamp(3.5rem,2rem+5vw,8rem)] leading-[0.9] tracking-[-0.025em] text-ink">{title}</h1>
-          </Reveal>
-          <Reveal order={2}>
-            <p className="max-w-[22ch] font-serif text-[clamp(1.625rem,1.3rem+1vw,2.25rem)] italic leading-[1.08] text-spot">
-              {content.tagline}
-            </p>
-          </Reveal>
-          <Reveal order={3}>
-            <MetaRow content={content} />
-          </Reveal>
+      {/* Cover: text, figures and actions on the left; the visual on the
+          right with Next under it, on the same line as the actions. */}
+      <section className="mx-auto grid max-w-[1440px] gap-10 overflow-hidden px-4 pb-12 pt-10 md:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:pb-16 lg:pr-0 lg:pt-14 xl:pl-16">
+        <div className="flex flex-col justify-between gap-10">
+          <div className="flex flex-col gap-6">
+            <TopRow back={back} status={content.status} />
+            <Reveal from="none">
+              <Kicker name={kicker} plate={plate} />
+            </Reveal>
+            <Reveal order={1}>
+              <h1 className="text-[clamp(3.5rem,2rem+5vw,8rem)] leading-[0.9] tracking-[-0.025em] text-ink">{title}</h1>
+            </Reveal>
+            <Reveal order={2}>
+              <p className="max-w-[22ch] font-serif text-[clamp(1.625rem,1.3rem+1vw,2.25rem)] italic leading-[1.08] text-spot">
+                {content.tagline}
+              </p>
+            </Reveal>
+            <Reveal order={3}>
+              <MetaRow content={content} />
+            </Reveal>
+          </div>
+
+          {content.figures?.length ? (
+            <div className="flex flex-col gap-4">
+              {content.figuresNote ? <span className="label text-ink-2">{content.figuresNote}</span> : null}
+              <Figures figures={content.figures} />
+            </div>
+          ) : null}
+
           {links?.length ? (
             <Reveal className="flex flex-wrap gap-3" order={4}>
               {links.map((link, index) => (
@@ -75,29 +85,33 @@ export function CaseStudy({
           ) : null}
         </div>
 
-        <Reveal className="relative lg:-mr-24" from="none" order={2}>
-          {coverPair.length === 2 ? (
-            <div className="grid grid-cols-2 items-end gap-0">
-              <NaturalImage item={coverPair[0]} priority sizes="(min-width: 1024px) 34vw, 50vw" transparent />
-              <NaturalImage className="-ml-[18%] mb-[8%]" item={coverPair[1]} priority sizes="(min-width: 1024px) 34vw, 50vw" transparent />
-            </div>
-          ) : cover ? (
-            <NaturalImage item={cover} priority sizes="(min-width: 1024px) 64vw, 100vw" transparent={transparent} />
-          ) : null}
-        </Reveal>
+        <div className="flex flex-col justify-between gap-10">
+          <Reveal
+            className={`relative flex flex-1 items-center ${pair ? "justify-center lg:pr-8 xl:pr-16" : "lg:-mr-24"}`}
+            from="none"
+            order={2}
+          >
+            {pair ? (
+              // Two tilted phones, the second dropped by about a quarter of
+              // its height, as in the Figma arrangement.
+              <div className="grid w-full max-w-[min(440px,78vw)] grid-cols-2 items-start gap-[10%]">
+                <NaturalImage item={pair[0]} priority sizes="220px" transparent />
+                <NaturalImage className="mt-[62%]" item={pair[1]} priority sizes="220px" transparent />
+              </div>
+            ) : cover ? (
+              <NaturalImage item={cover} priority sizes="(min-width: 1024px) 64vw, 100vw" transparent={transparent} />
+            ) : null}
+          </Reveal>
+          <div className="flex justify-end lg:pr-8 xl:pr-16">
+            <NextInline next={next} />
+          </div>
+        </div>
       </section>
 
-      {/* Figures */}
-      {content.figures?.length ? (
-        <section className="mx-auto max-w-[1440px] px-4 md:px-8 xl:px-16">
-          <Figures className="border-y border-rule" figures={content.figures} size="lg" />
-        </section>
-      ) : null}
-
       {/* Screens */}
-      {rest.length ? (
+      {screens.length ? (
         <section className="mx-auto max-w-[1440px] px-4 py-16 md:px-8 lg:py-24 xl:px-16">
-          <Collage items={rest} transparent={transparent} />
+          <Collage items={screens} transparent={transparent} />
         </section>
       ) : null}
 

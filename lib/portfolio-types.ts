@@ -339,6 +339,8 @@ export type CaseContent = {
   screens?: MediaItem[];
   /** Screens are cut-outs with their own transparency: no box behind them. */
   transparent?: boolean;
+  /** Two cut-out renders set as a staggered pair on the cover. */
+  coverPair?: [MediaItem, MediaItem];
   /** Brand study only. */
   brief?: string;
   direction?: string;

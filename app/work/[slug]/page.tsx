@@ -84,10 +84,10 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
       ) : (
         <CaseStudy
           {...shared}
-          cover={content.transparent ? undefined : screens[0]}
+          cover={content.coverPair ? undefined : screens[0]}
           deck={isBrand ? project.carousel : undefined}
           links={project.links}
-          screens={content.transparent ? screens : screens.slice(1)}
+          screens={content.coverPair ? screens : screens.slice(1)}
         />
       )}
     </>
