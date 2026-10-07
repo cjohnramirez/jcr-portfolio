@@ -110,8 +110,10 @@ export function CaseStudy({
 
       {/* Screens */}
       {screens.length ? (
-        <section className="mx-auto max-w-[1440px] px-4 py-16 md:px-8 lg:py-24 xl:px-16">
-          <Collage items={screens} transparent={transparent} />
+        <section
+          className={`mx-auto max-w-[1440px] px-4 py-16 md:px-8 xl:px-16 ${content.fitScreens ? "lg:py-0" : "lg:py-24"}`}
+        >
+          <Collage fit={content.fitScreens} items={screens} transparent={transparent} />
         </section>
       ) : null}
 

@@ -341,6 +341,8 @@ export type CaseContent = {
   transparent?: boolean;
   /** Two cut-out renders set as a staggered pair on the cover. */
   coverPair?: [MediaItem, MediaItem];
+  /** Screens one per viewport-tall section, capped in height and centred. */
+  fitScreens?: boolean;
   /** Brand study only. */
   brief?: string;
   direction?: string;

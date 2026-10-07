@@ -173,6 +173,7 @@ export const caseContent: Record<string, CaseContent> = {
     year: "May 2025",
     stack: "Python and QGIS",
     status: "SSRN preprint",
+    fitScreens: true,
     figures: [
       { value: "< 2", label: "approximation ratio on all 30 random graphs" },
       { value: "12", label: "Istanbul benchmark instances, all within the bound" },

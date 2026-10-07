@@ -1,6 +1,6 @@
 // GENERATED FILE — do not edit by hand.
 // Regenerate with: node scripts/build-image-manifest.mjs
-// Source: public/portfolio (251 images, set 5a2b53a6)
+// Source: public/portfolio (253 images, set 865ac873)
 
 export type ImageMeta = {
   width: number;
@@ -1240,17 +1240,29 @@ export const imageManifest: Record<string, ImageMeta> = {
     blurDataURL:
       "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACwAQCdASoQAAkABABoJaQAAt0AgwbgAP7qiAACTQXm5rtfNgAAAA==",
   },
-  "portfolio/projects/road-restoration/research-approx.png": {
-    width: 1482,
-    height: 727,
+  "portfolio/projects/road-restoration/figure-exact-search.webp": {
+    width: 2959,
+    height: 1383,
     blurDataURL:
-      "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAAAwAQCdASoQAAgABABoJaQAA3AA/vD0UB7DpvoWVK+iM+xL3z8AAA==",
+      "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoQAAcABABoJaQAA3AA/vJOJpwAAA==",
   },
-  "portfolio/projects/road-restoration/research-graph.png": {
-    width: 1478,
-    height: 932,
+  "portfolio/projects/road-restoration/figure-meta-edges.webp": {
+    width: 1562,
+    height: 1172,
     blurDataURL:
-      "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAAAwAQCdASoQAAoABABoJaQAA3AA/vEFFa9f/Y7/Abpm3A3coAA=",
+      "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADwAQCdASoQAAwABABoJaQAAt0JnurISAAA/vYQbKHoD1gNF8SfeJkBAAA=",
+  },
+  "portfolio/projects/road-restoration/figure-sample-graph.webp": {
+    width: 1562,
+    height: 1172,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAAwABABoJaQAA3AA/vJPEdYA0TtuY5gAAA==",
+  },
+  "portfolio/projects/road-restoration/figure-steiner-tree.webp": {
+    width: 1564,
+    height: 1173,
+    blurDataURL:
+      "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAAwABABoJaQAA3AA/vJPHqqqh2EHYEQAAA==",
   },
   "portfolio/projects/steady/figma/gcs-accounts.webp": {
     width: 1440,
