@@ -14,17 +14,16 @@ export function getLocalAssetFallback(src: string) {
   return `/${src.slice(CLOUDINARY_SOURCE_PREFIX.length)}`;
 }
 
+/** The cloud that holds the full-length motion encodes. */
+const VIDEO_CLOUD = "dch6eenk5";
+
 /**
- * Full-length motion pieces are too large for the repository, so they are
- * served from Cloudinary's video pipeline. Without a cloud name configured
- * (local development) they fall back to `public/`, where the encode script
- * leaves them.
+ * Full-length motion pieces are too large for the repository (they are
+ * gitignored), so they always stream from Cloudinary's video pipeline. This is
+ * independent of NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, which only switches image
+ * delivery: production serves images from `public/` and leaves it unset.
  */
 export function videoUrl(publicId: string) {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const id = publicId.replace(/^\/+/, "");
-
-  return cloudName
-    ? `https://res.cloudinary.com/${cloudName}/video/upload/q_auto/${id}`
-    : `/${id}`;
+  return `https://res.cloudinary.com/${VIDEO_CLOUD}/video/upload/q_auto/${id}`;
 }
