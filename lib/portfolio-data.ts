@@ -1081,7 +1081,7 @@ export const projectsData: ProjectsData = {
         {
           title: "Client Work Under the Name",
           description:
-            "Two identity systems shipped as Enduro Group work: the Al-Bab Initiative, a field programme of the non-profit G.A.P., and Xplore Land & Sea, a boutique travel curator in Jeddah. Both have plates in Identity Work.",
+            "Three client identity systems shipped as Enduro Group work: Snap Engineering, a manufacturing partner in Dallas-Fort Worth; the Al-Bab Initiative, a field programme of the non-profit G.A.P.; and Xplore Land & Sea, a boutique travel curator in Jeddah. With Enduro’s own, four brand systems in all. Each has a plate in Identity Work.",
         },
         {
           title: "Hiring",

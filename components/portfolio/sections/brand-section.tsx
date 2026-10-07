@@ -40,7 +40,7 @@ function fromProject(project: ProjectCaseStudy, name: string): BrowserItem {
     id: project.id,
     kind: "identity",
     title: name,
-    meta: "Brand guidelines · Client identities",
+    meta: "Brand guidelines · Four brand systems",
     summary: firstSentence(project.summary),
     image: { src: image?.src ?? "", alt: image?.alt ?? name },
     href: `/work/${project.id}`,

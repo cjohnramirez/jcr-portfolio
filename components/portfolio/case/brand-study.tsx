@@ -89,7 +89,7 @@ export function BrandStudy({ title, plate, meta, content, hero, applications, de
       {/* Guidelines */}
       <GuidelinesDeck deck={deck} title={title} />
 
-      <NextBlock label="Next" next={next} />
+      <NextBlock label="Next project" next={next} />
     </main>
   );
 }

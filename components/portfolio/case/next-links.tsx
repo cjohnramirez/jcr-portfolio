@@ -42,20 +42,20 @@ export function NextInline({ next }: { next: NextEntry }) {
   );
 }
 
-/** The full-width next-project block at the end of the long templates. */
+/** The full-width next row at the end of the long templates: label left, title right. */
 export function NextBlock({ next, label }: { next: NextEntry; label: string }) {
   const target = useNext(next);
 
   return (
     <Link className="group relative block border-t border-rule bg-plate transition-colors duration-300 hover:bg-plate-2" href={target.href}>
       <GlowingEffect />
-      <span className="mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-16 md:px-8 md:py-24 xl:px-16">
+      <span className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-8 gap-y-3 px-4 py-12 md:px-8 md:py-16 xl:px-16">
         <span className="label text-ink-2">{label}</span>
-        <span className="flex items-center gap-4 font-serif text-[clamp(2.75rem,1.6rem+4.4vw,6rem)] leading-[0.95] text-ink">
+        <span className="flex items-center gap-3 font-serif text-[clamp(1.75rem,1.2rem+2vw,3rem)] leading-none text-ink">
           {target.title}
           <ArrowRight
             aria-hidden="true"
-            className="size-[0.6em] shrink-0 text-spot transition-transform duration-300 group-hover:translate-x-2"
+            className="size-[0.7em] shrink-0 text-spot transition-transform duration-300 group-hover:translate-x-1.5"
             strokeWidth={1.25}
           />
         </span>

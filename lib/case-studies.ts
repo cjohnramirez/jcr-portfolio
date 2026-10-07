@@ -195,7 +195,7 @@ export const caseContent: Record<string, CaseContent> = {
     fitScreens: true,
     figures: [
       { value: "31", label: "pages of brand guidelines, v2.0" },
-      { value: "2", label: "client identities shipped under the name" },
+      { value: "4", label: "brand systems completed, Enduro’s own included" },
       { value: "9", label: "months as lead designer, December 2025 to August 2026" },
     ],
     decisions: [
