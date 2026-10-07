@@ -49,7 +49,7 @@ export const caseContent: Record<string, CaseContent> = {
     year: "2026",
     stack: "Django, Next.js, and Stripe",
     status: "Live",
-    figuresNote: "Lighthouse, desktop · Oct 2026",
+    figuresNote: "Lighthouse, desktop, Oct 2026",
     figures: [
       { value: "90", label: "Performance" },
       { value: "100", label: "Accessibility" },
@@ -80,7 +80,7 @@ export const caseContent: Record<string, CaseContent> = {
     year: "2025",
     stack: "Next.js and Supabase",
     status: "Live",
-    figuresNote: "Lighthouse, desktop · Oct 2026",
+    figuresNote: "Lighthouse, desktop, Oct 2026",
     figures: [
       { value: "97", label: "Performance" },
       { value: "100", label: "Accessibility" },
@@ -111,7 +111,7 @@ export const caseContent: Record<string, CaseContent> = {
     year: "2026",
     stack: "ESP32, Next.js, and Supabase",
     status: "Live",
-    figuresNote: "Lighthouse, desktop · Oct 2026",
+    figuresNote: "Lighthouse, desktop, Oct 2026",
     figures: [
       { value: "89", label: "Performance" },
       { value: "100", label: "Accessibility" },
@@ -140,7 +140,7 @@ export const caseContent: Record<string, CaseContent> = {
     tagline: "A farm ledger that works without signal.",
     role: "Solo developer",
     stack: "React Native and Supabase",
-    status: "v1.0.0 · Android and iOS",
+    status: "v1.0.0, Android and iOS",
     figures: [
       { value: "1,207", label: "Jest tests against real SQLite" },
       { value: "56 dp", label: "touch targets for older hands" },
@@ -218,7 +218,7 @@ export const caseContent: Record<string, CaseContent> = {
       { title: "Program first", line: "The page opens on the program, then its objectives, then what students achieved." },
     ],
     site: {
-      label: "BSCS website · design",
+      label: "BSCS website, design",
       fullPage: slices("designs/cs-website", "cs-website", 4, "CS Website home page design, full length."),
     },
   },
@@ -235,7 +235,7 @@ export const caseContent: Record<string, CaseContent> = {
       { title: "Pixel-block language", line: "One blue mark and system across posters, social tiles and the dashboard." },
     ],
     site: {
-      label: "BarangAI landing page · design",
+      label: "BarangAI landing page, design",
       fullPage: slices("designs/barangai", "barangai", 4, "BarangAI landing page wireframe, full length."),
       pages: [
         {

@@ -179,7 +179,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Solo Developer",
       featured: true,
       title: "TrailVenture: Tour Package Booking Platform",
-      result: "Django, Next.js, Stripe · 290 CI tests · Lighthouse 100 for accessibility and SEO",
+      result: "Django, Next.js, Stripe, 290 CI tests, Lighthouse 100 for accessibility and SEO",
       summary:
         "Tour package booking platform for the Philippines and beyond. Travellers search by destination, date and budget, compare package tiers and day-by-day itineraries, book a group start date, and pay through Stripe. The core engineering is payment integrity: server-side pricing, price holds and idempotent checkout.",
       links: [
@@ -334,7 +334,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Lead Developer",
       featured: true,
       title: "Steady: Student Guidance and Counselling Platform",
-      result: "Next.js, Supabase · Led a team of five · Access control in the database, 29-check security suite",
+      result: "Next.js, Supabase, Led a team of five, Access control in the database, 29-check security suite",
       summary:
         "Guidance and counselling platform for a school office. Students book sessions with their department’s counsellor, log mood check-ins, and receive articles and playlists matched to that mood. Counsellors manage requests and schedules. Administrators manage accounts, publish content and monitor a dashboard.",
       links: [
@@ -541,7 +541,7 @@ export const projectsData: ProjectsData = {
       category: "Internship / Solo Developer",
       featured: true,
       title: "Fresco Grow Lab: IoT Telemetry for Grow-Bag Experiments",
-      result: "ESP32 sensors and a Next.js dashboard · Sole developer",
+      result: "ESP32 sensors and a Next.js dashboard, Sole developer",
       summary:
         "IoT telemetry for Fresco Greenovations, an agritech startup in Cagayan de Oro. ESP32 sensors log grow-bag temperature at four depths and tipping-bucket rainfall, and a Next.js dashboard turns the readings into watering, thermal and rain analytics. Boards are flashed and configured from the browser.",
       links: [
@@ -743,7 +743,7 @@ export const projectsData: ProjectsData = {
       category: "Major Project / Solo Developer",
       featured: true,
       title: "Agriova: Offline Farm Ledger for Filipino Smallholders",
-      result: "React Native · Offline-first farm ledger with a Gemini assistant · Android and iOS",
+      result: "React Native, Offline-first farm ledger with a Gemini assistant, Android and iOS",
       summary:
         "Mobile farm ledger for smallholders in Cagayan de Oro that shows whether a season is earning money, with no signal needed. Farmers record expenses, harvests and sales in two or three fields, track produce before it spoils, and ask an assistant that answers from their own records. Android and iOS from one TypeScript codebase.",
       links: [
@@ -1987,7 +1987,7 @@ export const homeHero: HomeHero = {
     "Full-stack products from database schema to interface, an SSRN research preprint, and brand systems for clients in Dallas and Jeddah.",
   status: "Open to work",
   location: "Cagayan de Oro, Philippines",
-  facts: ["Full-stack · Research · Brand", "TypeScript, Python, Next.js, Django"],
+  facts: ["Full-stack, Research, Brand", "TypeScript, Python, Next.js, Django"],
 };
 
 /** Order of the four project cards on the home page. */
@@ -2038,42 +2038,42 @@ export const motionData: MotionPiece[] = [
   motionPiece(
     "wordmark-teaser",
     "Paugnat 2026",
-    "Event teaser · February 2026",
+    "Event teaser, February 2026",
     "wide",
     "Teaser trailer for Paugnat, USTP-CDO’s university-wide yearly intramurals. Made in Blender and After Effects.",
   ),
   motionPiece(
     "btr-trailer",
     "Beyond the Rainbow",
-    "Campaign teaser · June 2026",
+    "Campaign teaser, June 2026",
     "wide",
     "For a USG USTP-CDO initiative that raises awareness of the LGBTQ+ community, in celebration of Pride Month.",
   ),
   motionPiece(
     "narcos-ph",
     "Narcos intro, Philippines edition",
-    "Title sequence · Personal project",
+    "Title sequence, Personal project",
     "wide",
     "Inspired by the Netflix series Narcos, retold with Philippine history.",
   ),
   motionPiece(
     "wildflower",
     "Wildflower",
-    "Lyric video · Billie Eilish",
+    "Lyric video, Billie Eilish",
     "square",
     "Personal project, made in After Effects in 2025.",
   ),
   motionPiece(
     "promise",
     "Promise",
-    "Lyric video · Laufey",
+    "Lyric video, Laufey",
     "square",
     "Personal project, made in After Effects in 2025.",
   ),
   motionPiece(
     "the-shade",
     "The Shade",
-    "Lyric video · Rex Orange County",
+    "Lyric video, Rex Orange County",
     "square",
     "Personal project, made in After Effects in 2025.",
   ),
@@ -2093,7 +2093,7 @@ export const printData: PrintPiece[] = [
   {
     id: "official-apparel",
     title: "Official apparel",
-    format: "Apparel · 4-H Club USTP-CDO and CS3",
+    format: "Apparel, 4-H Club USTP-CDO and CS3",
     summary:
       "Designed in 2025 and adopted as official apparel by 4-H Club USTP-CDO and CS3, the main BSCS student organization.",
     cover: apparel("4h-green-t-shirt", "Green 4-H Club shirt, worn, showing the back print.", "4-H Club, green, back"),
@@ -2125,7 +2125,7 @@ export const experienceData: ExperienceEntry[] = [
   {
     date: "Dec 2025 to Aug 2026",
     title: "Lead Designer and Branding Manager",
-    org: "Enduro Group · Dallas, Texas",
+    org: "Enduro Group, Dallas, Texas",
     summary:
       "Authored the firm’s brand guidelines and designed client identity systems under its name, including Al-Bab Initiative and Xplore Land & Sea.",
     href: "/work/enduro-branding",
@@ -2139,7 +2139,7 @@ export const experienceData: ExperienceEntry[] = [
   {
     date: "May 2025",
     title: "KMB 2-approximation for post-disaster road restoration",
-    org: "SSRN preprint · Corresponding author",
+    org: "SSRN preprint, Corresponding author",
     summary:
       "Adapts the Kou–Markowsky–Berman 2-approximation to select restoration routes through a damaged road network, evaluated on Istanbul benchmarks and Cagayan de Oro road data.",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5277559",
@@ -2149,7 +2149,7 @@ export const experienceData: ExperienceEntry[] = [
 ];
 
 export const recordData: RecordEntry[] = [
-  { date: "2023 to present", title: "BS Computer Science, USTP Cagayan de Oro · Dean’s List" },
+  { date: "2023 to present", title: "BS Computer Science, USTP Cagayan de Oro, Dean’s List" },
   { date: "2024 to present", title: "Video Editing and Multimedia Head, University Student Government" },
   { date: "March 2024", title: "1st place at USTP-CDO, Google Developer Student Clubs APAC Solution Challenge" },
   { date: "November 2024", title: "Level 2, 11th TOPCIT" },

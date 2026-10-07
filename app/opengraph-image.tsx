@@ -77,7 +77,7 @@ export default function OpengraphImage() {
             color: INK_2,
           }}
         >
-          <span>FULL-STACK · RESEARCH · BRAND</span>
+          <span>FULL-STACK, RESEARCH, BRAND</span>
           <span>CAGAYAN DE ORO, PHILIPPINES</span>
         </div>
       </div>

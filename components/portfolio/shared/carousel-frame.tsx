@@ -156,7 +156,7 @@ export function CarouselFrame({
         index={index}
         onNext={() => move(1)}
         onPrev={() => move(-1)}
-        title={activeItem.description ? `${activeItem.title} · ${activeItem.description}` : activeItem.title}
+        title={activeItem.description ? `${activeItem.title}, ${activeItem.description}` : activeItem.title}
       />
     </div>
   );

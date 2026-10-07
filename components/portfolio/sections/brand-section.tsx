@@ -19,7 +19,7 @@ function fromBrand(brand: PortfolioBrand): BrowserItem {
     meta:
       kind === "interface"
         ? brand.meta.replace(/^>\s*/, "")
-        : brand.deliverables.slice(0, 2).join(" · "),
+        : brand.deliverables.slice(0, 2).join(", "),
     summary: firstSentence(brand.summary),
     image: brand.cover ?? {
       src: brand.carousel[0]?.imageSrc ?? "",
@@ -40,7 +40,7 @@ function fromProject(project: ProjectCaseStudy, name: string): BrowserItem {
     id: project.id,
     kind: "identity",
     title: name,
-    meta: "Brand guidelines · Four brand systems",
+    meta: "Brand guidelines, Four brand systems",
     summary: firstSentence(project.summary),
     image: { src: image?.src ?? "", alt: image?.alt ?? name },
     href: `/work/${project.id}`,

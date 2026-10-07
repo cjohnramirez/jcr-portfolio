@@ -17,7 +17,7 @@ export function MotionDialog({ piece, open, onClose }: DialogProps<MotionPiece>)
   const ratio = piece.aspect === "square" ? "aspect-square" : "aspect-video";
 
   return (
-    <MediaDialog onClose={onClose} open={open} subtitle={`${piece.format} · Muted`} title={piece.title}>
+    <MediaDialog onClose={onClose} open={open} subtitle={`${piece.format}, Muted`} title={piece.title}>
       <video
         autoPlay={!reduceMotion}
         className={`mx-auto max-h-[75svh] w-full bg-black object-contain ${ratio}`}
