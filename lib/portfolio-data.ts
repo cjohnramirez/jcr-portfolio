@@ -1984,7 +1984,7 @@ export const homeHero: HomeHero = {
     "Algorithm researcher",
   ],
   proof:
-    "Full-stack products from database schema to interface, an SSRN research preprint, and brand systems for clients in Dallas and Jeddah.",
+    "Full-stack applications and websites, from research to interface, made by a developer and designer with a keen eye for design and user experience.",
   status: "Open to work",
   location: "Cagayan de Oro, Philippines",
   facts: ["Full-stack, Research, Brand", "TypeScript, Python, Next.js, Django"],
