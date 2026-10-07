@@ -24,8 +24,8 @@ function NotesBody({ notes, stack, decisions }: Omit<TechnicalNotesProps, "mode"
           <h3 className="label text-ink-2">Decisions</h3>
           <ol className="border-t border-rule">
             {decisions.map((decision, index) => (
-              <li className="flex gap-4 border-b border-rule py-4" key={decision.title}>
-                <span className="font-serif text-[20px] italic leading-none text-spot">
+              <li className="flex items-baseline gap-4 border-b border-rule py-4" key={decision.title}>
+                <span className="w-8 shrink-0 font-serif text-[20px] italic leading-none text-spot">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className="flex flex-col gap-1">

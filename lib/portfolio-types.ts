@@ -322,8 +322,6 @@ export type CaseContent = {
   status?: string;
   /** Three or so technologies, for the meta row. The full list stays in notes. */
   stack?: string;
-  /** One sentence, twenty words or fewer. */
-  problem?: string;
   /** Big numerals. Every value must already appear in the project's notes. */
   figures?: { value: string; label: string }[];
   decisions?: { title: string; line: string }[];

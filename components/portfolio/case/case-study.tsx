@@ -3,7 +3,7 @@ import type { NextEntry } from "@/lib/routes";
 import { CarouselFrame } from "../shared/carousel-frame";
 import { Reveal } from "../shared/reveal";
 import { Collage, NaturalImage } from "./collage";
-import { BackLink, Decisions, ExternalLink, Figures, Kicker, Label, MetaRow, NextBlock, NextInline } from "./parts";
+import { Decisions, ExternalLink, Figures, Kicker, Label, MetaRow, NextBlock, TopRow } from "./parts";
 import { TechnicalNotes } from "./technical-notes";
 
 type CaseStudyProps = {
@@ -25,7 +25,7 @@ type CaseStudyProps = {
 /**
  * The editorial case study, kept deliberately close to the website split in
  * density: a type-led cover with the visual offset and bleeding off the right
- * edge, then the problem, the numbers, the screens, the decisions, and the
+ * edge, then the numbers, the screens, the decisions, and the
  * full notes behind one control.
  */
 export function CaseStudy({
@@ -51,10 +51,7 @@ export function CaseStudy({
       {/* Cover */}
       <section className="mx-auto grid max-w-[1440px] items-center gap-10 overflow-hidden px-4 pb-12 pt-10 md:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:pb-16 lg:pr-0 lg:pt-14 xl:pl-16">
         <div className="flex flex-col gap-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <BackLink href={back.href} label={back.label} />
-            <NextInline next={next} />
-          </div>
+          <TopRow back={back} next={next} status={content.status} />
           <Reveal from="none">
             <Kicker name={kicker} plate={plate} />
           </Reveal>
@@ -89,16 +86,6 @@ export function CaseStudy({
           ) : null}
         </Reveal>
       </section>
-
-      {/* The problem */}
-      {content.problem ? (
-        <section className="mx-auto grid max-w-[1440px] gap-4 px-4 py-16 md:px-8 lg:grid-cols-12 lg:gap-6 lg:py-24 xl:px-16">
-          <Label className="lg:col-span-4 lg:pt-3">The problem</Label>
-          <Reveal className="lg:col-span-8">
-            <p className="max-w-[24ch] font-serif text-[clamp(2rem,1.4rem+2vw,3.5rem)] leading-[1.05] text-ink">{content.problem}</p>
-          </Reveal>
-        </section>
-      ) : null}
 
       {/* Figures */}
       {content.figures?.length ? (

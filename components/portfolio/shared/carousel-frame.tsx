@@ -1,10 +1,10 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { type CSSProperties, useMemo, useState } from "react";
+import { type CSSProperties, useState } from "react";
 import { getImageMeta } from "@/lib/image-manifest";
 import type { CarouselItem } from "@/lib/portfolio-types";
 import { AnnotatedFrame } from "./annotated-frame";
+import { CarouselControls } from "./carousel-controls";
 import { CloudinaryImage } from "./cloudinary-image";
 
 type CarouselFrameProps = {
@@ -64,10 +64,6 @@ export function CarouselFrame({
 }: CarouselFrameProps) {
   const [index, setIndex] = useState(0);
   const activeItem = items[index];
-  const pageLabel = useMemo(
-    () => `Sheet ${index + 1} of ${items.length}`,
-    [index, items.length],
-  );
 
   function move(direction: -1 | 1) {
     setIndex((current) => (current + direction + items.length) % items.length);
@@ -76,9 +72,6 @@ export function CarouselFrame({
   if (!activeItem) {
     return null;
   }
-
-  const control =
-    "relative flex items-center justify-center text-ink-2 transition-colors duration-200 hover:text-spot focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-spot";
 
   const carousel = (
     <div
@@ -158,48 +151,13 @@ export function CarouselFrame({
         ) : null}
       </div>
 
-      {/*
-        Two rows on phones, one from `sm` up.
-
-        All four cells in a single row left the description about ten
-        characters wide once the two controls and the counter had taken their
-        fixed widths, so it wrapped to three lines against a one-line counter.
-        The description gets its own row instead, and the pagination — both
-        controls and the counter — shares the second.
-      */}
-      <div className="flex flex-col border-t border-rule font-spec text-[11px] uppercase leading-none tracking-[0.08em] text-ink-2 sm:flex-row sm:items-stretch">
-        <p className="flex items-center px-5 py-4 sm:flex-1 lg:py-5">
-          {activeItem.description || label}
-        </p>
-
-        <div className="flex items-stretch border-t border-rule sm:border-t-0">
-          <button
-            aria-label="Previous sheet"
-            className={`${control} w-14 border-r border-rule sm:border-l sm:border-r-0`}
-            onClick={() => move(-1)}
-            type="button"
-          >
-            <ChevronLeft aria-hidden="true" className="size-4" strokeWidth={1.75} />
-          </button>
-
-          <button
-            aria-label="Next sheet"
-            className={`${control} w-14 border-r border-rule sm:border-l sm:border-r-0`}
-            onClick={() => move(1)}
-            type="button"
-          >
-            <ChevronRight aria-hidden="true" className="size-4" strokeWidth={1.75} />
-          </button>
-
-          <p className="flex flex-1 items-center justify-end px-5 py-4 tabular-nums sm:min-w-[8rem] sm:flex-none sm:border-l sm:border-rule sm:py-0">
-            {pageLabel}
-          </p>
-        </div>
-      </div>
-
-      <p aria-live="polite" className="sr-only">
-        {pageLabel}. {activeItem.description}
-      </p>
+      <CarouselControls
+        count={items.length}
+        index={index}
+        onNext={() => move(1)}
+        onPrev={() => move(-1)}
+        title={activeItem.description ? `${activeItem.title} · ${activeItem.description}` : activeItem.title}
+      />
     </div>
   );
 

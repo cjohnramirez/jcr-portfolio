@@ -64,7 +64,7 @@ export function MediaDialog({ open, onClose, title, subtitle, children }: MediaD
           <X aria-hidden="true" className="size-4" strokeWidth={1.75} />
         </button>
       </div>
-      <div className="max-h-[calc(92svh-5rem)] overflow-y-auto p-4 md:p-6">{open ? children : null}</div>
+      <div className="scroll-quiet max-h-[calc(92svh-5rem)] overflow-y-auto p-4 md:p-6">{open ? children : null}</div>
     </dialog>
   );
 }

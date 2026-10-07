@@ -30,9 +30,9 @@ export const caseContent: Record<string, CaseContent> = {
     layout: "website",
     tagline: "Tour booking where the price can’t drift.",
     role: "Solo developer",
-    stack: "Django · Next.js · Stripe",
+    year: "2026",
+    stack: "Django, Next.js, and Stripe",
     status: "Live",
-    problem: "The charged price must equal the shown price, and a held slot can’t be double-sold.",
     figures: [
       { value: "290", label: "CI tests across API, unit and browser" },
       { value: "100", label: "Lighthouse accessibility and SEO" },
@@ -54,9 +54,8 @@ export const caseContent: Record<string, CaseContent> = {
     tagline: "Guidance and counselling, confidential by design.",
     role: "Lead developer, team of five",
     year: "2025",
-    stack: "Next.js · Supabase",
+    stack: "Next.js and Supabase",
     status: "Live",
-    problem: "Counselling records are confidential: each student’s data stays isolated from other students and staff.",
     figures: [
       { value: "29", label: "SQL checks, run as each role" },
       { value: "73", label: "unit tests in CI" },
@@ -77,9 +76,9 @@ export const caseContent: Record<string, CaseContent> = {
     layout: "website",
     tagline: "Grow-bag telemetry, from probe to dashboard.",
     role: "Solo developer, internship",
-    stack: "ESP32 · Next.js · Supabase",
+    year: "2026",
+    stack: "ESP32, Next.js, and Supabase",
     status: "Live",
-    problem: "Can low-cost probes tell when a grow bag needs water, and how much rain reaches the plots?",
     figures: [
       { value: "4", label: "probe depths, logged around the clock" },
       { value: "95", label: "Vitest tests" },
@@ -100,9 +99,8 @@ export const caseContent: Record<string, CaseContent> = {
     layout: "study",
     tagline: "A farm ledger that works without signal.",
     role: "Solo developer",
-    stack: "React Native · Supabase",
+    stack: "React Native and Supabase",
     status: "v1.0.0 · Android and iOS",
-    problem: "Smallholders rarely know whether a season made or lost money.",
     figures: [
       { value: "1,207", label: "Jest tests against real SQLite" },
       { value: "56 dp", label: "touch targets for older hands" },
@@ -128,9 +126,8 @@ export const caseContent: Record<string, CaseContent> = {
     tagline: "Reopening the fewest roads after a disaster.",
     role: "Corresponding author",
     year: "May 2025",
-    stack: "Python · QGIS",
+    stack: "Python and QGIS",
     status: "SSRN preprint",
-    problem: "Which blocked roads to reopen so critical sites reconnect? It is an NP-hard Steiner tree problem.",
     figures: [
       { value: "< 2", label: "approximation ratio on all 30 random graphs" },
       { value: "12", label: "Istanbul benchmark instances, all within the bound" },
@@ -148,9 +145,8 @@ export const caseContent: Record<string, CaseContent> = {
     tagline: "A house brand, and client brands under it.",
     role: "Lead Designer and Branding Manager",
     year: "Dec 2025 to Aug 2026",
-    stack: "Figma · Illustrator · Photoshop",
+    stack: "Figma, Illustrator, and Photoshop",
     status: "Enduro Group, Dallas",
-    problem: "Give the firm its own guidelines, then design client identities under its name.",
     figures: [
       { value: "31", label: "pages of brand guidelines, v2.0" },
       { value: "2", label: "client identities shipped under the name" },
@@ -171,7 +167,6 @@ export const caseContent: Record<string, CaseContent> = {
     year: "2025",
     stack: "Website design",
     status: "Not launched",
-    problem: "Present the BSCS program, its objectives and its achievements in one place.",
     decisions: [
       { title: "A working grid", line: "Orange and charcoal on a grid ground, with offset cards that read as stacked sheets." },
       { title: "Program first", line: "The page opens on the program, then its objectives, then what students achieved." },
@@ -188,7 +183,6 @@ export const caseContent: Record<string, CaseContent> = {
     year: "June 2026",
     stack: "Brand and interface design",
     status: "Finalist, UP Mindanao Innovation Cup",
-    problem: "Barangay concerns arrive through many channels, and reports get left without updates.",
     decisions: [
       { title: "SMS first", line: "Residents report by text to a barangay short code." },
       { title: "One flood, one incident", line: "Many texts about one event become a single acknowledged incident." },

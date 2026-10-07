@@ -13,19 +13,23 @@ export function Label({ children, className = "" }: { children: React.ReactNode;
 export function BackLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
-      className="inline-flex items-center gap-2 text-[14px] text-ink-2 transition-colors duration-200 hover:text-spot"
+      className="group inline-flex items-center gap-1.5 text-[15px] text-ink-2 transition-colors duration-200 hover:text-spot"
       href={href}
     >
-      <ArrowLeft aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
+      <ArrowLeft
+        aria-hidden="true"
+        className="size-4 transition-transform duration-200 group-hover:-translate-x-0.5"
+        strokeWidth={1.75}
+      />
       {label}
     </Link>
   );
 }
 
-/** "01.1 Case Plates": plate number and editorial name, one italic serif. */
+/** "01.1 Case Plates": plate number and editorial name, one upright serif. */
 export function Kicker({ plate, name, inverted = false }: { plate: string; name: string; inverted?: boolean }) {
   return (
-    <p className="flex items-center gap-2.5 font-serif text-[20px] italic leading-none">
+    <p className="flex items-center gap-2.5 font-serif text-[20px] leading-none">
       <span className={inverted ? "text-white" : "text-spot"}>{plate}</span>
       <span className={inverted ? "text-white/80" : "text-ink-2"}>{name}</span>
     </p>
@@ -49,13 +53,12 @@ export function NextInline({ next }: { next: NextEntry }) {
   );
 }
 
-/** Role · Year · Stack · Status, whichever exist. */
+/** Year, Role and Stack, whichever exist. Status has its own pill. */
 export function MetaRow({ content, className = "" }: { content: CaseContent; className?: string }) {
   const items = [
-    ["Role", content.role],
     ["Year", content.year],
+    ["Role", content.role],
     ["Stack", content.stack],
-    ["Status", content.status],
   ].filter((item): item is [string, string] => Boolean(item[1]));
 
   return (
@@ -85,7 +88,7 @@ export function Figures({
     <dl className={`grid grid-cols-1 sm:grid-cols-3 ${className}`}>
       {figures.map((figure, index) => (
         <Reveal
-          className={`flex flex-col gap-2 border-rule py-4 sm:py-0 ${index ? "border-t sm:border-l sm:border-t-0 sm:pl-6" : ""} ${size === "lg" ? "sm:py-8" : ""}`}
+          className={`flex flex-col gap-2 border-rule py-4 sm:py-0 ${index ? "border-t sm:border-l sm:border-t-0 sm:pl-6" : ""} ${index < figures.length - 1 ? "sm:pr-6" : ""} ${size === "lg" ? "sm:py-8" : ""}`}
           key={figure.label}
           order={index}
         >
@@ -108,8 +111,8 @@ export function Decisions({
     <ol className="border-t border-rule">
       {decisions.map((decision, index) => (
         <li className="border-b border-rule" key={decision.title}>
-          <Reveal className="flex gap-5 py-5 md:gap-6 md:py-6" order={index}>
-            <span className="font-serif text-[22px] italic leading-none text-spot">
+          <Reveal className="flex items-baseline gap-5 py-5 md:gap-6 md:py-6" order={index}>
+            <span className="w-9 shrink-0 font-serif text-[22px] italic leading-none text-spot">
               {String(index + 1).padStart(2, "0")}
             </span>
             <span className="flex flex-col gap-1.5">
@@ -160,5 +163,46 @@ export function ExternalLink({ href, label, primary = false }: { href: string; l
       <ArrowUpRight aria-hidden="true" className="size-4" strokeWidth={1.75} />
       <span className="sr-only">(opens in a new tab)</span>
     </a>
+  );
+}
+
+/**
+ * The project's status, set like the hero's "Open to work" tag: a bordered
+ * pill on the paper ground. A live deployment gets the same breathing green
+ * dot; anything else a still grey one.
+ */
+export function StatusPill({ status }: { status?: string }) {
+  if (!status) return null;
+  const live = /^live/i.test(status);
+
+  return (
+    <p className="inline-flex h-9 shrink-0 items-center gap-2.5 border border-rule bg-plate px-3.5 text-[14px] leading-none text-ink">
+      <span
+        aria-hidden="true"
+        className={`size-2 shrink-0 rounded-full ${live ? "status-dot bg-current" : "bg-ink-2/60"}`}
+      />
+      {status}
+    </p>
+  );
+}
+
+/** The top row of a detail page: back on the left, status (and next) on the right. */
+export function TopRow({
+  back,
+  status,
+  next,
+}: {
+  back: { href: string; label: string };
+  status?: string;
+  next?: NextEntry;
+}) {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-3">
+      <BackLink href={back.href} label={back.label} />
+      <div className="flex flex-wrap items-center gap-4">
+        <StatusPill status={status} />
+        {next ? <NextInline next={next} /> : null}
+      </div>
+    </div>
   );
 }
