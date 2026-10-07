@@ -161,10 +161,10 @@ test.describe("one-page home", () => {
 
     await brand.getByRole("tab", { name: /identity/i }).focus();
     await page.keyboard.press("ArrowRight");
-    await expect(brand.getByRole("tab", { name: /interface/i })).toBeFocused();
-    await expect(brand.getByRole("tab", { name: /interface/i })).toHaveAttribute("aria-selected", "true");
+    await expect(brand.getByRole("tab", { name: /motion/i })).toBeFocused();
+    await expect(brand.getByRole("tab", { name: /motion/i })).toHaveAttribute("aria-selected", "true");
     await page.keyboard.press("End");
-    await expect(brand.getByRole("tab", { name: /print/i })).toHaveAttribute("aria-selected", "true");
+    await expect(brand.getByRole("tab", { name: /interface/i })).toHaveAttribute("aria-selected", "true");
 
     await brand.getByRole("tab", { name: /motion/i }).click();
     await expect(panel.locator("li")).toHaveCount(6);
