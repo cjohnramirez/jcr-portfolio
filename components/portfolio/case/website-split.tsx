@@ -36,9 +36,9 @@ export function WebsiteSplit({ title, plate, kicker, back, content, screens, not
 
   return (
     <main className="bg-ground pt-20 lg:pt-[88px]" id="main">
-      <section className="grid grid-cols-1 [&>*]:min-w-0 lg:h-[calc(100svh-88px)] lg:grid-cols-[minmax(0,1.38fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
+      <section className="grid grid-cols-1 [&>*]:min-w-0 lg:h-[calc(100svh-88px)] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] xl:grid-cols-[minmax(0,1.38fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
         {/* Two halves pushed apart: who and what at the top, the numbers below. */}
-        <div className="scroll-quiet flex flex-col gap-10 px-4 pb-8 pt-8 md:px-8 lg:col-start-2 lg:row-start-1 lg:justify-between lg:gap-8 lg:overflow-y-auto lg:pb-6 lg:pl-12 lg:pr-14 lg:pt-9">
+        <div className="scroll-quiet flex flex-col gap-10 px-4 pb-8 pt-8 md:px-8 lg:col-start-2 lg:row-start-1 lg:justify-between lg:gap-8 lg:overflow-y-auto lg:pb-6 lg:px-8 xl:pl-12 xl:pr-14 lg:pt-9">
           <div className="flex flex-col gap-7 lg:gap-6">
             <div className="flex flex-col gap-4">
               <TopRow back={back} status={content.status} />
@@ -72,7 +72,7 @@ export function WebsiteSplit({ title, plate, kicker, back, content, screens, not
           <BrowserFrame className="h-full lg:flex-1" screens={frameScreens} />
         </div>
 
-        <div className="flex flex-col gap-6 px-4 pb-16 pt-8 md:px-8 lg:col-start-2 lg:row-start-2 lg:flex-row lg:flex-wrap lg:items-center lg:gap-3 lg:pb-8 lg:pl-12 lg:pr-14 lg:pt-4">
+        <div className="flex flex-col gap-6 px-4 pb-16 pt-8 md:px-8 lg:col-start-2 lg:row-start-2 lg:flex-row lg:flex-wrap lg:items-center lg:gap-3 lg:pb-8 lg:px-8 xl:pl-12 xl:pr-14 lg:pt-4">
           {site?.href ? <ExternalLink href={site.href} label="Visit live site" primary /> : null}
           <div className="hidden lg:block">
             <TechnicalNotes decisions={content.decisions} mode="dialog" notes={notes} stack={stack} title={title} />
