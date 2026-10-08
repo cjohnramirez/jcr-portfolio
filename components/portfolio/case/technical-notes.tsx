@@ -76,13 +76,12 @@ export function TechnicalNotes({ notes, stack, decisions, mode, title }: Technic
   if (mode === "inline") {
     return (
       <details className="group border border-rule bg-plate">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-[16px] text-ink md:px-6 [&::-webkit-details-marker]:hidden">
-          <span>
-            Technical notes
-          </span>
+        {/* Button-sized, so it matches the action buttons stacked above it. */}
+        <summary className="flex h-12 cursor-pointer list-none items-center justify-between gap-4 px-5 text-[15px] text-ink [&::-webkit-details-marker]:hidden">
+          <span>Technical notes</span>
           <Plus aria-hidden="true" className="size-4 transition-transform duration-300 group-open:rotate-45" strokeWidth={1.75} />
         </summary>
-        <div className="border-t border-rule px-5 py-8 md:px-6">
+        <div className="border-t border-rule px-5 py-8">
           <NotesBody decisions={decisions} notes={notes} stack={stack} />
         </div>
       </details>
