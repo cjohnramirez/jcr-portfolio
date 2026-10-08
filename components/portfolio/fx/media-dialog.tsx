@@ -16,25 +16,31 @@ type MediaDialogProps = {
  *
  * `showModal()` gives the hard parts for free: focus moves inside, the rest
  * of the page becomes inert, Escape closes it, and the top layer sits above
- * the sticky header. Focus is returned to the opener by hand: browsers do not
- * all restore it when the dialog closes from a state change.
+ * the sticky header. Focus is returned to the opener by hand when it was
+ * opened from the keyboard: browsers do not all restore it when the dialog
+ * closes from a state change.
  * The entry animation is CSS on [open], in the spirit of Aceternity's
  * Animated Modal, and the global reduced-motion rule switches it off.
  */
 export function MediaDialog({ open, onClose, title, subtitle, children }: MediaDialogProps) {
   const ref = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
+  const openedByKeyboard = useRef(false);
 
   useEffect(() => {
     const dialog = ref.current;
     if (!dialog) return;
     if (open && !dialog.open) {
       opener.current = document.activeElement as HTMLElement | null;
+      openedByKeyboard.current = opener.current?.matches(":focus-visible") ?? false;
       dialog.showModal();
     }
-    if (!open) {
+    if (!open && opener.current) {
       if (dialog.open) dialog.close();
-      opener.current?.focus();
+      // Keyboard users get focus back on the opener. After a tap or click it is
+      // dropped, so the tile does not stay highlighted once the dialog is gone.
+      if (openedByKeyboard.current) opener.current?.focus();
+      else (document.activeElement as HTMLElement | null)?.blur();
       opener.current = null;
     }
   }, [open]);

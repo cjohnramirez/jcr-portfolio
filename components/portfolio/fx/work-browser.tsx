@@ -102,7 +102,8 @@ const cardClass =
  * Tabs pattern) over a card grid.
  *
  * Every panel is rendered and the inactive ones are `hidden`, so all the
- * links are in the HTML for crawlers. Arrow keys move between tabs, Home and
+ * links are in the HTML for crawlers. Panels are not focusable themselves:
+ * each one holds tiles, which take focus instead. Arrow keys move between tabs, Home and
  * End jump to the ends, and only the selected tab is in the tab order.
  * Videos and galleries load nothing until their dialog is opened.
  */
@@ -194,7 +195,6 @@ export function WorkBrowser({ items }: { items: BrowserItem[] }) {
             id={`${baseId}-panel-${tab.id}`}
             key={tab.id}
             role="tabpanel"
-            tabIndex={0}
           >
             <ul className="grid gap-6 sm:grid-cols-12 md:gap-5">
               {panelItems.map((item, index) => {
@@ -217,7 +217,12 @@ export function WorkBrowser({ items }: { items: BrowserItem[] }) {
                       aria-label={`${item.kind === "motion" ? "Play" : "View"} ${item.title}, ${item.meta}`}
                       className={cardClass}
                       onBlur={() => setHoveredId(null)}
-                      onClick={() => setOpenId(item.id)}
+                      onClick={(event) => {
+                        // Safari does not focus a tapped button, so focus would
+                        // fall back to an ancestor; the dialog returns it here.
+                        event.currentTarget.focus({ preventScroll: true });
+                        setOpenId(item.id);
+                      }}
                       onFocus={() => setHoveredId(item.id)}
                       onMouseEnter={() => setHoveredId(item.id)}
                       onMouseLeave={() => setHoveredId(null)}
