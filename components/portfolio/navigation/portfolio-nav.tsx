@@ -6,7 +6,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Download, Menu, X } from "lucide-react";
+import { ArrowRight, Download, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
@@ -22,9 +22,10 @@ const SECTION_IDS = ALL_SECTIONS.map((section) => section.id);
  *
  * Links are plain `/#id` anchors, so the header works before hydration and
  * without JavaScript. Scripting adds three things: the active-section state
- * (scroll spy), the compact height once the page has moved, and the reading
- * progress bar. The shrinking header follows Aceternity's Resizable Navbar;
- * the sliding underline is its Tabs pattern, a shared `layoutId`.
+ * (scroll spy), the compact height once the page has moved (lg and up only,
+ * where the centre links show), and the reading progress bar. The shrinking
+ * header follows Aceternity's Resizable Navbar; the sliding underline is its
+ * Tabs pattern, a shared `layoutId`.
  */
 /**
  * The nav item that owns a section. Sections without a nav item of their own
@@ -46,7 +47,6 @@ export function PortfolioNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const active = useActiveSection(SECTION_IDS, isHome);
-  const activeSection = ALL_SECTIONS.find((section) => section.id === active);
   const navActive = nearestNavSection(active);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -73,8 +73,8 @@ export function PortfolioNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-rule bg-plate transition-[height] duration-300 ${
-        compact ? "h-16" : "h-20 lg:h-[88px]"
+      className={`fixed inset-x-0 top-0 z-50 h-20 border-b border-rule bg-plate transition-[height] duration-300 ${
+        compact ? "lg:h-16" : "lg:h-[88px]"
       }`}
     >
       {/* Three columns from lg, so the links sit at the true centre of the viewport
@@ -128,30 +128,6 @@ export function PortfolioNav() {
           </ul>
         </nav>
 
-        {/* Where am I, below lg where the full nav does not fit. */}
-        <p
-          aria-live="polite"
-          className="flex min-w-0 flex-1 items-baseline gap-2 truncate lg:hidden"
-        >
-          <AnimatePresence initial={false} mode="wait">
-            {activeSection ? (
-              <motion.span
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-baseline gap-2 truncate"
-                exit={{ opacity: 0, y: -6 }}
-                initial={{ opacity: 0, y: 6 }}
-                key={activeSection.id}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="label text-spot">{activeSection.number}</span>
-                <span className="truncate text-[14px] font-normal text-ink sm:text-[15px]">
-                  {activeSection.label}
-                </span>
-              </motion.span>
-            ) : null}
-          </AnimatePresence>
-        </p>
-
         <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:justify-self-end">
           <a
             className="relative inline-flex h-11 items-center gap-2 border border-rule bg-plate px-4 text-[14px] font-normal text-ink transition-colors duration-200 hover:border-ink"
@@ -193,7 +169,7 @@ export function PortfolioNav() {
       {/* Rendered but hidden when closed, so aria-controls always resolves. */}
       <nav
         aria-label="Primary mobile"
-        className={`max-h-[calc(100svh-4rem)] overflow-y-auto overscroll-contain border-b border-rule bg-plate lg:hidden ${
+        className={`max-h-[calc(100svh-5rem)] overflow-y-auto overscroll-contain border-b border-rule bg-plate lg:hidden ${
           isOpen ? "block" : "hidden"
         }`}
         id={menuId}
@@ -206,16 +182,19 @@ export function PortfolioNav() {
               <li key={section.id}>
                 <Link
                   aria-current={isActive ? "location" : undefined}
-                  className="flex items-center gap-5 border-b border-rule px-4 py-5 md:px-8"
+                  className="group flex items-center justify-between gap-5 px-4 py-5 md:px-8"
                   href={sectionHref(section)}
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="label text-spot">{section.number}</span>
-                  <span
-                    className={`font-serif text-[32px] leading-none ${isActive ? "text-spot" : "text-ink"}`}
-                  >
-                    {section.label}
+                  <span className="flex items-center gap-3 font-serif text-[26px] leading-none">
+                    <span className="w-[1.4em] shrink-0 text-spot">{section.number}</span>
+                    <span className={isActive ? "text-spot" : "text-ink"}>{section.label}</span>
                   </span>
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="size-[0.7em] shrink-0 text-[26px] text-spot transition-transform duration-300 group-hover:translate-x-1.5"
+                    strokeWidth={1.25}
+                  />
                 </Link>
               </li>
             );
