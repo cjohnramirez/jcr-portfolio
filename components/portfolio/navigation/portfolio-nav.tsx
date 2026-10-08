@@ -95,7 +95,7 @@ export function PortfolioNav() {
               const isActive = navActive === section.id;
 
               return (
-                <li className="border-b border-rule last:border-b-0" key={section.id}>
+                <li key={section.id}>
                   <Link
                     aria-current={isActive ? "location" : undefined}
                     className="group relative flex py-2 leading-none"
@@ -174,15 +174,15 @@ export function PortfolioNav() {
         }`}
         id={menuId}
       >
-        <ul className="flex flex-col px-4 md:px-8">
+        <ul className="flex flex-col">
           {NAV_SECTIONS.map((section) => {
             const isActive = navActive === section.id;
 
             return (
-              <li className="border-b border-rule last:border-b-0" key={section.id}>
+              <li key={section.id}>
                 <Link
                   aria-current={isActive ? "location" : undefined}
-                  className="group flex items-center justify-between gap-5 py-5"
+                  className="group flex items-center justify-between gap-5 border-b border-rule px-4 py-5 md:px-8"
                   href={sectionHref(section)}
                   onClick={() => setIsOpen(false)}
                 >
